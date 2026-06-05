@@ -1,0 +1,41 @@
+%% Sometimes when a section can't be nicely modelled with the \entry[]... mechanism; hack our own
+\makerubrichead{Publications}
+%Citations: $\sim$ 3500 \\
+%h-index: 32 \quad i10 index: 59
+%% Assuming you've already given \addbibresource{own-bib.bib} in the main doc. Right? Right???
+\nocite{*}
+
+%% If you just want everything in one list
+% \printbibliography[heading={none}]
+
+\printbibliography[heading={subbibliography},title={Book -- Prose Awards Winner},type=book,env=reversebib]
+
+
+\printbibliography[heading={subbibliography},title=Papers,
+type=article,env=reversebib]
+
+\printbibliography[heading={subbibliography},title={Software},
+type=software,env=reversebib]
+
+
+
+\printbibliography[heading={subbibliography},title={Books  Chapters},type=bookchapter,env=reversebib]
+
+
+\printbibliography[
+  heading=subbibliography,
+  title={Transient Name Server Discovery Report},
+  type=tns,
+  env=reversebib
+]
+
+
+
+\makerubric{literature}
+%\printbibliography[heading={subbibliography},title={Conference Proceedings},type=inproceedings,env=reversebib]
+
+
+
+
+% \printbibliography[heading=subbibliography]
+

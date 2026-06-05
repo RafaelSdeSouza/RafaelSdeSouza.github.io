@@ -1,0 +1,207 @@
+\RequirePackage{silence}
+\WarningsOff[longtable]
+\WarningsOff[array]
+
+\usepackage{ifxetex,ifluatex}
+\newif\ifxetexorluatex
+\ifxetex
+  \xetexorluatextrue
+\else
+  \ifluatex
+    \xetexorluatextrue
+  \else
+    \xetexorluatexfalse
+  \fi
+\fi
+
+\RequirePackage{graphicx}
+\RequirePackage[hyphens]{url}
+\RequirePackage{babel}
+\raggedright
+
+\RequirePackage[fixed]{fontawesome5}
+
+\newcommand{\smallcaps}[1]{\textsc{\lowercase{#1}}}
+
+\usepackage[top=1.05cm, bottom=1.65cm, left=1.65cm, right=1.65cm]{geometry}
+
+%\RequirePackage[a4paper,nohead,nofoot,hmargin=2.25cm,vmargin=2cm]{geometry}
+\RequirePackage{relsize}
+\RequirePackage[dvipsnames,svgnames]{xcolor}
+\RequirePackage{tikz}
+\usetikzlibrary{shapes,shadows}
+
+\RequirePackage{comment}
+\definecolor{SwishLineColour}{HTML}{B59A4A}
+\definecolor{MarkerColour}{HTML}{12355B}
+\definecolor{SoftAccentColour}{HTML}{F5F1E6}
+
+% If you're not a researcher nor an academic, you probably don't need biblatex; delete this line.
+\RequirePackage[
+  bibstyle=apa6,
+  sorting=ymdnt,
+  uniquename=init,
+  defernumbers=true,
+  minbibnames=15,
+  maxbibnames=99,
+  maxcitenames=99,  % Show all authors in citations as well
+  mincitenames=99
+]{biblatex}
+
+
+\RequirePackage{csquotes}
+%% Added 17 Jan 2018 from https://tex.stackexchange.com/a/140641/226 and https://tex.stackexchange.com/a/46879/226
+\DeclareSortingTemplate{ymdnt}{
+  \sort{
+    \field{presort}
+  }
+  \sort[final]{
+    \field{sortkey}
+  }
+  \sort[direction=descending]{
+    \field[strside=left,strwidth=4]{sortyear}
+    \field[strside=left,strwidth=4]{year}
+    \literal{9999}
+  }
+  \sort[direction=descending]{
+    \field[padside=left,padwidth=2,padchar=0]{month}
+    \literal{00}
+  }
+  \sort[direction=descending]{
+    \field[padside=left,padwidth=2,padchar=0]{day}
+    \literal{00}
+  }
+  \sort{
+    \field{sortname}
+    \field{author}
+    \field{editor}
+    \field{translator}
+    \field{sorttitle}
+    \field{title}
+  }
+  \sort{
+    \field{sorttitle}
+    \field{title}
+  }
+}
+
+
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+\node[
+     shape=regular polygon,
+     regular polygon sides=9,
+     text=white,
+     fill=MarkerColour!60!orange,
+     font=\sffamily\scriptsize\bfseries,
+     inner sep=0pt,
+     minimum size=0.35em,
+     text width=1.2em,
+     align=center,
+     text height=1.2ex,
+     text depth=.25ex
+   ] (char) {#1};}}
+% \newcounter{bibitem}
+% \AtBeginBibliography{\setcounter{bibitem}{1}}
+% \AtEveryBibitem{\makebox[2.5em][l]{\circled{\thebibitem}\stepcounter{bibitem}}}
+
+\RequirePackage{etaremune,xpatch}
+\defbibenvironment{reversebib}
+{\begin{etaremune}[leftmargin=\bibhang]
+   \renewcommand{\labelenumi}{\theenumi}}
+{\end{etaremune}}
+{\item}
+
+
+
+
+\xpatchcmd{\etaremune}
+  {\csname label\@enumctr\endcsname}
+  {\circled{\csname label\@enumctr\endcsname}}
+  {}{}
+
+\renewcommand*{\bibsetup}{\setcounter{maxnames}{99}}
+
+
+
+% \renewcommand{\bibfont}{\small}
+\setlength{\bibitemsep}{1.5ex}
+\setlength{\bibhang}{2.5em}
+\RequirePackage{xpatch}
+\xpretofieldformat{doi}
+  {\textcolor{MarkerColour!80!black}{\scriptsize\faLink}}
+  {}{}
+\xpretofieldformat{url}
+  {\textcolor{MarkerColour!80!black}{\scriptsize\faLink}}
+  {}{}
+
+\headerscale{1}
+
+%\setlength{\headerspace}{6pt}
+\rubricfont{\large\bfseries\sffamily}
+\setlength{\rubricspace}{2pt}
+%\setlength{\rubricafterspace}{-9pt}
+\setlength{\rubricafterspace}{-4pt}
+\setlength{\subrubricspace}{3pt}
+\setlength{\subrubricbeforespace}{4pt}
+
+\def\@@rubrichead#1{%
+  \begin{tikzpicture}[baseline]%
+  \shade[left color=MarkerColour!8!white, right color=SwishLineColour!55!white] rectangle (\@almosttextwidth,2.5pt);
+  \node[font={\@rubricfont},inner sep=0pt,text ragged,anchor=south west,text depth=.45ex,text height=1.35ex] at (1pt,2pt) {#1};
+  \end{tikzpicture}%
+  \vspace\rubricspace%
+}
+
+
+
+
+
+\subrubricfont{\normalsize\bfseries\sffamily\color{MarkerColour!95!black}}
+\subrubricalignment{l}
+
+\newcommand{\makefield}[2]{\makebox[1.4em]{\color{MarkerColour!90!black}#1} #2\hspace{1.35em}}
+
+\keyalignment{r}
+\rubricalignment{l}
+\renewcommand{\arraystretch}{1.25}
+\urlstyle{tt}
+
+\newcommand{\prefixmarker}[1]{\def\@prefixmarker{#1}}
+\def\@prefixmarker{\textendash}
+
+\prefix{%
+  \hspace*{-1ex}
+  \color{MarkerColour!80!black}\@prefixmarker%
+  \hspace*{1ex}%
+}
+
+\newcommand{\makerubrichead}[1]{\vskip\baselineskip\@@rubrichead{#1}}
+
+\defbibheading{subbibliography}{\vskip\subrubricbeforespace{\@subrubricfont\hspace{3pt}#1}\par}
+
+\defbibfilter{booksandchapters}{%
+( type=book or type=incollection )
+}
+
+\newcommand{\myname}[2]{%
+   \def\@mylastname{#1}%
+   \def\@myfirstname{#2}%
+}
+
+\renewcommand*{\mkbibnamefamily}[1]{%
+  \ifboolexpr{ test {\ifdefstrequal{\namepartfamily}{\@mylastname}}
+               and
+               test {\ifdefstrequal{\namepartgiven}{\@myfirstname}}}
+    {\textbf{#1}}%
+    {#1}%
+}
+
+\renewcommand*{\mkbibnamegiven}[1]{%
+  \ifboolexpr{ test {\ifdefstrequal{\namepartfamily}{\@mylastname}}
+               and
+               test {\ifdefstrequal{\namepartgiven}{\@myfirstname}}}
+    {\textbf{#1}}%
+    {#1}%
+}
+
+\RequirePackage[colorlinks=true,allcolors=black,breaklinks=true]{hyperref}

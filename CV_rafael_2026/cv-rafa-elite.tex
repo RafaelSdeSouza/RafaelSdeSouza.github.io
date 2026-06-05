@@ -1,0 +1,83 @@
+\documentclass[a4paper,skipsamekey,11pt,english]{curve}
+\usepackage{settings_elite}
+
+\usetikzlibrary{patterns}
+\usepackage{svg}
+\usepackage{aas_macros}
+
+\ifxetexorluatex
+  \usepackage{fontspec}
+  \usepackage[p,osf,swashQ]{cochineal}
+  \usepackage[medium,bold]{cabin}
+  \usepackage[varqu,varl,scale=0.9]{zi4}
+\else
+  \usepackage[T1]{fontenc}
+  \usepackage[p,osf,swashQ]{cochineal}
+  \usepackage{cabin}
+  \usepackage[varqu,varl,scale=0.9]{zi4}
+\fi
+
+\usepackage{academicons}
+
+\addbibresource{references.bib}
+\myname{Rafael}{S.\bibnamedelima de Souza}
+
+\definecolor{headerColour}{HTML}{F5F1E6}
+
+\excludecomment{fullonly}
+
+\newcommand*{\watt}{\includesvg[scale = 0.75]{wattpad.svg}}
+\newcommand*{\coin}{\includegraphics[width=1cm]{newCOIN.png}}
+
+\leftheader{%
+  {\LARGE\bfseries\sffamily Dr. Rafael S. de Souza}\\[-1pt]
+  {\sffamily Senior Lecturer in Astrophysics and Astrostatistics, University of Hertfordshire}\\
+  {\sffamily Founder and Co-Chair, Cosmostatistics Initiative (COIN) \quad Chair, ISI Astrostatistics Interest Group}\\
+  {\small Astrostatistics \textbullet{} Machine Learning for Surveys \textbullet{} Galaxy Evolution \textbullet{} Scientific Software}\\[2pt]
+  \makefield{\faOrcid}{\href{https://orcid.org/0000-0001-7207-4584}{\texttt{0000-0001-7207-4584}}}
+  \makefield{\faGithub}{\href{https://github.com/RafaelSdeSouza}{RafaelSdeSouza}}
+  \makefield{\faLinkedin}{\href{https://www.linkedin.com/in/rafael-s-de-souza-phd-0528365a/}{Rafael}}
+  \makefield{\faEnvelope[regular]}{\texttt{\url{rd23aag@herts.ac.uk}}}\\
+  \makefield{\faUniversity}{\href{https://www.herts.ac.uk}{University of Hertfordshire, UK}}
+  \hfill {\small Last updated: May 2026}
+}
+
+\rightheader{~}
+\title{Curriculum Vitae}
+
+\begin{document}
+\begin{tikzpicture}[remember picture,overlay]
+  \path (current page.north west) node[below right,
+       fill=headerColour,
+       minimum width=\paperwidth,
+       minimum height=4.55cm] (box){};
+  \fill[MarkerColour!95!black] (current page.north west) rectangle ([yshift=-0.12cm]current page.north east);
+\end{tikzpicture}
+\makeheaders[c]
+
+\renewbibmacro*{in:}{}
+\DeclareFieldFormat{eprint:arxiv}{
+\textcolor{MarkerColour!80!black}{{\scriptsize\aiarXiv:}}#1
+}
+\DeclareFieldFormat{doi}{%
+\textcolor{MarkerColour!80!black}{\\{{\scriptsize\aiDoi}}}
+  \ifhyperref
+    {\href{https://doi.org/#1}{\nolinkurl{#1}}}
+    {\nolinkurl{#1}}}
+
+\makerubric{profile_elite}
+\makerubric{employment}
+\makerubric{education}
+\makerubric{highlights}
+\makerubric{Honors}
+\makerubric{leadership}
+\makerubric{teaching}
+\makerubric{service}
+\makerubric{media}
+\makerubric{talks}
+\makerubric{referee}
+
+\newpage
+\input{publications}
+
+\end{document}

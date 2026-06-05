@@ -1,0 +1,39 @@
+{
+  "education": [
+    {
+      "years": "2022-2026",
+      "degree": "PhD in Astronomy",
+      "institution": "University Name",
+      "details": "Optional thesis title, advisor, or research area."
+    }
+  ],
+  "positions": [
+    {
+      "years": "2026-present",
+      "role": "Postdoctoral Researcher",
+      "institution": "Institution Name",
+      "details": "Short description of your work."
+    }
+  ],
+  "awards": [
+    {
+      "year": "2025",
+      "name": "Award or Fellowship Name",
+      "details": "Optional description."
+    }
+  ],
+  "teaching": [
+    {
+      "year": "2024",
+      "role": "Teaching Assistant",
+      "course": "Course Name",
+      "institution": "Institution Name"
+    }
+  ],
+  "service_outreach": [
+    {
+      "year": "2025",
+      "activity": "Conference organization, mentoring, outreach, reviewing, or committee work."
+    }
+  ]
+}

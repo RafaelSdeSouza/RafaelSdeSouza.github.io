@@ -1,0 +1,21 @@
+{
+  "name": "Your Name",
+  "title": "Your Academic Title",
+  "affiliation": "Your Institution",
+  "location": "City, Country",
+  "email": "your.email@example.com",
+  "research_summary": "Write 2-4 sentences about your research interests, methods, and scientific questions.",
+  "research_keywords": [
+    "Galaxy evolution",
+    "Stellar populations",
+    "Integral-field spectroscopy",
+    "Machine learning"
+  ],
+  "links": {
+    "google_scholar": "",
+    "orcid": "",
+    "ads": "",
+    "github": "",
+    "linkedin": ""
+  }
+}
