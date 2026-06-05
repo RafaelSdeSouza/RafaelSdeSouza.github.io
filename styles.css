@@ -442,6 +442,86 @@ h3 {
   font-weight: 720;
 }
 
+.research-examples {
+  padding: clamp(3.7rem, 8vw, 7.4rem) clamp(1rem, 6vw, 5.5rem);
+  background: #111817;
+  color: var(--white);
+}
+
+.research-examples .eyebrow {
+  color: #8fd5cb;
+}
+
+.research-examples .section-copy {
+  margin-bottom: clamp(1.5rem, 4vw, 3rem);
+}
+
+.research-examples h2 {
+  font-size: clamp(2rem, 4.6vw, 4.4rem);
+}
+
+.research-gallery {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.research-card {
+  min-height: 27rem;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: #17211f;
+}
+
+.research-card a {
+  display: grid;
+  height: 100%;
+  grid-template-rows: 13.5rem minmax(13.5rem, auto);
+  color: var(--white);
+  text-decoration: none;
+}
+
+.research-card img {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  filter: saturate(0.92) contrast(1.02);
+}
+
+.research-card div {
+  display: flex;
+  min-height: 13.5rem;
+  flex-direction: column;
+  padding: clamp(1rem, 2.4vw, 1.45rem);
+}
+
+.research-card span {
+  display: block;
+  margin-bottom: 0.35rem;
+  color: #8fd5cb;
+  font-size: 0.75rem;
+  font-weight: 850;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.research-card h3 {
+  margin-bottom: 0.75rem;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.35rem, 1.9vw, 2rem);
+  line-height: 1;
+}
+
+.research-card p {
+  margin-bottom: 0;
+  color: rgba(255, 255, 255, 0.74);
+  font-size: 0.96rem;
+}
+
+.research-card a:hover img {
+  filter: saturate(1.08) contrast(1.06);
+}
+
 .showcase {
   display: grid;
   grid-template-columns: minmax(17rem, 0.38fr) minmax(0, 0.62fr);
@@ -1128,6 +1208,10 @@ h3 {
     grid-template-columns: repeat(2, 1fr);
   }
 
+  .research-gallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
   .showcase-copy {
     position: static;
   }
@@ -1154,6 +1238,7 @@ h3 {
   .impact-strip,
   .focus-grid,
   .home-directory,
+  .research-gallery,
   .project-grid,
   .publication-search,
   .publication-list,
@@ -1180,6 +1265,14 @@ h3 {
 
   .map-pin text {
     display: none;
+  }
+
+  .research-card {
+    min-height: auto;
+  }
+
+  .research-card a {
+    grid-template-rows: auto auto;
   }
 
   .timeline article {
