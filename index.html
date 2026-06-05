@@ -12,6 +12,7 @@
     <title>Rafael S. de Souza | Astrostatistics and Machine Learning</title>
     <link rel="stylesheet" href="styles.css">
     <script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/topojson-client@3/dist/topojson-client.min.js" defer></script>
     <script src="script.js" defer></script>
     <script type="application/ld+json">
       {
@@ -238,6 +239,11 @@
         </div>
         <div class="career-map">
           <div class="map-stage">
+            <div class="map-overlay">
+              <p class="eyebrow">Academic Trajectory</p>
+              <strong>10 stops · 7 countries</strong>
+              <span>Brazil · Japan · Korea · Hungary · China · USA · UK</span>
+            </div>
             <svg id="career-map" role="img" aria-label="Interactive map of academic positions across Brazil, Japan, South Korea, Hungary, China, the United States, and the United Kingdom"></svg>
             <div class="map-legend" aria-label="Map legend">
               <span><i class="work"></i> Academic position</span>
@@ -249,6 +255,7 @@
             <h3 id="map-place">University of Hertfordshire</h3>
             <p id="map-role">Senior Lecturer, Centre for Astrophysics Research.</p>
             <a id="map-link" href="https://www.herts.ac.uk/research/centres/car">Visit institution</a>
+            <div id="map-stop-list" class="map-stop-list" aria-label="Career stops"></div>
           </aside>
         </div>
 
