@@ -462,12 +462,12 @@ h3 {
 
 .research-gallery {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(13.5rem, 1fr));
-  gap: 0.8rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
 }
 
 .research-card {
-  min-height: 19.5rem;
+  min-height: 20rem;
   border: 1px solid rgba(255, 255, 255, 0.22);
   background: var(--white);
   box-shadow: 0 0.8rem 2rem rgba(0, 0, 0, 0.13);
