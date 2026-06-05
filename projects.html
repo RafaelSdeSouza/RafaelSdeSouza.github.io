@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Research software and projects by Rafael S. de Souza, including SAGUI, Capivara, PowerSpectR, and SpectralUnmix.">
+    <title>Projects | Rafael S. de Souza</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Home"><span>R</span></a>
+      <nav class="nav" aria-label="Primary navigation">
+        <a href="research.html">Research</a>
+        <a href="projects.html" aria-current="page">Projects</a>
+        <a href="publications.html">Publications</a>
+        <a href="cv.html">CV</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="showcase page-showcase">
+        <div class="showcase-copy">
+          <p class="eyebrow">Projects and Software</p>
+          <h1>Research software.</h1>
+          <p>
+            Methods become useful when they can be tested, reused, and inspected. These projects
+            turn statistical ideas into tools for real astronomical data.
+          </p>
+        </div>
+        <div class="project-grid">
+          <article class="project-card featured">
+            <div class="project-mark">S</div>
+            <span>Galaxy imaging</span>
+            <h3>SAGUI</h3>
+            <p>SED-based segmentation for multi-band galaxy images, designed to use colour and morphology together in deep-field data such as JADES.</p>
+            <div class="project-links">
+              <a href="https://arxiv.org/abs/2604.18812">Preprint</a>
+              <a href="https://ui.adsabs.harvard.edu/abs/2026arXiv260418812D">ADS</a>
+            </div>
+          </article>
+          <article class="project-card">
+            <div class="project-mark">C</div>
+            <span>IFU analysis</span>
+            <h3>Capivara</h3>
+            <p>Spectral-based segmentation for IFU data cubes, separating galaxy structures by their spectral fingerprints rather than by light alone.</p>
+            <div class="project-links">
+              <a href="https://doi.org/10.1093/mnras/staf688">Paper</a>
+              <a href="https://github.com/RafaelSdeSouza/capivara">Code</a>
+              <a href="https://phys.org/news/2025-05-ai-powered-algorithm-capivara-unmasks.html">Media</a>
+            </div>
+          </article>
+          <article class="project-card">
+            <div class="project-mark">P</div>
+            <span>Fourier summaries</span>
+            <h3>PowerSpectR</h3>
+            <p>Median-based radial Fourier power spectra for compact, reproducible summaries of spatial structure in astronomical images.</p>
+            <div class="project-links">
+              <a href="https://doi.org/10.3847/2515-5172/ae5b93">Paper</a>
+              <a href="https://github.com/RafaelSdeSouza/PowerSpectR">Code</a>
+            </div>
+          </article>
+          <article class="project-card">
+            <div class="project-mark">N</div>
+            <span>Low-rank models</span>
+            <h3>SpectralUnmix</h3>
+            <p>Torch-based regularized non-negative matrix factorization for decomposing spectra into smooth, interpretable components.</p>
+            <div class="project-links">
+              <a href="https://doi.org/10.3847/2515-5172/ae5107">Paper</a>
+              <a href="https://rafaelsdesouza.github.io/SpectralUnmix/">Project</a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="media-band" aria-label="Selected media and public stories">
+        <div>
+          <p class="eyebrow">In The Media</p>
+          <h2>Selected public stories.</h2>
+        </div>
+        <div class="media-links">
+          <a href="https://phys.org/news/2025-05-ai-powered-algorithm-capivara-unmasks.html">
+            <span>Phys.org · 2025</span>
+            Capivara unmasks hidden structures in galaxies by analysing spectral fingerprints.
+          </a>
+          <a href="https://www.nasa.gov/feature/jpl/astronomers-find-a-break-in-one-of-the-milky-way-s-spiral-arms">
+            <span>NASA · 2021</span>
+            Astronomers find a break in one of the Milky Way's spiral arms.
+          </a>
+          <a href="https://www.overleaf.com/blog/an-interview-with-rafael-s-de-souza">
+            <span>Overleaf · 2022</span>
+            An interview on writing, collaboration, and scientific publishing.
+          </a>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

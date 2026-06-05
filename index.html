@@ -11,8 +11,6 @@
     <meta property="og:image" content="assets/images/rafael-de-souza.jpg?v=20260605b">
     <title>Rafael S. de Souza | Astrostatistics and Machine Learning</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js" defer></script>
-    <script src="https://cdn.jsdelivr.net/npm/topojson-client@3/dist/topojson-client.min.js" defer></script>
     <script src="script.js" defer></script>
     <script type="application/ld+json">
       {
@@ -45,15 +43,15 @@
   </head>
   <body>
     <header class="site-header">
-      <a class="brand" href="#home" aria-label="Home">
+      <a class="brand" href="index.html" aria-label="Home">
         <span>R</span>
       </a>
       <nav class="nav" aria-label="Primary navigation">
-        <a href="#research">Research</a>
-        <a href="#projects">Projects</a>
-        <a href="#publications">Publications</a>
-        <a href="#cv">CV</a>
-        <a href="#contact">Contact</a>
+        <a href="research.html">Research</a>
+        <a href="projects.html">Projects</a>
+        <a href="publications.html">Publications</a>
+        <a href="cv.html">CV</a>
+        <a href="contact.html">Contact</a>
       </nav>
     </header>
 
@@ -74,8 +72,8 @@
           </div>
           <div class="hero-actions">
             <a class="button primary" href="assets/cv/cv.pdf">Download CV</a>
-            <a class="button" href="#publications">Publications</a>
-            <a class="button" href="https://github.com/RafaelSdeSouza">GitHub</a>
+            <a class="button" href="publications.html">Publications</a>
+            <a class="button" href="projects.html">Projects</a>
           </div>
         </div>
 
@@ -88,9 +86,9 @@
       </section>
 
       <section class="impact-strip" aria-label="Career highlights">
-        <a href="#publications">
+        <a href="publications.html">
           <strong>130+</strong>
-          <span>scholarly outputs</span>
+          <span>publications and scholarly outputs</span>
         </a>
         <a href="assets/cv/cv.pdf">
           <strong>$1M+</strong>
@@ -100,294 +98,39 @@
           <strong>80+</strong>
           <span>COIN researchers</span>
         </a>
-        <a href="assets/cv/cv.pdf">
-          <strong>2026</strong>
-          <span>latest CV update</span>
+        <a href="cv.html">
+          <strong>Global</strong>
+          <span>academic path across major research centres</span>
         </a>
       </section>
 
-      <section id="research" class="section">
-        <div class="section-kicker">Research</div>
-        <div class="section-copy">
-          <h2>Statistical methods for astronomy at survey scale.</h2>
-          <p>
-            Modern astronomy is full of inverse problems: hidden structure, selection effects,
-            missing data, uncertain classifications, and simulations that are easier to run than
-            to write down analytically. My work develops inference and machine-learning tools for
-            those regimes, then turns them into software that can be used in real survey pipelines.
-          </p>
-        </div>
-        <div class="focus-grid">
-          <article>
-            <span>01</span>
-            <h3>Astrostatistics</h3>
-            <p>Likelihood-free inference, hierarchical Bayesian models, generalized linear models, and uncertainty-aware workflows for astrophysics, including early simulation-based inference work in cosmology.</p>
-          </article>
-          <article>
-            <span>02</span>
-            <h3>Survey Machine Learning</h3>
-            <p>Learning from images, spectra, alert streams, and heterogeneous catalogues while keeping the astronomical question visible, from LSST-era transients to galaxy morphology.</p>
-          </article>
-          <article>
-            <span>03</span>
-            <h3>Scientific Software</h3>
-            <p>Open-source R and Python packages for segmentation, matrix factorization, profile fitting, dimensionality reduction, and reproducible survey-scale analysis.</p>
-          </article>
-          <article>
-            <span>04</span>
-            <h3>Astrophysical Applications</h3>
-            <p>Galaxy evolution, IFU spectroscopy, Milky Way structure, young stellar objects, time-domain discovery, cosmology, and nuclear reaction-rate inference.</p>
-          </article>
-        </div>
+      <section class="home-directory" aria-label="Website sections">
+        <a href="research.html">
+          <h2>Research</h2>
+          <p>Astrostatistics, survey machine learning, and open methods.</p>
+        </a>
+        <a href="projects.html">
+          <h2>Projects</h2>
+          <p>Software, pipelines, collaborations, and media.</p>
+        </a>
+        <a href="publications.html">
+          <h2>Publications</h2>
+          <p>Searchable papers, software records, reports, and books.</p>
+        </a>
+        <a href="cv.html">
+          <h2>CV</h2>
+          <p>Career map, positions, funding, teaching, and service.</p>
+        </a>
       </section>
 
-      <section id="projects" class="showcase">
-        <div class="showcase-copy">
-          <p class="eyebrow">Projects and Software</p>
-          <h2>Software as a way of doing science in public.</h2>
-          <p>
-            Many of my projects begin as methodological questions and become reusable tools:
-            packages, pipelines, catalogues, or collaborative experiments. The common thread is
-            statistical reasoning that survives contact with real astronomical data.
-          </p>
-        </div>
-        <div class="project-grid">
-          <article class="project-card featured">
-            <div class="project-mark">S</div>
-            <span>Galaxy imaging</span>
-            <h3>SAGUI</h3>
-            <p>SED-based segmentation for multi-band galaxy images, designed to use colour and morphology together in deep-field data such as JADES.</p>
-            <div class="project-links">
-              <a href="https://arxiv.org/abs/2604.18812">Preprint</a>
-              <a href="https://ui.adsabs.harvard.edu/abs/2026arXiv260418812D">ADS</a>
-            </div>
-          </article>
-          <article class="project-card">
-            <div class="project-mark">C</div>
-            <span>IFU analysis</span>
-            <h3>Capivara</h3>
-            <p>Spectral-based segmentation for IFU data cubes, separating galaxy structures by their spectral fingerprints rather than by light alone.</p>
-            <div class="project-links">
-              <a href="https://doi.org/10.1093/mnras/staf688">Paper</a>
-              <a href="https://github.com/RafaelSdeSouza/capivara">Code</a>
-              <a href="https://phys.org/news/2025-05-ai-powered-algorithm-capivara-unmasks.html">Media</a>
-            </div>
-          </article>
-          <article class="project-card">
-            <div class="project-mark">P</div>
-            <span>Fourier summaries</span>
-            <h3>PowerSpectR</h3>
-            <p>Median-based radial Fourier power spectra for compact, reproducible summaries of spatial structure in astronomical images.</p>
-            <div class="project-links">
-              <a href="https://doi.org/10.3847/2515-5172/ae5b93">Paper</a>
-              <a href="https://github.com/RafaelSdeSouza/PowerSpectR">Code</a>
-            </div>
-          </article>
-          <article class="project-card">
-            <div class="project-mark">N</div>
-            <span>Low-rank models</span>
-            <h3>SpectralUnmix</h3>
-            <p>Torch-based regularized non-negative matrix factorization for decomposing spectra into smooth, interpretable components.</p>
-            <div class="project-links">
-              <a href="https://doi.org/10.3847/2515-5172/ae5107">Paper</a>
-              <a href="https://rafaelsdesouza.github.io/SpectralUnmix/">Project</a>
-            </div>
-          </article>
-        </div>
-      </section>
-
-      <section id="publications" class="section publications-section">
-        <div class="section-kicker">Publications</div>
-        <div class="section-copy">
-          <h2>A living record of papers, software, reports, and books.</h2>
-          <p>
-            The bibliography below is generated from my CV BibTeX file, so the website can stay
-            close to the scholarly record: peer-reviewed papers, invited reviews, software records,
-            TNS reports, book chapters, and the PROSE-award-winning Bayesian modelling book.
-          </p>
-        </div>
-        <div class="publication-tools" aria-label="Publication filters">
-          <button class="filter-button is-active" type="button" data-filter="all">All</button>
-          <button class="filter-button" type="button" data-filter="paper">Papers</button>
-          <button class="filter-button" type="button" data-filter="software">Software</button>
-          <button class="filter-button" type="button" data-filter="report">Reports</button>
-          <button class="filter-button" type="button" data-filter="book">Books</button>
-          <button class="filter-button" type="button" data-filter="chapter">Chapters</button>
-        </div>
-        <div class="publication-search">
-          <label for="publication-search">Search publications</label>
-          <input id="publication-search" type="search" placeholder="Search title, author, venue, year...">
-          <span id="publication-count" aria-live="polite"></span>
-        </div>
-        <div id="publication-list" class="publication-list" aria-live="polite">
-          <article class="publication-card">
-            <span>Loading</span>
-            <h3>Loading publications...</h3>
-          </article>
-        </div>
-      </section>
-
-      <section id="cv" class="section cv-section">
-        <div class="section-kicker">CV</div>
-        <div class="section-copy">
-          <h2>A career across astronomy, statistics, and international collaboration.</h2>
-          <p>
-            My academic path has moved through Brazil, Japan, Korea, Hungary, China, the United
-            States, and the United Kingdom. Along the way I have worked to make astrostatistics
-            not only a set of methods, but a collaborative research culture.
-          </p>
-        </div>
-        <div class="career-map">
-          <div class="map-stage">
-            <div class="map-overlay">
-              <p class="eyebrow">Academic Trajectory</p>
-              <strong>10 stops · 7 countries</strong>
-              <span>Brazil · Japan · Korea · Hungary · China · USA · UK</span>
-            </div>
-            <svg id="career-map" role="img" aria-label="Interactive map of academic positions across Brazil, Japan, South Korea, Hungary, China, the United States, and the United Kingdom"></svg>
-            <div class="map-legend" aria-label="Map legend">
-              <span><i class="work"></i> Academic position</span>
-              <span><i class="education"></i> Education</span>
-            </div>
-          </div>
-          <aside class="map-panel" aria-live="polite">
-            <p class="eyebrow">Selected Stop</p>
-            <h3 id="map-place">University of Hertfordshire</h3>
-            <p id="map-role">Senior Lecturer, Centre for Astrophysics Research.</p>
-            <a id="map-link" href="https://www.herts.ac.uk/research/centres/car">Visit institution</a>
-            <div id="map-stop-list" class="map-stop-list" aria-label="Career stops"></div>
-          </aside>
-        </div>
-
-        <div class="timeline career-list" aria-label="Career timeline">
-          <article>
-            <span>2025-present</span>
-            <h3>Visiting Scholar</h3>
-            <p><a href="https://www.ufrgs.br/">Federal University of Rio Grande do Sul</a>, Brazil.</p>
-          </article>
-          <article>
-            <span>2024-present</span>
-            <h3>Adjunct Associate Professor</h3>
-            <p><a href="https://www.unc.edu/">University of North Carolina at Chapel Hill</a>, USA.</p>
-          </article>
-          <article>
-            <span>2023-present</span>
-            <h3>Senior Lecturer</h3>
-            <p><a href="https://www.herts.ac.uk/research/centres/car">Centre for Astrophysics Research</a>, University of Hertfordshire, UK.</p>
-          </article>
-          <article>
-            <span>2020-2022</span>
-            <h3>Associate Professor</h3>
-            <p><a href="https://english.shao.cas.cn/">Shanghai Astronomical Observatory</a>, Chinese Academy of Sciences.</p>
-          </article>
-          <article>
-            <span>2017-2020</span>
-            <h3>Postdoctoral Fellow</h3>
-            <p><a href="https://www.unc.edu/">University of North Carolina at Chapel Hill</a>, USA.</p>
-          </article>
-          <article>
-            <span>2014-2016</span>
-            <h3>Postdoctoral Fellow</h3>
-            <p><a href="https://www.elte.hu/en/">Eotvos Lorand University</a>, Budapest, Hungary.</p>
-          </article>
-          <article>
-            <span>2012-2014</span>
-            <h3>Postdoctoral Fellow</h3>
-            <p><a href="https://www.kasi.re.kr/eng/index">Korea Astronomy and Space Science Institute</a>, Daejeon, South Korea.</p>
-          </article>
-          <article>
-            <span>2010-2011</span>
-            <h3>Postdoctoral Fellow</h3>
-            <p><a href="https://www.ipmu.jp/en">Kavli IPMU</a>, Kashiwanoha, Japan.</p>
-          </article>
-          <article>
-            <span>2004-2009</span>
-            <h3>Direct-Entry PhD in Astrophysics</h3>
-            <p><a href="https://www5.usp.br/">University of Sao Paulo</a>. Thesis: Origin of Cosmic Magnetic Fields.</p>
-          </article>
-          <article>
-            <span>1999-2004</span>
-            <h3>BSc Astronomy</h3>
-            <p><a href="https://ufrj.br/en/">Federal University of Rio de Janeiro</a>. Thesis: Cosmic Acceleration.</p>
-          </article>
-        </div>
-      </section>
-
-      <section class="two-column">
-        <article>
-          <p class="eyebrow">Funding and Awards</p>
-          <h2>Independent support for statistical astronomy.</h2>
-          <ul>
-            <li><strong>2025-2029:</strong> Hyperspectral Image Segmentation at Scale, <a href="https://www.gov.br/cnpq/">CNPq</a>, PI.</li>
-            <li><strong>2021-2023:</strong> CAS Talents Programme, <a href="https://english.cas.cn/">Chinese Academy of Sciences</a>, PI.</li>
-            <li><strong>2018:</strong> <a href="https://proseawards.com/">PROSE Award</a>, Best Book in Cosmology and Astronomy.</li>
-            <li><strong>2017:</strong> Marie Sklodowska-Curie Fellowship, AstroFit Programme.</li>
-          </ul>
-        </article>
-        <article>
-          <p class="eyebrow">Teaching and Service</p>
-          <h2>Mentoring students and building research networks.</h2>
-          <ul>
-            <li>PhD, MSc, and undergraduate supervision across spectral analysis, star formation, and cosmic web science.</li>
-            <li>Courses in statistical methods, data analysis, machine learning, neural networks, and research methods.</li>
-            <li>Projects and service with <a href="https://cosmostatistics-initiative.org/">COIN</a>, MAUVE, <a href="https://fink-broker.org/">Fink</a>, <a href="https://www.lsst.org/">LSST</a>, <a href="https://www.j-pas.org/">J-PAS</a>, A&amp;A, MNRAS, Nature, ApJ, PASP, and A&amp;C.</li>
-          </ul>
-        </article>
-      </section>
-
-      <section class="media-band" aria-label="Selected media and public stories">
-        <div>
-          <p class="eyebrow">In The Media</p>
-          <h2>Selected public stories.</h2>
-        </div>
-        <div class="media-links">
-          <a href="https://phys.org/news/2025-05-ai-powered-algorithm-capivara-unmasks.html">
-            <span>Phys.org · 2025</span>
-            Capivara unmasks hidden structures in galaxies by analysing spectral fingerprints.
-          </a>
-          <a href="https://www.nasa.gov/feature/jpl/astronomers-find-a-break-in-one-of-the-milky-way-s-spiral-arms">
-            <span>NASA · 2021</span>
-            Astronomers find a break in one of the Milky Way's spiral arms.
-          </a>
-          <a href="https://www.overleaf.com/blog/an-interview-with-rafael-s-de-souza">
-            <span>Overleaf · 2022</span>
-            An interview on writing, collaboration, and scientific publishing.
-          </a>
-        </div>
-      </section>
-
-      <section class="logo-lab" aria-label="Visual identity space">
-        <figure class="community-logo">
-          <img src="assets/images/coin.png" alt="Cosmostatistics Initiative logo">
-        </figure>
-        <div>
-          <p class="eyebrow">Community</p>
-          <h2>COIN and the collaborative side of astrostatistics.</h2>
-          <p>
-            I founded and co-chair the <a href="https://cosmostatistics-initiative.org/">Cosmostatistics Initiative</a>, an international network that
-            brings astronomers, statisticians, computer scientists, and software developers into
-            shared projects. COIN has shaped work on <a href="https://www.lsst.org/">LSST</a>, <a href="https://fink-broker.org/">Fink</a>, DES, <a href="https://www.j-pas.org/">J-PAS</a>, time-domain science,
-            galaxy morphology, and inference for complex data.
-          </p>
-        </div>
-        <div class="logo-wall">
-          <a href="https://cosmostatistics-initiative.org/"><img src="assets/images/coin.png" alt=""> COIN</a>
-          <a href="https://arxiv.org/abs/2604.18812">SAGUI</a>
-          <a href="https://github.com/RafaelSdeSouza/capivara">Capivara</a>
-          <a href="https://fink-broker.org/">Fink</a>
-          <a href="https://www.lsst.org/">LSST</a>
-          <a href="https://www.j-pas.org/">J-PAS</a>
-        </div>
-      </section>
-
-      <section id="contact" class="contact">
+      <section class="contact compact-contact">
         <div>
           <p class="eyebrow">Contact</p>
           <h2>Open to collaborations across astronomy, statistics, and scientific computing.</h2>
           <p>Email <a href="mailto:rd23aag@herts.ac.uk">rd23aag@herts.ac.uk</a> for seminars, supervision enquiries, research collaborations, or questions about the software and papers listed here.</p>
         </div>
         <div class="contact-links">
-          <a href="assets/cv/cv.pdf">CV PDF</a>
+          <a href="contact.html">Contact Page</a>
           <a href="https://orcid.org/0000-0001-7207-4584">ORCID</a>
           <a href="https://github.com/RafaelSdeSouza">GitHub</a>
           <a href="https://www.linkedin.com/in/rafael-s-de-souza-phd-0528365a/">LinkedIn</a>

@@ -9,6 +9,7 @@ const mapStopList = document.querySelector("#map-stop-list");
 
 let publications = [];
 let activeFilter = "all";
+const visitedCountryIds = new Set(["076", "392", "410", "348", "156", "840", "826"]);
 
 const careerStops = [
   {
@@ -128,6 +129,7 @@ function matchesSearch(item, query) {
 }
 
 function renderPublications() {
+  if (!publicationList || !publicationCount) return;
   const query = publicationSearch?.value.trim() || "";
   const visible = publications.filter((item) => {
     const filterMatch = activeFilter === "all" || item.type === activeFilter;
@@ -157,6 +159,7 @@ function renderPublications() {
 }
 
 async function loadPublications() {
+  if (!publicationList) return;
   try {
     const response = await fetch("content/publications.json");
     publications = await response.json();
@@ -173,7 +176,7 @@ async function loadPublications() {
   }
 }
 
-filterButtons.forEach((button) => {
+filterButtons?.forEach((button) => {
   button.addEventListener("click", () => {
     filterButtons.forEach((item) => item.classList.remove("is-active"));
     button.classList.add("is-active");
@@ -272,10 +275,23 @@ async function initCareerMap() {
   svg.append("path").datum(graticule).attr("class", "map-graticule").attr("d", path);
 
   try {
-    const response = await fetch("https://cdn.jsdelivr.net/npm/world-atlas@2/land-110m.json");
+    const response = await fetch("https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json");
     const world = await response.json();
-    const land = topojson.feature(world, world.objects.land);
-    svg.append("path").datum(land).attr("class", "map-land").attr("d", path);
+    const countries = topojson.feature(world, world.objects.countries).features;
+    const borders = topojson.mesh(world, world.objects.countries, (a, b) => a !== b);
+
+    svg
+      .append("g")
+      .attr("aria-hidden", "true")
+      .selectAll("path")
+      .data(countries)
+      .join("path")
+      .attr("class", (country) =>
+        visitedCountryIds.has(String(country.id).padStart(3, "0")) ? "map-country is-visited" : "map-country"
+      )
+      .attr("d", path);
+
+    svg.append("path").datum(borders).attr("class", "map-borders").attr("d", path);
   } catch (error) {
     svg.append("path").datum(graticule).attr("class", "map-land").attr("d", path);
   }

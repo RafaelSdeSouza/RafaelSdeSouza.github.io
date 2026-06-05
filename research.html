@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Research areas of Rafael S. de Souza in astrostatistics, machine learning, survey science, and scientific software.">
+    <title>Research | Rafael S. de Souza</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Home"><span>R</span></a>
+      <nav class="nav" aria-label="Primary navigation">
+        <a href="research.html" aria-current="page">Research</a>
+        <a href="projects.html">Projects</a>
+        <a href="publications.html">Publications</a>
+        <a href="cv.html">CV</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="page-hero">
+        <p class="eyebrow">Research</p>
+        <h1>Methods for survey astronomy.</h1>
+        <p class="lead">
+          Modern astronomy is full of inverse problems: hidden structure, selection effects,
+          missing data, uncertain classifications, and simulations that are easier to run than
+          to write down analytically. My work develops inference and machine-learning tools for
+          those regimes, then turns them into software that can be used in real survey pipelines.
+        </p>
+      </section>
+
+      <section class="section">
+        <div class="section-kicker">Themes</div>
+        <div class="section-copy">
+          <h2>Methods with purpose.</h2>
+          <p>
+            I work across statistical modelling, machine learning, and astrophysical applications,
+            with an emphasis on methods that remain interpretable under noisy, incomplete,
+            high-dimensional data.
+          </p>
+        </div>
+        <div class="focus-grid">
+          <article>
+            <span>Inference</span>
+            <h3>Astrostatistics</h3>
+            <p>Likelihood-free inference, hierarchical Bayesian models, generalized linear models, and uncertainty-aware workflows for astrophysics, including early simulation-based inference work in cosmology.</p>
+          </article>
+          <article>
+            <span>Surveys</span>
+            <h3>Survey Machine Learning</h3>
+            <p>Learning from images, spectra, alert streams, and heterogeneous catalogues while keeping the astronomical question visible, from LSST-era transients to galaxy morphology.</p>
+          </article>
+          <article>
+            <span>Tools</span>
+            <h3>Scientific Software</h3>
+            <p>Open-source R and Python packages for segmentation, matrix factorization, profile fitting, dimensionality reduction, and reproducible survey-scale analysis.</p>
+          </article>
+          <article>
+            <span>Science</span>
+            <h3>Astrophysical Applications</h3>
+            <p>Galaxy evolution, IFU spectroscopy, Milky Way structure, young stellar objects, time-domain discovery, cosmology, and nuclear reaction-rate inference.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="research-examples" aria-label="Research examples">
+        <div class="section-copy">
+          <p class="eyebrow">Examples</p>
+          <h2>Recent research directions.</h2>
+        </div>
+        <div class="research-gallery">
+          <article class="research-card large">
+            <a href="https://arxiv.org/abs/2604.18812">
+              <img src="https://cosmostatistics-initiative.org/wp-content/uploads/2026/04/sagui-768x512.png" alt="SAGUI segmentation example from the COIN website">
+              <div>
+                <span>Galaxy imaging</span>
+                <h3>SAGUI</h3>
+                <p>Multi-band segmentation that combines morphology with spectral energy distributions to separate galaxy structure in deep survey imaging.</p>
+              </div>
+            </a>
+          </article>
+          <article class="research-card">
+            <a href="https://cosmostatistics-initiative.org/projects/elephant/">
+              <img src="https://cosmostatistics-initiative.org/wp-content/uploads/2024/09/project_25_elephant.png" alt="ELEPHANT project visual from the COIN website">
+              <div>
+                <span>Alert streams</span>
+                <h3>ELEPHANT</h3>
+                <p>Filtering hostless transients in large alert streams using image signatures, distances, and broker-scale automation.</p>
+              </div>
+            </a>
+          </article>
+          <article class="research-card">
+            <a href="https://cosmostatistics-initiative.org/highlights/the-missing-mass-chronicles-at2022zod/">
+              <img src="https://cosmostatistics-initiative.org/wp-content/uploads/2025/12/light_curves.png" alt="AT2022zod light-curve visual from the COIN website">
+              <div>
+                <span>Transients</span>
+                <h3>AT2022zod</h3>
+                <p>A short-lived tidal-disruption candidate that probes the missing population of intermediate-mass black holes.</p>
+              </div>
+            </a>
+          </article>
+          <article class="research-card">
+            <a href="https://cosmostatistics-initiative.org/projects/active-learning-with-resspect/">
+              <img src="https://cosmostatistics-initiative.org/wp-content/uploads/2024/09/project_18_resspect_algorithm-768x768.png" alt="RESSPECT active-learning workflow from the COIN website">
+              <div>
+                <span>Active learning</span>
+                <h3>RESSPECT</h3>
+                <p>Recommendation systems for spectroscopic follow-up, designed for realistic LSST-era training budgets.</p>
+              </div>
+            </a>
+          </article>
+          <article class="research-card">
+            <a href="https://cosmostatistics-initiative.org/projects/a-high-pitch-angle-structure-in-the-sagittarius-arm/">
+              <img src="https://cosmostatistics-initiative.org/wp-content/uploads/2024/09/project_21_spur-768x768.png" alt="Sagittarius Arm structure visual from the COIN website">
+              <div>
+                <span>Galactic structure</span>
+                <h3>Sagittarius Arm</h3>
+                <p>Mapping young stellar objects to infer a high-pitch-angle structure within the Milky Way.</p>
+              </div>
+            </a>
+          </article>
+          <article class="research-card">
+            <a href="https://cosmostatistics-initiative.org/projects/spicy-the-spitzer-irac-candidate-yso-catalog/">
+              <img src="https://cosmostatistics-initiative.org/wp-content/uploads/2024/09/project_19_spicy-768x768.png" alt="SPICY young stellar object catalog visual from the COIN website">
+              <div>
+                <span>Catalogues</span>
+                <h3>SPICY</h3>
+                <p>Statistical learning for large candidate young-stellar-object catalogues in the Galactic midplane.</p>
+              </div>
+            </a>
+          </article>
+        </div>
+      </section>
+
+      <section class="logo-lab" aria-label="Research community">
+        <figure class="community-logo">
+          <img src="assets/images/coin.png" alt="Cosmostatistics Initiative logo">
+        </figure>
+        <div>
+          <p class="eyebrow">Community</p>
+          <h2>COIN and the collaborative side of astrostatistics.</h2>
+          <p>
+            I founded and co-chair the <a href="https://cosmostatistics-initiative.org/">Cosmostatistics Initiative</a>, an international network that
+            brings astronomers, statisticians, computer scientists, and software developers into
+            shared projects. COIN has shaped work on <a href="https://www.lsst.org/">LSST</a>, <a href="https://fink-broker.org/">Fink</a>, DES, <a href="https://www.j-pas.org/">J-PAS</a>, time-domain science,
+            galaxy morphology, and inference for complex data.
+          </p>
+        </div>
+        <div class="logo-wall">
+          <a href="https://cosmostatistics-initiative.org/"><img src="assets/images/coin.png" alt=""> COIN</a>
+          <a href="https://fink-broker.org/">Fink</a>
+          <a href="https://www.lsst.org/">LSST</a>
+          <a href="https://www.j-pas.org/">J-PAS</a>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

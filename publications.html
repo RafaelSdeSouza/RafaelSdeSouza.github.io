@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Searchable publications by Rafael S. de Souza, generated from a BibTeX CV record.">
+    <title>Publications | Rafael S. de Souza</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Home"><span>R</span></a>
+      <nav class="nav" aria-label="Primary navigation">
+        <a href="research.html">Research</a>
+        <a href="projects.html">Projects</a>
+        <a href="publications.html" aria-current="page">Publications</a>
+        <a href="cv.html">CV</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </header>
+
+    <main>
+      <section id="publications" class="section publications-section page-section">
+        <div class="section-kicker">Publications</div>
+        <div class="section-copy">
+          <h1>Publications.</h1>
+          <p>
+            A searchable bibliography generated from my CV BibTeX record: papers, software,
+            reports, chapters, and books.
+          </p>
+        </div>
+        <div class="publication-tools" aria-label="Publication filters">
+          <button class="filter-button is-active" type="button" data-filter="all">All</button>
+          <button class="filter-button" type="button" data-filter="paper">Papers</button>
+          <button class="filter-button" type="button" data-filter="software">Software</button>
+          <button class="filter-button" type="button" data-filter="report">Reports</button>
+          <button class="filter-button" type="button" data-filter="book">Books</button>
+          <button class="filter-button" type="button" data-filter="chapter">Chapters</button>
+        </div>
+        <div class="publication-search">
+          <label for="publication-search">Search publications</label>
+          <input id="publication-search" type="search" placeholder="Search title, author, venue, year...">
+          <span id="publication-count" aria-live="polite"></span>
+        </div>
+        <div id="publication-list" class="publication-list" aria-live="polite">
+          <article class="publication-card">
+            <span>Loading</span>
+            <h3>Loading publications...</h3>
+          </article>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
