@@ -3,10 +3,10 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Academic profile, research, publications, software, and CV of Dr. Rafael S. de Souza.">
+    <meta name="description" content="Dr. Rafael S. de Souza develops astrostatistics, machine-learning, and scientific software for astronomical surveys, galaxy evolution, IFU data, and time-domain discovery.">
     <meta name="author" content="Rafael S. de Souza">
     <meta property="og:title" content="Rafael S. de Souza | Astrostatistics and Machine Learning">
-    <meta property="og:description" content="Academic profile, research, publications, software, and CV of Dr. Rafael S. de Souza.">
+    <meta property="og:description" content="Astrostatistics, machine learning, scientific software, and survey science by Dr. Rafael S. de Souza.">
     <meta property="og:type" content="profile">
     <meta property="og:image" content="assets/images/rafael-de-souza.jpg?v=20260605b">
     <title>Rafael S. de Souza | Astrostatistics and Machine Learning</title>
@@ -61,8 +61,9 @@
           <p class="eyebrow">Astrostatistics · Machine Learning · Survey Science</p>
           <h1>Rafael S. de Souza</h1>
           <p class="lead">
-            I develop statistical, machine-learning, and scientific software methods for extracting
-            physical insight from noisy, incomplete, large-scale astronomical data.
+            I build statistical and machine-learning methods that turn complex astronomical data
+            into physical insight, with a focus on galaxy evolution, survey science, and open
+            research software.
           </p>
           <div class="hero-meta" aria-label="Current roles">
             <span>Senior Lecturer, University of Hertfordshire</span>
@@ -78,13 +79,9 @@
 
         <aside class="hero-visual" aria-label="Profile visual">
           <img class="portrait" src="assets/images/rafael-de-souza.jpg?v=20260605b" alt="Portrait of Rafael S. de Souza">
-          <div class="orbit-card">
-            <img src="assets/images/coin.png" alt="COIN logo">
-            <div>
-              <strong>COIN</strong>
-              <span>80+ researchers across astronomy, statistics, and computation.</span>
-            </div>
-          </div>
+          <p class="portrait-caption">
+            Astrostatistics, machine learning, and scientific software for data-intensive astronomy.
+          </p>
         </aside>
       </section>
 
@@ -110,33 +107,34 @@
       <section id="research" class="section">
         <div class="section-kicker">Research</div>
         <div class="section-copy">
-          <h2>Methods for discovery in the era of astronomical surveys.</h2>
+          <h2>Statistical methods for astronomy at survey scale.</h2>
           <p>
-            My work moves between statistical inference, scalable software, and astrophysical applications:
-            from galaxy evolution and IFU spectroscopy to Galactic structure, time-domain astronomy,
-            cosmology, and nuclear astrophysics.
+            Modern astronomy is full of inverse problems: hidden structure, selection effects,
+            missing data, uncertain classifications, and simulations that are easier to run than
+            to write down analytically. My work develops inference and machine-learning tools for
+            those regimes, then turns them into software that can be used in real survey pipelines.
           </p>
         </div>
         <div class="focus-grid">
           <article>
             <span>01</span>
             <h3>Astrostatistics</h3>
-            <p>Likelihood-free inference, hierarchical Bayesian modelling, and uncertainty-aware scientific workflows.</p>
+            <p>Likelihood-free inference, hierarchical Bayesian models, generalized linear models, and uncertainty-aware workflows for astrophysics.</p>
           </article>
           <article>
             <span>02</span>
             <h3>Survey Machine Learning</h3>
-            <p>Methods for imaging, spectra, alert streams, missing data, contamination, and large heterogeneous surveys.</p>
+            <p>Learning from images, spectra, alert streams, and heterogeneous catalogues while keeping the astronomical question visible.</p>
           </article>
           <article>
             <span>03</span>
             <h3>Scientific Software</h3>
-            <p>Open-source R and Python packages designed for reproducible, survey-scale astronomical analysis.</p>
+            <p>Open-source R and Python packages for segmentation, matrix factorization, profile fitting, dimensionality reduction, and survey-scale analysis.</p>
           </article>
           <article>
             <span>04</span>
-            <h3>Galaxy and Galactic Structure</h3>
-            <p>Applications to stellar populations, galaxy morphology, Milky Way structure, YSOs, and time-domain discovery.</p>
+            <h3>Astrophysical Applications</h3>
+            <p>Galaxy evolution, IFU spectroscopy, Milky Way structure, young stellar objects, time-domain discovery, cosmology, and nuclear astrophysics.</p>
           </article>
         </div>
       </section>
@@ -144,10 +142,11 @@
       <section id="projects" class="showcase">
         <div class="showcase-copy">
           <p class="eyebrow">Projects and Software</p>
-          <h2>A place for the fancy stuff: logos, project identities, live demos, and visual research cards.</h2>
+          <h2>Software as a way of doing science in public.</h2>
           <p>
-            This section is designed to grow. Each card can become a project page, software landing page,
-            paper story, data release, or COIN-style highlight.
+            Many of my projects begin as methodological questions and become reusable tools:
+            packages, pipelines, catalogues, or collaborative experiments. The common thread is
+            statistical reasoning that survives contact with real astronomical data.
           </p>
         </div>
         <div class="project-grid">
@@ -155,28 +154,28 @@
             <div class="project-mark">S</div>
             <span>Galaxy imaging</span>
             <h3>SAGUI</h3>
-            <p>SED-based segmentation of multi-band galaxy images, applied to deep-field survey data.</p>
-            <a href="https://cosmostatistics-initiative.org/">COIN context</a>
+            <p>SED-based segmentation for multi-band galaxy images, designed to use colour and morphology together in deep-field data such as JADES.</p>
+            <a href="https://arxiv.org/abs/2604.18812">Preprint</a>
           </article>
           <article class="project-card">
             <div class="project-mark">C</div>
             <span>IFU analysis</span>
             <h3>Capivara</h3>
-            <p>AI-powered spectral fingerprinting for uncovering hidden galaxy structures.</p>
+            <p>Spectral-based segmentation for IFU data cubes, separating galaxy structures by their spectral fingerprints rather than by light alone.</p>
             <a href="https://phys.org/news/2025-05-ai-powered-algorithm-capivara-unmasks.html">Media story</a>
           </article>
           <article class="project-card">
             <div class="project-mark">P</div>
             <span>Fourier summaries</span>
             <h3>PowerSpectR</h3>
-            <p>Radial power-spectrum estimation for morphology and spatial complexity.</p>
+            <p>Median-based radial Fourier power spectra for compact, reproducible summaries of spatial structure in astronomical images.</p>
             <a href="https://doi.org/10.3847/2515-5172/ae5b93">Paper</a>
           </article>
           <article class="project-card">
             <div class="project-mark">N</div>
             <span>Low-rank models</span>
             <h3>SpectralUnmix</h3>
-            <p>Torch-based regularized non-negative matrix factorization for spectral data.</p>
+            <p>Torch-based regularized non-negative matrix factorization for decomposing spectra into smooth, interpretable components.</p>
             <a href="https://doi.org/10.3847/2515-5172/ae5107">Paper</a>
           </article>
         </div>
@@ -185,10 +184,11 @@
       <section id="publications" class="section publications-section">
         <div class="section-kicker">Publications</div>
         <div class="section-copy">
-          <h2>Easy to update, easy to publish.</h2>
+          <h2>A living record of papers, software, reports, and books.</h2>
           <p>
-            The list below is rendered from <code>content/publications.json</code>. Add a new object there,
-            push the repo, and the page updates without touching the design.
+            The bibliography below is generated from my CV BibTeX file, so the website can stay
+            close to the scholarly record: peer-reviewed papers, invited reviews, software records,
+            TNS reports, book chapters, and the PROSE-award-winning Bayesian modelling book.
           </p>
         </div>
         <div class="publication-tools" aria-label="Publication filters">
@@ -215,10 +215,11 @@
       <section id="cv" class="section cv-section">
         <div class="section-kicker">CV</div>
         <div class="section-copy">
-          <h2>Current appointments and selected academic trajectory.</h2>
+          <h2>A career across astronomy, statistics, and international collaboration.</h2>
           <p>
-            For the full record, download the PDF CV. The web version highlights the parts visitors
-            need fastest: current roles, education, leadership, funding, supervision, and service.
+            My academic path has moved through Brazil, Japan, Korea, Hungary, China, the United
+            States, and the United Kingdom. Along the way I have worked to make astrostatistics
+            not only a set of methods, but a collaborative research culture.
           </p>
         </div>
         <div class="timeline">
@@ -253,7 +254,7 @@
       <section class="two-column">
         <article>
           <p class="eyebrow">Funding and Awards</p>
-          <h2>Competitive support and recognition.</h2>
+          <h2>Independent support for statistical astronomy.</h2>
           <ul>
             <li><strong>2025-2029:</strong> Hyperspectral Image Segmentation at Scale, CNPq, PI.</li>
             <li><strong>2021-2023:</strong> CAS Talents Programme, Chinese Academy of Sciences, PI.</li>
@@ -263,7 +264,7 @@
         </article>
         <article>
           <p class="eyebrow">Teaching and Service</p>
-          <h2>Training researchers and building communities.</h2>
+          <h2>Mentoring students and building research networks.</h2>
           <ul>
             <li>PhD, MSc, and undergraduate supervision across spectral analysis, star formation, and cosmic web science.</li>
             <li>Courses in statistical methods, data analysis, machine learning, neural networks, and research methods.</li>
@@ -274,8 +275,14 @@
 
       <section class="logo-lab" aria-label="Visual identity space">
         <div>
-          <p class="eyebrow">Visual Lab</p>
-          <h2>Reserved space for logos, collaborations, data products, and future interactive visuals.</h2>
+          <p class="eyebrow">Community</p>
+          <h2>COIN and the collaborative side of astrostatistics.</h2>
+          <p>
+            I founded and co-chair the Cosmostatistics Initiative, an international network that
+            brings astronomers, statisticians, computer scientists, and software developers into
+            shared projects. COIN has shaped work on LSST, Fink, DES, J-PAS, time-domain science,
+            galaxy morphology, and inference for complex data.
+          </p>
         </div>
         <div class="logo-wall">
           <span><img src="assets/images/coin.png" alt="COIN logo"> COIN</span>
@@ -290,8 +297,8 @@
       <section id="contact" class="contact">
         <div>
           <p class="eyebrow">Contact</p>
-          <h2>Collaborations, seminars, supervision, and software.</h2>
-          <p>Email <a href="mailto:rd23aag@herts.ac.uk">rd23aag@herts.ac.uk</a> or connect through the academic links below.</p>
+          <h2>Open to collaborations across astronomy, statistics, and scientific computing.</h2>
+          <p>Email <a href="mailto:rd23aag@herts.ac.uk">rd23aag@herts.ac.uk</a> for seminars, supervision enquiries, research collaborations, or questions about the software and papers listed here.</p>
         </div>
         <div class="contact-links">
           <a href="assets/cv/cv.pdf">CV PDF</a>
