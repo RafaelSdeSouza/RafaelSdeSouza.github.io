@@ -208,7 +208,7 @@ h3 {
 
 .hero-visual {
   position: relative;
-  min-height: 32rem;
+  align-self: start;
 }
 
 .hero-visual::before,
@@ -237,35 +237,14 @@ h3 {
   box-shadow: var(--shadow);
 }
 
-.orbit-card {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  z-index: 2;
-  display: grid;
-  grid-template-columns: 4rem 1fr;
-  gap: 0.9rem;
-  max-width: 23rem;
-  padding: 1rem;
-  border: 1px solid var(--line);
-  background: rgba(255, 255, 255, 0.94);
-  box-shadow: var(--shadow);
-}
-
-.orbit-card img {
-  width: 4rem;
-  height: 4rem;
-  object-fit: contain;
-}
-
-.orbit-card strong,
-.orbit-card span {
-  display: block;
-}
-
-.orbit-card span {
+.portrait-caption {
+  position: relative;
+  z-index: 1;
+  max-width: 30rem;
+  margin: 1rem 0 0;
   color: var(--muted);
-  font-size: 0.92rem;
+  font-size: 0.96rem;
+  font-weight: 700;
 }
 
 .impact-strip {
@@ -572,6 +551,11 @@ h3 {
   background: var(--white);
 }
 
+.logo-lab p:not(.eyebrow) {
+  max-width: 46rem;
+  color: var(--muted);
+}
+
 .logo-wall {
   display: flex;
   flex-wrap: wrap;
@@ -664,17 +648,6 @@ h3 {
 
   h1 {
     font-size: clamp(3.2rem, 16vw, 5rem);
-  }
-
-  .hero-visual {
-    min-height: auto;
-    padding-bottom: 7rem;
-  }
-
-  .orbit-card {
-    left: 0.75rem;
-    right: 0.75rem;
-    bottom: 0;
   }
 
   .impact-strip,
