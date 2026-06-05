@@ -11,6 +11,7 @@
     <meta property="og:image" content="assets/images/rafael-de-souza.jpg?v=20260605b">
     <title>Rafael S. de Souza | Astrostatistics and Machine Learning</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js" defer></script>
     <script src="script.js" defer></script>
     <script type="application/ld+json">
       {
@@ -66,9 +67,9 @@
             research software.
           </p>
           <div class="hero-meta" aria-label="Current roles">
-            <span>Senior Lecturer, University of Hertfordshire</span>
-            <span>Founder and Co-Chair, COIN</span>
-            <span>Chair, ISI Astrostatistics Interest Group</span>
+            <span>Senior Lecturer, <a href="https://www.herts.ac.uk/">University of Hertfordshire</a></span>
+            <span>Founder and Co-Chair, <a href="https://cosmostatistics-initiative.org/">Cosmostatistics Initiative</a></span>
+            <span>Chair, <a href="https://isi-web.org/">ISI</a> Astrostatistics Interest Group</span>
           </div>
           <div class="hero-actions">
             <a class="button primary" href="assets/cv/cv.pdf">Download CV</a>
@@ -86,22 +87,22 @@
       </section>
 
       <section class="impact-strip" aria-label="Career highlights">
-        <div>
+        <a href="#publications">
           <strong>130+</strong>
           <span>scholarly outputs</span>
-        </div>
-        <div>
+        </a>
+        <a href="assets/cv/cv.pdf">
           <strong>$1M+</strong>
           <span>competitive research funding as PI</span>
-        </div>
-        <div>
+        </a>
+        <a href="https://cosmostatistics-initiative.org/">
           <strong>80+</strong>
           <span>COIN researchers</span>
-        </div>
-        <div>
+        </a>
+        <a href="assets/cv/cv.pdf">
           <strong>2026</strong>
           <span>latest CV update</span>
-        </div>
+        </a>
       </section>
 
       <section id="research" class="section">
@@ -119,22 +120,22 @@
           <article>
             <span>01</span>
             <h3>Astrostatistics</h3>
-            <p>Likelihood-free inference, hierarchical Bayesian models, generalized linear models, and uncertainty-aware workflows for astrophysics.</p>
+            <p>Likelihood-free inference, hierarchical Bayesian models, generalized linear models, and uncertainty-aware workflows for astrophysics, including early simulation-based inference work in cosmology.</p>
           </article>
           <article>
             <span>02</span>
             <h3>Survey Machine Learning</h3>
-            <p>Learning from images, spectra, alert streams, and heterogeneous catalogues while keeping the astronomical question visible.</p>
+            <p>Learning from images, spectra, alert streams, and heterogeneous catalogues while keeping the astronomical question visible, from LSST-era transients to galaxy morphology.</p>
           </article>
           <article>
             <span>03</span>
             <h3>Scientific Software</h3>
-            <p>Open-source R and Python packages for segmentation, matrix factorization, profile fitting, dimensionality reduction, and survey-scale analysis.</p>
+            <p>Open-source R and Python packages for segmentation, matrix factorization, profile fitting, dimensionality reduction, and reproducible survey-scale analysis.</p>
           </article>
           <article>
             <span>04</span>
             <h3>Astrophysical Applications</h3>
-            <p>Galaxy evolution, IFU spectroscopy, Milky Way structure, young stellar objects, time-domain discovery, cosmology, and nuclear astrophysics.</p>
+            <p>Galaxy evolution, IFU spectroscopy, Milky Way structure, young stellar objects, time-domain discovery, cosmology, and nuclear reaction-rate inference.</p>
           </article>
         </div>
       </section>
@@ -155,28 +156,41 @@
             <span>Galaxy imaging</span>
             <h3>SAGUI</h3>
             <p>SED-based segmentation for multi-band galaxy images, designed to use colour and morphology together in deep-field data such as JADES.</p>
-            <a href="https://arxiv.org/abs/2604.18812">Preprint</a>
+            <div class="project-links">
+              <a href="https://arxiv.org/abs/2604.18812">Preprint</a>
+              <a href="https://ui.adsabs.harvard.edu/abs/2026arXiv260418812D">ADS</a>
+            </div>
           </article>
           <article class="project-card">
             <div class="project-mark">C</div>
             <span>IFU analysis</span>
             <h3>Capivara</h3>
             <p>Spectral-based segmentation for IFU data cubes, separating galaxy structures by their spectral fingerprints rather than by light alone.</p>
-            <a href="https://phys.org/news/2025-05-ai-powered-algorithm-capivara-unmasks.html">Media story</a>
+            <div class="project-links">
+              <a href="https://doi.org/10.1093/mnras/staf688">Paper</a>
+              <a href="https://github.com/RafaelSdeSouza/capivara">Code</a>
+              <a href="https://phys.org/news/2025-05-ai-powered-algorithm-capivara-unmasks.html">Media</a>
+            </div>
           </article>
           <article class="project-card">
             <div class="project-mark">P</div>
             <span>Fourier summaries</span>
             <h3>PowerSpectR</h3>
             <p>Median-based radial Fourier power spectra for compact, reproducible summaries of spatial structure in astronomical images.</p>
-            <a href="https://doi.org/10.3847/2515-5172/ae5b93">Paper</a>
+            <div class="project-links">
+              <a href="https://doi.org/10.3847/2515-5172/ae5b93">Paper</a>
+              <a href="https://github.com/RafaelSdeSouza/PowerSpectR">Code</a>
+            </div>
           </article>
           <article class="project-card">
             <div class="project-mark">N</div>
             <span>Low-rank models</span>
             <h3>SpectralUnmix</h3>
             <p>Torch-based regularized non-negative matrix factorization for decomposing spectra into smooth, interpretable components.</p>
-            <a href="https://doi.org/10.3847/2515-5172/ae5107">Paper</a>
+            <div class="project-links">
+              <a href="https://doi.org/10.3847/2515-5172/ae5107">Paper</a>
+              <a href="https://rafaelsdesouza.github.io/SpectralUnmix/">Project</a>
+            </div>
           </article>
         </div>
       </section>
@@ -222,31 +236,72 @@
             not only a set of methods, but a collaborative research culture.
           </p>
         </div>
-        <div class="timeline">
+        <div class="career-map">
+          <div class="map-stage">
+            <svg id="career-map" role="img" aria-label="Interactive map of academic positions across Brazil, Japan, South Korea, Hungary, China, the United States, and the United Kingdom"></svg>
+            <div class="map-legend" aria-label="Map legend">
+              <span><i class="work"></i> Academic position</span>
+              <span><i class="education"></i> Education</span>
+            </div>
+          </div>
+          <aside class="map-panel" aria-live="polite">
+            <p class="eyebrow">Selected Stop</p>
+            <h3 id="map-place">University of Hertfordshire</h3>
+            <p id="map-role">Senior Lecturer, Centre for Astrophysics Research.</p>
+            <a id="map-link" href="https://www.herts.ac.uk/research/centres/car">Visit institution</a>
+          </aside>
+        </div>
+
+        <div class="timeline career-list" aria-label="Career timeline">
           <article>
             <span>2025-present</span>
             <h3>Visiting Scholar</h3>
-            <p>Federal University of Rio Grande do Sul, Brazil.</p>
+            <p><a href="https://www.ufrgs.br/">Federal University of Rio Grande do Sul</a>, Brazil.</p>
           </article>
           <article>
             <span>2024-present</span>
             <h3>Adjunct Associate Professor</h3>
-            <p>University of North Carolina, Chapel Hill, USA.</p>
+            <p><a href="https://www.unc.edu/">University of North Carolina at Chapel Hill</a>, USA.</p>
           </article>
           <article>
             <span>2023-present</span>
             <h3>Senior Lecturer</h3>
-            <p>Centre for Astrophysics Research, University of Hertfordshire, UK.</p>
+            <p><a href="https://www.herts.ac.uk/research/centres/car">Centre for Astrophysics Research</a>, University of Hertfordshire, UK.</p>
           </article>
           <article>
             <span>2020-2022</span>
             <h3>Associate Professor</h3>
-            <p>Shanghai Astronomical Observatory, Chinese Academy of Sciences.</p>
+            <p><a href="https://english.shao.cas.cn/">Shanghai Astronomical Observatory</a>, Chinese Academy of Sciences.</p>
+          </article>
+          <article>
+            <span>2017-2020</span>
+            <h3>Postdoctoral Fellow</h3>
+            <p><a href="https://www.unc.edu/">University of North Carolina at Chapel Hill</a>, USA.</p>
+          </article>
+          <article>
+            <span>2014-2016</span>
+            <h3>Postdoctoral Fellow</h3>
+            <p><a href="https://www.elte.hu/en/">Eotvos Lorand University</a>, Budapest, Hungary.</p>
+          </article>
+          <article>
+            <span>2012-2014</span>
+            <h3>Postdoctoral Fellow</h3>
+            <p><a href="https://www.kasi.re.kr/eng/index">Korea Astronomy and Space Science Institute</a>, Daejeon, South Korea.</p>
+          </article>
+          <article>
+            <span>2010-2011</span>
+            <h3>Postdoctoral Fellow</h3>
+            <p><a href="https://www.ipmu.jp/en">Kavli IPMU</a>, Kashiwanoha, Japan.</p>
           </article>
           <article>
             <span>2004-2009</span>
             <h3>Direct-Entry PhD in Astrophysics</h3>
-            <p>University of Sao Paulo. Thesis: Origin of Cosmic Magnetic Fields.</p>
+            <p><a href="https://www5.usp.br/">University of Sao Paulo</a>. Thesis: Origin of Cosmic Magnetic Fields.</p>
+          </article>
+          <article>
+            <span>1999-2004</span>
+            <h3>BSc Astronomy</h3>
+            <p><a href="https://ufrj.br/en/">Federal University of Rio de Janeiro</a>. Thesis: Cosmic Acceleration.</p>
           </article>
         </div>
       </section>
@@ -256,9 +311,9 @@
           <p class="eyebrow">Funding and Awards</p>
           <h2>Independent support for statistical astronomy.</h2>
           <ul>
-            <li><strong>2025-2029:</strong> Hyperspectral Image Segmentation at Scale, CNPq, PI.</li>
-            <li><strong>2021-2023:</strong> CAS Talents Programme, Chinese Academy of Sciences, PI.</li>
-            <li><strong>2018:</strong> PROSE Award, Best Book in Cosmology and Astronomy.</li>
+            <li><strong>2025-2029:</strong> Hyperspectral Image Segmentation at Scale, <a href="https://www.gov.br/cnpq/">CNPq</a>, PI.</li>
+            <li><strong>2021-2023:</strong> CAS Talents Programme, <a href="https://english.cas.cn/">Chinese Academy of Sciences</a>, PI.</li>
+            <li><strong>2018:</strong> <a href="https://proseawards.com/">PROSE Award</a>, Best Book in Cosmology and Astronomy.</li>
             <li><strong>2017:</strong> Marie Sklodowska-Curie Fellowship, AstroFit Programme.</li>
           </ul>
         </article>
@@ -268,29 +323,53 @@
           <ul>
             <li>PhD, MSc, and undergraduate supervision across spectral analysis, star formation, and cosmic web science.</li>
             <li>Courses in statistical methods, data analysis, machine learning, neural networks, and research methods.</li>
-            <li>Projects and service with COIN, MAUVE, Fink, LSST, J-PAS, A&amp;A, MNRAS, Nature, ApJ, PASP, and A&amp;C.</li>
+            <li>Projects and service with <a href="https://cosmostatistics-initiative.org/">COIN</a>, MAUVE, <a href="https://fink-broker.org/">Fink</a>, <a href="https://www.lsst.org/">LSST</a>, <a href="https://www.j-pas.org/">J-PAS</a>, A&amp;A, MNRAS, Nature, ApJ, PASP, and A&amp;C.</li>
           </ul>
         </article>
       </section>
 
+      <section class="media-band" aria-label="Selected media and public stories">
+        <div>
+          <p class="eyebrow">In The Media</p>
+          <h2>Selected public stories.</h2>
+        </div>
+        <div class="media-links">
+          <a href="https://phys.org/news/2025-05-ai-powered-algorithm-capivara-unmasks.html">
+            <span>Phys.org · 2025</span>
+            Capivara unmasks hidden structures in galaxies by analysing spectral fingerprints.
+          </a>
+          <a href="https://www.nasa.gov/feature/jpl/astronomers-find-a-break-in-one-of-the-milky-way-s-spiral-arms">
+            <span>NASA · 2021</span>
+            Astronomers find a break in one of the Milky Way's spiral arms.
+          </a>
+          <a href="https://www.overleaf.com/blog/an-interview-with-rafael-s-de-souza">
+            <span>Overleaf · 2022</span>
+            An interview on writing, collaboration, and scientific publishing.
+          </a>
+        </div>
+      </section>
+
       <section class="logo-lab" aria-label="Visual identity space">
+        <figure class="community-logo">
+          <img src="assets/images/coin.png" alt="Cosmostatistics Initiative logo">
+        </figure>
         <div>
           <p class="eyebrow">Community</p>
           <h2>COIN and the collaborative side of astrostatistics.</h2>
           <p>
-            I founded and co-chair the Cosmostatistics Initiative, an international network that
+            I founded and co-chair the <a href="https://cosmostatistics-initiative.org/">Cosmostatistics Initiative</a>, an international network that
             brings astronomers, statisticians, computer scientists, and software developers into
-            shared projects. COIN has shaped work on LSST, Fink, DES, J-PAS, time-domain science,
+            shared projects. COIN has shaped work on <a href="https://www.lsst.org/">LSST</a>, <a href="https://fink-broker.org/">Fink</a>, DES, <a href="https://www.j-pas.org/">J-PAS</a>, time-domain science,
             galaxy morphology, and inference for complex data.
           </p>
         </div>
         <div class="logo-wall">
-          <span><img src="assets/images/coin.png" alt="COIN logo"> COIN</span>
-          <span>SAGUI</span>
-          <span>Capivara</span>
-          <span>Fink</span>
-          <span>LSST</span>
-          <span>J-PAS</span>
+          <a href="https://cosmostatistics-initiative.org/"><img src="assets/images/coin.png" alt=""> COIN</a>
+          <a href="https://arxiv.org/abs/2604.18812">SAGUI</a>
+          <a href="https://github.com/RafaelSdeSouza/capivara">Capivara</a>
+          <a href="https://fink-broker.org/">Fink</a>
+          <a href="https://www.lsst.org/">LSST</a>
+          <a href="https://www.j-pas.org/">J-PAS</a>
         </div>
       </section>
 
