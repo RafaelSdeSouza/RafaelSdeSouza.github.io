@@ -580,6 +580,14 @@ h3 {
   filter: saturate(0.92) contrast(1.02);
 }
 
+.research-card img.project-mark {
+  padding: 1.35rem;
+  background:
+    radial-gradient(circle at 52% 42%, rgba(143, 213, 203, 0.24), transparent 42%),
+    #f7f5ec;
+  object-fit: contain;
+}
+
 .research-card div {
   display: flex;
   min-height: 11rem;

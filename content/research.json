@@ -107,11 +107,21 @@
       "url": "https://cosmostatistics-initiative.org/highlights/the-missing-mass-chronicles-at2022zod/"
     },
     {
-      "image": "assets/images/research/spatial-structure.png",
-      "alt": "Spatial structure visual for astronomical imaging",
+      "image": "assets/images/software/sagui.svg",
+      "imageFit": "contain",
+      "alt": "SAGUI project mark",
       "tag": "Segmentation",
       "title": "SAGUI",
-      "summary": "Multi-band galaxy segmentation using morphology and spectral energy distributions.",
+      "summary": "SED-based segmentation for multi-band galaxy images.",
+      "url": "software.html"
+    },
+    {
+      "image": "assets/images/software/capivara.svg",
+      "imageFit": "contain",
+      "alt": "Capivara project mark",
+      "tag": "IFU analysis",
+      "title": "Capivara",
+      "summary": "Spectral segmentation for IFU data cubes and galaxy substructure.",
       "url": "software.html"
     },
     {
@@ -129,6 +139,14 @@
       "title": "Sagittarius Arm",
       "summary": "Young stellar objects revealing a high-pitch-angle structure in the Milky Way.",
       "url": "https://cosmostatistics-initiative.org/projects/a-high-pitch-angle-structure-in-the-sagittarius-arm/"
+    },
+    {
+      "image": "assets/images/research/spicy.png",
+      "alt": "SPICY young stellar object catalogue map",
+      "tag": "Catalogues",
+      "title": "SPICY",
+      "summary": "Machine-learning catalogue of Spitzer/IRAC young-stellar-object candidates in the inner Galactic midplane.",
+      "url": "https://cosmostatistics-initiative.org/projects/spicy-the-spitzer-irac-candidate-yso-catalog/"
     },
     {
       "image": "assets/images/research/spectral-classification.png",
