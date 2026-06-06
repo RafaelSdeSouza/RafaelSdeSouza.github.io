@@ -4,7 +4,7 @@ When you are ready to use a personal domain, GitHub Pages can serve this site fr
 
 ## Recommended Setup
 
-The future website domain is `rafaelsdesouza.com.br`. Do not add the repository `CNAME` file until the domain DNS has been moved away from the old WordPress site and is pointing to GitHub Pages.
+The website domain is `rafaelsdesouza.com.br`. The repository should include a root-level `CNAME` file containing that domain once DNS points to GitHub Pages.
 
 Optionally also configure `www.rafaelsdesouza.com.br` as an alias that redirects to the root domain. GitHub recommends setting up the `www` subdomain together with the apex/root domain for HTTPS.
 
@@ -14,7 +14,7 @@ Optionally also configure `www.rafaelsdesouza.com.br` as an alias that redirects
 2. In the GitHub repository, go to `Settings > Pages`.
 3. Set the source to deploy from the `main` branch and root folder.
 4. Under custom domain, enter `rafaelsdesouza.com.br`.
-5. Only after DNS is correct, add a root-level `CNAME` file containing `rafaelsdesouza.com.br`, or let GitHub create it when you save the custom domain.
+5. Confirm that the root-level `CNAME` file contains `rafaelsdesouza.com.br`, or let GitHub create it when you save the custom domain.
 6. Enable `Enforce HTTPS` once GitHub finishes issuing the certificate.
 
 ## DNS Steps
