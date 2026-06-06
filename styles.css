@@ -774,7 +774,7 @@ h3 {
 .featured-book {
   grid-column: 2;
   display: grid;
-  grid-template-columns: minmax(11rem, 0.26fr) minmax(0, 0.74fr);
+  grid-template-columns: minmax(10rem, 0.24fr) minmax(0, 0.76fr);
   gap: clamp(1rem, 3vw, 2rem);
   align-items: stretch;
   margin-bottom: 1.2rem;
@@ -784,30 +784,18 @@ h3 {
 
 .book-cover {
   display: flex;
-  min-height: 17rem;
-  flex-direction: column;
-  justify-content: space-between;
-  padding: 1.2rem;
-  background:
-    radial-gradient(circle at 80% 16%, rgba(143, 213, 203, 0.22), transparent 9rem),
-    linear-gradient(145deg, #111817, #24342f);
-  color: var(--white);
+  align-items: center;
+  justify-content: center;
+  padding: clamp(1rem, 2.4vw, 1.6rem);
+  background: #f3f1e9;
 }
 
-.book-cover span,
-.book-cover em {
-  color: #8fd5cb;
-  font-size: 0.78rem;
-  font-style: normal;
-  font-weight: 850;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-}
-
-.book-cover strong {
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(1.8rem, 3vw, 2.9rem);
-  line-height: 0.96;
+.book-cover img {
+  width: min(100%, 13.5rem);
+  max-height: 22rem;
+  object-fit: contain;
+  border: 1px solid rgba(20, 24, 22, 0.14);
+  box-shadow: 0 1.2rem 2.4rem rgba(17, 24, 22, 0.16);
 }
 
 .featured-book > div:last-child {
@@ -1703,9 +1691,9 @@ h3 {
   .focus-grid,
   .interest-grid,
   .publications-section .section-copy,
-  .publication-tools,
-  .publication-search,
-  .publication-list,
+  .publications-section .publication-tools,
+  .publications-section .publication-search,
+  .publications-section .publication-list,
   .publication-impact,
   .featured-book,
   .timeline,
