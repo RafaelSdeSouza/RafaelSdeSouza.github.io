@@ -14,8 +14,8 @@
     },
     {
       "icon": "learning",
-      "tag": "Machine learning",
-      "title": "Survey-scale learning",
+      "tag": "Surveys",
+      "title": "Survey machine learning",
       "summary": "Models for catalogues, images, spectra, and alerts where measurement uncertainty and selection effects matter.",
       "links": [
         {
@@ -27,7 +27,7 @@
     {
       "icon": "time",
       "tag": "Time domain",
-      "title": "Discovery streams",
+      "title": "LSST-era transients",
       "summary": "Classification, anomaly detection, and follow-up strategy for transient and variable sources.",
       "links": [
         {
@@ -39,7 +39,7 @@
     {
       "icon": "image",
       "tag": "Images",
-      "title": "Segmentation",
+      "title": "Galaxy and IFU segmentation",
       "summary": "Galaxy and IFU segmentation methods that use colour, morphology, and spectra as scientific information.",
       "links": [
         {
@@ -51,7 +51,7 @@
     {
       "icon": "spectra",
       "tag": "Spectra",
-      "title": "Spectral methods",
+      "title": "Spectra, graphs, and mixtures",
       "summary": "Graph, matrix-factorization, and low-dimensional representations for spectra and IFU data cubes.",
       "links": [
         {
@@ -62,8 +62,8 @@
     },
     {
       "icon": "cosmos",
-      "tag": "Cosmology",
-      "title": "Cosmic structure",
+      "tag": "Weak lensing",
+      "title": "DES ridges and cosmic structure",
       "summary": "Statistical summaries for mass maps, ridges, voids, large-scale structure, and simulation-based inference.",
       "links": [
         {
@@ -75,7 +75,7 @@
     {
       "icon": "software",
       "tag": "Software",
-      "title": "Open methods",
+      "title": "Scientific software",
       "summary": "Research code designed to make statistical ideas testable, reusable, and inspectable.",
       "links": [
         {
@@ -86,8 +86,8 @@
     },
     {
       "icon": "community",
-      "tag": "Community",
-      "title": "Collaborative science",
+      "tag": "COIN",
+      "title": "Cosmostatistics Initiative",
       "summary": "International projects that connect astronomy, statistics, machine learning, and scientific software.",
       "links": [
         {
