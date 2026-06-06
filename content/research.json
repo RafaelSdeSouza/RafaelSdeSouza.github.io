@@ -107,18 +107,18 @@
       "url": "https://cosmostatistics-initiative.org/highlights/the-missing-mass-chronicles-at2022zod/"
     },
     {
-      "image": "assets/images/software/sagui.svg",
+      "image": "assets/images/software/sagui-logo.png",
       "imageFit": "contain",
-      "alt": "SAGUI project mark",
+      "alt": "SAGUI project logo",
       "tag": "Segmentation",
       "title": "SAGUI",
       "summary": "SED-based segmentation for multi-band galaxy images.",
       "url": "software.html"
     },
     {
-      "image": "assets/images/software/capivara.svg",
+      "image": "assets/images/software/capivara-logo.png",
       "imageFit": "contain",
-      "alt": "Capivara project mark",
+      "alt": "Capivara project logo",
       "tag": "IFU analysis",
       "title": "Capivara",
       "summary": "Spectral segmentation for IFU data cubes and galaxy substructure.",

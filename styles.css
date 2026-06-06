@@ -701,13 +701,14 @@ h3 {
 
 .project-mark.has-logo {
   overflow: hidden;
-  background: rgba(255, 255, 255, 0.06);
+  background: #f7f5ec;
 }
 
 .project-mark img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  padding: 0.32rem;
+  object-fit: contain;
 }
 
 .project-card span {

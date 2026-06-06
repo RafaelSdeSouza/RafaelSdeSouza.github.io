@@ -4,7 +4,7 @@
     "year": "2026",
     "tag": "Galaxy imaging",
     "mark": "S",
-    "logo": "assets/images/software/sagui.svg",
+    "logo": "assets/images/software/sagui-logo.png",
     "featured": true,
     "summary": "SED-based segmentation of multi-band galaxy images, with application to JADES in GOODS-South.",
     "links": [
@@ -23,7 +23,7 @@
     "year": "2025",
     "tag": "IFU analysis",
     "mark": "C",
-    "logo": "assets/images/software/capivara.svg",
+    "logo": "assets/images/software/capivara-logo.png",
     "featured": true,
     "summary": "Spectral-based segmentation for IFU data cubes and scalable analysis of galaxy substructure.",
     "links": [
