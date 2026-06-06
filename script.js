@@ -157,6 +157,19 @@ function renderSoftwareLinks(links = []) {
   return links.map((link) => `<a href="${link.url}">${link.label}</a>`).join("");
 }
 
+function escapeHtml(value = "") {
+  return String(value).replace(/[&<>"']/g, (character) => {
+    const entities = {
+      "&": "&amp;",
+      "<": "&lt;",
+      ">": "&gt;",
+      "\"": "&quot;",
+      "'": "&#39;",
+    };
+    return entities[character];
+  });
+}
+
 function renderSoftware(items) {
   if (!softwareGrid) return;
   softwareGrid.innerHTML = items
@@ -196,17 +209,44 @@ async function loadSoftware() {
 function renderWriting(data) {
   if (!writingGrid || !Array.isArray(data.works) || data.works.length === 0) return;
   writingGrid.innerHTML = data.works
-    .map(
-      (item) => `
+    .map((item) => {
+      const body = Array.isArray(item.body)
+        ? `
+          <details class="writing-reader">
+            <summary>${escapeHtml(item.readerLabel || "Read story")}</summary>
+            <div class="writing-prose">
+              ${item.body.map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`).join("")}
+              ${
+                Array.isArray(item.footnotes)
+                  ? `<div class="writing-footnotes">${item.footnotes
+                      .map((note) => `<p>${escapeHtml(note)}</p>`)
+                      .join("")}</div>`
+                  : ""
+              }
+            </div>
+          </details>
+        `
+        : "";
+
+      return `
         <article class="writing-card">
-          <span>${[item.type, item.year].filter(Boolean).join(" · ")}</span>
-          <h3>${item.title}</h3>
-          <p>${item.summary}</p>
-          ${item.status ? `<p class="writing-status">${item.status}</p>` : ""}
+          <div class="writing-cover${item.cover ? "" : " writing-cover-placeholder"}">
+            ${
+              item.cover
+                ? `<img src="${item.cover}" alt="${escapeHtml(item.title)} cover" loading="lazy">`
+                : `<span>${escapeHtml(item.type || "Fiction")}</span><strong>${escapeHtml(item.coverLabel || item.title)}</strong>`
+            }
+          </div>
+          <span>${escapeHtml([item.type, item.year].filter(Boolean).join(" · "))}</span>
+          <h3>${escapeHtml(item.title)}</h3>
+          ${item.authors ? `<p class="writing-authors">By ${escapeHtml(item.authors)}</p>` : ""}
+          <p>${escapeHtml(item.summary)}</p>
+          ${item.status ? `<p class="writing-status">${escapeHtml(item.status)}</p>` : ""}
           <div class="writing-links">${renderResearchLinks(item.links || [])}</div>
+          ${body}
         </article>
-      `
-    )
+      `;
+    })
     .join("");
 }
 

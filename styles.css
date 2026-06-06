@@ -1649,6 +1649,48 @@ h3 {
   background: var(--paper);
 }
 
+.writing-cover {
+  display: flex;
+  min-height: 13rem;
+  align-items: center;
+  justify-content: center;
+  margin: calc(clamp(1.2rem, 3vw, 2rem) * -1)
+    calc(clamp(1.2rem, 3vw, 2rem) * -1)
+    clamp(1.2rem, 3vw, 2rem);
+  overflow: hidden;
+  background: #14201d;
+}
+
+.writing-cover img {
+  width: 100%;
+  height: 100%;
+  min-height: 13rem;
+  object-fit: cover;
+}
+
+.writing-cover-placeholder {
+  flex-direction: column;
+  align-items: flex-start;
+  padding: clamp(1.2rem, 3vw, 2rem);
+  background:
+    radial-gradient(circle at 84% 18%, rgba(143, 213, 203, 0.24), transparent 7rem),
+    linear-gradient(145deg, #111817, #2a3e39);
+  color: var(--white);
+}
+
+.writing-card .writing-cover-placeholder span {
+  margin-bottom: auto;
+  color: #9bd8d1;
+  font-size: 0.72rem;
+}
+
+.writing-card .writing-cover-placeholder strong {
+  max-width: 9ch;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(2rem, 4vw, 3.4rem);
+  line-height: 0.96;
+}
+
 .writing-card span {
   display: block;
   margin-bottom: 1.4rem;
@@ -1671,9 +1713,52 @@ h3 {
   color: var(--muted);
 }
 
+.writing-authors {
+  margin-bottom: 0.7rem;
+  color: var(--ink);
+  font-weight: 820;
+}
+
 .writing-status {
   color: var(--clay);
   font-weight: 800;
+}
+
+.writing-reader {
+  margin-top: 1.25rem;
+  border-top: 1px solid var(--line);
+}
+
+.writing-reader summary {
+  padding-top: 1rem;
+  color: var(--teal-dark);
+  font-weight: 850;
+  cursor: pointer;
+}
+
+.writing-prose {
+  max-height: 32rem;
+  margin-top: 1rem;
+  padding-right: 0.35rem;
+  overflow: auto;
+}
+
+.writing-prose p {
+  margin-bottom: 0.8rem;
+  color: #343b3b;
+  font-size: 0.98rem;
+  line-height: 1.62;
+}
+
+.writing-footnotes {
+  margin-top: 1.2rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--line);
+}
+
+.writing-footnotes p {
+  color: var(--muted);
+  font-size: 0.88rem;
 }
 
 @media (max-width: 980px) {
