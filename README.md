@@ -12,6 +12,7 @@ This repository contains a static GitHub Pages website for an academic CV, resea
 - `script.js`: loads and filters publications and research cards.
 - `content/publications.json`: the easiest place to add new papers, software, and media items.
 - `content/research.json`: the easiest place to edit research interests, examples, links, and research-card images.
+- `content/software.json`: the easiest place to edit software cards.
 - `assets/cv/cv.pdf`: downloadable PDF CV.
 - `assets/images/rafael-de-souza.jpg`: hero/profile image.
 - `assets/images/coin.png`: COIN logo used in the visual identity areas.
@@ -49,7 +50,7 @@ Supported `type` values include `paper`, `software`, `report`, `book`, `chapter`
 
 - Replace `assets/images/rafael-de-souza.jpg` with a formal portrait or a preferred graphic.
 - Add logos to `assets/images/` and then reference them from the relevant HTML page.
-- Software cards live in `software.html`.
+- Software cards are rendered from `content/software.json`.
 - Research-card images live in `assets/images/research/`; edit their text and links in `content/research.json`.
 
 ## Custom Domain

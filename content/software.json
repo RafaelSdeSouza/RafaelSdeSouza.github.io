@@ -1,0 +1,240 @@
+[
+  {
+    "name": "SAGUI",
+    "year": "2026",
+    "tag": "Galaxy imaging",
+    "mark": "S",
+    "featured": true,
+    "summary": "SED-based segmentation of multi-band galaxy images, with application to JADES in GOODS-South.",
+    "links": [
+      {
+        "label": "Preprint",
+        "url": "https://arxiv.org/abs/2604.18812"
+      },
+      {
+        "label": "ADS",
+        "url": "https://ui.adsabs.harvard.edu/abs/2026arXiv260418812D"
+      }
+    ]
+  },
+  {
+    "name": "Capivara",
+    "year": "2025",
+    "tag": "IFU analysis",
+    "mark": "C",
+    "featured": true,
+    "summary": "Spectral-based segmentation for IFU data cubes and scalable analysis of galaxy substructure.",
+    "links": [
+      {
+        "label": "Paper",
+        "url": "https://doi.org/10.1093/mnras/staf688"
+      },
+      {
+        "label": "Code",
+        "url": "https://github.com/RafaelSdeSouza/capivara"
+      },
+      {
+        "label": "ASCL",
+        "url": "https://ui.adsabs.harvard.edu/abs/2025ascl.soft07023S"
+      }
+    ]
+  },
+  {
+    "name": "PowerSpectR",
+    "year": "2026",
+    "tag": "Fourier summaries",
+    "mark": "P",
+    "featured": true,
+    "summary": "R package for median-based radial Fourier power spectra and compact summaries of image structure.",
+    "links": [
+      {
+        "label": "Paper",
+        "url": "https://doi.org/10.3847/2515-5172/ae5b93"
+      },
+      {
+        "label": "Code",
+        "url": "https://github.com/RafaelSdeSouza/PowerSpectR"
+      }
+    ]
+  },
+  {
+    "name": "SpectralUnmix",
+    "year": "2026",
+    "tag": "Matrix factorization",
+    "mark": "N",
+    "featured": true,
+    "summary": "Torch-based regularized non-negative matrix factorization for smooth, interpretable spectral components.",
+    "links": [
+      {
+        "label": "Paper",
+        "url": "https://doi.org/10.3847/2515-5172/ae5107"
+      },
+      {
+        "label": "Project",
+        "url": "https://rafaelsdesouza.github.io/SpectralUnmix/"
+      }
+    ]
+  },
+  {
+    "name": "GalMOSS",
+    "year": "2024",
+    "tag": "Surface brightness",
+    "mark": "G",
+    "summary": "GPU-accelerated galaxy surface-brightness fitting through gradient descent.",
+    "links": [
+      {
+        "label": "ASCL",
+        "url": "https://ui.adsabs.harvard.edu/abs/2024ascl.soft04005M"
+      },
+      {
+        "label": "arXiv",
+        "url": "https://arxiv.org/abs/2404.005"
+      }
+    ]
+  },
+  {
+    "name": "galmask",
+    "year": "2022",
+    "tag": "Galaxy masking",
+    "mark": "M",
+    "summary": "Python package for unsupervised galaxy masking.",
+    "links": [
+      {
+        "label": "Paper",
+        "url": "https://doi.org/10.3847/2515-5172/ac780b"
+      },
+      {
+        "label": "ADS",
+        "url": "https://ui.adsabs.harvard.edu/abs/2022RNAAS...6..128G"
+      }
+    ]
+  },
+  {
+    "name": "qrpca",
+    "year": "2022",
+    "tag": "PCA",
+    "mark": "Q",
+    "summary": "QR-based principal components analysis.",
+    "links": [
+      {
+        "label": "ASCL",
+        "url": "https://ui.adsabs.harvard.edu/abs/2022ascl.soft08002D"
+      },
+      {
+        "label": "arXiv",
+        "url": "https://arxiv.org/abs/2208.002"
+      }
+    ]
+  },
+  {
+    "name": "Yonder",
+    "year": "2022",
+    "tag": "Denoising",
+    "mark": "Y",
+    "summary": "Data denoising and reconstruction.",
+    "links": [
+      {
+        "label": "ASCL",
+        "url": "https://ui.adsabs.harvard.edu/abs/2022ascl.soft08025C"
+      },
+      {
+        "label": "arXiv",
+        "url": "https://arxiv.org/abs/2208.025"
+      }
+    ]
+  },
+  {
+    "name": "SCONCE-SCMS",
+    "year": "2023",
+    "tag": "Cosmic web",
+    "mark": "W",
+    "summary": "Spherical and conic cosmic-web finders with extended SCMS algorithms.",
+    "links": [
+      {
+        "label": "ASCL",
+        "url": "https://ui.adsabs.harvard.edu/abs/2023ascl.soft06013Z"
+      },
+      {
+        "label": "arXiv",
+        "url": "https://arxiv.org/abs/2306.013"
+      }
+    ]
+  },
+  {
+    "name": "cosmoabc",
+    "year": "2015",
+    "tag": "Likelihood-free inference",
+    "mark": "A",
+    "summary": "Likelihood-free inference for cosmology.",
+    "links": [
+      {
+        "label": "ASCL",
+        "url": "http://adsabs.harvard.edu/abs/2015ascl.soft05013I"
+      },
+      {
+        "label": "arXiv",
+        "url": "https://arxiv.org/abs/1505.013"
+      }
+    ]
+  },
+  {
+    "name": "DRACULA",
+    "year": "2015",
+    "tag": "Clustering",
+    "mark": "D",
+    "summary": "Dimensionality reduction and clustering for unsupervised learning in astronomy.",
+    "links": [
+      {
+        "label": "ASCL",
+        "url": "http://adsabs.harvard.edu/abs/2015ascl.soft12009A"
+      },
+      {
+        "label": "arXiv",
+        "url": "https://arxiv.org/abs/1512.009"
+      }
+    ]
+  },
+  {
+    "name": "AMADA",
+    "year": "2015",
+    "tag": "Data analysis",
+    "mark": "A",
+    "summary": "Analysis of multidimensional astronomical datasets.",
+    "links": [
+      {
+        "label": "ASCL",
+        "url": "http://adsabs.harvard.edu/abs/2015ascl.soft03006D"
+      },
+      {
+        "label": "arXiv",
+        "url": "https://arxiv.org/abs/1503.006"
+      }
+    ]
+  },
+  {
+    "name": "CosmoPhotoz",
+    "year": "2014",
+    "tag": "Photometric redshifts",
+    "mark": "Z",
+    "summary": "Photometric redshift estimation using generalized linear models.",
+    "links": [
+      {
+        "label": "arXiv",
+        "url": "https://arxiv.org/abs/1408.018"
+      }
+    ]
+  },
+  {
+    "name": "LOGIT",
+    "year": "2016",
+    "tag": "Regression",
+    "mark": "L",
+    "summary": "Functions, data, and code for binary and binomial data.",
+    "links": [
+      {
+        "label": "CRAN",
+        "url": "https://cran.r-project.org/web/packages/LOGIT/index.html"
+      }
+    ]
+  }
+]

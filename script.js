@@ -8,6 +8,7 @@ const mapLink = document.querySelector("#map-link");
 const mapStopList = document.querySelector("#map-stop-list");
 const researchInterestGrid = document.querySelector("#research-interest-grid");
 const researchApplicationGrid = document.querySelector("#research-application-grid");
+const softwareGrid = document.querySelector("#software-grid");
 
 let publications = [];
 let activeFilter = "all";
@@ -136,6 +137,44 @@ function renderResearchLinks(links = []) {
   return links.map((link) => `<a href="${link.url}">${link.label}</a>`).join("");
 }
 
+function renderSoftwareLinks(links = []) {
+  return links.map((link) => `<a href="${link.url}">${link.label}</a>`).join("");
+}
+
+function renderSoftware(items) {
+  if (!softwareGrid) return;
+  softwareGrid.innerHTML = items
+    .map(
+      (item) => `
+        <article class="project-card${item.featured ? " featured" : ""}">
+          <div class="project-mark">${item.mark || item.name.charAt(0)}</div>
+          <span>${item.tag} · ${item.year}</span>
+          <h3>${item.name}</h3>
+          <p>${item.summary}</p>
+          <div class="project-links">${renderSoftwareLinks(item.links)}</div>
+        </article>
+      `
+    )
+    .join("");
+}
+
+async function loadSoftware() {
+  if (!softwareGrid) return;
+  try {
+    const response = await fetch("content/software.json");
+    renderSoftware(await response.json());
+  } catch (error) {
+    softwareGrid.innerHTML = `
+      <article class="project-card">
+        <div class="project-mark">S</div>
+        <span>Software data</span>
+        <h3>Could not load content/software.json</h3>
+        <p>Check the JSON syntax and refresh the page.</p>
+      </article>
+    `;
+  }
+}
+
 function renderResearchContent(data) {
   if (researchInterestGrid) {
     researchInterestGrid.innerHTML = data.interests
@@ -260,6 +299,7 @@ publicationSearch?.addEventListener("input", renderPublications);
 
 loadPublications();
 loadResearchContent();
+loadSoftware();
 
 function updateMapPanel(stop) {
   if (!mapPlace || !mapRole || !mapLink) return;
