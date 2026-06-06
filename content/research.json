@@ -44,7 +44,7 @@
       "links": [
         {
           "label": "SAGUI",
-          "url": "projects.html"
+          "url": "software.html"
         }
       ]
     },
@@ -56,7 +56,7 @@
       "links": [
         {
           "label": "Capivara",
-          "url": "projects.html"
+          "url": "software.html"
         }
       ]
     },
@@ -112,7 +112,7 @@
       "tag": "Segmentation",
       "title": "SAGUI",
       "summary": "Multi-band galaxy segmentation using morphology and spectral energy distributions.",
-      "url": "projects.html"
+      "url": "software.html"
     },
     {
       "image": "assets/images/research/follow-up.png",
