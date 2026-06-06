@@ -238,12 +238,10 @@ function renderWriting(data) {
 
       return `
         <article class="writing-card">
-          <div class="writing-cover${item.cover ? "" : " writing-cover-placeholder"}">
-            ${
-              item.cover
-                ? `<img src="${item.cover}" alt="${escapeHtml(item.title)} cover" loading="lazy">`
-                : `<span>${escapeHtml(item.type || "Fiction")}</span><strong>${escapeHtml(item.coverLabel || item.title)}</strong>`
-            }
+          <div class="writing-cover${item.cover ? " has-cover" : " writing-cover-placeholder"}">
+            ${item.cover ? `<img src="${escapeHtml(item.cover)}" alt="${escapeHtml(item.title)} cover" loading="lazy">` : ""}
+            <span>${escapeHtml(item.type || "Fiction")}</span>
+            <strong>${escapeHtml(item.coverLabel || item.title)}</strong>
           </div>
           <div class="writing-card-body">
             <span>${escapeHtml([item.type, item.year].filter(Boolean).join(" · "))}</span>
@@ -258,6 +256,16 @@ function renderWriting(data) {
       `;
     })
     .join("");
+
+  writingGrid.querySelectorAll(".writing-cover.has-cover img").forEach((image) => {
+    image.addEventListener("error", () => {
+      const cover = image.closest(".writing-cover");
+      if (!cover) return;
+      cover.classList.remove("has-cover");
+      cover.classList.add("writing-cover-placeholder");
+      image.remove();
+    });
+  });
 }
 
 async function loadWriting() {

@@ -1660,14 +1660,26 @@ h3 {
 .writing-cover {
   display: flex;
   min-height: 13rem;
-  align-items: center;
-  justify-content: center;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
   overflow: hidden;
-  background: #14201d;
+  padding: clamp(1.2rem, 3vw, 2rem);
+  background:
+    radial-gradient(circle at 84% 18%, rgba(143, 213, 203, 0.24), transparent 7rem),
+    linear-gradient(145deg, #111817, #2a3e39);
+  color: var(--white);
 }
 
 .writing-grid.is-single .writing-cover {
   min-height: 100%;
+}
+
+.writing-cover.has-cover {
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  background: #14201d;
 }
 
 .writing-cover img {
@@ -1677,14 +1689,9 @@ h3 {
   object-fit: cover;
 }
 
-.writing-cover-placeholder {
-  flex-direction: column;
-  align-items: flex-start;
-  padding: clamp(1.2rem, 3vw, 2rem);
-  background:
-    radial-gradient(circle at 84% 18%, rgba(143, 213, 203, 0.24), transparent 7rem),
-    linear-gradient(145deg, #111817, #2a3e39);
-  color: var(--white);
+.writing-cover.has-cover span,
+.writing-cover.has-cover strong {
+  display: none;
 }
 
 .writing-card .writing-cover-placeholder span {
