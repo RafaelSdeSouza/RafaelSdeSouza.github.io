@@ -833,12 +833,28 @@ h3 {
 .cv-page .timeline,
 .cv-page .two-column {
   grid-column: 1;
-  width: min(100%, 84rem);
+  width: min(100%, 102rem);
   margin-inline: auto;
 }
 
 .cv-page .section-copy {
+  max-width: 102rem;
   margin-bottom: clamp(2rem, 5vw, 4rem);
+}
+
+.cv-page .section-copy p {
+  max-width: 62rem;
+}
+
+.publications-section {
+  grid-template-columns: minmax(4rem, 0.12fr) minmax(0, 0.88fr);
+}
+
+.publications-section .section-copy,
+.publications-section .publication-tools,
+.publications-section .publication-search,
+.publications-section .publication-list {
+  grid-column: 2;
 }
 
 .career-map {
