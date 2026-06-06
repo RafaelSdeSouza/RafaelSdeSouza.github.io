@@ -301,7 +301,7 @@ function renderResearchContent(data) {
         (item) => `
           <article class="research-card">
             <a href="${item.url}">
-              <img class="${item.imageFit === "contain" ? "project-mark" : ""}" src="${item.image}" alt="${item.alt}" loading="lazy">
+              <img class="${item.imageFit === "contain" ? "research-project-mark" : ""}" src="${item.image}" alt="${item.alt}" loading="lazy">
               <div>
                 <span>${item.tag}</span>
                 <h3>${item.title}</h3>
