@@ -1637,16 +1637,24 @@ h3 {
 .writing-grid {
   grid-column: 2;
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 26rem), 1fr));
   gap: 1px;
   border: 1px solid var(--line);
   background: var(--line);
 }
 
+.writing-grid.is-single {
+  grid-template-columns: minmax(0, 1fr);
+}
+
 .writing-card {
   min-height: 18rem;
-  padding: clamp(1.2rem, 3vw, 2rem);
   background: var(--paper);
+}
+
+.writing-grid.is-single .writing-card {
+  display: grid;
+  grid-template-columns: minmax(14rem, 0.36fr) minmax(0, 0.64fr);
 }
 
 .writing-cover {
@@ -1654,11 +1662,12 @@ h3 {
   min-height: 13rem;
   align-items: center;
   justify-content: center;
-  margin: calc(clamp(1.2rem, 3vw, 2rem) * -1)
-    calc(clamp(1.2rem, 3vw, 2rem) * -1)
-    clamp(1.2rem, 3vw, 2rem);
   overflow: hidden;
   background: #14201d;
+}
+
+.writing-grid.is-single .writing-cover {
+  min-height: 100%;
 }
 
 .writing-cover img {
@@ -1689,6 +1698,10 @@ h3 {
   font-family: Georgia, "Times New Roman", serif;
   font-size: clamp(2rem, 4vw, 3.4rem);
   line-height: 0.96;
+}
+
+.writing-card-body {
+  padding: clamp(1.2rem, 3vw, 2rem);
 }
 
 .writing-card span {
@@ -1842,6 +1855,14 @@ h3 {
 
   .featured-book {
     grid-template-columns: 1fr;
+  }
+
+  .writing-grid.is-single .writing-card {
+    grid-template-columns: 1fr;
+  }
+
+  .writing-grid.is-single .writing-cover {
+    min-height: 13rem;
   }
 
   #publication-count {
