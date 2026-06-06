@@ -39,8 +39,8 @@
     {
       "icon": "image",
       "tag": "Images",
-      "title": "Galaxy structure",
-      "summary": "Segmentation and representation of galaxies using morphology, colour, spectra, and physical context.",
+      "title": "Segmentation",
+      "summary": "Galaxy and IFU segmentation methods that use colour, morphology, and spectra as scientific information.",
       "links": [
         {
           "label": "SAGUI",
@@ -51,8 +51,8 @@
     {
       "icon": "spectra",
       "tag": "Spectra",
-      "title": "Spectral representations",
-      "summary": "Graph, manifold, and matrix-factorization methods for spectra, supernovae, and IFU data cubes.",
+      "title": "Spectral methods",
+      "summary": "Graph, matrix-factorization, and low-dimensional representations for spectra and IFU data cubes.",
       "links": [
         {
           "label": "Capivara",
@@ -102,48 +102,48 @@
       "image": "assets/images/research/time-domain.png",
       "alt": "Light curves for transient inference",
       "tag": "Transients",
-      "title": "Time-domain inference",
-      "summary": "Classification, anomaly detection, follow-up strategy, and physical interpretation for alert streams.",
+      "title": "AT2022zod",
+      "summary": "A short-lived tidal-disruption candidate used to probe the missing population of intermediate-mass black holes.",
       "url": "https://cosmostatistics-initiative.org/highlights/the-missing-mass-chronicles-at2022zod/"
     },
     {
       "image": "assets/images/research/spatial-structure.png",
       "alt": "Spatial structure visual for astronomical imaging",
-      "tag": "Images",
-      "title": "Spatial structure",
-      "summary": "Segmentation and representation methods that combine morphology, colour, and physical context.",
-      "url": "https://cosmostatistics-initiative.org/projects/spectroscopic-confirmation-of-a-population-of-isolated-intermediate-mass-ysos/"
+      "tag": "Segmentation",
+      "title": "SAGUI",
+      "summary": "Multi-band galaxy segmentation using morphology and spectral energy distributions.",
+      "url": "projects.html"
     },
     {
       "image": "assets/images/research/follow-up.png",
       "alt": "Active-learning workflow for follow-up decisions",
       "tag": "Active learning",
-      "title": "Follow-up decisions",
-      "summary": "Recommendation systems for selecting informative observations under limited telescope time.",
+      "title": "RESSPECT",
+      "summary": "Recommendation systems for spectroscopic follow-up under LSST-era observing constraints.",
       "url": "https://cosmostatistics-initiative.org/projects/active-learning-with-resspect/"
     },
     {
       "image": "assets/images/research/milky-way.png",
       "alt": "Milky Way structure visual",
       "tag": "Galactic structure",
-      "title": "Milky Way structure",
-      "summary": "Young stellar objects and survey catalogues as tracers of structure in the Galactic disk.",
+      "title": "Sagittarius Arm",
+      "summary": "Young stellar objects revealing a high-pitch-angle structure in the Milky Way.",
       "url": "https://cosmostatistics-initiative.org/projects/a-high-pitch-angle-structure-in-the-sagittarius-arm/"
     },
     {
       "image": "assets/images/research/spectral-classification.png",
       "alt": "Spectral classification graph visual",
       "tag": "Spectra",
-      "title": "Spectral classification",
-      "summary": "Graph and low-dimensional representations for supernova spectra and related data products.",
+      "title": "SN-II graphs",
+      "summary": "Graph-based heuristics for supernova spectral classification.",
       "url": "https://cosmostatistics-initiative.org/projects/a-graph-based-spectral-classification-of-sn-ii/"
     },
     {
       "image": "assets/images/research/cosmic-structure.png",
       "alt": "Cosmic structure map visual",
       "tag": "Weak lensing",
-      "title": "Cosmic structure",
-      "summary": "Statistical summaries for curvilinear structure, mass maps, voids, and large-scale environments.",
+      "title": "DES ridges",
+      "summary": "Ridge estimation for curvilinear structure in weak-lensing mass maps.",
       "url": "https://cosmostatistics-initiative.org/projects/ridges-in-the-dark-energy-survey/"
     }
   ]
