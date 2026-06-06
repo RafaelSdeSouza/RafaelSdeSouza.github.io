@@ -259,6 +259,7 @@ filterButtons?.forEach((button) => {
 publicationSearch?.addEventListener("input", renderPublications);
 
 loadPublications();
+loadResearchContent();
 
 function updateMapPanel(stop) {
   if (!mapPlace || !mapRole || !mapLink) return;

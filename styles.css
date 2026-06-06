@@ -411,6 +411,86 @@ h3 {
   font-weight: 850;
 }
 
+.research-interests {
+  background: var(--paper);
+}
+
+.interest-grid {
+  grid-column: 2;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1px;
+  border: 1px solid var(--line);
+  background: var(--line);
+}
+
+.interest-card {
+  display: flex;
+  min-height: 21rem;
+  flex-direction: column;
+  padding: clamp(1rem, 2.2vw, 1.45rem);
+  background: var(--white);
+}
+
+.interest-icon {
+  display: grid;
+  width: 3.1rem;
+  height: 3.1rem;
+  margin-bottom: 1.65rem;
+  place-items: center;
+  border: 1px solid rgba(11, 117, 109, 0.18);
+  border-radius: 50%;
+  background: #f4f1e8;
+  color: var(--teal-dark);
+}
+
+.interest-icon svg {
+  width: 1.65rem;
+  height: 1.65rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2.2;
+}
+
+.interest-card span {
+  display: block;
+  margin-bottom: 0.55rem;
+  color: var(--clay);
+  font-size: 0.74rem;
+  font-weight: 850;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.interest-card h3 {
+  margin-bottom: 0.7rem;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.32rem, 1.6vw, 1.65rem);
+  line-height: 1.05;
+}
+
+.interest-card p {
+  color: var(--muted);
+  font-size: 0.93rem;
+  line-height: 1.5;
+}
+
+.interest-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem 0.8rem;
+  margin-top: auto;
+  padding-top: 1rem;
+}
+
+.interest-links a {
+  color: var(--teal-dark);
+  font-size: 0.86rem;
+  font-weight: 850;
+}
+
 .home-directory {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -1189,6 +1269,52 @@ h3 {
   align-items: center;
 }
 
+.minimal-contact {
+  grid-template-columns: minmax(16rem, 0.36fr) minmax(0, 0.64fr);
+  min-height: auto;
+  align-items: start;
+  background: var(--paper);
+  color: var(--ink);
+}
+
+.minimal-contact .eyebrow {
+  color: var(--teal-dark);
+}
+
+.minimal-contact h1 {
+  max-width: none;
+  margin-bottom: 1rem;
+  font-size: clamp(2.1rem, 4vw, 3.6rem);
+  line-height: 1;
+}
+
+.minimal-contact p {
+  max-width: 38rem;
+  color: var(--muted);
+}
+
+.minimal-contact .contact-links {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1px;
+  width: 100%;
+  border: 1px solid var(--line);
+  background: var(--line);
+}
+
+.minimal-contact .contact-links a {
+  min-height: 3.8rem;
+  justify-content: flex-start;
+  border: 0;
+  border-radius: 0;
+  background: var(--white);
+  color: var(--ink);
+}
+
+.minimal-contact .contact-links a:hover {
+  background: #f3efe3;
+}
+
 @media (max-width: 980px) {
   .hero,
   .section,
@@ -1200,6 +1326,7 @@ h3 {
   }
 
   .focus-grid,
+  .interest-grid,
   .publication-tools,
   .publication-search,
   .publication-list,
@@ -1214,6 +1341,7 @@ h3 {
   }
 
   .focus-grid,
+  .interest-grid,
   .impact-strip {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -1247,6 +1375,7 @@ h3 {
 
   .impact-strip,
   .focus-grid,
+  .interest-grid,
   .home-directory,
   .research-gallery,
   .project-grid,
@@ -1283,6 +1412,10 @@ h3 {
 
   .research-card a {
     grid-template-rows: 8.2rem auto;
+  }
+
+  .minimal-contact .contact-links {
+    grid-template-columns: 1fr;
   }
 
   .timeline article {
