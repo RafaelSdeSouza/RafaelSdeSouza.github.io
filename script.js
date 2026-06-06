@@ -351,7 +351,7 @@ async function initCareerMap() {
   const svg = d3
     .select(svgElement)
     .attr("viewBox", `0 0 ${width} ${height}`)
-    .attr("preserveAspectRatio", "xMidYMid meet");
+    .attr("preserveAspectRatio", "xMidYMid slice");
 
   const projection = d3
     .geoNaturalEarth1()
