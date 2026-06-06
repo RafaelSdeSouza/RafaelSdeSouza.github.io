@@ -1,0 +1,150 @@
+{
+  "interests": [
+    {
+      "icon": "inference",
+      "tag": "Inference",
+      "title": "Astrostatistics",
+      "summary": "Bayesian and likelihood-free methods for noisy, incomplete, high-dimensional astronomical data.",
+      "links": [
+        {
+          "label": "COIN",
+          "url": "https://cosmostatistics-initiative.org/"
+        }
+      ]
+    },
+    {
+      "icon": "learning",
+      "tag": "Machine learning",
+      "title": "Survey-scale learning",
+      "summary": "Models for catalogues, images, spectra, and alerts where measurement uncertainty and selection effects matter.",
+      "links": [
+        {
+          "label": "Fink",
+          "url": "https://fink-broker.org/"
+        }
+      ]
+    },
+    {
+      "icon": "time",
+      "tag": "Time domain",
+      "title": "Discovery streams",
+      "summary": "Classification, anomaly detection, and follow-up strategy for transient and variable sources.",
+      "links": [
+        {
+          "label": "RESSPECT",
+          "url": "https://cosmostatistics-initiative.org/projects/active-learning-with-resspect/"
+        }
+      ]
+    },
+    {
+      "icon": "image",
+      "tag": "Images",
+      "title": "Galaxy structure",
+      "summary": "Segmentation and representation of galaxies using morphology, colour, spectra, and physical context.",
+      "links": [
+        {
+          "label": "SAGUI",
+          "url": "projects.html"
+        }
+      ]
+    },
+    {
+      "icon": "spectra",
+      "tag": "Spectra",
+      "title": "Spectral representations",
+      "summary": "Graph, manifold, and matrix-factorization methods for spectra, supernovae, and IFU data cubes.",
+      "links": [
+        {
+          "label": "Capivara",
+          "url": "projects.html"
+        }
+      ]
+    },
+    {
+      "icon": "cosmos",
+      "tag": "Cosmology",
+      "title": "Cosmic structure",
+      "summary": "Statistical summaries for mass maps, ridges, voids, large-scale structure, and simulation-based inference.",
+      "links": [
+        {
+          "label": "DES ridges",
+          "url": "https://cosmostatistics-initiative.org/projects/ridges-in-the-dark-energy-survey/"
+        }
+      ]
+    },
+    {
+      "icon": "software",
+      "tag": "Software",
+      "title": "Open methods",
+      "summary": "Research code designed to make statistical ideas testable, reusable, and inspectable.",
+      "links": [
+        {
+          "label": "GitHub",
+          "url": "https://github.com/RafaelSdeSouza"
+        }
+      ]
+    },
+    {
+      "icon": "community",
+      "tag": "Community",
+      "title": "Collaborative science",
+      "summary": "International projects that connect astronomy, statistics, machine learning, and scientific software.",
+      "links": [
+        {
+          "label": "COIN projects",
+          "url": "https://cosmostatistics-initiative.org/projects/"
+        }
+      ]
+    }
+  ],
+  "applications": [
+    {
+      "image": "assets/images/research/time-domain.png",
+      "alt": "Light curves for transient inference",
+      "tag": "Transients",
+      "title": "Time-domain inference",
+      "summary": "Classification, anomaly detection, follow-up strategy, and physical interpretation for alert streams.",
+      "url": "https://cosmostatistics-initiative.org/highlights/the-missing-mass-chronicles-at2022zod/"
+    },
+    {
+      "image": "assets/images/research/spatial-structure.png",
+      "alt": "Spatial structure visual for astronomical imaging",
+      "tag": "Images",
+      "title": "Spatial structure",
+      "summary": "Segmentation and representation methods that combine morphology, colour, and physical context.",
+      "url": "https://cosmostatistics-initiative.org/projects/spectroscopic-confirmation-of-a-population-of-isolated-intermediate-mass-ysos/"
+    },
+    {
+      "image": "assets/images/research/follow-up.png",
+      "alt": "Active-learning workflow for follow-up decisions",
+      "tag": "Active learning",
+      "title": "Follow-up decisions",
+      "summary": "Recommendation systems for selecting informative observations under limited telescope time.",
+      "url": "https://cosmostatistics-initiative.org/projects/active-learning-with-resspect/"
+    },
+    {
+      "image": "assets/images/research/milky-way.png",
+      "alt": "Milky Way structure visual",
+      "tag": "Galactic structure",
+      "title": "Milky Way structure",
+      "summary": "Young stellar objects and survey catalogues as tracers of structure in the Galactic disk.",
+      "url": "https://cosmostatistics-initiative.org/projects/a-high-pitch-angle-structure-in-the-sagittarius-arm/"
+    },
+    {
+      "image": "assets/images/research/spectral-classification.png",
+      "alt": "Spectral classification graph visual",
+      "tag": "Spectra",
+      "title": "Spectral classification",
+      "summary": "Graph and low-dimensional representations for supernova spectra and related data products.",
+      "url": "https://cosmostatistics-initiative.org/projects/a-graph-based-spectral-classification-of-sn-ii/"
+    },
+    {
+      "image": "assets/images/research/cosmic-structure.png",
+      "alt": "Cosmic structure map visual",
+      "tag": "Weak lensing",
+      "title": "Cosmic structure",
+      "summary": "Statistical summaries for curvilinear structure, mass maps, voids, and large-scale environments.",
+      "url": "https://cosmostatistics-initiative.org/projects/ridges-in-the-dark-energy-survey/"
+    }
+  ]
+}
