@@ -6,10 +6,22 @@ const mapPlace = document.querySelector("#map-place");
 const mapRole = document.querySelector("#map-role");
 const mapLink = document.querySelector("#map-link");
 const mapStopList = document.querySelector("#map-stop-list");
+const researchInterestGrid = document.querySelector("#research-interest-grid");
+const researchApplicationGrid = document.querySelector("#research-application-grid");
 
 let publications = [];
 let activeFilter = "all";
 const visitedCountryIds = new Set(["076", "392", "410", "348", "156", "840", "826"]);
+const researchIcons = {
+  inference: `<svg viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M10 32 22 16l9 10 7-12"/><circle cx="10" cy="32" r="4"/><circle cx="22" cy="16" r="4"/><circle cx="31" cy="26" r="4"/><circle cx="38" cy="14" r="4"/></svg>`,
+  learning: `<svg viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M9 14h30M9 24h30M9 34h30"/><circle cx="16" cy="14" r="4"/><circle cx="30" cy="24" r="4"/><circle cx="22" cy="34" r="4"/></svg>`,
+  time: `<svg viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M6 28h8l5-13 8 22 5-13h10"/><circle cx="24" cy="24" r="18"/></svg>`,
+  image: `<svg viewBox="0 0 48 48" aria-hidden="true" focusable="false"><rect x="8" y="10" width="32" height="28" rx="3"/><path d="m10 34 10-10 7 7 5-5 8 8"/><circle cx="31" cy="18" r="4"/></svg>`,
+  spectra: `<svg viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M8 34c6-18 10-18 14 0s8 18 20-14"/><path d="M8 18h34M8 26h34"/></svg>`,
+  cosmos: `<svg viewBox="0 0 48 48" aria-hidden="true" focusable="false"><circle cx="24" cy="24" r="5"/><path d="M8 25c7-13 25-17 34-8M6 34c12-3 28 2 36 10M14 10c6 12 8 23 4 34"/></svg>`,
+  software: `<svg viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="m18 16-9 8 9 8M30 16l9 8-9 8M26 12l-5 28"/></svg>`,
+  community: `<svg viewBox="0 0 48 48" aria-hidden="true" focusable="false"><circle cx="24" cy="14" r="5"/><circle cx="12" cy="32" r="5"/><circle cx="36" cy="32" r="5"/><path d="M21 18 15 28M27 18l6 10M17 32h14"/></svg>`,
+};
 
 const careerStops = [
   {
@@ -118,6 +130,65 @@ function publicationLinks(links = {}) {
   return Object.entries(links)
     .map(([label, url]) => `<a href="${url}">${label}</a>`)
     .join("");
+}
+
+function renderResearchLinks(links = []) {
+  return links.map((link) => `<a href="${link.url}">${link.label}</a>`).join("");
+}
+
+function renderResearchContent(data) {
+  if (researchInterestGrid) {
+    researchInterestGrid.innerHTML = data.interests
+      .map(
+        (item) => `
+          <article class="interest-card">
+            <div class="interest-icon">${researchIcons[item.icon] || researchIcons.inference}</div>
+            <span>${item.tag}</span>
+            <h3>${item.title}</h3>
+            <p>${item.summary}</p>
+            <div class="interest-links">${renderResearchLinks(item.links)}</div>
+          </article>
+        `
+      )
+      .join("");
+  }
+
+  if (researchApplicationGrid) {
+    researchApplicationGrid.innerHTML = data.applications
+      .map(
+        (item) => `
+          <article class="research-card">
+            <a href="${item.url}">
+              <img src="${item.image}" alt="${item.alt}" loading="lazy">
+              <div>
+                <span>${item.tag}</span>
+                <h3>${item.title}</h3>
+                <p>${item.summary}</p>
+              </div>
+            </a>
+          </article>
+        `
+      )
+      .join("");
+  }
+}
+
+async function loadResearchContent() {
+  if (!researchInterestGrid && !researchApplicationGrid) return;
+  try {
+    const response = await fetch("content/research.json");
+    renderResearchContent(await response.json());
+  } catch (error) {
+    if (researchInterestGrid) {
+      researchInterestGrid.innerHTML = `
+        <article class="interest-card">
+          <span>Research data</span>
+          <h3>Could not load content/research.json</h3>
+          <p>Check the JSON syntax and refresh the page.</p>
+        </article>
+      `;
+    }
+  }
 }
 
 function matchesSearch(item, query) {
