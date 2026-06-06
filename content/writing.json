@@ -4,10 +4,10 @@
       "title": "Beyond the Rainbow",
       "type": "Science fiction",
       "authors": "Xuenan Cao and Rafael S. de Souza",
-      "status": "Hosted on Wattpad",
+      "status": "Short story",
       "summary": "The Union is scheduled not for next month, not next week, but in one hour. The biometer reads 3.7 lust.",
       "coverLabel": "Beyond the Rainbow",
-      "readerLabel": "Read story text",
+      "readerLabel": "Read text",
       "body": [
         "The news arrives with both exhilaration and dread: the Union is scheduled not for next month, not next week, but in one hour.",
         "The biometer reads 3.7 lust.",
@@ -58,16 +58,8 @@
       ],
       "links": [
         {
-          "label": "Story",
+          "label": "Wattpad",
           "url": "https://www.wattpad.com/story/307604331-beyond-the-rainbow"
-        },
-        {
-          "label": "Chapter",
-          "url": "https://www.wattpad.com/1214555603-beyond-the-rainbow"
-        },
-        {
-          "label": "Wattpad Profile",
-          "url": "https://www.wattpad.com/user/RafaelSouza646"
         }
       ]
     }
