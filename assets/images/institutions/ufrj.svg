@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" role="img" aria-label="Federal University of Rio de Janeiro visual card">
+  <rect width="640" height="360" fill="#101716"/>
+  <path d="M0 280c96-46 188-46 276 0s180 46 276 0 160-46 220 0v80H0z" fill="#8fd5cb" opacity=".2"/>
+  <path d="M100 255h440M134 255V148h372v107M170 255V184h36v71M250 255V184h36v71M330 255V184h36v71M410 255V184h36v71M126 148l214-64 214 64" fill="none" stroke="#f8f6ef" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" opacity=".88"/>
+  <text x="70" y="72" fill="#8fd5cb" font-family="Arial, sans-serif" font-size="26" font-weight="800" letter-spacing="6">UFRJ</text>
+  <text x="70" y="118" fill="#f8f6ef" font-family="Georgia, serif" font-size="44" font-weight="700">Rio de Janeiro</text>
+</svg>

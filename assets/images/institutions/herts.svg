@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" role="img" aria-label="University of Hertfordshire visual card">
+  <rect width="640" height="360" fill="#0f1a18"/>
+  <circle cx="520" cy="84" r="118" fill="#8fd5cb" opacity=".18"/>
+  <path d="M70 258h500M98 258V148l150-52 150 52v110M132 258v-82h46v82M222 258v-98h48v98M318 258v-82h46v82M430 258v-98h48v98" fill="none" stroke="#f8f6ef" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" opacity=".88"/>
+  <text x="70" y="72" fill="#8fd5cb" font-family="Arial, sans-serif" font-size="26" font-weight="800" letter-spacing="6">HERTS</text>
+  <text x="70" y="118" fill="#f8f6ef" font-family="Georgia, serif" font-size="44" font-weight="700">Hatfield, UK</text>
+</svg>

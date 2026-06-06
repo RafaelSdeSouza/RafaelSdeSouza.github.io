@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" role="img" aria-label="Kavli IPMU visual card">
+  <rect width="640" height="360" fill="#0d1514"/>
+  <circle cx="428" cy="185" r="86" fill="none" stroke="#8fd5cb" stroke-width="10" opacity=".65"/>
+  <circle cx="428" cy="185" r="18" fill="#e5a083"/>
+  <path d="M128 260h210M156 260V146h160v114M186 260v-74h40v74M258 260v-74h40v74M350 92c80 34 150 100 188 186" fill="none" stroke="#f8f6ef" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" opacity=".86"/>
+  <text x="70" y="72" fill="#8fd5cb" font-family="Arial, sans-serif" font-size="26" font-weight="800" letter-spacing="6">IPMU</text>
+  <text x="70" y="118" fill="#f8f6ef" font-family="Georgia, serif" font-size="44" font-weight="700">Kashiwa</text>
+</svg>

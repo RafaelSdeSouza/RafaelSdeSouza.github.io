@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" role="img" aria-label="Federal University of Rio Grande do Sul visual card">
+  <rect width="640" height="360" fill="#101716"/>
+  <path d="M66 282c92-40 176-42 252-6s156 34 242-8" fill="none" stroke="#8fd5cb" stroke-width="16" stroke-linecap="round" opacity=".25"/>
+  <path d="M108 258h424M144 258V150h352v108M184 258v-76h42v76M272 258v-76h42v76M360 258v-76h42v76M446 258v-76h42v76M126 150l194-62 194 62" fill="none" stroke="#f8f6ef" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" opacity=".88"/>
+  <text x="70" y="72" fill="#8fd5cb" font-family="Arial, sans-serif" font-size="26" font-weight="800" letter-spacing="6">UFRGS</text>
+  <text x="70" y="118" fill="#f8f6ef" font-family="Georgia, serif" font-size="44" font-weight="700">Porto Alegre</text>
+</svg>

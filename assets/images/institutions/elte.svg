@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" role="img" aria-label="Eotvos Lorand University visual card">
+  <rect width="640" height="360" fill="#101716"/>
+  <path d="M82 270h476M124 270V142h392v128M164 270V174h42v96M250 270V174h42v96M336 270V174h42v96M422 270V174h42v96M96 142l224-66 224 66" fill="none" stroke="#f8f6ef" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" opacity=".88"/>
+  <path d="M506 72c44 40 58 86 42 138" fill="none" stroke="#8fd5cb" stroke-width="10" stroke-linecap="round" opacity=".34"/>
+  <text x="70" y="72" fill="#8fd5cb" font-family="Arial, sans-serif" font-size="26" font-weight="800" letter-spacing="6">ELTE</text>
+  <text x="70" y="118" fill="#f8f6ef" font-family="Georgia, serif" font-size="44" font-weight="700">Budapest</text>
+</svg>

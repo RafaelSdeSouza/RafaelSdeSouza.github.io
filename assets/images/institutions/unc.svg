@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" role="img" aria-label="University of North Carolina visual card">
+  <rect width="640" height="360" fill="#0f1a18"/>
+  <circle cx="508" cy="88" r="96" fill="#8fd5cb" opacity=".2"/>
+  <path d="M104 262h432M142 262V152h356v110M178 262v-78h42v78M268 262v-78h42v78M358 262v-78h42v78M448 262v-78h42v78M130 152l190-66 190 66" fill="none" stroke="#f8f6ef" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" opacity=".88"/>
+  <text x="70" y="72" fill="#8fd5cb" font-family="Arial, sans-serif" font-size="26" font-weight="800" letter-spacing="6">UNC</text>
+  <text x="70" y="118" fill="#f8f6ef" font-family="Georgia, serif" font-size="44" font-weight="700">Chapel Hill</text>
+</svg>

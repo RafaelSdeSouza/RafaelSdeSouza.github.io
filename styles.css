@@ -632,6 +632,17 @@ h3 {
   min-height: calc(100vh - 4.7rem);
 }
 
+.software-showcase {
+  min-height: auto;
+  grid-template-columns: minmax(16rem, 0.28fr) minmax(0, 0.72fr);
+  padding-top: clamp(2.6rem, 5vw, 4.5rem);
+}
+
+.software-showcase h1 {
+  max-width: 10ch;
+  font-size: clamp(2.6rem, 5.4vw, 5.1rem);
+}
+
 .showcase .eyebrow {
   color: #8fd5cb;
 }
@@ -650,6 +661,10 @@ h3 {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 1rem;
+}
+
+.software-grid {
+  align-items: stretch;
 }
 
 .project-card {
@@ -871,6 +886,40 @@ h3 {
   font-weight: 760;
 }
 
+.map-controls {
+  position: absolute;
+  top: clamp(0.9rem, 2.4vw, 1.35rem);
+  right: clamp(0.9rem, 2.4vw, 1.35rem);
+  z-index: 5;
+  display: flex;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: rgba(17, 24, 23, 0.74);
+  backdrop-filter: blur(14px);
+}
+
+.map-controls button {
+  min-width: 2.25rem;
+  min-height: 2.25rem;
+  padding: 0 0.72rem;
+  border: 0;
+  border-right: 1px solid rgba(255, 255, 255, 0.12);
+  background: transparent;
+  color: var(--white);
+  font: inherit;
+  font-size: 0.9rem;
+  font-weight: 850;
+  cursor: pointer;
+}
+
+.map-controls button:last-child {
+  border-right: 0;
+}
+
+.map-controls button:hover {
+  background: rgba(143, 213, 203, 0.16);
+}
+
 #career-map {
   position: absolute;
   inset: 0;
@@ -1026,6 +1075,15 @@ h3 {
   color: var(--white);
 }
 
+.map-detail-card img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  margin-bottom: 0.85rem;
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  background: #0d1514;
+  object-fit: cover;
+}
+
 .map-detail-card .eyebrow {
   margin-bottom: 0.45rem;
   color: #8fd5cb;
@@ -1043,6 +1101,13 @@ h3 {
   color: rgba(255, 255, 255, 0.74);
   font-size: 0.9rem;
   line-height: 1.45;
+}
+
+.map-detail-card .map-detail-meta {
+  margin-top: -0.35rem;
+  color: rgba(255, 255, 255, 0.52);
+  font-size: 0.78rem;
+  font-weight: 760;
 }
 
 .map-detail-card a {
@@ -1427,6 +1492,7 @@ h3 {
   .hero,
   .section,
   .showcase,
+  .software-showcase,
   .coin-strip,
   .coin-hero,
   .home-directory,
@@ -1509,6 +1575,31 @@ h3 {
   #career-map,
   .map-panel {
     min-height: 24rem;
+  }
+
+  .map-stage {
+    aspect-ratio: auto;
+    min-height: 34rem;
+  }
+
+  .map-overlay {
+    max-width: 14rem;
+  }
+
+  .map-controls {
+    top: 0.75rem;
+    right: 0.75rem;
+  }
+
+  .map-detail-card {
+    right: 0.75rem;
+    bottom: 0.75rem;
+    width: min(19rem, calc(100% - 1.5rem));
+    padding: 0.8rem;
+  }
+
+  .map-detail-card img {
+    display: none;
   }
 
   .map-pin text {

@@ -4,8 +4,13 @@ const publicationSearch = document.querySelector("#publication-search");
 const publicationCount = document.querySelector("#publication-count");
 const mapPlace = document.querySelector("#map-place");
 const mapRole = document.querySelector("#map-role");
+const mapCity = document.querySelector("#map-city");
+const mapImage = document.querySelector("#map-image");
 const mapLink = document.querySelector("#map-link");
 const mapStopList = document.querySelector("#map-stop-list");
+const mapZoomIn = document.querySelector("#map-zoom-in");
+const mapZoomOut = document.querySelector("#map-zoom-out");
+const mapReset = document.querySelector("#map-reset");
 const researchInterestGrid = document.querySelector("#research-interest-grid");
 const researchApplicationGrid = document.querySelector("#research-application-grid");
 const softwareGrid = document.querySelector("#software-grid");
@@ -34,6 +39,7 @@ const careerStops = [
     type: "education",
     coordinates: [-43.23, -22.86],
     link: "https://ufrj.br/en/",
+    image: "assets/images/institutions/ufrj.svg",
   },
   {
     years: "2004-2009",
@@ -44,6 +50,7 @@ const careerStops = [
     type: "education",
     coordinates: [-46.73, -23.56],
     link: "https://www5.usp.br/",
+    image: "assets/images/institutions/usp.svg",
   },
   {
     years: "2010-2011",
@@ -54,6 +61,7 @@ const careerStops = [
     type: "work",
     coordinates: [139.94, 35.89],
     link: "https://www.ipmu.jp/en",
+    image: "assets/images/institutions/ipmu.svg",
   },
   {
     years: "2012-2014",
@@ -64,6 +72,7 @@ const careerStops = [
     type: "work",
     coordinates: [127.37, 36.39],
     link: "https://www.kasi.re.kr/eng/index",
+    image: "assets/images/institutions/kasi.svg",
   },
   {
     years: "2014-2016",
@@ -74,6 +83,7 @@ const careerStops = [
     type: "work",
     coordinates: [19.06, 47.47],
     link: "https://www.elte.hu/en/",
+    image: "assets/images/institutions/elte.svg",
   },
   {
     years: "2017-2020",
@@ -84,6 +94,7 @@ const careerStops = [
     type: "work",
     coordinates: [-79.05, 35.91],
     link: "https://www.unc.edu/",
+    image: "assets/images/institutions/unc.svg",
   },
   {
     years: "2020-2022",
@@ -94,6 +105,7 @@ const careerStops = [
     type: "work",
     coordinates: [121.19, 31.1],
     link: "https://english.shao.cas.cn/",
+    image: "assets/images/institutions/shao.svg",
   },
   {
     years: "2023-present",
@@ -104,6 +116,7 @@ const careerStops = [
     type: "work",
     coordinates: [-0.24, 51.75],
     link: "https://www.herts.ac.uk/research/centres/car",
+    image: "assets/images/institutions/herts.svg",
   },
   {
     years: "2024-present",
@@ -114,6 +127,7 @@ const careerStops = [
     type: "work",
     coordinates: [-78.42, 36.38],
     link: "https://www.unc.edu/",
+    image: "assets/images/institutions/unc.svg",
   },
   {
     years: "2025-present",
@@ -124,6 +138,7 @@ const careerStops = [
     type: "work",
     coordinates: [-51.22, -30.03],
     link: "https://www.ufrgs.br/",
+    image: "assets/images/institutions/ufrgs.svg",
   },
 ];
 
@@ -304,7 +319,12 @@ loadSoftware();
 function updateMapPanel(stop) {
   if (!mapPlace || !mapRole || !mapLink) return;
   mapPlace.textContent = stop.place;
-  mapRole.textContent = `${stop.years} · ${stop.role}. ${stop.city}.`;
+  mapRole.textContent = `${stop.years} · ${stop.role}.`;
+  if (mapCity) mapCity.textContent = stop.city;
+  if (mapImage) {
+    mapImage.src = stop.image || "assets/images/institutions/herts.svg";
+    mapImage.alt = `${stop.place} visual`;
+  }
   mapLink.href = stop.link;
 }
 
@@ -383,8 +403,40 @@ async function initCareerMap() {
       </filter>
     `);
 
-  svg.append("path").datum({ type: "Sphere" }).attr("class", "map-sphere").attr("d", path);
-  svg.append("path").datum(graticule).attr("class", "map-graticule").attr("d", path);
+  const viewport = svg.append("g").attr("class", "map-viewport");
+  const zoom = d3
+    .zoom()
+    .scaleExtent([1, 4])
+    .translateExtent([
+      [-120, -80],
+      [width + 120, height + 80],
+    ])
+    .on("zoom", (event) => {
+      viewport.attr("transform", event.transform);
+    });
+
+  svg.call(zoom);
+
+  function zoomToStop(stop) {
+    if (!stop || reduceMotion) return;
+    const [x, y] = point(stop);
+    const scale = 2.2;
+    const transform = d3.zoomIdentity.translate(width / 2 - x * scale, height / 2 - y * scale).scale(scale);
+    svg.transition().duration(650).ease(d3.easeCubicOut).call(zoom.transform, transform);
+  }
+
+  mapZoomIn?.addEventListener("click", () => {
+    svg.transition().duration(260).call(zoom.scaleBy, 1.35);
+  });
+  mapZoomOut?.addEventListener("click", () => {
+    svg.transition().duration(260).call(zoom.scaleBy, 0.74);
+  });
+  mapReset?.addEventListener("click", () => {
+    svg.transition().duration(360).call(zoom.transform, d3.zoomIdentity);
+  });
+
+  viewport.append("path").datum({ type: "Sphere" }).attr("class", "map-sphere").attr("d", path);
+  viewport.append("path").datum(graticule).attr("class", "map-graticule").attr("d", path);
 
   try {
     const response = await fetch("https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json");
@@ -392,7 +444,7 @@ async function initCareerMap() {
     const countries = topojson.feature(world, world.objects.countries).features;
     const borders = topojson.mesh(world, world.objects.countries, (a, b) => a !== b);
 
-    svg
+    viewport
       .append("g")
       .attr("aria-hidden", "true")
       .selectAll("path")
@@ -403,9 +455,9 @@ async function initCareerMap() {
       )
       .attr("d", path);
 
-    svg.append("path").datum(borders).attr("class", "map-borders").attr("d", path);
+    viewport.append("path").datum(borders).attr("class", "map-borders").attr("d", path);
   } catch (error) {
-    svg.append("path").datum(graticule).attr("class", "map-land").attr("d", path);
+    viewport.append("path").datum(graticule).attr("class", "map-land").attr("d", path);
   }
 
   function point(stop) {
@@ -425,7 +477,7 @@ async function initCareerMap() {
     return `M${x1},${y1} Q${cx},${cy} ${x2},${y2}`;
   }
 
-  svg
+  viewport
     .append("g")
     .attr("aria-hidden", "true")
     .selectAll("path")
@@ -434,7 +486,7 @@ async function initCareerMap() {
     .attr("class", "map-route-shadow")
     .attr("d", ([from, to]) => routePath(from, to));
 
-  const routes = svg
+  const routes = viewport
     .append("g")
     .attr("aria-hidden", "true")
     .selectAll("path")
@@ -457,7 +509,7 @@ async function initCareerMap() {
     });
   }
 
-  svg
+  viewport
     .append("g")
     .attr("aria-hidden", "true")
     .selectAll("text")
@@ -468,7 +520,7 @@ async function initCareerMap() {
     .attr("y", ([, to]) => point(to)[1] - 10)
     .text(([, to]) => to.years.replace("-present", "+"));
 
-  const pins = svg
+  const pins = viewport
     .append("g")
     .selectAll("g")
     .data(careerStops)
@@ -480,11 +532,13 @@ async function initCareerMap() {
     .attr("aria-label", (stop) => `${stop.years}, ${stop.role}, ${stop.place}`)
     .on("click", function (_event, stop) {
       setActiveMapStop(stop, pins);
+      zoomToStop(stop);
     })
     .on("keydown", function (event, stop) {
       if (event.key !== "Enter" && event.key !== " ") return;
       event.preventDefault();
       setActiveMapStop(stop, pins);
+      zoomToStop(stop);
     });
 
   pins.append("circle").attr("class", "pin-halo").attr("r", (stop) => (stop === current ? 19 : 12));
