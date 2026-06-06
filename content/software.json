@@ -4,6 +4,7 @@
     "year": "2026",
     "tag": "Galaxy imaging",
     "mark": "S",
+    "logo": "assets/images/software/sagui.svg",
     "featured": true,
     "summary": "SED-based segmentation of multi-band galaxy images, with application to JADES in GOODS-South.",
     "links": [
@@ -22,6 +23,7 @@
     "year": "2025",
     "tag": "IFU analysis",
     "mark": "C",
+    "logo": "assets/images/software/capivara.svg",
     "featured": true,
     "summary": "Spectral-based segmentation for IFU data cubes and scalable analysis of galaxy substructure.",
     "links": [
@@ -44,6 +46,7 @@
     "year": "2026",
     "tag": "Fourier summaries",
     "mark": "P",
+    "logo": "assets/images/software/powerspectr.svg",
     "featured": true,
     "summary": "R package for median-based radial Fourier power spectra and compact summaries of image structure.",
     "links": [
@@ -62,6 +65,7 @@
     "year": "2026",
     "tag": "Matrix factorization",
     "mark": "N",
+    "logo": "assets/images/software/spectralunmix.svg",
     "featured": true,
     "summary": "Torch-based regularized non-negative matrix factorization for smooth, interpretable spectral components.",
     "links": [

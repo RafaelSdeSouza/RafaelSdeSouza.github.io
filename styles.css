@@ -692,6 +692,17 @@ h3 {
   font-weight: 800;
 }
 
+.project-mark.has-logo {
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.project-mark img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 .project-card span {
   color: #8fd5cb;
   font-size: 0.78rem;
@@ -726,6 +737,108 @@ h3 {
 .publication-tools {
   grid-column: 2;
   margin: 0 0 1rem;
+}
+
+.publication-impact {
+  grid-column: 2;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  margin-bottom: 1rem;
+  border: 1px solid var(--line);
+  background: var(--line);
+}
+
+.publication-impact a {
+  min-height: 9.5rem;
+  padding: 1.1rem;
+  background: var(--white);
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.publication-impact strong {
+  display: block;
+  margin-bottom: 1rem;
+  color: var(--teal-dark);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.8rem, 3vw, 3rem);
+  line-height: 1;
+}
+
+.publication-impact span {
+  color: var(--muted);
+  font-weight: 760;
+}
+
+.featured-book {
+  grid-column: 2;
+  display: grid;
+  grid-template-columns: minmax(11rem, 0.26fr) minmax(0, 0.74fr);
+  gap: clamp(1rem, 3vw, 2rem);
+  align-items: stretch;
+  margin-bottom: 1.2rem;
+  border: 1px solid var(--line);
+  background: var(--white);
+}
+
+.book-cover {
+  display: flex;
+  min-height: 17rem;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1.2rem;
+  background:
+    radial-gradient(circle at 80% 16%, rgba(143, 213, 203, 0.22), transparent 9rem),
+    linear-gradient(145deg, #111817, #24342f);
+  color: var(--white);
+}
+
+.book-cover span,
+.book-cover em {
+  color: #8fd5cb;
+  font-size: 0.78rem;
+  font-style: normal;
+  font-weight: 850;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.book-cover strong {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.8rem, 3vw, 2.9rem);
+  line-height: 0.96;
+}
+
+.featured-book > div:last-child {
+  padding: clamp(1.2rem, 3vw, 2rem);
+}
+
+.featured-book h2 {
+  max-width: 16ch;
+  margin-bottom: 0.75rem;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.7rem, 3vw, 3rem);
+  line-height: 0.98;
+}
+
+.featured-book p:not(.eyebrow) {
+  max-width: 48rem;
+  color: var(--muted);
+}
+
+.featured-book-links,
+.writing-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.featured-book-links a,
+.writing-links a {
+  color: var(--teal-dark);
+  font-weight: 850;
 }
 
 .publication-search {
@@ -1525,6 +1638,56 @@ h3 {
   background: #f3efe3;
 }
 
+.writing-hero {
+  min-height: 34rem;
+}
+
+.writing-section {
+  background: var(--white);
+}
+
+.writing-grid {
+  grid-column: 2;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1px;
+  border: 1px solid var(--line);
+  background: var(--line);
+}
+
+.writing-card {
+  min-height: 18rem;
+  padding: clamp(1.2rem, 3vw, 2rem);
+  background: var(--paper);
+}
+
+.writing-card span {
+  display: block;
+  margin-bottom: 1.4rem;
+  color: var(--teal-dark);
+  font-size: 0.76rem;
+  font-weight: 850;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.writing-card h3 {
+  max-width: 14ch;
+  margin-bottom: 0.7rem;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.8rem, 3vw, 3rem);
+  line-height: 0.98;
+}
+
+.writing-card p {
+  color: var(--muted);
+}
+
+.writing-status {
+  color: var(--clay);
+  font-weight: 800;
+}
+
 @media (max-width: 980px) {
   .hero,
   .section,
@@ -1539,10 +1702,14 @@ h3 {
 
   .focus-grid,
   .interest-grid,
+  .publications-section .section-copy,
   .publication-tools,
   .publication-search,
   .publication-list,
+  .publication-impact,
+  .featured-book,
   .timeline,
+  .writing-grid,
   .career-map {
     grid-column: 1;
   }
@@ -1586,15 +1753,21 @@ h3 {
   }
 
   .impact-strip,
+  .publication-impact,
   .focus-grid,
   .interest-grid,
   .home-directory,
   .research-gallery,
   .project-grid,
+  .writing-grid,
   .publication-search,
   .publication-list,
   .two-column,
   .career-list {
+    grid-template-columns: 1fr;
+  }
+
+  .featured-book {
     grid-template-columns: 1fr;
   }
 

@@ -14,6 +14,7 @@ const mapReset = document.querySelector("#map-reset");
 const researchInterestGrid = document.querySelector("#research-interest-grid");
 const researchApplicationGrid = document.querySelector("#research-application-grid");
 const softwareGrid = document.querySelector("#software-grid");
+const writingGrid = document.querySelector("#writing-grid");
 
 let publications = [];
 let activeFilter = "all";
@@ -162,7 +163,9 @@ function renderSoftware(items) {
     .map(
       (item) => `
         <article class="project-card${item.featured ? " featured" : ""}">
-          <div class="project-mark">${item.mark || item.name.charAt(0)}</div>
+          <div class="project-mark${item.logo ? " has-logo" : ""}">
+            ${item.logo ? `<img src="${item.logo}" alt="${item.name} logo" loading="lazy">` : item.mark || item.name.charAt(0)}
+          </div>
           <span>${item.tag} · ${item.year}</span>
           <h3>${item.name}</h3>
           <p>${item.summary}</p>
@@ -187,6 +190,33 @@ async function loadSoftware() {
         <p>Check the JSON syntax and refresh the page.</p>
       </article>
     `;
+  }
+}
+
+function renderWriting(data) {
+  if (!writingGrid || !Array.isArray(data.works) || data.works.length === 0) return;
+  writingGrid.innerHTML = data.works
+    .map(
+      (item) => `
+        <article class="writing-card">
+          <span>${[item.type, item.year].filter(Boolean).join(" · ")}</span>
+          <h3>${item.title}</h3>
+          <p>${item.summary}</p>
+          ${item.status ? `<p class="writing-status">${item.status}</p>` : ""}
+          <div class="writing-links">${renderResearchLinks(item.links || [])}</div>
+        </article>
+      `
+    )
+    .join("");
+}
+
+async function loadWriting() {
+  if (!writingGrid) return;
+  try {
+    const response = await fetch("content/writing.json");
+    renderWriting(await response.json());
+  } catch (error) {
+    return;
   }
 }
 
@@ -315,6 +345,7 @@ publicationSearch?.addEventListener("input", renderPublications);
 loadPublications();
 loadResearchContent();
 loadSoftware();
+loadWriting();
 
 function updateMapPanel(stop) {
   if (!mapPlace || !mapRole || !mapLink) return;
