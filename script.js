@@ -15,6 +15,9 @@ const researchInterestGrid = document.querySelector("#research-interest-grid");
 const researchApplicationGrid = document.querySelector("#research-application-grid");
 const softwareGrid = document.querySelector("#software-grid");
 const writingGrid = document.querySelector("#writing-grid");
+const siteAssetVersion = new URL(
+  document.querySelector('script[src*="script.js"]')?.src || window.location.href
+).searchParams.toString();
 
 let publications = [];
 let activeFilter = "all";
@@ -143,6 +146,10 @@ const careerStops = [
   },
 ];
 
+function contentUrl(path) {
+  return siteAssetVersion ? `${path}?${siteAssetVersion}` : path;
+}
+
 function publicationLinks(links = {}) {
   return Object.entries(links)
     .map(([label, url]) => `<a href="${url}">${label}</a>`)
@@ -192,7 +199,7 @@ function renderSoftware(items) {
 async function loadSoftware() {
   if (!softwareGrid) return;
   try {
-    const response = await fetch("content/software.json");
+    const response = await fetch(contentUrl("content/software.json"));
     renderSoftware(await response.json());
   } catch (error) {
     softwareGrid.innerHTML = `
@@ -208,6 +215,7 @@ async function loadSoftware() {
 
 function renderWriting(data) {
   if (!writingGrid || !Array.isArray(data.works) || data.works.length === 0) return;
+  writingGrid.classList.toggle("is-single", data.works.length === 1);
   writingGrid.innerHTML = data.works
     .map((item) => {
       const body = Array.isArray(item.body)
@@ -237,13 +245,15 @@ function renderWriting(data) {
                 : `<span>${escapeHtml(item.type || "Fiction")}</span><strong>${escapeHtml(item.coverLabel || item.title)}</strong>`
             }
           </div>
-          <span>${escapeHtml([item.type, item.year].filter(Boolean).join(" · "))}</span>
-          <h3>${escapeHtml(item.title)}</h3>
-          ${item.authors ? `<p class="writing-authors">By ${escapeHtml(item.authors)}</p>` : ""}
-          <p>${escapeHtml(item.summary)}</p>
-          ${item.status ? `<p class="writing-status">${escapeHtml(item.status)}</p>` : ""}
-          <div class="writing-links">${renderResearchLinks(item.links || [])}</div>
-          ${body}
+          <div class="writing-card-body">
+            <span>${escapeHtml([item.type, item.year].filter(Boolean).join(" · "))}</span>
+            <h3>${escapeHtml(item.title)}</h3>
+            ${item.authors ? `<p class="writing-authors">By ${escapeHtml(item.authors)}</p>` : ""}
+            <p>${escapeHtml(item.summary)}</p>
+            ${item.status ? `<p class="writing-status">${escapeHtml(item.status)}</p>` : ""}
+            <div class="writing-links">${renderResearchLinks(item.links || [])}</div>
+            ${body}
+          </div>
         </article>
       `;
     })
@@ -253,7 +263,7 @@ function renderWriting(data) {
 async function loadWriting() {
   if (!writingGrid) return;
   try {
-    const response = await fetch("content/writing.json");
+    const response = await fetch(contentUrl("content/writing.json"));
     renderWriting(await response.json());
   } catch (error) {
     return;
@@ -300,7 +310,7 @@ function renderResearchContent(data) {
 async function loadResearchContent() {
   if (!researchInterestGrid && !researchApplicationGrid) return;
   try {
-    const response = await fetch("content/research.json");
+    const response = await fetch(contentUrl("content/research.json"));
     renderResearchContent(await response.json());
   } catch (error) {
     if (researchInterestGrid) {
@@ -356,7 +366,7 @@ function renderPublications() {
 async function loadPublications() {
   if (!publicationList) return;
   try {
-    const response = await fetch("content/publications.json");
+    const response = await fetch(contentUrl("content/publications.json"));
     publications = await response.json();
     publications.sort((a, b) => b.year - a.year || a.title.localeCompare(b.title));
     renderPublications();
