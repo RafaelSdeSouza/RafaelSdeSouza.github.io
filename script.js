@@ -729,8 +729,8 @@ async function loadPublications() {
     publicationList.innerHTML = `
       <article class="publication-card">
         <span>Publication data</span>
-        <h3>Could not load content/publications.json</h3>
-        <p>Check the JSON syntax and refresh the page.</p>
+        <h3>Could not load CV_rafael_2026/references.bib</h3>
+        <p>Check the BibTeX file and refresh the page.</p>
       </article>
     `;
   }
