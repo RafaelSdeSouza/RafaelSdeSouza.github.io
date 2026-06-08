@@ -5,6 +5,7 @@
 ### Header
 
 title: Publications.
+summary: A searchable bibliography generated directly from my CV BibTeX record.
 
 ## Impact
 
