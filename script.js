@@ -18,6 +18,7 @@ const writingGrid = document.querySelector("#writing-grid");
 const siteAssetVersion = new URL(
   document.querySelector('script[src*="script.js"]')?.src || window.location.href
 ).searchParams.toString();
+const pageContentVersion = window.location.search.replace(/^\?/, "");
 
 let publications = [];
 let activeFilter = "all";
@@ -147,11 +148,13 @@ const careerStops = [
 ];
 
 function contentUrl(path) {
-  return siteAssetVersion ? `${path}?${siteAssetVersion}` : path;
+  const version = [siteAssetVersion, pageContentVersion].filter(Boolean).join("&");
+  return version ? `${path}?${version}` : path;
 }
 
 function publicationLinks(links = {}) {
-  return Object.entries(links)
+  const entries = Array.isArray(links) ? links.map((link) => [link.label, link.url]) : Object.entries(links);
+  return entries
     .map(([label, url]) => `<a href="${url}">${label}</a>`)
     .join("");
 }
@@ -177,6 +180,342 @@ function escapeHtml(value = "") {
   });
 }
 
+async function loadText(path) {
+  const response = await fetch(contentUrl(path));
+  if (!response.ok) throw new Error(`Could not load ${path}`);
+  return response.text();
+}
+
+async function loadMarkdownOrJson(markdownPath, jsonPath, parser) {
+  try {
+    return parser(await loadText(markdownPath));
+  } catch (markdownError) {
+    const response = await fetch(contentUrl(jsonPath));
+    return response.json();
+  }
+}
+
+function normalizeMarkdownHeading(value = "") {
+  return value.toLowerCase().replace(/[^a-z0-9]+/g, " ").trim();
+}
+
+function parseMarkdownValue(value = "") {
+  if (/^(true|false)$/i.test(value)) return value.toLowerCase() === "true";
+  if (/^\d+$/.test(value)) return Number(value);
+  return value;
+}
+
+function markdownParagraphs(lines) {
+  return lines
+    .join("\n")
+    .split(/\n\s*\n/)
+    .map((paragraph) => paragraph.replace(/\n+/g, " ").trim())
+    .filter(Boolean);
+}
+
+function parseMarkdownLinks(lines, startIndex) {
+  const links = [];
+  let index = startIndex;
+  while (index < lines.length) {
+    const line = lines[index].trim();
+    if (!line) {
+      index += 1;
+      continue;
+    }
+    if (/^[A-Za-z][A-Za-z0-9_-]*:\s*/.test(line)) break;
+
+    const markdownLink = line.match(/^-\s*\[([^\]]+)\]\(([^)]+)\)/);
+    const pairLink = line.match(/^-\s*([^:]+):\s*(.+)$/);
+    if (markdownLink) {
+      links.push({ label: markdownLink[1].trim(), url: markdownLink[2].trim() });
+    } else if (pairLink) {
+      links.push({ label: pairLink[1].trim(), url: pairLink[2].trim() });
+    }
+    index += 1;
+  }
+  return { links, index };
+}
+
+function parseMarkdownFootnotes(lines, startIndex) {
+  const footnotes = [];
+  let index = startIndex;
+  while (index < lines.length) {
+    const line = lines[index].trim();
+    if (!line) {
+      index += 1;
+      continue;
+    }
+    if (/^[A-Za-z][A-Za-z0-9_-]*:\s*/.test(line)) break;
+    footnotes.push(line.replace(/^-\s*/, ""));
+    index += 1;
+  }
+  return { footnotes, index };
+}
+
+function parseMarkdownItem(title, lines) {
+  const item = { title };
+  const proseLines = [];
+  let index = 0;
+
+  while (index < lines.length) {
+    const rawLine = lines[index];
+    const line = rawLine.trim();
+    if (!line) {
+      index += 1;
+      continue;
+    }
+
+    const field = line.match(/^([A-Za-z][A-Za-z0-9_-]*):\s*(.*)$/);
+    if (!field) {
+      proseLines.push(rawLine);
+      index += 1;
+      continue;
+    }
+
+    const key = field[1];
+    const value = field[2].trim();
+    index += 1;
+
+    if (key === "links") {
+      const parsed = parseMarkdownLinks(lines, index);
+      item.links = parsed.links;
+      index = parsed.index;
+    } else if (key === "body") {
+      const bodyLines = [];
+      while (index < lines.length && !/^footnotes:\s*$/i.test(lines[index].trim())) {
+        bodyLines.push(lines[index]);
+        index += 1;
+      }
+      item.body = markdownParagraphs(bodyLines);
+    } else if (key === "footnotes") {
+      const parsed = parseMarkdownFootnotes(lines, index);
+      item.footnotes = parsed.footnotes;
+      index = parsed.index;
+    } else {
+      item[key] = parseMarkdownValue(value);
+    }
+  }
+
+  if (!item.summary && proseLines.length) {
+    item.summary = markdownParagraphs(proseLines).join(" ");
+  }
+
+  return item;
+}
+
+function parseMarkdownSections(markdown) {
+  const sections = { default: [] };
+  let section = "default";
+  let current = null;
+
+  function closeCurrent() {
+    if (!current) return;
+    sections[section] ||= [];
+    sections[section].push(parseMarkdownItem(current.title, current.lines));
+    current = null;
+  }
+
+  markdown.replace(/\r\n/g, "\n").split("\n").forEach((line) => {
+    const sectionMatch = line.match(/^##\s+(.+)$/);
+    const itemMatch = line.match(/^###\s+(.+)$/);
+
+    if (sectionMatch) {
+      closeCurrent();
+      section = normalizeMarkdownHeading(sectionMatch[1]);
+      sections[section] ||= [];
+    } else if (itemMatch) {
+      closeCurrent();
+      current = { title: itemMatch[1].trim(), lines: [] };
+    } else if (current) {
+      current.lines.push(line);
+    }
+  });
+
+  closeCurrent();
+  return sections;
+}
+
+function firstMarkdownSection(sections, names) {
+  for (const name of names) {
+    const key = normalizeMarkdownHeading(name);
+    if (sections[key]?.length) return sections[key];
+  }
+  return sections.default || [];
+}
+
+function parseSoftwareMarkdown(markdown) {
+  return firstMarkdownSection(parseMarkdownSections(markdown), ["Software"]);
+}
+
+function parseWritingMarkdown(markdown) {
+  return { works: firstMarkdownSection(parseMarkdownSections(markdown), ["Writing", "Works"]) };
+}
+
+function parsePublicationsMarkdown(markdown) {
+  return firstMarkdownSection(parseMarkdownSections(markdown), ["Publications", "Bibliography"]);
+}
+
+function parseResearchMarkdown(markdown) {
+  const sections = parseMarkdownSections(markdown);
+  return {
+    interests: firstMarkdownSection(sections, ["Research interests", "Interests"]),
+    applications: firstMarkdownSection(sections, ["Research highlights", "Highlights", "Applications"]),
+  };
+}
+
+const bibtexTypeMap = {
+  article: "paper",
+  inproceedings: "proceeding",
+  bookchapter: "chapter",
+  incatalogues: "catalogue",
+  book: "book",
+  software: "software",
+  tns: "report",
+};
+
+function cleanLatex(value = "") {
+  const replacements = [
+    [/\\textbf\s*\{/g, ""],
+    [/\\emph\s*\{/g, ""],
+    [/\\&/g, "&"],
+    [/~/g, " "],
+    [/--/g, "-"],
+    [/``/g, '"'],
+    [/''/g, '"'],
+    [/\\_/g, "_"],
+    [/\\%/g, "%"],
+    [/\\\$/g, "$"],
+    [/\\#/g, "#"],
+    [/\\[a-zA-Z]+\s*/g, ""],
+    [/[{}]/g, ""],
+    [/\s+/g, " "],
+  ];
+  return replacements.reduce((text, [pattern, replacement]) => text.replace(pattern, replacement), value).trim();
+}
+
+function splitBibtexEntries(text) {
+  const entries = [];
+  let index = 0;
+
+  while (index < text.length) {
+    const at = text.indexOf("@", index);
+    if (at < 0) break;
+
+    const header = text.slice(at).match(/^@([A-Za-z]+)\s*\{\s*([^,]+),/);
+    if (!header) {
+      index = at + 1;
+      continue;
+    }
+
+    const entryType = header[1].toLowerCase();
+    const key = header[2].trim();
+    let cursor = at + header[0].length;
+    let depth = 1;
+    const start = cursor;
+
+    while (cursor < text.length && depth > 0) {
+      if (text[cursor] === "{") depth += 1;
+      if (text[cursor] === "}") depth -= 1;
+      cursor += 1;
+    }
+
+    entries.push({ entryType, key, body: text.slice(start, cursor - 1) });
+    index = cursor;
+  }
+
+  return entries;
+}
+
+function splitBibtexFields(body) {
+  const fields = {};
+  let index = 0;
+
+  while (index < body.length) {
+    while (index < body.length && /[\s,]/.test(body[index])) index += 1;
+
+    const nameMatch = body.slice(index).match(/^([A-Za-z][A-Za-z0-9_-]*)\s*=/);
+    if (!nameMatch) {
+      index += 1;
+      continue;
+    }
+
+    const name = nameMatch[1].toLowerCase();
+    index += nameMatch[0].length;
+    while (index < body.length && /\s/.test(body[index])) index += 1;
+
+    let value = "";
+    if (body[index] === "{") {
+      index += 1;
+      const start = index;
+      let depth = 1;
+      while (index < body.length && depth > 0) {
+        if (body[index] === "{") depth += 1;
+        if (body[index] === "}") depth -= 1;
+        index += 1;
+      }
+      value = body.slice(start, index - 1);
+    } else if (body[index] === '"') {
+      index += 1;
+      const start = index;
+      while (index < body.length && body[index] !== '"') index += 1;
+      value = body.slice(start, index);
+      index += 1;
+    } else {
+      const start = index;
+      while (index < body.length && body[index] !== ",") index += 1;
+      value = body.slice(start, index);
+    }
+
+    fields[name] = cleanLatex(value);
+  }
+
+  return fields;
+}
+
+function bibtexLinks(fields) {
+  const links = {};
+  if (fields.doi) {
+    const doi = fields.doi.replace(/^https?:\/\/doi\.org\//, "");
+    links.DOI = `https://doi.org/${doi}`;
+  }
+  if (fields.adsurl) links.ADS = fields.adsurl;
+  if (fields.eprint) links.arXiv = `https://arxiv.org/abs/${fields.eprint}`;
+  if (fields.url && !Object.values(links).includes(fields.url)) links.URL = fields.url;
+  return links;
+}
+
+function publicationFromBibtex(entry) {
+  const fields = splitBibtexFields(entry.body);
+  const yearText = fields.year || "0";
+  const yearMatch = yearText.match(/\d{4}/);
+
+  return {
+    id: entry.key,
+    year: yearMatch ? Number(yearMatch[0]) : yearText,
+    type: bibtexTypeMap[entry.entryType] || entry.entryType,
+    bibtex_type: entry.entryType,
+    title: fields.title || entry.key,
+    authors: fields.author || "",
+    venue: fields.journal || fields.booktitle || fields.publisher || "",
+    volume: fields.volume || "",
+    pages: fields.pages || "",
+    links: bibtexLinks(fields),
+  };
+}
+
+function parseBibtexPublications(bibtex) {
+  return splitBibtexEntries(bibtex).map(publicationFromBibtex);
+}
+
+async function loadBibtexOrJson(bibPath, jsonPath) {
+  try {
+    return parseBibtexPublications(await loadText(bibPath));
+  } catch (bibtexError) {
+    const response = await fetch(contentUrl(jsonPath));
+    return response.json();
+  }
+}
+
 function renderSoftware(items) {
   if (!softwareGrid) return;
   softwareGrid.innerHTML = items
@@ -199,8 +538,7 @@ function renderSoftware(items) {
 async function loadSoftware() {
   if (!softwareGrid) return;
   try {
-    const response = await fetch(contentUrl("content/software.json"));
-    renderSoftware(await response.json());
+    renderSoftware(await loadMarkdownOrJson("content/software.md", "content/software.json", parseSoftwareMarkdown));
   } catch (error) {
     softwareGrid.innerHTML = `
       <article class="project-card">
@@ -271,8 +609,7 @@ function renderWriting(data) {
 async function loadWriting() {
   if (!writingGrid) return;
   try {
-    const response = await fetch(contentUrl("content/writing.json"));
-    renderWriting(await response.json());
+    renderWriting(await loadMarkdownOrJson("content/writing.md", "content/writing.json", parseWritingMarkdown));
   } catch (error) {
     return;
   }
@@ -318,8 +655,7 @@ function renderResearchContent(data) {
 async function loadResearchContent() {
   if (!researchInterestGrid && !researchApplicationGrid) return;
   try {
-    const response = await fetch(contentUrl("content/research.json"));
-    renderResearchContent(await response.json());
+    renderResearchContent(await loadMarkdownOrJson("content/research.md", "content/research.json", parseResearchMarkdown));
   } catch (error) {
     if (researchInterestGrid) {
       researchInterestGrid.innerHTML = `
@@ -374,8 +710,7 @@ function renderPublications() {
 async function loadPublications() {
   if (!publicationList) return;
   try {
-    const response = await fetch(contentUrl("content/publications.json"));
-    publications = await response.json();
+    publications = await loadMarkdownOrJson("content/publications.md", "content/publications.json", parsePublicationsMarkdown);
     publications.sort((a, b) => b.year - a.year || a.title.localeCompare(b.title));
     renderPublications();
   } catch (error) {
