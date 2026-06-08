@@ -74,28 +74,6 @@ function softwareMarkdown(items) {
   ].join("\n");
 }
 
-function publicationsMarkdown(items) {
-  return [
-    "# Publications",
-    "",
-    "## Publications",
-    "",
-    ...items.map((item) =>
-      block(item.title, {
-        id: item.id,
-        year: item.year,
-        type: item.type,
-        bibtex_type: item.bibtex_type || "",
-        authors: item.authors || "",
-        venue: item.venue || "",
-        volume: item.volume || "",
-        pages: item.pages || "",
-        summary: item.summary || "",
-      }, linesForLinks(item.links))
-    ),
-  ].join("\n");
-}
-
 function writingMarkdown(data) {
   return [
     "# Writing",
@@ -124,5 +102,4 @@ function writingMarkdown(data) {
 
 await writeFile(new URL("research.md", contentDir), researchMarkdown(await readJson("research.json")));
 await writeFile(new URL("software.md", contentDir), softwareMarkdown(await readJson("software.json")));
-await writeFile(new URL("publications.md", contentDir), publicationsMarkdown(await readJson("publications.json")));
 await writeFile(new URL("writing.md", contentDir), writingMarkdown(await readJson("writing.json")));

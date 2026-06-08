@@ -710,7 +710,7 @@ function renderPublications() {
 async function loadPublications() {
   if (!publicationList) return;
   try {
-    publications = await loadMarkdownOrJson("content/publications.md", "content/publications.json", parsePublicationsMarkdown);
+    publications = await loadBibtexOrJson("CV_rafael_2026/references.bib", "content/publications.json");
     publications.sort((a, b) => b.year - a.year || a.title.localeCompare(b.title));
     renderPublications();
   } catch (error) {
