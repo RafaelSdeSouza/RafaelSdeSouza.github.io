@@ -2,6 +2,9 @@ const publicationList = document.querySelector("#publication-list");
 const filterButtons = document.querySelectorAll(".filter-button");
 const publicationSearch = document.querySelector("#publication-search");
 const publicationCount = document.querySelector("#publication-count");
+const publicationCopy = document.querySelector("#publications .section-copy");
+const publicationImpact = document.querySelector("#publications .publication-impact");
+const featuredBook = document.querySelector("#publications .featured-book");
 const mapPlace = document.querySelector("#map-place");
 const mapRole = document.querySelector("#map-role");
 const mapCity = document.querySelector("#map-city");
@@ -353,6 +356,15 @@ function parseWritingMarkdown(markdown) {
 
 function parsePublicationsMarkdown(markdown) {
   return firstMarkdownSection(parseMarkdownSections(markdown), ["Publications", "Bibliography"]);
+}
+
+function parsePublicationPageMarkdown(markdown) {
+  const sections = parseMarkdownSections(markdown);
+  return {
+    header: firstMarkdownSection(sections, ["Page", "Header"])[0] || {},
+    impact: firstMarkdownSection(sections, ["Impact", "Publication impact", "Impact badges"]),
+    featuredBook: firstMarkdownSection(sections, ["Featured book", "Book"])[0] || null,
+  };
 }
 
 function parseResearchMarkdown(markdown) {
@@ -724,6 +736,50 @@ async function loadPublications() {
   }
 }
 
+async function loadPublicationPageContent() {
+  if (!publicationCopy && !publicationImpact && !featuredBook) return;
+  try {
+    const data = parsePublicationPageMarkdown(await loadText("content/publications.md"));
+    if (publicationCopy && data.header.title) {
+      publicationCopy.querySelector("h1").textContent = data.header.title;
+      publicationCopy.querySelector("p").textContent = data.header.summary || "";
+    }
+
+    if (publicationImpact && data.impact.length) {
+      publicationImpact.innerHTML = data.impact
+        .map(
+          (item) => `
+            <a href="${escapeHtml(item.url || "publications.html")}">
+              <strong>${escapeHtml(item.value || item.title)}</strong>
+              <span>${escapeHtml(item.label || item.summary || "")}</span>
+            </a>
+          `
+        )
+        .join("");
+    }
+
+    if (featuredBook && data.featuredBook) {
+      const book = data.featuredBook;
+      featuredBook.innerHTML = `
+        <div class="book-cover">
+          <img
+            src="${escapeHtml(book.cover || "assets/images/book-cover-bayesian-models.jpg")}"
+            alt="${escapeHtml(book.alt || `${book.title} cover`)}"
+            loading="lazy">
+        </div>
+        <div>
+          <p class="eyebrow">${escapeHtml(book.eyebrow || "Featured Book")}</p>
+          <h2>${escapeHtml(book.title)}</h2>
+          <p>${escapeHtml(book.summary || "")}</p>
+          <div class="featured-book-links">${renderResearchLinks(book.links || [])}</div>
+        </div>
+      `;
+    }
+  } catch (error) {
+    return;
+  }
+}
+
 filterButtons?.forEach((button) => {
   button.addEventListener("click", () => {
     filterButtons.forEach((item) => item.classList.remove("is-active"));
@@ -736,6 +792,7 @@ filterButtons?.forEach((button) => {
 publicationSearch?.addEventListener("input", renderPublications);
 
 loadPublications();
+loadPublicationPageContent();
 loadResearchContent();
 loadSoftware();
 loadWriting();

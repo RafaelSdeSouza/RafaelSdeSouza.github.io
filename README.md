@@ -5,43 +5,66 @@ This repository contains a static GitHub Pages website for an academic CV, resea
 ## Main Files
 
 - `index.html`: page structure and section order.
-- `research.html`: research interests and application examples loaded from `content/research.json`.
+- `research.html`: research interests and highlights loaded from `content/research.md`.
 - `software.html`: research software cards.
+- `writing.html`: science fiction, poetry, and literary work loaded from `content/writing.md`.
 - `coin.html`: COIN page.
 - `styles.css`: visual design.
-- `script.js`: loads and filters publications and research cards.
-- `content/publications.json`: the easiest place to add new papers, software, and media items.
-- `content/research.json`: the easiest place to edit research interests, examples, links, and research-card images.
-- `content/software.json`: the easiest place to edit software cards.
+- `script.js`: loads Markdown content, BibTeX publications, filters, and the CV map.
+- `content/research.md`: edit research interests and research highlights here.
+- `content/software.md`: edit software cards here.
+- `content/writing.md`: edit sci-fi, poetry, and literary work here.
+- `content/publications.md`: edit the publications page title, subtitle, impact badges, and featured book text here.
+- `CV_rafael_2026/references.bib`: edit publication references here; the website reads this file directly.
+- `content/*.json`: fallback data files. You normally do not need to edit these.
 - `assets/cv/cv.pdf`: downloadable PDF CV.
 - `assets/images/rafael-de-souza.jpg`: hero/profile image.
 - `assets/images/coin.png`: COIN logo used in the visual identity areas.
 - `CV_rafael_2026/`: original Overleaf/LaTeX CV source.
 
-## Adding Publications
+## Editing Content
 
-The full website publication list is generated from the Overleaf BibTeX file:
+For normal edits, use the Markdown files in `content/`.
+
+Each card starts with `### Title`, followed by simple fields:
+
+```md
+### New Project
+
+year: 2026
+tag: Topic
+mark: N
+logo: assets/images/software/new-logo.png
+featured: false
+summary: One clean sentence.
+
+links:
+- Paper: https://...
+- Code: https://...
+```
+
+After editing, commit and push in GitHub Desktop. GitHub Pages will rebuild automatically.
+
+If the browser still shows the old text, add a cache-busting query to the URL, for example:
+
+```text
+https://rafaelsdesouza.com.br/research.html?fresh=20260608
+```
+
+## Publications From BibTeX
+
+The publication list is read directly from:
+
+```text
+CV_rafael_2026/references.bib
+```
+
+That means you only edit the BibTeX file. After commit and push, the website loads the updated references automatically.
+
+The older JSON generator is kept only as a backup/fallback:
 
 ```bash
 python3 scripts/bib_to_publications.py CV_rafael_2026/references.bib content/publications.json
-```
-
-Run that command after editing `CV_rafael_2026/references.bib`.
-
-You can also edit `content/publications.json` by hand. A publication object looks like this:
-
-```json
-{
-  "year": 2026,
-  "type": "paper",
-  "title": "Paper title",
-  "venue": "Journal or preprint server",
-  "summary": "One sentence summary.",
-  "links": {
-    "DOI": "https://doi.org/...",
-    "ADS": "https://ui.adsabs.harvard.edu/..."
-  }
-}
 ```
 
 Supported `type` values include `paper`, `software`, `report`, `book`, `chapter`, `proceeding`, and `catalogue`.
@@ -49,9 +72,10 @@ Supported `type` values include `paper`, `software`, `report`, `book`, `chapter`
 ## Replacing Images and Logos
 
 - Replace `assets/images/rafael-de-souza.jpg` with a formal portrait or a preferred graphic.
-- Add logos to `assets/images/` and then reference them from the relevant HTML page.
-- Software cards are rendered from `content/software.json`.
-- Research-card images live in `assets/images/research/`; edit their text and links in `content/research.json`.
+- Add logos to `assets/images/` and reference them from the relevant Markdown file.
+- Software logos live in `assets/images/software/`.
+- Research highlight images live in `assets/images/research/`.
+- Writing covers live in `assets/images/writing/`.
 
 ## Custom Domain
 
