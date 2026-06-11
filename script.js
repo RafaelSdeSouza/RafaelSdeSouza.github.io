@@ -347,7 +347,10 @@ function firstMarkdownSection(sections, names) {
 }
 
 function parseSoftwareMarkdown(markdown) {
-  return firstMarkdownSection(parseMarkdownSections(markdown), ["Software"]);
+  return firstMarkdownSection(parseMarkdownSections(markdown), ["Software"]).map((item) => ({
+    ...item,
+    name: item.name || item.title,
+  }));
 }
 
 function parseWritingMarkdown(markdown) {
