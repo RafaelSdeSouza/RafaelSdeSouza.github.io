@@ -6,7 +6,7 @@
 
 eyebrow: Astrostatistics · Machine Learning · Survey Science
 title: Rafael S. de Souza
-summary: I build statistical and machine-learning methods that turn complex astronomical data into physical insight, with a focus on galaxy evolution, survey science, and open research software.
+summary: I develop statistical and machine-learning methods that turn complex astronomical data into physical insight, with a focus on galaxy evolution, survey science, and open-source research software.
 portrait: assets/images/rafael-de-souza.jpg?v=20260605b
 portraitAlt: Portrait of Rafael S. de Souza
 portraitCaption: Astrostatistics, machine learning, and scientific software for data-intensive astronomy.
@@ -15,13 +15,13 @@ portraitCaption: Astrostatistics, machine learning, and scientific software for 
 
 ### Senior Lecturer
 
-label: Senior Lecturer
+label: Senior Lecturer in Data Science
 place: University of Hertfordshire
 url: https://www.herts.ac.uk/
 
 ### COIN
 
-label: Founder and Co-Chair
+label: Co-Founder and Co-Chair
 place: Cosmostatistics Initiative
 url: https://cosmostatistics-initiative.org/
 
@@ -59,34 +59,40 @@ url: publications.html
 
 ### Funding
 
-value: $1M+
-label: competitive research funding as PI
+value: US$1M+
+label: competitive research funding secured as PI
 url: assets/cv/cv.pdf
 
 ### COIN
 
 value: 80+
-label: COIN researchers
+label: researchers in the international COIN network
 url: coin.html
 
 ### Global
 
-value: Global
-label: academic path across major research centres
+value: 4 continents
+label: academic appointments across international research centres
 url: cv.html
 
 ## Contact
 
-### Get in touch
+### Research enquiries
 
-eyebrow: Open to collaborations
-summary: I welcome enquiries about seminars, student supervision, research collaborations, and the software or papers presented on this site. Email me at <a href="mailto:rd23aag@herts.ac.uk">rd23aag@herts.ac.uk</a>.
+eyebrow: Open to collaboration
+summary: I welcome seminar invitations, supervision enquiries, research collaborations, and questions about my publications or research software.
 
 ## Contact links
 
+### Email
+
+label: Email me
+url: mailto:rd23aag@herts.ac.uk
+primary: true
+
 ### Contact Page
 
-label: Contact Page
+label: Contact details
 url: contact.html
 
 ### ORCID
