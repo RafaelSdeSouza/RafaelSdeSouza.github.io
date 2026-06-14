@@ -77,8 +77,6 @@ url: cv.html
 
 ## Contact
 
-### Main
-
 summary: Email <a href="mailto:rd23aag@herts.ac.uk">rd23aag@herts.ac.uk</a> for seminars, supervision enquiries, research collaborations, or questions about the software and papers listed here.
 
 ## Contact links
