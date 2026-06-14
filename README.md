@@ -11,10 +11,15 @@ This repository contains a static GitHub Pages website for an academic CV, resea
 - `coin.html`: COIN page.
 - `styles.css`: visual design.
 - `script.js`: loads Markdown content, BibTeX publications, filters, and the CV map.
+- `content/README.md`: detailed editing guide with copy-paste examples.
+- `content/home.md`: edit the homepage hero, roles, impact strip, and homepage contact block here.
 - `content/research.md`: edit research interests and research highlights here.
 - `content/software.md`: edit software cards here.
 - `content/writing.md`: edit sci-fi, poetry, and literary work here.
 - `content/publications.md`: edit the publications page title, subtitle, impact badges, and featured book text here.
+- `content/cv.md`: edit the CV page, map appointments, funding, awards, teaching, and service here.
+- `content/coin.md`: edit the COIN page here.
+- `content/contact.md`: edit the contact page here.
 - `CV_rafael_2026/references.bib`: edit publication references here; the website reads this file directly.
 - `content/*.json`: fallback data files. You normally do not need to edit these.
 - `assets/cv/cv.pdf`: downloadable PDF CV.
