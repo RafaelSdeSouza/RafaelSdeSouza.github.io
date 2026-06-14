@@ -76,7 +76,9 @@ label: academic path across major research centres
 url: cv.html
 
 ## Contact
+### Main
 
+eyebrow: Open to new collaborations
 summary: Email <a href="mailto:rd23aag@herts.ac.uk">rd23aag@herts.ac.uk</a> for seminars, supervision enquiries, research collaborations, or questions about the software and papers listed here.
 
 ## Contact links
