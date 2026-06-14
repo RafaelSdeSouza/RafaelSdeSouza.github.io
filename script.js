@@ -365,7 +365,8 @@ function renderPlainLinks(links = []) {
 function renderActionLinks(items = [], primaryClass = "primary") {
   return items
     .map((item) => {
-      const classes = ["button", item.primary || item.style === primaryClass ? primaryClass : ""]
+      const isPrimary = item.primary || item.style === primaryClass;
+      const classes = ["button", isPrimary ? primaryClass : ""]
         .filter(Boolean)
         .join(" ");
       return `<a class="${classes}" href="${escapeHtml(item.url || "#")}">${escapeHtml(item.label || item.title)}</a>`;
@@ -782,6 +783,9 @@ async function loadWriting() {
 }
 
 function renderResearchContent(data) {
+  const interests = data.interests || [];
+  const applications = data.applications || [];
+
   if (data.header?.title) {
     const hero = document.querySelector(".page-hero");
     if (hero) {
@@ -801,14 +805,14 @@ function renderResearchContent(data) {
   }
 
   if (researchInterestGrid) {
-    researchInterestGrid.innerHTML = data.interests
+    researchInterestGrid.innerHTML = interests
       .map(
         (item) => `
           <article class="interest-card">
             <div class="interest-icon">${researchIcons[item.icon] || researchIcons.inference}</div>
-            <span>${item.tag}</span>
-            <h3>${item.title}</h3>
-            <p>${item.summary}</p>
+            <span>${escapeHtml(item.tag || "")}</span>
+            <h3>${escapeHtml(item.title)}</h3>
+            <p>${escapeHtml(item.summary || "")}</p>
             <div class="interest-links">${renderResearchLinks(item.links)}</div>
           </article>
         `
@@ -822,16 +826,16 @@ function renderResearchContent(data) {
   }
 
   if (researchApplicationGrid) {
-    researchApplicationGrid.innerHTML = data.applications
+    researchApplicationGrid.innerHTML = applications
       .map(
         (item) => `
           <article class="research-card">
-            <a href="${item.url}">
-              <img class="${item.imageFit === "contain" ? "research-project-mark" : ""}" src="${item.image}" alt="${item.alt}" loading="lazy">
+            <a href="${escapeHtml(item.url || "#")}">
+              <img class="${item.imageFit === "contain" ? "research-project-mark" : ""}" src="${escapeHtml(item.image || "")}" alt="${escapeHtml(item.alt || item.title)}" loading="lazy">
               <div>
-                <span>${item.tag}</span>
-                <h3>${item.title}</h3>
-                <p>${item.summary}</p>
+                <span>${escapeHtml(item.tag || "")}</span>
+                <h3>${escapeHtml(item.title)}</h3>
+                <p>${escapeHtml(item.summary || "")}</p>
               </div>
             </a>
           </article>

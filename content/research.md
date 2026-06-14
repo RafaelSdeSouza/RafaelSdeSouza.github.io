@@ -89,8 +89,6 @@ summary: International projects that connect astronomy, statistics, machine lear
 links:
 - COIN projects: https://cosmostatistics-initiative.org/projects/
 
-## Research highlights
-
 ## Research highlights header
 
 ### Research highlights.
