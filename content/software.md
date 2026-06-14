@@ -1,5 +1,13 @@
 # Software
 
+## Page
+
+### Header
+
+eyebrow: Software
+title: Research software.
+summary: A catalogue of R and Python packages, ASCL records, and project pages from my work on segmentation, spectra, image structure, likelihood-free inference, and survey data.
+
 ## Software
 
 ### SAGUI
@@ -182,3 +190,29 @@ summary: Functions, data, and code for binary and binomial data.
 
 links:
 - CRAN: https://cran.r-project.org/web/packages/LOGIT/index.html
+
+## Media header
+
+### Selected public stories.
+
+eyebrow: In The Media
+
+## Media
+
+### Capivara unmasks hidden structures
+
+tag: Phys.org · 2025
+summary: Capivara unmasks hidden structures in galaxies by analysing spectral fingerprints.
+url: https://phys.org/news/2025-05-ai-powered-algorithm-capivara-unmasks.html
+
+### Milky Way spiral arm break
+
+tag: NASA · 2021
+summary: Astronomers find a break in one of the Milky Way's spiral arms.
+url: https://www.nasa.gov/feature/jpl/astronomers-find-a-break-in-one-of-the-milky-way-s-spiral-arms
+
+### Overleaf interview
+
+tag: Overleaf · 2022
+summary: An interview on writing, collaboration, and scientific publishing.
+url: https://www.overleaf.com/blog/an-interview-with-rafael-s-de-souza

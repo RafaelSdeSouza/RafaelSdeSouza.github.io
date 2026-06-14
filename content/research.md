@@ -1,5 +1,20 @@
 # Research
 
+## Page
+
+### Header
+
+eyebrow: Research
+title: Astrostatistics for survey data.
+summary: I develop statistical and machine-learning methods for astronomical surveys, with projects in galaxy and IFU segmentation, transient follow-up, spectral classification, Galactic structure, weak-lensing maps, and open research software.
+
+## Research interests header
+
+### Research directions.
+
+eyebrow: Research Interests
+summary: The recurring problems in my papers and software are inference with incomplete data, survey-scale machine learning, transient discovery, segmentation, spectra, cosmic structure, and collaborative infrastructure through COIN.
+
 ## Research interests
 
 ### Astrostatistics
@@ -76,6 +91,12 @@ links:
 
 ## Research highlights
 
+## Research highlights header
+
+### Research highlights.
+
+## Research highlights
+
 ### AT2022zod
 
 image: assets/images/research/time-domain.png
@@ -147,3 +168,28 @@ alt: Cosmic structure map visual
 tag: Weak lensing
 summary: Ridge estimation for curvilinear structure in weak-lensing mass maps.
 url: https://cosmostatistics-initiative.org/projects/ridges-in-the-dark-energy-survey/
+
+## Community
+
+### COIN and the collaborative side of astrostatistics.
+
+eyebrow: Community
+summary: I founded and co-chair the <a href="coin.html">Cosmostatistics Initiative</a>, an international network that brings astronomers, statisticians, computer scientists, and software developers into shared projects. COIN has shaped work on <a href="https://www.lsst.org/">LSST</a>, <a href="https://fink-broker.org/">Fink</a>, DES, <a href="https://www.j-pas.org/">J-PAS</a>, time-domain science, galaxy morphology, and inference for complex data.
+url: coin.html
+logo: assets/images/coin.png
+windowTitle: COIN
+windowSubtitle: Cosmostatistics Initiative
+
+## Community links
+
+### Projects
+
+label: Projects
+
+### People
+
+label: People
+
+### Highlights
+
+label: Highlights

@@ -1,5 +1,19 @@
 # Writing
 
+## Page
+
+### Header
+
+eyebrow: Creative Work
+title: Writing.
+summary: Science fiction, poetry, essays, and literary projects kept separate from the research archive.
+
+## Writing section
+
+### Stories and Poems
+
+eyebrow: Stories and Poems
+
 ## Writing
 
 ### Beyond the Rainbow
