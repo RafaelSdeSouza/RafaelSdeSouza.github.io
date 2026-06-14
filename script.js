@@ -18,6 +18,10 @@ const researchInterestGrid = document.querySelector("#research-interest-grid");
 const researchApplicationGrid = document.querySelector("#research-application-grid");
 const softwareGrid = document.querySelector("#software-grid");
 const writingGrid = document.querySelector("#writing-grid");
+const homeRoot = document.querySelector("#home");
+const contactPage = document.querySelector(".contact-page");
+const coinHero = document.querySelector(".coin-hero");
+const cvPage = document.querySelector(".cv-page");
 const siteAssetVersion = new URL(
   document.querySelector('script[src*="script.js"]')?.src || window.location.href
 ).searchParams.toString();
@@ -37,7 +41,7 @@ const researchIcons = {
   community: `<svg viewBox="0 0 48 48" aria-hidden="true" focusable="false"><circle cx="24" cy="14" r="5"/><circle cx="12" cy="32" r="5"/><circle cx="36" cy="32" r="5"/><path d="M21 18 15 28M27 18l6 10M17 32h14"/></svg>`,
 };
 
-const careerStops = [
+let careerStops = [
   {
     years: "1999-2004",
     role: "BSc Astronomy",
@@ -346,15 +350,67 @@ function firstMarkdownSection(sections, names) {
   return sections.default || [];
 }
 
+function firstMarkdownItem(sections, names) {
+  return firstMarkdownSection(sections, names)[0] || {};
+}
+
+function markdownSummary(item) {
+  return item.lead || item.summary || "";
+}
+
+function renderPlainLinks(links = []) {
+  return links.map((link) => `<a href="${escapeHtml(link.url)}">${escapeHtml(link.label)}</a>`).join("");
+}
+
+function renderActionLinks(items = [], primaryClass = "primary") {
+  return items
+    .map((item) => {
+      const classes = ["button", item.primary || item.style === primaryClass ? primaryClass : ""]
+        .filter(Boolean)
+        .join(" ");
+      return `<a class="${classes}" href="${escapeHtml(item.url || "#")}">${escapeHtml(item.label || item.title)}</a>`;
+    })
+    .join("");
+}
+
+function renderGenericCards(items = []) {
+  return items
+    .map(
+      (item) => `
+        <article class="project-card${item.featured ? " featured" : ""}">
+          <div class="project-mark${item.logo ? " has-logo" : ""}">
+            ${item.logo ? `<img src="${escapeHtml(item.logo)}" alt="${escapeHtml(item.title)} logo" loading="lazy">` : escapeHtml(item.mark || item.title.charAt(0))}
+          </div>
+          <span>${escapeHtml(item.tag || "")}</span>
+          <h3>${escapeHtml(item.title)}</h3>
+          <p>${escapeHtml(item.summary || "")}</p>
+          <div class="project-links">${renderPlainLinks(item.links || [])}</div>
+        </article>
+      `
+    )
+    .join("");
+}
+
 function parseSoftwareMarkdown(markdown) {
-  return firstMarkdownSection(parseMarkdownSections(markdown), ["Software"]).map((item) => ({
-    ...item,
-    name: item.name || item.title,
-  }));
+  const sections = parseMarkdownSections(markdown);
+  return {
+    header: firstMarkdownItem(sections, ["Page", "Header"]),
+    software: firstMarkdownSection(sections, ["Software"]).map((item) => ({
+      ...item,
+      name: item.name || item.title,
+    })),
+    mediaHeader: firstMarkdownItem(sections, ["Media header", "Media intro"]),
+    media: firstMarkdownSection(sections, ["Media", "Selected media"]),
+  };
 }
 
 function parseWritingMarkdown(markdown) {
-  return { works: firstMarkdownSection(parseMarkdownSections(markdown), ["Writing", "Works"]) };
+  const sections = parseMarkdownSections(markdown);
+  return {
+    header: firstMarkdownItem(sections, ["Page", "Header"]),
+    sectionHeader: firstMarkdownItem(sections, ["Writing section", "Works header"]),
+    works: firstMarkdownSection(sections, ["Writing", "Works"]),
+  };
 }
 
 function parsePublicationsMarkdown(markdown) {
@@ -373,8 +429,58 @@ function parsePublicationPageMarkdown(markdown) {
 function parseResearchMarkdown(markdown) {
   const sections = parseMarkdownSections(markdown);
   return {
+    header: firstMarkdownItem(sections, ["Page", "Header"]),
+    interestsHeader: firstMarkdownItem(sections, ["Research interests header", "Interests header"]),
     interests: firstMarkdownSection(sections, ["Research interests", "Interests"]),
+    highlightsHeader: firstMarkdownItem(sections, ["Research highlights header", "Highlights header"]),
     applications: firstMarkdownSection(sections, ["Research highlights", "Highlights", "Applications"]),
+    community: firstMarkdownItem(sections, ["Community", "COIN strip"]),
+    communityLinks: firstMarkdownSection(sections, ["Community links", "COIN window links"]),
+  };
+}
+
+function parseHomeMarkdown(markdown) {
+  const sections = parseMarkdownSections(markdown);
+  return {
+    hero: firstMarkdownItem(sections, ["Hero"]),
+    roles: firstMarkdownSection(sections, ["Roles"]),
+    actions: firstMarkdownSection(sections, ["Hero actions", "Actions"]),
+    impact: firstMarkdownSection(sections, ["Impact", "Highlights"]),
+    contact: firstMarkdownItem(sections, ["Contact"]),
+    contactLinks: firstMarkdownSection(sections, ["Contact links"]),
+  };
+}
+
+function parseCVMarkdown(markdown) {
+  const sections = parseMarkdownSections(markdown);
+  return {
+    header: firstMarkdownItem(sections, ["Page", "Header"]),
+    map: firstMarkdownItem(sections, ["Map", "Map overlay"]),
+    appointments: firstMarkdownSection(sections, ["Appointments", "Career"]),
+    fundingHeader: firstMarkdownItem(sections, ["Funding header", "Funding and awards header"]),
+    funding: firstMarkdownSection(sections, ["Funding and awards", "Funding"]),
+    teachingHeader: firstMarkdownItem(sections, ["Teaching header", "Teaching and service header"]),
+    teaching: firstMarkdownSection(sections, ["Teaching and service", "Teaching"]),
+  };
+}
+
+function parseCoinMarkdown(markdown) {
+  const sections = parseMarkdownSections(markdown);
+  return {
+    hero: firstMarkdownItem(sections, ["Hero"]),
+    actions: firstMarkdownSection(sections, ["Hero actions", "Actions"]),
+    window: firstMarkdownItem(sections, ["Window", "COIN window"]),
+    windowLinks: firstMarkdownSection(sections, ["Window links", "COIN window links"]),
+    networkHeader: firstMarkdownItem(sections, ["Network header", "Showcase header"]),
+    cards: firstMarkdownSection(sections, ["Cards", "Projects"]),
+  };
+}
+
+function parseContactMarkdown(markdown) {
+  const sections = parseMarkdownSections(markdown);
+  return {
+    contact: firstMarkdownItem(sections, ["Contact", "Page"]),
+    links: firstMarkdownSection(sections, ["Links", "Contact links"]),
   };
 }
 
@@ -550,10 +656,43 @@ function renderSoftware(items) {
     .join("");
 }
 
+function renderSoftwarePage(data) {
+  const items = Array.isArray(data) ? data : data.software || [];
+  if (data.header?.title) {
+    const copy = document.querySelector(".software-showcase .showcase-copy");
+    if (copy) {
+      copy.querySelector(".eyebrow").textContent = data.header.eyebrow || copy.querySelector(".eyebrow").textContent;
+      copy.querySelector("h1").textContent = data.header.title;
+      copy.querySelector("p:not(.eyebrow)").textContent = markdownSummary(data.header);
+    }
+  }
+
+  const mediaBand = document.querySelector(".media-band");
+  if (mediaBand && data.mediaHeader?.title) {
+    mediaBand.querySelector(".eyebrow").textContent = data.mediaHeader.eyebrow || mediaBand.querySelector(".eyebrow").textContent;
+    mediaBand.querySelector("h2").textContent = data.mediaHeader.title;
+  }
+  const mediaLinks = document.querySelector(".media-links");
+  if (mediaLinks && data.media?.length) {
+    mediaLinks.innerHTML = data.media
+      .map(
+        (item) => `
+          <a href="${escapeHtml(item.url || "#")}">
+            <span>${escapeHtml(item.tag || "")}</span>
+            ${escapeHtml(item.summary || item.title)}
+          </a>
+        `
+      )
+      .join("");
+  }
+
+  renderSoftware(items);
+}
+
 async function loadSoftware() {
   if (!softwareGrid) return;
   try {
-    renderSoftware(await loadMarkdownOrJson("content/software.md", "content/software.json", parseSoftwareMarkdown));
+    renderSoftwarePage(await loadMarkdownOrJson("content/software.md", "content/software.json", parseSoftwareMarkdown));
   } catch (error) {
     softwareGrid.innerHTML = `
       <article class="project-card">
@@ -568,6 +707,18 @@ async function loadSoftware() {
 
 function renderWriting(data) {
   if (!writingGrid || !Array.isArray(data.works) || data.works.length === 0) return;
+  if (data.header?.title) {
+    const hero = document.querySelector(".writing-hero");
+    if (hero) {
+      hero.querySelector(".eyebrow").textContent = data.header.eyebrow || hero.querySelector(".eyebrow").textContent;
+      hero.querySelector("h1").textContent = data.header.title;
+      hero.querySelector(".lead").textContent = markdownSummary(data.header);
+    }
+  }
+  if (data.sectionHeader?.eyebrow) {
+    const section = document.querySelector(".writing-section");
+    section?.querySelector(".eyebrow") && (section.querySelector(".eyebrow").textContent = data.sectionHeader.eyebrow);
+  }
   writingGrid.classList.toggle("is-single", data.works.length === 1);
   writingGrid.innerHTML = data.works
     .map((item) => {
@@ -631,6 +782,24 @@ async function loadWriting() {
 }
 
 function renderResearchContent(data) {
+  if (data.header?.title) {
+    const hero = document.querySelector(".page-hero");
+    if (hero) {
+      hero.querySelector(".eyebrow").textContent = data.header.eyebrow || hero.querySelector(".eyebrow").textContent;
+      hero.querySelector("h1").textContent = data.header.title;
+      hero.querySelector(".lead").textContent = markdownSummary(data.header);
+    }
+  }
+
+  if (data.interestsHeader?.title) {
+    const copy = document.querySelector(".research-interests .section-copy");
+    if (copy) {
+      copy.querySelector(".eyebrow").textContent = data.interestsHeader.eyebrow || copy.querySelector(".eyebrow").textContent;
+      copy.querySelector("h2").textContent = data.interestsHeader.title;
+      copy.querySelector("p:not(.eyebrow)").textContent = markdownSummary(data.interestsHeader);
+    }
+  }
+
   if (researchInterestGrid) {
     researchInterestGrid.innerHTML = data.interests
       .map(
@@ -645,6 +814,11 @@ function renderResearchContent(data) {
         `
       )
       .join("");
+  }
+
+  if (data.highlightsHeader?.title) {
+    const copy = document.querySelector(".research-examples .section-copy");
+    if (copy) copy.querySelector("h2").textContent = data.highlightsHeader.title;
   }
 
   if (researchApplicationGrid) {
@@ -664,6 +838,27 @@ function renderResearchContent(data) {
         `
       )
       .join("");
+  }
+
+  if (data.community?.title) {
+    const strip = document.querySelector(".coin-strip");
+    if (strip) {
+      strip.querySelector(".coin-copy .eyebrow").textContent = data.community.eyebrow || strip.querySelector(".coin-copy .eyebrow").textContent;
+      strip.querySelector(".coin-copy h2").textContent = data.community.title;
+      strip.querySelector(".coin-copy p").innerHTML = data.community.summary || "";
+      const windowLink = strip.querySelector(".coin-window");
+      if (windowLink && data.community.url) windowLink.href = data.community.url;
+      const image = strip.querySelector(".coin-window-body img");
+      if (image && data.community.logo) image.src = data.community.logo;
+      const strong = strip.querySelector(".coin-window-body strong");
+      if (strong) strong.textContent = data.community.windowTitle || "COIN";
+      const em = strip.querySelector(".coin-window-body em");
+      if (em) em.textContent = data.community.windowSubtitle || "Cosmostatistics Initiative";
+      const links = strip.querySelector(".coin-window-links");
+      if (links && data.communityLinks?.length) {
+        links.innerHTML = data.communityLinks.map((item) => `<span>${escapeHtml(item.label || item.title)}</span>`).join("");
+      }
+    }
   }
 }
 
@@ -783,6 +978,206 @@ async function loadPublicationPageContent() {
   }
 }
 
+async function loadHomeContent() {
+  if (!homeRoot) return;
+  try {
+    const data = parseHomeMarkdown(await loadText("content/home.md"));
+    const hero = homeRoot.querySelector(".hero");
+    if (hero && data.hero?.title) {
+      hero.querySelector(".eyebrow").textContent = data.hero.eyebrow || hero.querySelector(".eyebrow").textContent;
+      hero.querySelector("h1").textContent = data.hero.title;
+      hero.querySelector(".lead").textContent = markdownSummary(data.hero);
+      const portrait = hero.querySelector(".portrait");
+      if (portrait && data.hero.portrait) portrait.src = data.hero.portrait;
+      if (portrait && data.hero.portraitAlt) portrait.alt = data.hero.portraitAlt;
+      const caption = hero.querySelector(".portrait-caption");
+      if (caption) caption.textContent = data.hero.portraitCaption || caption.textContent;
+    }
+
+    const heroMeta = homeRoot.querySelector(".hero-meta");
+    if (heroMeta && data.roles.length) {
+      heroMeta.innerHTML = data.roles
+        .map((item) => {
+          const label = escapeHtml(item.label || item.title);
+          return `<span>${label}${item.url ? `, <a href="${escapeHtml(item.url)}">${escapeHtml(item.place || item.linkLabel || item.urlLabel || "link")}</a>` : ""}</span>`;
+        })
+        .join("");
+    }
+
+    const heroActions = homeRoot.querySelector(".hero-actions");
+    if (heroActions && data.actions.length) heroActions.innerHTML = renderActionLinks(data.actions);
+
+    const impactStrip = homeRoot.querySelector(".impact-strip");
+    if (impactStrip && data.impact.length) {
+      impactStrip.innerHTML = data.impact
+        .map(
+          (item) => `
+            <a href="${escapeHtml(item.url || "#")}">
+              <strong>${escapeHtml(item.value || item.title)}</strong>
+              <span>${escapeHtml(item.label || item.summary || "")}</span>
+            </a>
+          `
+        )
+        .join("");
+    }
+
+    const contact = homeRoot.querySelector(".compact-contact");
+    if (contact && data.contact?.title) {
+      contact.querySelector(".eyebrow").textContent = data.contact.eyebrow || contact.querySelector(".eyebrow").textContent;
+      contact.querySelector("h2").textContent = data.contact.title;
+      contact.querySelector("p:not(.eyebrow)").innerHTML = data.contact.summary || "";
+    }
+    const contactLinks = homeRoot.querySelector(".compact-contact .contact-links");
+    if (contactLinks && data.contactLinks.length) {
+      contactLinks.innerHTML = data.contactLinks
+        .map((item) => `<a href="${escapeHtml(item.url || "#")}">${escapeHtml(item.label || item.title)}</a>`)
+        .join("");
+    }
+  } catch (error) {
+    return;
+  }
+}
+
+async function loadContactContent() {
+  if (!contactPage) return;
+  try {
+    const data = parseContactMarkdown(await loadText("content/contact.md"));
+    if (data.contact?.title) {
+      contactPage.querySelector(".eyebrow").textContent = data.contact.eyebrow || contactPage.querySelector(".eyebrow").textContent;
+      contactPage.querySelector("h1").textContent = data.contact.title;
+      contactPage.querySelector("p:not(.eyebrow)").innerHTML = data.contact.summary || "";
+    }
+    const links = contactPage.querySelector(".contact-links");
+    if (links && data.links.length) {
+      links.innerHTML = data.links
+        .map((item) => `<a href="${escapeHtml(item.url || "#")}">${escapeHtml(item.label || item.title)}</a>`)
+        .join("");
+    }
+  } catch (error) {
+    return;
+  }
+}
+
+async function loadCoinContent() {
+  if (!coinHero) return;
+  try {
+    const data = parseCoinMarkdown(await loadText("content/coin.md"));
+    if (data.hero?.title) {
+      coinHero.querySelector(".eyebrow").textContent = data.hero.eyebrow || coinHero.querySelector(".eyebrow").textContent;
+      coinHero.querySelector("h1").textContent = data.hero.title;
+      coinHero.querySelector(".lead").textContent = markdownSummary(data.hero);
+    }
+    const heroActions = coinHero.querySelector(".hero-actions");
+    if (heroActions && data.actions.length) heroActions.innerHTML = renderActionLinks(data.actions);
+
+    const windowLink = coinHero.querySelector(".coin-window");
+    if (windowLink && data.window?.url) windowLink.href = data.window.url;
+    if (data.window?.title) {
+      const image = coinHero.querySelector(".coin-window-body img");
+      if (image && data.window.logo) image.src = data.window.logo;
+      coinHero.querySelector(".coin-window-body strong").textContent = data.window.title;
+      coinHero.querySelector(".coin-window-body em").textContent = data.window.summary || "";
+    }
+    const windowLinks = coinHero.querySelector(".coin-window-links");
+    if (windowLinks && data.windowLinks.length) {
+      windowLinks.innerHTML = data.windowLinks.map((item) => `<span>${escapeHtml(item.label || item.title)}</span>`).join("");
+    }
+
+    const showcase = document.querySelector(".compact-showcase");
+    if (showcase && data.networkHeader?.title) {
+      showcase.querySelector(".showcase-copy .eyebrow").textContent =
+        data.networkHeader.eyebrow || showcase.querySelector(".showcase-copy .eyebrow").textContent;
+      showcase.querySelector(".showcase-copy h2").textContent = data.networkHeader.title;
+      showcase.querySelector(".showcase-copy p").textContent = markdownSummary(data.networkHeader);
+    }
+    const grid = showcase?.querySelector(".project-grid");
+    if (grid && data.cards.length) grid.innerHTML = renderGenericCards(data.cards);
+  } catch (error) {
+    return;
+  }
+}
+
+function appointmentFromMarkdown(item) {
+  const coordinates = String(item.coordinates || "")
+    .split(",")
+    .map((value) => Number(value.trim()))
+    .filter((value) => !Number.isNaN(value));
+  return {
+    years: item.years || "",
+    role: item.role || item.title,
+    place: item.place || "",
+    label: item.label || item.place || item.title,
+    city: item.city || "",
+    type: item.type || "work",
+    coordinates: coordinates.length === 2 ? coordinates : [0, 0],
+    link: item.url || item.link || "#",
+    image: item.image || "",
+    summary: item.summary || "",
+  };
+}
+
+async function loadCVContent() {
+  if (!cvPage) return;
+  try {
+    const data = parseCVMarkdown(await loadText("content/cv.md"));
+    if (data.header?.title) {
+      const copy = cvPage.querySelector(".section-copy");
+      copy.querySelector("h1").textContent = data.header.title;
+      copy.querySelector("p").textContent = markdownSummary(data.header);
+    }
+
+    if (data.map?.title) {
+      const overlay = cvPage.querySelector(".map-overlay");
+      overlay.querySelector(".eyebrow").textContent = data.map.eyebrow || overlay.querySelector(".eyebrow").textContent;
+      overlay.querySelector("strong").textContent = data.map.title;
+      overlay.querySelector("span").textContent = markdownSummary(data.map);
+    }
+
+    if (data.appointments.length) {
+      careerStops = data.appointments.map(appointmentFromMarkdown);
+      const timeline = cvPage.querySelector(".career-list");
+      if (timeline) {
+        timeline.innerHTML = careerStops
+          .slice()
+          .reverse()
+          .map(
+            (stop) => `
+              <article>
+                <span>${escapeHtml(stop.years)}</span>
+                <h3>${escapeHtml(stop.role)}</h3>
+                <p><a href="${escapeHtml(stop.link)}">${escapeHtml(stop.place)}</a>${stop.summary ? `. ${escapeHtml(stop.summary)}` : ""}</p>
+              </article>
+            `
+          )
+          .join("");
+      }
+    }
+
+    const columns = document.querySelectorAll(".two-column article");
+    if (columns[0] && data.fundingHeader?.title) {
+      columns[0].querySelector(".eyebrow").textContent = data.fundingHeader.eyebrow || columns[0].querySelector(".eyebrow").textContent;
+      columns[0].querySelector("h2").textContent = data.fundingHeader.title;
+    }
+    if (columns[0] && data.funding.length) {
+      columns[0].querySelector("ul").innerHTML = data.funding
+        .map((item) => `<li>${item.year ? `<strong>${escapeHtml(item.year)}:</strong> ` : ""}${item.url ? `<a href="${escapeHtml(item.url)}">${escapeHtml(item.title)}</a>` : escapeHtml(item.title)}${item.summary ? `, ${escapeHtml(item.summary)}` : ""}</li>`)
+        .join("");
+    }
+    if (columns[1] && data.teachingHeader?.title) {
+      columns[1].querySelector(".eyebrow").textContent =
+        data.teachingHeader.eyebrow || columns[1].querySelector(".eyebrow").textContent;
+      columns[1].querySelector("h2").textContent = data.teachingHeader.title;
+    }
+    if (columns[1] && data.teaching.length) {
+      columns[1].querySelector("ul").innerHTML = data.teaching
+        .map((item) => `<li>${escapeHtml(item.summary || item.title)}</li>`)
+        .join("");
+    }
+  } catch (error) {
+    return;
+  }
+}
+
 filterButtons?.forEach((button) => {
   button.addEventListener("click", () => {
     filterButtons.forEach((item) => item.classList.remove("is-active"));
@@ -796,9 +1191,13 @@ publicationSearch?.addEventListener("input", renderPublications);
 
 loadPublications();
 loadPublicationPageContent();
+loadHomeContent();
 loadResearchContent();
 loadSoftware();
 loadWriting();
+loadContactContent();
+loadCoinContent();
+loadCVContent().finally(initCareerMap);
 
 function updateMapPanel(stop) {
   if (!mapPlace || !mapRole || !mapLink) return;
@@ -1050,5 +1449,3 @@ async function initCareerMap() {
   renderMapStopList(pins);
   setActiveMapStop(current, pins);
 }
-
-initCareerMap();
