@@ -79,8 +79,6 @@ url: cv.html
 
 ### Main
 
-eyebrow: Contact
-title: Open to collaborations across astronomy, statistics, and scientific computing.
 summary: Email <a href="mailto:rd23aag@herts.ac.uk">rd23aag@herts.ac.uk</a> for seminars, supervision enquiries, research collaborations, or questions about the software and papers listed here.
 
 ## Contact links
