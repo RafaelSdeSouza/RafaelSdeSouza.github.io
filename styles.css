@@ -126,11 +126,25 @@ main {
     var(--paper);
 }
 
+.hero::before {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background:
+    radial-gradient(circle at 12% 23%, rgba(11, 117, 109, 0.13), transparent 16rem),
+    radial-gradient(circle at 88% 18%, rgba(185, 93, 66, 0.1), transparent 18rem),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1400 760' preserveAspectRatio='none'%3E%3Cg fill='none' stroke-linecap='round'%3E%3Cpath d='M-80 220 C180 72 392 310 636 182 S1060 92 1480 210' stroke='%23084f4a' stroke-width='1.1' stroke-opacity='.18'/%3E%3Cpath d='M-70 500 C220 325 426 620 720 390 S1055 300 1490 514' stroke='%23b95d42' stroke-width='1' stroke-opacity='.14'/%3E%3Cpath d='M135 640 C316 484 468 498 642 622 S1055 686 1266 512' stroke='%23084f4a' stroke-width='1' stroke-opacity='.13'/%3E%3Cellipse cx='1040' cy='330' rx='288' ry='108' transform='rotate(-13 1040 330)' stroke='%23084f4a' stroke-width='1.2' stroke-opacity='.16'/%3E%3Cellipse cx='1040' cy='330' rx='205' ry='76' transform='rotate(-13 1040 330)' stroke='%23b95d42' stroke-width='1' stroke-opacity='.13'/%3E%3Cpath d='M92 124h440M92 181h346M92 238h386M92 295h304M92 352h420' stroke='%23084f4a' stroke-width='.8' stroke-opacity='.08'/%3E%3Cpath d='M164 96v318M246 96v318M328 96v318M410 96v318M492 96v318' stroke='%23084f4a' stroke-width='.8' stroke-opacity='.07'/%3E%3C/g%3E%3Cg fill='%23084f4a' fill-opacity='.22'%3E%3Ccircle cx='226' cy='180' r='2.6'/%3E%3Ccircle cx='384' cy='242' r='2.2'/%3E%3Ccircle cx='520' cy='156' r='2.8'/%3E%3Ccircle cx='802' cy='260' r='2.5'/%3E%3Ccircle cx='1124' cy='390' r='2.6'/%3E%3Ccircle cx='1218' cy='286' r='2.1'/%3E%3C/g%3E%3Cg fill='%23b95d42' fill-opacity='.18'%3E%3Ccircle cx='303' cy='520' r='2.4'/%3E%3Ccircle cx='628' cy='452' r='2.5'/%3E%3Ccircle cx='938' cy='580' r='2.3'/%3E%3Ccircle cx='1088' cy='208' r='2.1'/%3E%3C/g%3E%3C/svg%3E") center / cover no-repeat;
+  content: "";
+  opacity: 0.72;
+  pointer-events: none;
+}
+
 .hero::after {
   position: absolute;
   right: clamp(0.6rem, 5vw, 4rem);
   bottom: 0;
   left: clamp(0.6rem, 5vw, 4rem);
+  z-index: 0;
   height: 9rem;
   background: linear-gradient(180deg, rgba(248, 246, 239, 0), var(--paper));
   content: "";
@@ -418,7 +432,7 @@ h3 {
   display: block;
   color: rgba(248, 246, 239, 0.97);
   font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(1.9rem, 4.2vw, 3.55rem);
+  font-size: clamp(1.72rem, 3.7vw, 3.15rem);
   line-height: 1;
 }
 

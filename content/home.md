@@ -81,17 +81,17 @@ value: US$1M+
 label: PI funding
 url: assets/cv/cv.pdf
 
-### COIN
-
-value: 80+
-label: COIN researchers
-url: coin.html
-
 ### Book
 
-value: PROSE
-label: Cambridge book award
+value: PROSE Awards
+label: Cambridge book prize
 url: publications.html
+
+### Leadership
+
+value: Leadership
+label: COIN · ISI · IAA
+url: cv.html
 
 ## Contact
 
