@@ -84,7 +84,7 @@ url: assets/cv/cv.pdf
 ### Book
 
 value: PROSE Awards
-label: Cambridge book prize
+label: Best Book in Cosmology and Astronomy
 url: publications.html
 
 ### Leadership
