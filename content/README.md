@@ -19,7 +19,7 @@ to touch HTML, CSS, JavaScript, or JSON.
 Edit this BibTeX file when you want the publications list to change:
 
 ```text
-../CV_rafael_2026/references.bib
+../assets/cv/references.bib
 ```
 
 The website reads that BibTeX file directly. You do not need to edit the
@@ -34,6 +34,7 @@ assets/images/research/
 assets/images/software/
 assets/images/writing/
 assets/images/institutions/
+assets/images/backgrounds/
 ```
 
 Then reference the image path in Markdown:
@@ -45,6 +46,14 @@ cover: assets/images/writing/my-story-cover.jpg
 ```
 
 Use `imageFit: contain` for logos or marks that should not be cropped.
+The homepage wallpaper is `assets/images/backgrounds/home-nebula-contours.jpg`.
+
+Keep your public CV files here:
+
+```text
+assets/cv/cv.pdf
+assets/cv/references.bib
+```
 
 ## Add A Research Highlight
 

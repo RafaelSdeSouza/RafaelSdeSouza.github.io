@@ -20,12 +20,12 @@ This repository contains a static GitHub Pages website for an academic CV, resea
 - `content/cv.md`: edit the CV page, map appointments, funding, awards, teaching, and service here.
 - `content/coin.md`: edit the COIN page here.
 - `content/contact.md`: edit the contact page here.
-- `CV_rafael_2026/references.bib`: edit publication references here; the website reads this file directly.
+- `assets/cv/references.bib`: edit publication references here; the website reads this file directly.
 - `content/*.json`: fallback data files. You normally do not need to edit these.
 - `assets/cv/cv.pdf`: downloadable PDF CV.
 - `assets/images/rafael-de-souza.jpg`: hero/profile image.
 - `assets/images/coin.png`: COIN logo used in the visual identity areas.
-- `CV_rafael_2026/`: original Overleaf/LaTeX CV source.
+- `CV_rafael_2026/`: original Overleaf/LaTeX CV source. The website no longer needs this folder to render.
 
 ## Editing Content
 
@@ -61,7 +61,7 @@ https://rafaelsdesouza.com.br/research.html?fresh=20260608
 The publication list is read directly from:
 
 ```text
-CV_rafael_2026/references.bib
+assets/cv/references.bib
 ```
 
 That means you only edit the BibTeX file. After commit and push, the website loads the updated references automatically.
@@ -69,7 +69,7 @@ That means you only edit the BibTeX file. After commit and push, the website loa
 The older JSON generator is kept only as a backup/fallback:
 
 ```bash
-python3 scripts/bib_to_publications.py CV_rafael_2026/references.bib content/publications.json
+python3 scripts/bib_to_publications.py assets/cv/references.bib content/publications.json
 ```
 
 Supported `type` values include `paper`, `software`, `report`, `book`, `chapter`, `proceeding`, and `catalogue`.

@@ -162,7 +162,33 @@ function contentUrl(path) {
 function publicationLinks(links = {}) {
   const entries = Array.isArray(links) ? links.map((link) => [link.label, link.url]) : Object.entries(links);
   return entries
-    .map(([label, url]) => `<a href="${url}">${label}</a>`)
+    .filter(([, url]) => Boolean(url))
+    .map(([label, url]) => `<a href="${escapeHtml(url)}">${escapeHtml(label)}</a>`)
+    .join("");
+}
+
+function publicationPrimaryUrl(links = {}) {
+  const entries = Array.isArray(links) ? links.map((link) => [link.label, link.url]) : Object.entries(links);
+  const priority = ["DOI", "ADS", "arXiv", "Paper", "Preprint", "URL", "Cambridge"];
+  const normalized = entries.filter(([, url]) => Boolean(url));
+  const preferred = priority
+    .map((label) => normalized.find(([entryLabel]) => String(entryLabel).toLowerCase() === label.toLowerCase()))
+    .find(Boolean);
+  return (preferred || normalized[0] || [null, ""])[1];
+}
+
+function publicationBadges(item) {
+  const typeLabel = item.type && item.type !== "paper" ? item.type : "";
+  return [
+    item.year,
+    typeLabel,
+    item.venue,
+  ]
+    .filter(Boolean)
+    .map((label, index) => {
+      const className = index === 2 ? " class=\"venue-badge\"" : "";
+      return `<span${className}>${escapeHtml(label)}</span>`;
+    })
     .join("");
 }
 
@@ -903,35 +929,37 @@ function renderPublications() {
   publicationCount.textContent = `${visible.length} of ${publications.length} entries`;
 
   publicationList.innerHTML = visible
-    .map(
-      (item) => `
+    .map((item) => {
+      const primaryUrl = publicationPrimaryUrl(item.links);
+      const title = escapeHtml(item.title || "Untitled");
+      const titleHtml = primaryUrl
+        ? `<a href="${escapeHtml(primaryUrl)}">${title}</a>`
+        : title;
+
+      return `
         <article class="publication-card">
-          <div class="publication-meta">
-            <span>${item.year}</span>
-            <span>${item.type}</span>
-          </div>
-          <h3>${item.title}</h3>
-          ${item.authors ? `<p class="authors">${item.authors}</p>` : ""}
-          <p class="venue">${item.venue}</p>
-          ${item.summary ? `<p>${item.summary}</p>` : ""}
+          <div class="publication-meta">${publicationBadges(item)}</div>
+          <h3>${titleHtml}</h3>
+          ${item.authors ? `<p class="authors">${escapeHtml(item.authors)}</p>` : ""}
+          ${item.summary ? `<p>${escapeHtml(item.summary)}</p>` : ""}
           <div class="publication-links">${publicationLinks(item.links)}</div>
         </article>
-      `
-    )
+      `;
+    })
     .join("");
 }
 
 async function loadPublications() {
   if (!publicationList) return;
   try {
-    publications = await loadBibtexOrJson("CV_rafael_2026/references.bib", "content/publications.json");
+    publications = await loadBibtexOrJson("assets/cv/references.bib", "content/publications.json");
     publications.sort((a, b) => b.year - a.year || a.title.localeCompare(b.title));
     renderPublications();
   } catch (error) {
     publicationList.innerHTML = `
       <article class="publication-card">
         <span>Publication data</span>
-        <h3>Could not load CV_rafael_2026/references.bib</h3>
+        <h3>Could not load assets/cv/references.bib</h3>
         <p>Check the BibTeX file and refresh the page.</p>
       </article>
     `;
