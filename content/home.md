@@ -72,25 +72,25 @@ url: software.html
 ### Publications
 
 value: 130+
-label: publications across astronomy, statistics, physics, and complex-data science
+label: scholarly outputs
 url: publications.html
 
 ### Funding
 
 value: US$1M+
-label: competitive research funding secured as PI
+label: PI funding
 url: assets/cv/cv.pdf
 
 ### COIN
 
 value: 80+
-label: researchers in the international COIN network
+label: COIN researchers
 url: coin.html
 
 ### Book
 
 value: PROSE
-label: award-winning Cambridge University Press book
+label: Cambridge book award
 url: publications.html
 
 ## Contact
