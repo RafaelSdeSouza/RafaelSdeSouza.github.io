@@ -6,7 +6,7 @@
 
 eyebrow: Astrostatistics · Machine Learning · Survey Science
 title: Rafael S. de Souza
-summary: I am affiliated with the Centre for Astrophysics Research at the University of Hertfordshire, a Visiting Professor at the Federal University of Rio Grande do Sul, an Adjunct Associate Professor at UNC Chapel Hill, and Co-Founder and Co-Chair of the Cosmostatistics Initiative. I develop statistical and machine-learning methods for scientific data that are noisy, incomplete, high-dimensional, heterogeneous, or shaped by selection effects. Astronomy is the central laboratory for much of this work, from galaxy and IFU segmentation to transient follow-up, spectral classification, Galactic structure, weak-lensing maps, and survey software, but the same methodological questions have led to papers in mathematics, ecology, nuclear physics, and broader complex-data science.
+summary: I am affiliated with the Centre for Astrophysics Research at the University of Hertfordshire, a Visiting Professor at the Federal University of Rio Grande do Sul, an Adjunct Associate Professor at UNC Chapel Hill, and Co-Founder and Co-Chair of the Cosmostatistics Initiative. I develop statistical and machine-learning methods for scientific data that are noisy, incomplete, high-dimensional, heterogeneous, or shaped by selection effects. Astronomy is the central laboratory for much of this work, from galaxy and IFU segmentation to transient follow-up, spectral classification, Galactic structure, weak-lensing maps, and survey software, but the same methodological questions have led to papers in mathematics, ecology, nuclear physics, and broader complex-data science. I also co-authored the PROSE Award-winning Cambridge University Press book Bayesian Models for Astrophysical Data.
 portrait: assets/images/rafael-de-souza.jpg?v=20260605b
 portraitAlt: Portrait of Rafael S. de Souza
 portraitCaption: Statistical inference, machine learning, and open scientific software across astronomy and complex scientific data.
@@ -33,8 +33,7 @@ url: https://cosmostatistics-initiative.org/
 
 ### ISI Astrostatistics
 
-label: Chair
-place: ISI Astrostatistics Interest Group
+label: Chair, ISI Astrostatistics Interest Group; former Vice-President, International Astrostatistics Association
 url: https://isi-web.org/
 
 ## Hero actions
@@ -75,11 +74,11 @@ value: 80+
 label: researchers in the international COIN network
 url: coin.html
 
-### Global
+### Book
 
-value: 4 continents
-label: academic appointments across international research centres
-url: cv.html
+value: PROSE
+label: award-winning Cambridge University Press book
+url: publications.html
 
 ## Contact
 
