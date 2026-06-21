@@ -990,7 +990,7 @@ async function loadHomeContent() {
     if (hero && data.hero?.title) {
       hero.querySelector(".eyebrow").textContent = data.hero.eyebrow || hero.querySelector(".eyebrow").textContent;
       hero.querySelector("h1").textContent = data.hero.title;
-      hero.querySelector(".lead").textContent = markdownSummary(data.hero);
+      hero.querySelector(".lead").innerHTML = markdownSummary(data.hero);
       const portrait = hero.querySelector(".portrait");
       if (portrait && data.hero.portrait) portrait.src = data.hero.portrait;
       if (portrait && data.hero.portraitAlt) portrait.alt = data.hero.portraitAlt;

@@ -6,7 +6,7 @@
 
 eyebrow: Astrostatistics · Machine Learning · Survey Science
 title: Rafael S. de Souza
-summary: I am affiliated with the Centre for Astrophysics Research at the University of Hertfordshire, a Visiting Professor at the Federal University of Rio Grande do Sul, an Adjunct Associate Professor at UNC Chapel Hill, and Co-Founder and Co-Chair of the Cosmostatistics Initiative. I develop statistical and machine-learning methods for scientific data that are noisy, incomplete, high-dimensional, heterogeneous, or shaped by selection effects. Astronomy is the central laboratory for much of this work, from galaxy and IFU segmentation to transient follow-up, spectral classification, Galactic structure, weak-lensing maps, and survey software, but the same methodological questions have led to papers in mathematics, ecology, nuclear physics, and broader complex-data science. I also co-authored the PROSE Award-winning Cambridge University Press book Bayesian Models for Astrophysical Data.
+summary: I develop statistical and machine-learning methods for complex scientific data, with astronomy as my main laboratory. My papers span survey astronomy, astrostatistics, scientific software, mathematics, ecology, and nuclear physics. Highlights include <a href="publications.html">130+ scholarly outputs</a>, <a href="assets/cv/cv.pdf">US$1M+ in PI funding</a>, the <a href="publications.html">PROSE Award-winning Cambridge book</a>, and leadership in <a href="coin.html">COIN</a>, the <a href="https://isi-web.org/">ISI Astrostatistics Interest Group</a>, and the <a href="http://iaa.mi.oa-brera.inaf.it/">International Astrostatistics Association</a>.
 portrait: assets/images/rafael-de-souza.jpg?v=20260605b
 portraitAlt: Portrait of Rafael S. de Souza
 portraitCaption: Statistical inference, machine learning, and open scientific software across astronomy and complex scientific data.
@@ -25,6 +25,12 @@ label: Visiting Professor
 place: Federal University of Rio Grande do Sul
 url: https://www.ufrgs.br/
 
+### UNC
+
+label: Adjunct Associate Professor
+place: UNC Chapel Hill
+url: https://www.unc.edu/
+
 ### COIN
 
 label: Co-Founder and Co-Chair
@@ -33,8 +39,15 @@ url: https://cosmostatistics-initiative.org/
 
 ### ISI Astrostatistics
 
-label: Chair, ISI Astrostatistics Interest Group; former Vice-President, International Astrostatistics Association
+label: Chair
+place: ISI Astrostatistics Interest Group
 url: https://isi-web.org/
+
+### IAA
+
+label: Former Vice-President
+place: International Astrostatistics Association
+url: http://iaa.mi.oa-brera.inaf.it/
 
 ## Hero actions
 

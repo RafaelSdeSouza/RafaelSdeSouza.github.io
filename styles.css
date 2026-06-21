@@ -191,6 +191,19 @@ h3 {
   font-size: clamp(1.13rem, 2vw, 1.48rem);
 }
 
+.hero .lead {
+  max-width: 45rem;
+  font-size: clamp(1rem, 1.35vw, 1.16rem);
+  line-height: 1.58;
+}
+
+.hero .lead a {
+  color: inherit;
+  font-weight: 820;
+  text-decoration-color: rgba(13, 88, 82, 0.45);
+  text-underline-offset: 0.16em;
+}
+
 .hero-meta {
   display: grid;
   max-width: 46rem;
