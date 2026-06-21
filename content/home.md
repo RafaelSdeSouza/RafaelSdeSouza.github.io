@@ -6,18 +6,24 @@
 
 eyebrow: Astrostatistics · Machine Learning · Survey Science
 title: Rafael S. de Souza
-summary: I develop statistical and machine-learning methods that turn complex astronomical data into physical insight, with a focus on galaxy evolution, survey science, and open-source research software.
+summary: I am affiliated with the Centre for Astrophysics Research at the University of Hertfordshire, a Visiting Professor at the Federal University of Rio Grande do Sul, an Adjunct Associate Professor at UNC Chapel Hill, and Co-Founder and Co-Chair of the Cosmostatistics Initiative. I develop statistical and machine-learning methods for scientific data that are noisy, incomplete, high-dimensional, heterogeneous, or shaped by selection effects. Astronomy is the central laboratory for much of this work, from galaxy and IFU segmentation to transient follow-up, spectral classification, Galactic structure, weak-lensing maps, and survey software, but the same methodological questions have led to papers in mathematics, ecology, nuclear physics, and broader complex-data science.
 portrait: assets/images/rafael-de-souza.jpg?v=20260605b
 portraitAlt: Portrait of Rafael S. de Souza
-portraitCaption: Astrostatistics, machine learning, and scientific software for data-intensive astronomy.
+portraitCaption: Statistical inference, machine learning, and open scientific software across astronomy and complex scientific data.
 
 ## Roles
 
-### Senior Lecturer
+### Hertfordshire
 
-label: Senior Lecturer in Data Science
+label: Centre for Astrophysics Research
 place: University of Hertfordshire
 url: https://www.herts.ac.uk/
+
+### UFRGS
+
+label: Visiting Professor
+place: Federal University of Rio Grande do Sul
+url: https://www.ufrgs.br/
 
 ### COIN
 
@@ -54,7 +60,7 @@ url: software.html
 ### Publications
 
 value: 130+
-label: publications and scholarly outputs
+label: publications across astronomy, statistics, physics, and complex-data science
 url: publications.html
 
 ### Funding
@@ -77,10 +83,11 @@ url: cv.html
 
 ## Contact
 
-### Research enquiries
+### For collaborators and students
 
 eyebrow: Open to collaboration
-summary: I welcome seminar invitations, supervision enquiries, research collaborations, and questions about my publications or research software.
+title: Research collaborations, seminars, supervision.
+summary: I welcome seminar invitations, student enquiries, research collaborations, and questions about the papers or software listed here. The best starting point is a short email with the project, question, or visit idea.
 
 ## Contact links
 

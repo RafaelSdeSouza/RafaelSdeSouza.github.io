@@ -132,7 +132,7 @@ image: assets/images/institutions/unc.svg
 ### Federal University of Rio Grande do Sul
 
 years: 2025-present
-role: Visiting Scholar
+role: Visiting Professor
 place: Federal University of Rio Grande do Sul
 label: UFRGS
 city: Porto Alegre, Brazil
