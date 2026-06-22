@@ -5,35 +5,8 @@
 ### Header
 
 title: Publications.
-summary: A searchable bibliography generated from my CV BibTeX record, with selected books, software, reports, book chapters, and creative writing.
+summary: Papers,  software, reports, books, book chapters, and sci-fi writing.
 
-## Impact
-
-### Scholarly outputs
-
-value: 130+
-label: scholarly outputs
-url: publications.html
-
-### Funding
-
-value: $1M+
-label: competitive funding as PI
-url: cv.html
-
-### PROSE Award
-
-value: PROSE Awards
-label: Best Book in Cosmology and Astronomy
-url: https://proseawards.com/
-
-### Co-Founder of COIN
-
-value: 80+
-label: COIN research network
-url: https://cosmostatistics-initiative.org/
-
-## Featured book
 
 ### Bayesian Models for Astrophysical Data
 
