@@ -910,7 +910,7 @@ function renderResearchContent(data) {
           : "COIN";
       strip.querySelector(".coin-copy .eyebrow").textContent = communityEyebrow;
       strip.querySelector(".coin-copy h2").textContent = data.community.title;
-      strip.querySelector(".coin-copy p").innerHTML = data.community.summary || "";
+      strip.querySelector(".coin-copy p:not(.eyebrow)").innerHTML = data.community.summary || "";
       const windowLink = strip.querySelector(".coin-window");
       if (windowLink && data.community.url) windowLink.href = data.community.url;
       const image = strip.querySelector(".coin-window-body img");
@@ -1155,7 +1155,7 @@ async function loadCoinContent() {
       showcase.querySelector(".showcase-copy .eyebrow").textContent =
         data.networkHeader.eyebrow || showcase.querySelector(".showcase-copy .eyebrow").textContent;
       showcase.querySelector(".showcase-copy h2").textContent = data.networkHeader.title;
-      showcase.querySelector(".showcase-copy p").textContent = markdownSummary(data.networkHeader);
+      showcase.querySelector(".showcase-copy p:not(.eyebrow)").textContent = markdownSummary(data.networkHeader);
     }
     const grid = showcase?.querySelector(".project-grid");
     if (grid && data.cards.length) grid.innerHTML = renderGenericCards(data.cards);
