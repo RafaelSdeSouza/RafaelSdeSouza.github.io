@@ -28,7 +28,7 @@ const siteAssetVersion = new URL(
 const pageContentVersion = window.location.search.replace(/^\?/, "");
 
 let publications = [];
-let activeFilter = "all";
+let activeFilter = "paper";
 const visitedCountryIds = new Set(["076", "392", "410", "348", "156", "840", "826"]);
 const researchIcons = {
   inference: `<svg viewBox="0 0 48 48" aria-hidden="true" focusable="false"><path d="M10 32 22 16l9 10 7-12"/><circle cx="10" cy="32" r="4"/><circle cx="22" cy="16" r="4"/><circle cx="31" cy="26" r="4"/><circle cx="38" cy="14" r="4"/></svg>`,
@@ -193,8 +193,18 @@ function publicationVenueLabel(item) {
   return [item.venue, volume, page].filter(Boolean).join(", ");
 }
 
+function publicationTypeLabel(item) {
+  if (!item.type || item.type === "paper") return "";
+  if (item.displayType) return item.displayType;
+  const labels = {
+    chapter: "Book chapter",
+    "sci-fi": "Sci-fi",
+  };
+  return labels[item.type] || item.type;
+}
+
 function publicationBadges(item, primaryUrl = "") {
-  const typeLabel = item.type && item.type !== "paper" ? item.type : "";
+  const typeLabel = publicationTypeLabel(item);
   const venueLabel = publicationVenueLabel(item);
 
   return [
@@ -686,6 +696,20 @@ function parseBibtexPublications(bibtex) {
   return splitBibtexEntries(bibtex).map(publicationFromBibtex);
 }
 
+function writingWorksAsPublications(works = []) {
+  return works.map((item) => ({
+    id: `writing-${String(item.title || "untitled").toLowerCase().replace(/[^a-z0-9]+/g, "-")}`,
+    year: item.year || "",
+    type: "sci-fi",
+    displayType: item.type || "Sci-fi",
+    title: item.title || "Untitled",
+    authors: item.authors || "",
+    venue: item.status || "Creative writing",
+    summary: item.summary || "",
+    links: item.links || [],
+  }));
+}
+
 async function loadBibtexOrJson(bibPath, jsonPath) {
   try {
     return parseBibtexPublications(await loadText(bibPath));
@@ -945,7 +969,7 @@ async function loadResearchContent() {
 }
 
 function matchesSearch(item, query) {
-  const haystack = [item.title, item.authors, item.venue, item.year, item.type]
+  const haystack = [item.title, item.authors, item.venue, item.year, item.type, item.displayType]
     .filter(Boolean)
     .join(" ")
     .toLowerCase();
@@ -987,8 +1011,16 @@ function renderPublications() {
 async function loadPublications() {
   if (!publicationList) return;
   try {
-    publications = await loadBibtexOrJson("assets/cv/references.bib", "content/publications.json");
-    publications.sort((a, b) => b.year - a.year || a.title.localeCompare(b.title));
+    const bibliography = await loadBibtexOrJson("assets/cv/references.bib", "content/publications.json");
+    let writingWorks = [];
+    try {
+      const writing = await loadMarkdownOrJson("content/writing.md", "content/writing.json", parseWritingMarkdown);
+      writingWorks = writingWorksAsPublications(writing.works || []);
+    } catch (writingError) {
+      writingWorks = [];
+    }
+    publications = [...bibliography, ...writingWorks];
+    publications.sort((a, b) => (Number(b.year) || 0) - (Number(a.year) || 0) || a.title.localeCompare(b.title));
     renderPublications();
   } catch (error) {
     publicationList.innerHTML = `

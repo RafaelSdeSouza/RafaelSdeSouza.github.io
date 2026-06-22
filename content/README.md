@@ -116,7 +116,9 @@ Use `type: education` for degrees and `type: work` for positions.
 
 ## Add A Writing Piece
 
-Copy this block into `writing.md` under `## Writing`:
+Copy this block into `writing.md` under `## Writing`. These pieces appear in the
+`Sci-fi` filter on `publications.html`; the old `writing.html` page is still kept
+as a direct detail page, but it is not in the top navigation.
 
 ```md
 ### Story Title
