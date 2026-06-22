@@ -128,7 +128,7 @@ main {
     linear-gradient(90deg, rgba(248, 246, 239, 0.94) 0%, rgba(248, 246, 239, 0.86) 38%, rgba(248, 246, 239, 0.46) 68%, rgba(248, 246, 239, 0.12) 100%),
     linear-gradient(180deg, rgba(248, 246, 239, 0.02), rgba(248, 246, 239, 0.36)),
     radial-gradient(circle at 14% 22%, rgba(11, 117, 109, 0.11), transparent 17rem),
-    url("assets/images/backgrounds/home-nebula-contours.jpg?v=20260621k");
+    url("assets/images/backgrounds/home-nebula-contours.jpg?v=20260621m");
   background-position:
     center,
     center,
@@ -208,7 +208,7 @@ h2 {
 }
 
 h1 {
-  max-width: 12ch;
+  max-width: 18ch;
   margin-bottom: 1.2rem;
   font-size: clamp(2.75rem, 5.2vw, 4.85rem);
   line-height: 0.93;
