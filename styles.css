@@ -1035,7 +1035,7 @@ h3 {
   text-transform: uppercase;
 }
 
-.publication-meta span {
+.publication-badge {
   max-width: min(100%, 17rem);
   padding: 0.36rem 0.52rem 0.32rem;
   overflow: hidden;
@@ -1044,12 +1044,39 @@ h3 {
   background: rgba(8, 85, 78, 0.055);
   color: var(--teal-dark);
   text-overflow: ellipsis;
+  text-decoration: none;
   white-space: nowrap;
+}
+
+.publication-badge:hover,
+.publication-badge:focus-visible {
+  border-color: rgba(8, 85, 78, 0.45);
+}
+
+.publication-meta .year-badge {
+  background: rgba(8, 85, 78, 0.07);
+  color: var(--teal-dark);
+}
+
+.publication-meta .type-badge {
+  background: rgba(48, 70, 76, 0.08);
+  color: #30464c;
 }
 
 .publication-meta .venue-badge {
   background: rgba(178, 101, 76, 0.08);
   color: var(--clay);
+}
+
+.publication-meta .venue-badge:hover,
+.publication-meta .venue-badge:focus-visible {
+  border-color: rgba(178, 101, 76, 0.42);
+  background: rgba(178, 101, 76, 0.14);
+}
+
+.publication-meta .detail-badge {
+  background: rgba(20, 28, 28, 0.04);
+  color: #5b6261;
 }
 
 .publication-card h3 {

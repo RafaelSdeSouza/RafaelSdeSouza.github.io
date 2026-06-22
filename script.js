@@ -177,18 +177,29 @@ function publicationPrimaryUrl(links = {}) {
   return (preferred || normalized[0] || [null, ""])[1];
 }
 
-function publicationBadges(item) {
+function publicationBadge(label, className, url = "") {
+  const content = escapeHtml(label);
+  const classes = `publication-badge ${className}`;
+  return url
+    ? `<a class="${classes}" href="${escapeHtml(url)}">${content}</a>`
+    : `<span class="${classes}">${content}</span>`;
+}
+
+function publicationBadges(item, primaryUrl = "") {
   const typeLabel = item.type && item.type !== "paper" ? item.type : "";
+  const detailBadges = [
+    item.volume ? `Vol. ${item.volume}` : "",
+    item.number ? `No. ${item.number}` : "",
+    item.pages ? item.pages : item.eid,
+  ];
+
   return [
-    item.year,
-    typeLabel,
-    item.venue,
+    item.year ? publicationBadge(item.year, "year-badge") : "",
+    typeLabel ? publicationBadge(typeLabel, "type-badge") : "",
+    item.venue ? publicationBadge(item.venue, "venue-badge", primaryUrl) : "",
+    ...detailBadges.filter(Boolean).map((label) => publicationBadge(label, "detail-badge")),
   ]
     .filter(Boolean)
-    .map((label, index) => {
-      const className = index === 2 ? " class=\"venue-badge\"" : "";
-      return `<span${className}>${escapeHtml(label)}</span>`;
-    })
     .join("");
 }
 
@@ -521,8 +532,23 @@ const bibtexTypeMap = {
   tns: "report",
 };
 
+const latexJournalMap = {
+  aap: "A&A",
+  aapr: "A&A Rev.",
+  aj: "AJ",
+  apj: "ApJ",
+  apjl: "ApJL",
+  apjs: "ApJS",
+  mnras: "MNRAS",
+  nat: "Nature",
+  pasp: "PASP",
+  prc: "Phys. Rev. C",
+  prd: "Phys. Rev. D",
+};
+
 function cleanLatex(value = "") {
   const replacements = [
+    [/\\([a-zA-Z]+)/g, (match, name) => latexJournalMap[name.toLowerCase()] || match],
     [/\\textbf\s*\{/g, ""],
     [/\\emph\s*\{/g, ""],
     [/\\&/g, "&"],
@@ -646,7 +672,9 @@ function publicationFromBibtex(entry) {
     authors: fields.author || "",
     venue: fields.journal || fields.booktitle || fields.publisher || "",
     volume: fields.volume || "",
+    number: fields.number || "",
     pages: fields.pages || "",
+    eid: fields.eid || "",
     links: bibtexLinks(fields),
   };
 }
@@ -938,7 +966,7 @@ function renderPublications() {
 
       return `
         <article class="publication-card">
-          <div class="publication-meta">${publicationBadges(item)}</div>
+          <div class="publication-meta">${publicationBadges(item, primaryUrl)}</div>
           <h3>${titleHtml}</h3>
           ${item.authors ? `<p class="authors">${escapeHtml(item.authors)}</p>` : ""}
           ${item.summary ? `<p>${escapeHtml(item.summary)}</p>` : ""}
