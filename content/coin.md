@@ -4,9 +4,9 @@
 
 ### Main
 
-eyebrow: Cosmostatistics Initiative
+eyebrow: COIN
 title: COIN
-summary: An international research network connecting astronomy, statistics, machine learning, and scientific software. I founded and co-chair COIN as a space for collaborative, method-driven astronomical science.
+summary: The Cosmostatistics Initiative is an international network for collaborative, method-driven astronomical science.
 
 ## Hero actions
 
@@ -48,7 +48,7 @@ label: Highlights
 
 ### Collaborative astrostatistics.
 
-eyebrow: Network
+eyebrow: COIN
 summary: COIN projects sit at the boundary between astronomical data problems and statistical methodology: transient discovery, spectral classification, catalogues, weak lensing, galaxy morphology, and survey-scale inference.
 
 ## Cards

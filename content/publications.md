@@ -27,11 +27,11 @@ value: PROSE Awards
 label: Best Book in Cosmology and Astronomy
 url: https://proseawards.com/
 
-### Co-Funder of COIN
+### Co-Founder of COIN
 
 value: 80+
 label: COIN research network
-url: coin.html
+url: https://cosmostatistics-initiative.org/
 
 ## Featured book
 

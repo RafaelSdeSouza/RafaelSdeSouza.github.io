@@ -172,8 +172,8 @@ url: https://cosmostatistics-initiative.org/projects/ridges-in-the-dark-energy-s
 ### Collaborative astrostatistics.
 
 eyebrow: COIN
-summary: I founded and co-chair the <a href="coin.html">Cosmostatistics Initiative</a>, an international network connecting astronomers, statisticians, computer scientists, and software developers around methodological problems in astrophysics.
-url: coin.html
+summary: I founded and co-chair the <a href="https://cosmostatistics-initiative.org/">Cosmostatistics Initiative</a>, an international network connecting astronomers, statisticians, computer scientists, and software developers around methodological problems in astrophysics.
+url: https://cosmostatistics-initiative.org/
 logo: assets/images/coin.png
 windowTitle: COIN
 windowSubtitle: Cosmostatistics Initiative
