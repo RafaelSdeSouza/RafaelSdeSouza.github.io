@@ -190,7 +190,7 @@ function publicationVenueLabel(item) {
   const number = item.number ? `(${item.number})` : "";
   const volume = item.volume ? `${item.volume}${number}` : "";
   const page = item.pages || item.eid || "";
-  return [item.venue, volume, page].filter(Boolean).join(" · ");
+  return [item.venue, volume, page].filter(Boolean).join(", ");
 }
 
 function publicationBadges(item, primaryUrl = "") {
