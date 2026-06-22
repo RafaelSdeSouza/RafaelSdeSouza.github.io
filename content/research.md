@@ -13,7 +13,7 @@ summary: I develop statistical and machine-learning methods for astronomical sur
 ### Research directions.
 
 eyebrow: Research Interests
-summary: The recurring problems in my papers and software are inference with incomplete data, survey-scale machine learning, transient discovery, segmentation, spectra, cosmic structure, and collaborative infrastructure through COIN.
+summary: My work sits at the interface of astronomy, statistics, geometry, and scientific software. I develop methods that treat survey data — images, spectra, IFU cubes, transient streams, and cosmic maps — as structured objects from which physical information can be inferred under uncertainty. Across my work, ideas from Bayesian inference, machine learning, graph representations, segmentation, differential geometry, and path signatures are used to make complex astronomical data interpretable at survey scale.
 
 ## Research interests
 
