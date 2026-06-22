@@ -904,7 +904,11 @@ function renderResearchContent(data) {
   if (data.community?.title) {
     const strip = document.querySelector(".coin-strip");
     if (strip) {
-      strip.querySelector(".coin-copy .eyebrow").textContent = data.community.eyebrow || strip.querySelector(".coin-copy .eyebrow").textContent;
+      const communityEyebrow =
+        data.community.eyebrow && String(data.community.eyebrow).length < 32
+          ? data.community.eyebrow
+          : "COIN";
+      strip.querySelector(".coin-copy .eyebrow").textContent = communityEyebrow;
       strip.querySelector(".coin-copy h2").textContent = data.community.title;
       strip.querySelector(".coin-copy p").innerHTML = data.community.summary || "";
       const windowLink = strip.querySelector(".coin-window");
