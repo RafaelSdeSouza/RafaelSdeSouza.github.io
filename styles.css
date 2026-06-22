@@ -139,7 +139,7 @@ main {
     100% 100%,
     100% 100%,
     auto,
-    min(100rem, 76vw) auto;
+    min(104rem, 84vw) auto;
   content: "";
   pointer-events: none;
 }
@@ -163,7 +163,8 @@ main {
 }
 
 .hero-text {
-  max-width: 58rem;
+  max-width: 64rem;
+  margin-left: clamp(0.5rem, 4vw, 4.5rem);
 }
 
 .hero-identity {
@@ -174,7 +175,7 @@ main {
 
 .identity-portrait {
   flex: 0 0 auto;
-  width: clamp(5.8rem, 10vw, 8.2rem);
+  width: clamp(6.8rem, 11.5vw, 9.6rem);
   aspect-ratio: 1;
   margin-top: 0.12rem;
   border: 1px solid rgba(222, 219, 208, 0.9);
@@ -210,7 +211,7 @@ h2 {
 h1 {
   max-width: 18ch;
   margin-bottom: 1.2rem;
-  font-size: clamp(2.75rem, 5.2vw, 4.85rem);
+  font-size: clamp(3.15rem, 5.95vw, 5.65rem);
   line-height: 0.93;
 }
 
