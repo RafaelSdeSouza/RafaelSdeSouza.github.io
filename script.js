@@ -185,19 +185,22 @@ function publicationBadge(label, className, url = "") {
     : `<span class="${classes}">${content}</span>`;
 }
 
+function publicationVenueLabel(item) {
+  if (!item.venue) return "";
+  const number = item.number ? `(${item.number})` : "";
+  const volume = item.volume ? `${item.volume}${number}` : "";
+  const page = item.pages || item.eid || "";
+  return [item.venue, volume, page].filter(Boolean).join(" · ");
+}
+
 function publicationBadges(item, primaryUrl = "") {
   const typeLabel = item.type && item.type !== "paper" ? item.type : "";
-  const detailBadges = [
-    item.volume ? `Vol. ${item.volume}` : "",
-    item.number ? `No. ${item.number}` : "",
-    item.pages ? item.pages : item.eid,
-  ];
+  const venueLabel = publicationVenueLabel(item);
 
   return [
     item.year ? publicationBadge(item.year, "year-badge") : "",
     typeLabel ? publicationBadge(typeLabel, "type-badge") : "",
-    item.venue ? publicationBadge(item.venue, "venue-badge", primaryUrl) : "",
-    ...detailBadges.filter(Boolean).map((label) => publicationBadge(label, "detail-badge")),
+    venueLabel ? publicationBadge(venueLabel, "venue-badge", primaryUrl) : "",
   ]
     .filter(Boolean)
     .join("");
@@ -1047,7 +1050,7 @@ async function loadHomeContent() {
       hero.querySelector(".eyebrow").textContent = data.hero.eyebrow || hero.querySelector(".eyebrow").textContent;
       hero.querySelector("h1").textContent = data.hero.title;
       hero.querySelector(".lead").innerHTML = markdownSummary(data.hero);
-      const portrait = hero.querySelector(".portrait");
+      const portrait = hero.querySelector(".identity-portrait, .portrait");
       if (portrait && data.hero.portrait) portrait.src = data.hero.portrait;
       if (portrait && data.hero.portraitAlt) portrait.alt = data.hero.portraitAlt;
       const caption = hero.querySelector(".portrait-caption");
