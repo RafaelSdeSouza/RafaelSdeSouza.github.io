@@ -174,7 +174,7 @@ main {
 
 .identity-portrait {
   flex: 0 0 auto;
-  width: clamp(4.5rem, 8vw, 6.4rem);
+  width: clamp(5.8rem, 10vw, 8.2rem);
   aspect-ratio: 1;
   margin-top: 0.12rem;
   border: 1px solid rgba(222, 219, 208, 0.9);
@@ -210,7 +210,7 @@ h2 {
 h1 {
   max-width: 12ch;
   margin-bottom: 1.2rem;
-  font-size: clamp(3rem, 6.4vw, 5.9rem);
+  font-size: clamp(2.75rem, 5.2vw, 4.85rem);
   line-height: 0.93;
 }
 
