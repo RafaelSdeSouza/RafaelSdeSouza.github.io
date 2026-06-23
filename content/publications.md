@@ -8,6 +8,36 @@ title: Publications.
 summary: Papers,  software, reports, books, book chapters, and sci-fi writing.
 
 
+## Impact
+
+### Scholarly outputs
+
+value: 140+
+label: scholarly outputs
+url: publications.html
+
+
+### Papers
+
+value: 100+
+label: papers and articles
+url: publications.html
+
+
+### Software
+
+value: 12
+label: software records
+url: publications.html
+
+
+### PROSE Awards
+
+value: PROSE Awards
+label: Best Book in Cosmology and Astronomy
+url: https://proseawards.com/
+
+
 ### Bayesian Models for Astrophysical Data
 
 eyebrow: Featured Book
