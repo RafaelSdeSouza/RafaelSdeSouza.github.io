@@ -25,6 +25,19 @@ Edit this BibTeX file when you want the publications list to change:
 The website reads that BibTeX file directly. You do not need to edit the
 publication cards manually.
 
+## Edit Publication Metrics
+
+Edit `publications.md` under `## Impact` to change the large publication
+numbers at the top of the Publications page. Each metric uses this shape:
+
+```md
+### Metric Name
+
+value: 140+
+label: scholarly outputs
+url: publications.html
+```
+
 ## Images
 
 Put new images in one of these folders:
