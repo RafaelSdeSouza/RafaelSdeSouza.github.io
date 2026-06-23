@@ -5,7 +5,7 @@
 ### Header
 
 title: Publications.
-summary: Papers,  software, reports, books, book chapters, and sci-fi writing.
+summary: Papers, software, reports, books, book chapters, and sci-fi writing.
 
 
 ## Impact
@@ -37,6 +37,8 @@ value: PROSE Awards
 label: Best Book in Cosmology and Astronomy
 url: https://proseawards.com/
 
+
+## Featured book
 
 ### Bayesian Models for Astrophysical Data
 
