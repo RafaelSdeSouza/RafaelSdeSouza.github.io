@@ -117,3 +117,82 @@ END
 footnotes:
 - Lust Units: Logarithmic scale of Strain and Thrill calibrated by the Rainbow system.
 - Soma: A neural stimulant developed by the entertainment sector to enhance dopaminergic pleasure responses.
+
+### Beyond the Veil
+
+type: Science fiction
+year: 2026
+authors: Rafael S. de Souza
+status: Short story
+summary: Captain Jameson travels to the Great Attractor in search of answers, but finds a Lovecraftian cosmic horror that reveals the true nature of the universe.
+cover: assets/images/writing/cover2.jpg
+coverLabel: Beyond the Veil
+readerLabel: Read text
+
+links:
+- Wattpad: https://www.wattpad.com/story/330564922-beyond-the-veil
+body:
+
+The journey had been long and silent, marked by solitude more profound than Jameson had imagined. He had left behind his family, his friends, and the noise of Earth—its familiar gravity, its petty urgencies—for a chance to witness something no human ever had. The cost had been immense, but the promise of revelation kept his resolve steady.
+
+Days melted into weeks, then months, time unspooling like thread in the vacuum of space. Jameson drifted through the darkness with only the hum of the ship and the whisper of equations to keep him company. Signals pulsed from the ship's instruments—chaotic, recursive, full of structure that defied meaning. The teams back on Earth had given up, dismissing the patterns as cosmic noise. But Jameson wasn't convinced. Deep within the interference, he sensed rhythm—like a language struggling to be born.
+
+Then, one morning-cycle, the viewport dimmed in warning. The Great Attractor had emerged.
+
+Not a place. Not even a structure. A presence—a vast convulsion of gravity and light, writhing at the edge of comprehension. Stars bowed toward it. Space itself seemed to ripple in its orbit. Jameson's breath caught. Even from a distance, it pressed on him—like an unseen tide tugging at every atom. He braced against the control panel, heart racing with awe and something darker.
+
+As the ship crossed into its influence, the pull grew impossibly dense. Every law he knew seemed to blur at the edges. He was no longer charting coordinates—he was falling inward. Toward something.
+
+And then: emergence.
+
+There, suspended in the dark like a wound torn through space, was a creature. Or perhaps an event. Or a god.
+
+Jameson could not tell.
+
+Its form was mutable—tentacles blooming and dissolving like thoughts, eyes that opened into unfamiliar dimensions. It radiated not light but awareness, and its gaze stripped Jameson bare. Not just physically—existentially. His life, his intentions, his beliefs—all laid out like bones beneath a dissecting scalpel.
+
+Terror gripped him. This was no echo of alien life. This was consciousness magnified, elemental and ancient, untouched by time or empathy.
+
+His comms blinked with static. Then came a voice—not heard, but registered somewhere in the marrow of his mind. It scraped and coiled like rusted machinery grinding through flesh.
+
+"You arrive seeking answers. But answers presume you know the shape of questions. Your kind dreams of order. But what lies beyond is entropy made flesh."
+
+Jameson tried to move—tried to scream, to pray, to believe in physics, God, anything. But motion was gone. He was held fast in place, his identity unraveling under the weight of truths no mind was made to carry.
+
+Visions followed.
+
+Worlds devoured by silence.
+
+Civilizations imploding from revelation.
+
+Not death—but undoing.
+
+The voice again:
+
+"You are not the first. You are not even the first to think you are the first."
+
+He thought of Earth—so small, so loud. He remembered bedtime stories, ancient myths, gods with too many eyes and beasts with too many names. He had laughed at them once. But now...
+
+Were those stories not metaphors—but echoes?
+
+As the entity reached toward him—not with limbs, but with certainty—Jameson understood: the universe was not indifferent. It was hostile to meaning. Reality was not built for understanding. It was a maze with no exit. A mirror that fractured when looked into too deeply.
+
+Still, amid the unraveling, a strange peace bloomed.
+
+He had seen what others never would.
+
+Even if he returned, no one would believe him.
+
+But perhaps that didn't matter.
+
+Perhaps bearing witness was enough.
+
+Then came silence. The creature withdrew. The stars flickered. Gravity returned.
+
+Jameson awoke slumped against the bulkhead. Alone.
+
+His ship drifted, systems intact. No logs. No data. Just memories—or dreams.
+
+As he stared back toward the receding Great Attractor, a thought pulsed in his chest like a beacon:
+
+There is no going back. Only forward. Into unknowing.
