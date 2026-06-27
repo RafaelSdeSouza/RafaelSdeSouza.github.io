@@ -22,7 +22,7 @@ type: Science fiction
 authors: Xuenan Cao and Rafael S. de Souza
 status: Short story
 summary: The Union is scheduled not for next month, not next week, but in one hour. The biometer reads 3.7 lust.
-cover:assets/images/writing/cover.jpg
+cover: assets/images/writing/cover.jpg
 coverLabel: Beyond the Rainbow
 readerLabel: Read text
 
