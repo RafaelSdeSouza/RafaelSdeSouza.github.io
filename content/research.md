@@ -167,6 +167,24 @@ tag: Weak lensing
 summary: Ridge estimation for curvilinear structure in weak-lensing mass maps.
 url: https://cosmostatistics-initiative.org/projects/ridges-in-the-dark-energy-survey/
 
+## Videos header
+
+### Selected videos.
+
+eyebrow: Videos
+summary: Videos and recorded material connected to my research.
+
+## Videos
+
+### The Milky Way Broke Its Arm
+
+youtube: https://www.youtube.com/watch?v=mWVcG_aWtZQ
+tag: Media
+summary: SciShow Space coverage of the Sagittarius Arm result.
+
+links:
+- YouTube: https://www.youtube.com/watch?v=mWVcG_aWtZQ
+
 ## Community
 
 ### Collaborative astrostatistics.

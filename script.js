@@ -16,6 +16,7 @@ const mapZoomOut = document.querySelector("#map-zoom-out");
 const mapReset = document.querySelector("#map-reset");
 const researchInterestGrid = document.querySelector("#research-interest-grid");
 const researchApplicationGrid = document.querySelector("#research-application-grid");
+const researchVideoGrid = document.querySelector("#research-video-grid");
 const softwareGrid = document.querySelector("#software-grid");
 const writingGrid = document.querySelector("#writing-grid");
 const homeRoot = document.querySelector("#home");
@@ -217,7 +218,56 @@ function publicationBadges(item, primaryUrl = "") {
 }
 
 function renderResearchLinks(links = []) {
-  return links.map((link) => `<a href="${link.url}">${link.label}</a>`).join("");
+  return links.map((link) => `<a href="${escapeHtml(link.url)}">${escapeHtml(link.label)}</a>`).join("");
+}
+
+function youtubeVideoId(value = "") {
+  const raw = String(value).trim();
+  if (!raw) return "";
+  if (/^[A-Za-z0-9_-]{6,}$/.test(raw) && !raw.includes("/")) return raw;
+
+  try {
+    const url = new URL(raw);
+    const host = url.hostname.replace(/^www\./, "");
+    if (host === "youtu.be") return (url.pathname.split("/").filter(Boolean)[0] || "").trim();
+    if (host.endsWith("youtube.com") || host.endsWith("youtube-nocookie.com")) {
+      if (url.pathname.startsWith("/embed/")) {
+        return (url.pathname.split("/").filter(Boolean)[1] || "").trim();
+      }
+      return (url.searchParams.get("v") || "").trim();
+    }
+  } catch (error) {
+    return raw.replace(/[^A-Za-z0-9_-]/g, "").slice(0, 64);
+  }
+
+  return "";
+}
+
+function renderVideoGrid(videos = []) {
+  return videos
+    .map((item) => {
+      const videoId = youtubeVideoId(item.youtube || item.video || item.url);
+      const title = item.title || "Research video";
+      const videoUrl = item.url || item.youtube || (videoId ? `https://www.youtube.com/watch?v=${videoId}` : "");
+      const links = item.links?.length ? item.links : videoUrl ? [{ label: "YouTube", url: videoUrl }] : [];
+
+      return `
+        <article class="video-card">
+          ${
+            videoId
+              ? `<iframe src="https://www.youtube-nocookie.com/embed/${escapeHtml(videoId)}" title="${escapeHtml(title)}" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`
+              : `<div class="video-placeholder">Video</div>`
+          }
+          <div class="video-copy">
+            <span>${escapeHtml(item.tag || "Video")}</span>
+            <h3>${escapeHtml(title)}</h3>
+            ${item.summary ? `<p>${escapeHtml(item.summary)}</p>` : ""}
+            <div class="video-links">${renderResearchLinks(links)}</div>
+          </div>
+        </article>
+      `;
+    })
+    .join("");
 }
 
 function renderSoftwareLinks(links = []) {
@@ -485,6 +535,8 @@ function parseResearchMarkdown(markdown) {
     interests: firstMarkdownSection(sections, ["Research interests", "Interests"]),
     highlightsHeader: firstMarkdownItem(sections, ["Research highlights header", "Highlights header"]),
     applications: firstMarkdownSection(sections, ["Research highlights", "Highlights", "Applications"]),
+    videosHeader: firstMarkdownItem(sections, ["Videos header", "Video header"]),
+    videos: firstMarkdownSection(sections, ["Videos", "Talks"]),
     community: firstMarkdownItem(sections, ["Community", "COIN strip"]),
     communityLinks: firstMarkdownSection(sections, ["Community links", "COIN window links"]),
   };
@@ -866,6 +918,7 @@ async function loadWriting() {
 function renderResearchContent(data) {
   const interests = data.interests || [];
   const applications = data.applications || [];
+  const videos = data.videos || [];
 
   if (data.header?.title) {
     const hero = document.querySelector(".page-hero");
@@ -923,6 +976,25 @@ function renderResearchContent(data) {
         `
       )
       .join("");
+  }
+
+  if (data.videosHeader?.title) {
+    const copy = document.querySelector(".research-videos .section-copy");
+    if (copy) {
+      copy.querySelector(".eyebrow").textContent = data.videosHeader.eyebrow || copy.querySelector(".eyebrow").textContent;
+      copy.querySelector("h2").textContent = data.videosHeader.title;
+      copy.querySelector("p:not(.eyebrow)").textContent = markdownSummary(data.videosHeader);
+    }
+  }
+
+  if (researchVideoGrid) {
+    const videoSection = researchVideoGrid.closest(".research-videos");
+    if (!videos.length) {
+      videoSection?.setAttribute("hidden", "");
+    } else {
+      videoSection?.removeAttribute("hidden");
+      researchVideoGrid.innerHTML = renderVideoGrid(videos);
+    }
   }
 
   if (data.community?.title) {
