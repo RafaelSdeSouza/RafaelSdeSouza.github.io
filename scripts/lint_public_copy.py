@@ -18,9 +18,11 @@ FORBIDDEN = (
     "revealing hidden structure", "physical insight", "a more complete picture", "bridging",
     "transforming data into knowledge", "cutting-edge", "innovative framework", "novel paradigm",
     "this page showcases", "this section highlights",
+    "demo page", "demo only", "internal demo", "visual comparison", "implementation preview",
+    "development preview", "development only", "qa report", "review environment",
 )
 SEARCH_TERMS = ("127.0.0.1", "localhost", "design/concepts", "authored-atlas", "production unchanged",
-                "internal review", "typography", "candidate", "review", "concept", "production")
+                "internal review", "typography", "candidate", "review", "concept", "production", "demo")
 SOFTWARE_NAMES = {"spectropath", "radialpaths", "capivara", "sagui", "resspect", "spaxnmf",
                   "cosmoabc", "dracula", "sconce", "sconce-scms", "spectralunmix", "qrpca"}
 for group in json.loads((ROOT / "content/software.json").read_text()).values():
