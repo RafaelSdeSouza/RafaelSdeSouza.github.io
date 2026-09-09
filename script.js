@@ -63,6 +63,7 @@ async function initialisePublications() {
   const input = document.querySelector("[data-publication-search]");
   const count = document.querySelector("[data-publication-count]");
   const buttons = [...document.querySelectorAll("[data-publication-filter]")];
+  const filterLinks = [...document.querySelectorAll("[data-set-filter]")];
   try {
     const records = await fetch("content/publications.json").then(response => response.json());
     let filter = "all";
@@ -76,12 +77,14 @@ async function initialisePublications() {
       count.textContent = `Showing ${visible.length} of ${records.length} records`;
       list.innerHTML = visible.length ? visible.map(publicationMarkup).join("") : '<li class="empty-state">No publication matches the current search and filters.</li>';
     };
-    input.addEventListener("input", render);
-    buttons.forEach(button => button.addEventListener("click", () => {
-      filter = button.dataset.publicationFilter;
-      buttons.forEach(item => item.setAttribute("aria-pressed", String(item === button)));
+    const setFilter = nextFilter => {
+      filter = nextFilter;
+      buttons.forEach(item => item.setAttribute("aria-pressed", String(item.dataset.publicationFilter === filter)));
       render();
-    }));
+    };
+    input.addEventListener("input", render);
+    buttons.forEach(button => button.addEventListener("click", () => setFilter(button.dataset.publicationFilter)));
+    filterLinks.forEach(link => link.addEventListener("click", () => setFilter(link.dataset.setFilter)));
     render();
   } catch (error) {
     list.innerHTML = '<li class="empty-state">The publication record could not be loaded.</li>';

@@ -102,7 +102,7 @@ def main() -> None:
             if not re.search(rf'\bid="{re.escape(anchor)}"', text):
                 errors.append(f"{name}: missing legacy anchor #{anchor}")
 
-    for name in ["profile.json", "site.json", "software.json", "publications.json", "writing.json"]:
+    for name in ["profile.json", "site.json", "software.json", "publications.json", "research.json", "writing.json"]:
         with (ROOT / "content" / name).open(encoding="utf-8") as handle:
             json.load(handle)
 
@@ -113,6 +113,21 @@ def main() -> None:
     software_counts = tuple(len(software[key]) for key in ("published", "systems", "development"))
     if software_counts != (18, 6, 1):
         errors.append(f"expected software counts 18/6/1, found {software_counts}")
+
+    research = json.loads((ROOT / "content/research.json").read_text(encoding="utf-8"))
+    expected_research_counts = {
+        "questions": 5,
+        "domains": 6,
+        "contribution_forms": 6,
+    }
+    for field, expected in expected_research_counts.items():
+        actual = len(research.get(field, []))
+        if actual != expected:
+            errors.append(f"expected {expected} research {field}, found {actual}")
+    for project in research.get("projects", []):
+        for field in ("questions", "domains", "methods", "contribution_forms"):
+            if not isinstance(project.get(field), list) or not project[field]:
+                errors.append(f"{project.get('title', 'research project')}: missing non-exclusive {field} metadata")
     software_url_fields = (
         "paper_url", "docs_url", "getting_started_url", "github_url",
         "release_url", "registry_url",
@@ -185,6 +200,8 @@ def main() -> None:
         errors.append("legacy COIN mark is still displayed")
     if visible_pages.count("assets/images/coin-2024.png") != 2:
         errors.append("current COIN mark should appear exactly on Home and Leadership & Community")
+    if "four methodological programmes" in visible_pages.lower():
+        errors.append("obsolete four-programme research architecture remains visible")
 
     if errors:
         raise SystemExit("Site checks failed:\n- " + "\n- ".join(errors))

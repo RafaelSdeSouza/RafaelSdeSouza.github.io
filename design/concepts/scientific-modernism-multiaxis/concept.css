@@ -211,7 +211,7 @@ figcaption { margin-top: .6rem; color: var(--muted); font-size: .72rem; line-hei
 .margin-sample div { padding: 1rem; }
 .board-links { display: flex; flex-wrap: wrap; gap: .6rem 1rem; margin-top: 1.8rem; font-size: .8rem; font-weight: 750; }
 
-.motif-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+.motif-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; }
 .motif { padding-top: 1rem; border-top: 2px solid var(--ink); }
 .motif-stage { height: 145px; display: flex; align-items: center; margin: 1rem 0; overflow: hidden; }
 .motif-stage img { max-height: 130px; object-fit: contain; object-position: left; }

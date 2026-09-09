@@ -11,7 +11,7 @@
   <link rel="stylesheet" href="styles.css">
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Rafael S. de Souza","jobTitle":"Astrophysicist","url":"https://rafaelsdesouza.com.br/","affiliation":[{"@type":"Organization","name":"University of Hertfordshire"},{"@type":"Organization","name":"University of North Carolina at Chapel Hill"}],"sameAs":["https://orcid.org/0000-0001-7207-4584","https://github.com/RafaelSdeSouza"]}</script>
 </head>
-<body>
+<body class="home-page">
   <a class="skip-link" href="#main">Skip to content</a>
   <header class="site-header"><div class="header-inner">
     <a class="site-name" href="index.html">Rafael S. de Souza</a>
@@ -20,69 +20,50 @@
   </div></header>
 
   <main id="main">
-    <section class="hero" id="home">
-      <img class="hero-art" src="assets/images/backgrounds/home-nebula-contours.jpg" alt="" width="2400" height="1600">
-      <div class="hero-overlay"></div>
-      <div class="shell hero-inner"><div class="hero-copy">
+    <section class="home-hero" id="home">
+      <div class="home-hero-copy">
         <p class="eyebrow">Rafael S. de Souza</p>
         <h1>Astrophysicist</h1>
         <p class="lede">Statistical inference from astronomical observations affected by selection, inaccessible likelihoods, lossy representations, and spatial dependence.</p>
-        <p class="hero-extent">Applications include Population III star formation, cosmological cluster counts, Milky Way structure, resolved galaxy spectroscopy, transient follow-up, and thermonuclear reaction rates.</p>
-        <p class="hero-affiliations">Senior Lecturer, University of Hertfordshire · Adjunct Associate Professor, University of North Carolina at Chapel Hill</p>
+        <p class="home-hero-extent">Applications include Population III star formation, cosmological cluster counts, Milky Way structure, resolved galaxy spectroscopy, transient follow-up, and thermonuclear reaction rates.</p>
+        <p class="home-hero-affiliations">Senior Lecturer, University of Hertfordshire · Adjunct Associate Professor, University of North Carolina at Chapel Hill</p>
         <div class="inline-links"><a href="research.html">Explore the research</a><a href="contributions.html">Selected contributions</a><a href="publications.html">Publications</a><a href="assets/cv/cv.pdf">Download CV</a></div>
-      </div></div>
+      </div>
+      <figure class="home-hero-art"><img src="assets/images/backgrounds/home-nebula-contours.jpg" alt="" width="2400" height="1600"></figure>
     </section>
 
     <section class="section"><div class="shell">
-      <p class="eyebrow">Research</p>
-      <h2>Four methodological programmes</h2>
-      <div class="programme-list">
-        <article class="programme"><div class="programme-index">01</div><div><h3>Statistical inference from complex astronomical data</h3><p>Binomial, gamma, negative-binomial, hierarchical, and likelihood-free models relate specific observables to physical parameters and propagate experiment-level uncertainty.</p></div></article>
-        <article class="programme"><div class="programme-index">02</div><div><h3>Learning from heterogeneous and incomplete surveys</h3><p>Comparisons of spectroscopic calibration and photometric target samples isolate failures caused by missing colour–magnitude support, selective sampling, and different measurement errors.</p></div></article>
-        <article class="programme"><div class="programme-index">03</div><div><h3>Representations of spectra, images and populations</h3><p>Principal components, graph orderings, and non-negative matrix factorisations are tested by whether they retain the spectral or image variation required for later inference.</p></div></article>
-        <article class="programme"><div class="programme-index">04</div><div><h3>Geometry and resolved astronomical structure</h3><p>Ridge finding, spectro-spatial segmentation, and centre-conditioned paths recover structure that depends on adjacency within maps, images, and data cubes.</p></div></article>
+      <div class="section-head"><div><p class="eyebrow">Research</p><h2>Current questions</h2></div><p class="intro">Incomplete calibration, representation completion, path-based geometry, and resolved galaxy structure.</p></div>
+      <div class="question-list">
+        <article class="question-row"><div><p class="question-kind">Incomplete data</p><h3>What remains identifiable when a calibration sample omits part of the target population?</h3></div><p>Current work derives bounds on population quantities when additional spectroscopy cannot recover missing colour–magnitude support.</p></article>
+        <article class="question-row"><div><p class="question-kind">Representations</p><h3>Does a summary retain the variation required by a later physical parameter?</h3></div><p>Controlled experiments distinguish the variance captured by a representation from the information needed by the scientific estimand.</p></article>
+        <article class="question-row"><div><p class="question-kind">Path-based geometry</p><h3>How should radial structure be defined for irregular sources with multiple centres?</h3></div><p>RadialPaths measures distance through the observed footprint and retains the association between each location and candidate centres.</p></article>
+        <article class="question-row"><div><p class="question-kind">Resolved galaxies</p><h3>Which regions of a galaxy remain coherent in spectra or multiband SEDs?</h3></div><p>CAPIVARA and SAGUI group neighbouring measurements by spectral information without imposing a bulge–disc decomposition.</p></article>
       </div>
-      <p><a class="text-link" href="research.html">Read the research programmes</a></p>
+      <p class="section-link"><a class="text-link" href="research.html">Read the research by question, field, and thread</a></p>
     </div></section>
 
     <section class="section"><div class="shell">
-      <p class="eyebrow">Physical systems</p><h2>Across astronomy</h2>
+      <div class="section-head section-head-compact"><div><p class="eyebrow">Physical systems</p><h2>Across astronomy</h2></div></div>
       <div class="domain-grid">
         <article class="domain"><h3>First stars and the early Universe</h3></article><article class="domain"><h3>Cosmology and large-scale structure</h3></article><article class="domain"><h3>Milky Way structure and star formation</h3></article><article class="domain"><h3>Galaxies and stellar systems</h3></article><article class="domain"><h3>Supernovae, transients and multimessenger sources</h3></article><article class="domain"><h3>Nuclear astrophysics</h3></article>
       </div><p><a class="text-link" href="research.html#across-astronomy">Explore by astronomical domain</a></p>
     </div></section>
 
     <section class="section"><div class="shell">
-      <p class="eyebrow">Selected work</p><h2>Selected Contributions</h2><p class="intro">Four results from 2015–2025 span statistical models, a methods monograph, Galactic star formation, and IFU segmentation.</p>
+      <div class="section-head"><div><p class="eyebrow">Selected work</p><h2>Selected Contributions</h2></div><p class="intro">Four results from 2015–2025 span statistical models, a methods monograph, Galactic star formation, and IFU segmentation.</p></div>
       <div class="feature-grid">
-        <article class="feature"><p class="feature-meta">2015 · Statistical models</p><h3>Generalized linear models in astronomy</h3><p>Binary events, positive continuous measurements, and overdispersed counts were treated with sampling laws appropriate to each observable, making the corresponding astronomical effects directly estimable.</p></article>
-        <article class="feature"><p class="feature-meta">2017 · Book</p><h3>Bayesian Models for Astrophysical Data</h3><p>A 408-page practical synthesis connected generalized, hierarchical, and likelihood-free models to complete astronomical analyses in R/JAGS and Python/Stan. The book received the 2018 PROSE Award in Cosmology &amp; Astronomy.</p><figure class="feature-media feature-book"><img loading="lazy" src="assets/images/book-cover-bayesian-models.jpg" alt="Cover of Bayesian Models for Astrophysical Data" width="530" height="800"><figcaption>Cambridge University Press, 2017.</figcaption></figure></article>
-        <article class="feature"><p class="feature-meta">2021 · Galactic structure</p><h3>SPICY and the Sagittarius arm</h3><p>A catalogue of roughly 120,000 candidate young stellar objects supported the identification of 25 star-forming regions in a narrow structure about 1 kpc long, with a pitch angle of about 56 degrees.</p><figure class="feature-media"><img loading="lazy" src="assets/images/research/milky-way.png" alt="Heliocentric map of young stellar object groups and Galactic spiral-arm references" width="1600" height="1100"><figcaption>Kuhn et al. (2021), A&amp;A 651, L10, Fig. 3: YSO groups, spiral-arm references, and the fitted high-pitch-angle structure in heliocentric coordinates.</figcaption></figure></article>
-        <article class="feature"><p class="feature-meta">2025 · Resolved galaxies</p><h3>CAPIVARA</h3><p>Spectral similarity grouped IFU spaxels into regions coherent in continuum and emission-line properties without imposing a bulge–disc decomposition or relying only on signal-to-noise binning.</p><figure class="feature-media"><img loading="lazy" src="assets/images/research/capivara-segmentation.png" alt="Galaxy images and CAPIVARA spectro-spatial segmentation maps" width="1800" height="1050"><figcaption>de Souza et al. (2025), MNRAS, top and middle rows of Fig. 2.</figcaption></figure></article>
+        <article class="feature"><p class="feature-meta">2015 · Statistical models</p><h3>Generalized linear models in astronomy</h3><p>Binary events, positive continuous measurements, and overdispersed counts were treated with sampling laws appropriate to each observable.</p></article>
+        <article class="feature"><p class="feature-meta">2017 · Book</p><h3>Bayesian Models for Astrophysical Data</h3><p>A 408-page practical synthesis connected generalized, hierarchical, and likelihood-free models to complete astronomical analyses. The book received the 2018 PROSE Award in Cosmology &amp; Astronomy.</p><figure class="feature-media feature-book"><img loading="lazy" src="assets/images/book-cover-bayesian-models.jpg" alt="Cover of Bayesian Models for Astrophysical Data" width="530" height="800"><figcaption>Cambridge University Press, 2017.</figcaption></figure></article>
+        <article class="feature"><p class="feature-meta">2021 · Galactic structure</p><h3>SPICY and the Sagittarius arm</h3><p>A catalogue of roughly 120,000 candidate young stellar objects supported the identification of 25 star-forming regions in a narrow structure about 1 kpc long.</p><figure class="feature-media"><img loading="lazy" src="assets/images/research/milky-way.png" alt="Heliocentric map of young stellar object groups and Galactic spiral-arm references" width="1600" height="1100"><figcaption>Kuhn et al. (2021), A&amp;A 651, L10, Fig. 3.</figcaption></figure></article>
+        <article class="feature"><p class="feature-meta">2025 · Resolved galaxies</p><h3>CAPIVARA</h3><p>Spectral similarity grouped IFU spaxels into regions coherent in continuum and emission-line properties without imposing a bulge–disc decomposition.</p><figure class="feature-media"><img loading="lazy" src="assets/images/research/capivara-segmentation.png" alt="Galaxy images and CAPIVARA spectro-spatial segmentation maps" width="1800" height="1050"><figcaption>de Souza et al. (2025), MNRAS, top and middle rows of Fig. 2.</figcaption></figure></article>
       </div><p><a class="text-link" href="contributions.html">View all selected contributions</a></p>
     </div></section>
 
-    <section class="section"><div class="shell">
-      <p class="eyebrow">Research in progress</p><h2>Current directions</h2>
-      <div class="direction-list">
-        <article class="direction"><div><p class="status">In development</p><h3>Incomplete calibration samples</h3></div><p>The analysis derives bounds on population quantities when the spectroscopic sample omits part of the target population.</p></article>
-        <article class="direction"><div><p class="status">In development</p><h3>Representation completion</h3></div><p>Controlled experiments test whether a summary constructed for one target retains the variation required by another physical parameter.</p></article>
-        <article class="direction"><div><p class="status">Public preprint and released package · 2026</p><h3>RadialPaths</h3></div><p>RadialPaths constructs centre-conditioned profiles that retain associations with multiple centres and measure distance through the observed source footprint.</p></article>
-        <article class="direction"><div><p class="status">Public preprint and released package · 2026</p><h3>spectropath</h3></div><p>spectropath encodes spectral-line morphology as ordered paths in velocity–flux space.</p></article>
-      </div><p><a class="text-link" href="research.html#current-work">See current work in context</a></p>
-    </div></section>
-
-    <section class="section"><div class="shell">
-      <p class="eyebrow">Software</p><h2>Selected software</h2><p class="intro">Six released projects are shown here; the complete catalogue lists 25 packages, research systems, and companion codes.</p>
-      <div class="software-strip" aria-label="Selected software projects">
-        <a class="software-mark" href="software.html#dracula"><img loading="lazy" src="assets/images/software/dracula-official.png" alt="DRACULA"></a><a class="software-mark" href="software.html#sconce-scms"><img loading="lazy" src="assets/images/software/sconce-official.png" alt="SCONCE-SCMS"></a><a class="software-mark" href="software.html#capivara"><img loading="lazy" src="assets/images/software/capivara-logo.png" alt="CAPIVARA"></a><a class="software-mark" href="software.html#sagui"><img loading="lazy" src="assets/images/software/sagui-logo.png" alt="SAGUI"></a><a class="software-mark" href="software.html#powerspectr"><img loading="lazy" src="assets/images/software/powerspectr-official.png" alt="PowerSpectR"></a><a class="software-mark" href="software.html#lightstack"><img loading="lazy" src="assets/images/software/lightstack-official.png" alt="Lightstack"></a>
-      </div><p><a class="text-link" href="software.html">View the complete software atlas</a></p>
-    </div></section>
-
-    <section class="section"><div class="shell preview-grid">
-      <article class="preview"><p class="eyebrow">Leadership &amp; Community</p><h3>Cosmostatistics Initiative</h3><div class="coin-preview"><img loading="lazy" src="assets/images/coin-2024.png" alt="Cosmostatistics Initiative mark" width="1169" height="560"><p>Rafael founded the Cosmostatistics Initiative in 2014. COIN organises project collaborations and residence programmes involving astronomers, statisticians, and computer scientists.</p></div><a class="text-link" href="coin.html">Leadership &amp; Community</a></article>
-      <article class="preview"><p class="eyebrow">Career</p><h3>Appointments and Recognition</h3><p>Current appointments at the University of Hertfordshire and the University of North Carolina at Chapel Hill follow research positions in China, the United States, Hungary, South Korea, and Japan.</p><p><em>Bayesian Models for Astrophysical Data</em> received the 2018 PROSE Award in Cosmology &amp; Astronomy. The 2016 International Astrostatistics Association award recognised the Bayesian negative-binomial analysis of globular-cluster populations.</p><a class="text-link" href="about.html#career">Career &amp; Recognition</a></article>
-      <article class="preview"><p class="eyebrow">Mentorship</p><h3>People &amp; Mentorship</h3><p>Current supervision includes five doctoral researchers and one undergraduate researcher; the record also lists completed PhD, MSc, and undergraduate projects.</p><a class="text-link" href="people.html">Researchers and projects</a><h3 style="margin-top:2.4rem">Writing &amp; Ideas</h3><p>Short fiction and an essay on the history of statistical inference in astronomy.</p><a class="text-link" href="writing.html">Writing</a></article>
+    <section class="section home-preview-section"><div class="shell home-preview-grid">
+      <article class="home-preview"><p class="eyebrow">Software</p><h3>Selected software</h3><p>Six released projects are shown on the homepage; the complete catalogue lists 25 packages, research systems, and companion codes.</p><div class="home-software-marks" aria-label="Selected software projects"><a href="software.html#dracula"><img loading="lazy" src="assets/images/software/dracula-official.png" alt="DRACULA"></a><a href="software.html#sconce-scms"><img loading="lazy" src="assets/images/software/sconce-official.png" alt="SCONCE-SCMS"></a><a href="software.html#capivara"><img loading="lazy" src="assets/images/software/capivara-logo.png" alt="CAPIVARA"></a><a href="software.html#sagui"><img loading="lazy" src="assets/images/software/sagui-logo.png" alt="SAGUI"></a><a href="software.html#powerspectr"><img loading="lazy" src="assets/images/software/powerspectr-official.png" alt="PowerSpectR"></a><a href="software.html#lightstack"><img loading="lazy" src="assets/images/software/lightstack-official.png" alt="Lightstack"></a></div><a class="text-link" href="software.html">Software Atlas</a></article>
+      <article class="home-preview"><p class="eyebrow">Leadership &amp; Community</p><h3>Cosmostatistics Initiative</h3><img class="home-coin-mark" loading="lazy" src="assets/images/coin-2024.png" alt="Cosmostatistics Initiative mark" width="1169" height="560"><p>Founded in 2014, COIN organises project collaborations and residence programmes.</p><a class="text-link" href="coin.html">COIN</a></article>
+      <article class="home-preview"><p class="eyebrow">People and writing</p><h3>Mentorship · Fiction · Essays</h3><p>Current supervision includes five doctoral researchers and one undergraduate researcher. The writing record contains three works of fiction and an essay on inference in astronomy.</p><div class="inline-links"><a href="people.html">People</a><a href="writing.html">Writing</a><a href="about.html#career">Career &amp; Recognition</a></div></article>
     </div></section>
   </main>
 

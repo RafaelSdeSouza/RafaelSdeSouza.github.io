@@ -46,7 +46,7 @@ cover: assets/images/writing/my-story-cover.jpg
 ```
 
 Use `imageFit: contain` for logos or marks that should not be cropped.
-The homepage wallpaper is `assets/images/backgrounds/home-nebula-contours.jpg`.
+The homepage artwork is `assets/images/backgrounds/home-nebula-contours.jpg`. Its project provenance and integrity record are stored in `assets/images/backgrounds/README.md`.
 
 Keep your public CV files here:
 

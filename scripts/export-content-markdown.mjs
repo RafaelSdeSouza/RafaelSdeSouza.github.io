@@ -17,7 +17,7 @@ function linesForLinks(links) {
 function block(title, fields = {}, prose = []) {
   const lines = [`### ${title}`, ""];
   Object.entries(fields).forEach(([key, value]) => {
-    if (value === undefined || value === null) return;
+    if (value === undefined || value === null || value === "") return;
     lines.push(`${key}: ${value}`);
   });
   if (prose.length) {
@@ -28,28 +28,31 @@ function block(title, fields = {}, prose = []) {
 }
 
 function researchMarkdown(data) {
+  const label = (value) => value.replaceAll("-", " ");
   return [
     "# Research",
     "",
-    "## Research interests",
+    "## Recurring inferential questions",
     "",
-    ...data.interests.map((item) =>
-      block(item.title, {
-        icon: item.icon,
-        tag: item.tag,
-        summary: item.summary,
-      }, linesForLinks(item.links))
-    ),
-    "## Research highlights",
+    ...data.questions.map((item) => `- ${label(item)}`),
     "",
-    ...data.applications.map((item) =>
+    "## Astronomical domains",
+    "",
+    ...data.domains.map((item) => `- ${label(item)}`),
+    "",
+    "## Contribution forms",
+    "",
+    ...data.contribution_forms.map((item) => `- ${label(item)}`),
+    "",
+    "## Project index",
+    "",
+    ...data.projects.map((item) =>
       block(item.title, {
-        image: item.image,
-        imageFit: item.imageFit || "",
-        alt: item.alt,
-        tag: item.tag,
-        summary: item.summary,
-        url: item.url,
+        id: item.id,
+        questions: item.questions.map(label).join(" · "),
+        domains: item.domains.map(label).join(" · "),
+        methods: item.methods.map(label).join(" · "),
+        contribution_forms: item.contribution_forms.map(label).join(" · "),
       })
     ),
   ].join("\n");

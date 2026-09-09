@@ -1,149 +1,61 @@
 # Research
 
-## Research interests
+## Recurring inferential questions
 
-### Astrostatistics
+- statistical inference and uncertainty
+- incomplete selective and heterogeneous data
+- scientific representations
+- geometry and ordered structure
+- scalable computation and observing decisions
 
-icon: inference
-tag: Inference
-summary: Bayesian and likelihood-free methods for noisy, incomplete, high-dimensional astronomical data.
+## Astronomical domains
 
-links:
-- COIN: https://cosmostatistics-initiative.org/
+- first stars and early universe
+- cosmology and large scale structure
+- milky way and star formation
+- galaxies and stellar systems
+- supernovae transients and multimessenger
+- nuclear astrophysics
 
-### Survey machine learning
+## Contribution forms
 
-icon: learning
-tag: Surveys
-summary: Models for catalogues, images, spectra, and alerts where measurement uncertainty and selection effects matter.
+- statistical method
+- physical result
+- software
+- survey data method
+- book review
+- current research
 
-links:
-- Fink: https://fink-broker.org/
-
-### LSST-era transients
-
-icon: time
-tag: Time domain
-summary: Classification, anomaly detection, and follow-up strategy for transient and variable sources.
-
-links:
-- RESSPECT: https://cosmostatistics-initiative.org/projects/active-learning-with-resspect/
-
-### Galaxy and IFU segmentation
-
-icon: image
-tag: Images
-summary: Galaxy and IFU segmentation methods that use colour, morphology, and spectra as scientific information.
-
-links:
-- SAGUI: software.html
-
-### Spectra, graphs, and mixtures
-
-icon: spectra
-tag: Spectra
-summary: Graph, matrix-factorization, and low-dimensional representations for spectra and IFU data cubes.
-
-links:
-- CAPIVARA: software.html
-
-### DES ridges and cosmic structure
-
-icon: cosmos
-tag: Weak lensing
-summary: Statistical summaries for mass maps, ridges, voids, large-scale structure, and simulation-based inference.
-
-links:
-- DES ridges: https://cosmostatistics-initiative.org/projects/ridges-in-the-dark-energy-survey/
-
-### Scientific software
-
-icon: software
-tag: Software
-summary: Packages for likelihood-free inference, dimensionality reduction, segmentation, spectral analysis, and survey operations.
-
-links:
-- GitHub: https://github.com/RafaelSdeSouza
-
-### Cosmostatistics Initiative
-
-icon: community
-tag: COIN
-summary: Project collaborations and residence programmes involving astronomers, statisticians, and computer scientists.
-
-links:
-- COIN projects: https://cosmostatistics-initiative.org/projects/
-
-## Research highlights
-
-### AT2022zod
-
-image: assets/images/research/time-domain.png
-imageFit: 
-alt: Light curves for transient inference
-tag: Transients
-summary: A short-lived tidal-disruption candidate used to probe the missing population of intermediate-mass black holes.
-url: https://cosmostatistics-initiative.org/highlights/the-missing-mass-chronicles-at2022zod/
-
-### SAGUI
-
-image: assets/images/software/sagui-logo.png
-imageFit: contain
-alt: SAGUI project logo
-tag: Segmentation
-summary: SED-based segmentation for multi-band galaxy images.
-url: software.html
+## Project index
 
 ### CAPIVARA
 
-image: assets/images/software/capivara-logo.png
-imageFit: contain
-alt: CAPIVARA project logo
-tag: IFU analysis
-summary: Spectral segmentation for IFU data cubes and galaxy substructure.
-url: software.html
+id: capivara
+questions: scientific representations · geometry and ordered structure
+domains: galaxies and stellar systems
+methods: integral field spectroscopy · spectral similarity · spectro spatial segmentation
+contribution_forms: statistical method · software
 
-### RESSPECT
+### Calibration transfer and spectroscopic selection
 
-image: assets/images/research/follow-up.png
-imageFit: 
-alt: Active-learning workflow for follow-up decisions
-tag: Active learning
-summary: Recommendation systems for spectroscopic follow-up under LSST-era observing constraints.
-url: https://cosmostatistics-initiative.org/projects/active-learning-with-resspect/
+id: calibration-transfer
+questions: incomplete selective and heterogeneous data · scalable computation and observing decisions
+domains: cosmology and large scale structure · supernovae transients and multimessenger
+methods: photometric redshifts · support diagnostics · active learning · partial identification
+contribution_forms: statistical method · survey data method · software · current research
 
-### Sagittarius Arm
+### RadialPaths
 
-image: assets/images/research/milky-way.png
-imageFit: 
-alt: Map of young stellar objects in the Sagittarius arm
-tag: Galactic structure
-summary: Young stellar objects revealing a high-pitch-angle structure in the Milky Way.
-url: https://cosmostatistics-initiative.org/projects/a-high-pitch-angle-structure-in-the-sagittarius-arm/
+id: radialpaths
+questions: geometry and ordered structure · scientific representations
+domains: galaxies and stellar systems
+methods: centre conditioned paths · intrinsic distance · radial profiles
+contribution_forms: statistical method · software · current research
 
-### SPICY
+### spectropath
 
-image: assets/images/research/spicy.png
-imageFit: 
-alt: SPICY young stellar object catalogue map
-tag: Catalogues
-summary: Machine-learning catalogue of Spitzer/IRAC young-stellar-object candidates in the inner Galactic midplane.
-url: https://cosmostatistics-initiative.org/projects/spicy-the-spitzer-irac-candidate-yso-catalog/
-
-### SN-II graphs
-
-image: assets/images/research/spectral-classification.png
-imageFit: 
-alt: Graph of Type II supernova spectra ordered by similarity
-tag: Spectra
-summary: Graph-based heuristics for supernova spectral classification.
-url: https://cosmostatistics-initiative.org/projects/a-graph-based-spectral-classification-of-sn-ii/
-
-### DES ridges
-
-image: assets/images/research/cosmic-structure.png
-imageFit: 
-alt: Weak-lensing mass map with estimated ridges
-tag: Weak lensing
-summary: Ridge estimation for curvilinear structure in weak-lensing mass maps.
-url: https://cosmostatistics-initiative.org/projects/ridges-in-the-dark-energy-survey/
+id: spectropath
+questions: geometry and ordered structure · scientific representations
+domains: supernovae transients and multimessenger · galaxies and stellar systems
+methods: spectroscopy · path signatures · ordered line profiles
+contribution_forms: statistical method · software · current research

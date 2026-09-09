@@ -186,6 +186,7 @@
       "purpose": "Construct centre-conditioned radial profiles for connected structures with multiple centres.",
       "problem": "Radial structure when a feature's assigned position depends on the adopted centre and source footprint.",
       "status": "Public preprint and released package",
+      "logo": "assets/images/software/radialpaths-mark.svg",
       "paper_url": "https://arxiv.org/abs/2608.26326",
       "github_url": "https://github.com/RafaelSdeSouza/radialpaths",
       "docs_url": "https://rafaelsdesouza.com.br/radialpaths/"
@@ -196,6 +197,7 @@
       "purpose": "Compute ordered path signatures of spectral-line profiles.",
       "problem": "Line morphologies that share widths or moments but differ in ordered velocity–flux structure.",
       "status": "Public preprint and released package",
+      "logo": "assets/images/software/spectropath-logo.png",
       "paper_url": "https://arxiv.org/abs/2606.27432",
       "github_url": "https://github.com/RafaelSdeSouza/spectropath",
       "docs_url": "https://rafaelsdesouza.com.br/spectropath/"
