@@ -1,244 +1,319 @@
-[
-  {
-    "name": "SAGUI",
-    "year": "2026",
-    "tag": "Galaxy imaging",
-    "mark": "S",
-    "logo": "assets/images/software/sagui-logo.png",
-    "featured": true,
-    "summary": "SED-based segmentation of multi-band galaxy images, with application to JADES in GOODS-South.",
-    "links": [
-      {
-        "label": "Preprint",
-        "url": "https://arxiv.org/abs/2604.18812"
-      },
-      {
-        "label": "ADS",
-        "url": "https://ui.adsabs.harvard.edu/abs/2026arXiv260418812D"
-      }
-    ]
-  },
-  {
-    "name": "Capivara",
-    "year": "2025",
-    "tag": "IFU analysis",
-    "mark": "C",
-    "logo": "assets/images/software/capivara-logo.png",
-    "featured": true,
-    "summary": "Spectral-based segmentation for IFU data cubes and scalable analysis of galaxy substructure.",
-    "links": [
-      {
-        "label": "Paper",
-        "url": "https://doi.org/10.1093/mnras/staf688"
-      },
-      {
-        "label": "Code",
-        "url": "https://github.com/RafaelSdeSouza/capivara"
-      },
-      {
-        "label": "ASCL",
-        "url": "https://ui.adsabs.harvard.edu/abs/2025ascl.soft07023S"
-      }
-    ]
-  },
-  {
-    "name": "PowerSpectR",
-    "year": "2026",
-    "tag": "Fourier summaries",
-    "mark": "P",
-    "logo": "assets/images/software/powerspectr.svg",
-    "featured": true,
-    "summary": "R package for median-based radial Fourier power spectra and compact summaries of image structure.",
-    "links": [
-      {
-        "label": "Paper",
-        "url": "https://doi.org/10.3847/2515-5172/ae5b93"
-      },
-      {
-        "label": "Code",
-        "url": "https://github.com/RafaelSdeSouza/PowerSpectR"
-      }
-    ]
-  },
-  {
-    "name": "SpectralUnmix",
-    "year": "2026",
-    "tag": "Matrix factorization",
-    "mark": "N",
-    "logo": "assets/images/software/spectralunmix.svg",
-    "featured": true,
-    "summary": "Torch-based regularized non-negative matrix factorization for smooth, interpretable spectral components.",
-    "links": [
-      {
-        "label": "Paper",
-        "url": "https://doi.org/10.3847/2515-5172/ae5107"
-      },
-      {
-        "label": "Project",
-        "url": "https://rafaelsdesouza.github.io/SpectralUnmix/"
-      }
-    ]
-  },
-  {
-    "name": "GalMOSS",
-    "year": "2024",
-    "tag": "Surface brightness",
-    "mark": "G",
-    "summary": "GPU-accelerated galaxy surface-brightness fitting through gradient descent.",
-    "links": [
-      {
-        "label": "ASCL",
-        "url": "https://ui.adsabs.harvard.edu/abs/2024ascl.soft04005M"
-      },
-      {
-        "label": "arXiv",
-        "url": "https://arxiv.org/abs/2404.005"
-      }
-    ]
-  },
-  {
-    "name": "galmask",
-    "year": "2022",
-    "tag": "Galaxy masking",
-    "mark": "M",
-    "summary": "Python package for unsupervised galaxy masking.",
-    "links": [
-      {
-        "label": "Paper",
-        "url": "https://doi.org/10.3847/2515-5172/ac780b"
-      },
-      {
-        "label": "ADS",
-        "url": "https://ui.adsabs.harvard.edu/abs/2022RNAAS...6..128G"
-      }
-    ]
-  },
-  {
-    "name": "qrpca",
-    "year": "2022",
-    "tag": "PCA",
-    "mark": "Q",
-    "summary": "QR-based principal components analysis.",
-    "links": [
-      {
-        "label": "ASCL",
-        "url": "https://ui.adsabs.harvard.edu/abs/2022ascl.soft08002D"
-      },
-      {
-        "label": "arXiv",
-        "url": "https://arxiv.org/abs/2208.002"
-      }
-    ]
-  },
-  {
-    "name": "Yonder",
-    "year": "2022",
-    "tag": "Denoising",
-    "mark": "Y",
-    "summary": "Data denoising and reconstruction.",
-    "links": [
-      {
-        "label": "ASCL",
-        "url": "https://ui.adsabs.harvard.edu/abs/2022ascl.soft08025C"
-      },
-      {
-        "label": "arXiv",
-        "url": "https://arxiv.org/abs/2208.025"
-      }
-    ]
-  },
-  {
-    "name": "SCONCE-SCMS",
-    "year": "2023",
-    "tag": "Cosmic web",
-    "mark": "W",
-    "summary": "Spherical and conic cosmic-web finders with extended SCMS algorithms.",
-    "links": [
-      {
-        "label": "ASCL",
-        "url": "https://ui.adsabs.harvard.edu/abs/2023ascl.soft06013Z"
-      },
-      {
-        "label": "arXiv",
-        "url": "https://arxiv.org/abs/2306.013"
-      }
-    ]
-  },
-  {
-    "name": "cosmoabc",
-    "year": "2015",
-    "tag": "Likelihood-free inference",
-    "mark": "A",
-    "summary": "Likelihood-free inference for cosmology.",
-    "links": [
-      {
-        "label": "ASCL",
-        "url": "http://adsabs.harvard.edu/abs/2015ascl.soft05013I"
-      },
-      {
-        "label": "arXiv",
-        "url": "https://arxiv.org/abs/1505.013"
-      }
-    ]
-  },
-  {
-    "name": "DRACULA",
-    "year": "2015",
-    "tag": "Clustering",
-    "mark": "D",
-    "summary": "Dimensionality reduction and clustering for unsupervised learning in astronomy.",
-    "links": [
-      {
-        "label": "ASCL",
-        "url": "http://adsabs.harvard.edu/abs/2015ascl.soft12009A"
-      },
-      {
-        "label": "arXiv",
-        "url": "https://arxiv.org/abs/1512.009"
-      }
-    ]
-  },
-  {
-    "name": "AMADA",
-    "year": "2015",
-    "tag": "Data analysis",
-    "mark": "A",
-    "summary": "Analysis of multidimensional astronomical datasets.",
-    "links": [
-      {
-        "label": "ASCL",
-        "url": "http://adsabs.harvard.edu/abs/2015ascl.soft03006D"
-      },
-      {
-        "label": "arXiv",
-        "url": "https://arxiv.org/abs/1503.006"
-      }
-    ]
-  },
-  {
-    "name": "CosmoPhotoz",
-    "year": "2014",
-    "tag": "Photometric redshifts",
-    "mark": "Z",
-    "summary": "Photometric redshift estimation using generalized linear models.",
-    "links": [
-      {
-        "label": "arXiv",
-        "url": "https://arxiv.org/abs/1408.018"
-      }
-    ]
-  },
-  {
-    "name": "LOGIT",
-    "year": "2016",
-    "tag": "Regression",
-    "mark": "L",
-    "summary": "Functions, data, and code for binary and binomial data.",
-    "links": [
-      {
-        "label": "CRAN",
-        "url": "https://cran.r-project.org/web/packages/LOGIT/index.html"
-      }
-    ]
-  }
-]
+{
+  "published": [
+    {
+      "name": "SAGUI",
+      "year": 2026,
+      "purpose": "SED-based segmentation of multiband galaxy images.",
+      "problem": "Resolved galaxy structure in imaging surveys, including faint diffuse components.",
+      "status": "Published and released",
+      "logo": "assets/images/software/sagui-logo.png",
+      "homepage": true,
+      "links": [
+        {"label": "Publication", "url": "https://doi.org/10.1093/mnras/stag1062"},
+        {"label": "Repository", "url": "https://github.com/RafaelSdeSouza/sagui"},
+        {"label": "Documentation", "url": "https://github.com/RafaelSdeSouza/sagui#readme"}
+      ]
+    },
+    {
+      "name": "Lightstack",
+      "year": 2026,
+      "purpose": "Crop, PSF-match, and stack multiband images into photometric data cubes.",
+      "problem": "Consistent preparation of registered multiband observations.",
+      "status": "Published and archived release",
+      "logo": "assets/images/software/lightstack-official.png",
+      "homepage": true,
+      "links": [
+        {"label": "Publication", "url": "https://doi.org/10.3847/2515-5172/ae7c78"},
+        {"label": "Repository", "url": "https://github.com/AndressaWille/lightstack"},
+        {"label": "Documentation", "url": "https://github.com/AndressaWille/lightstack#readme"},
+        {"label": "Archive", "url": "https://doi.org/10.5281/zenodo.20360028"}
+      ]
+    },
+    {
+      "name": "ELMA",
+      "year": 2026,
+      "purpose": "Estimate projected galaxy-bar major axes from fitted ellipses.",
+      "problem": "Reproducible orientation measurements for resolved galactic bars.",
+      "status": "Published and released",
+      "links": [
+        {"label": "Publication", "url": "https://doi.org/10.3847/2515-5172/ae7d2d"},
+        {"label": "Repository", "url": "https://github.com/BrunaLimaa/elma"},
+        {"label": "Documentation", "url": "https://github.com/BrunaLimaa/elma#readme"}
+      ]
+    },
+    {
+      "name": "PowerSpectR",
+      "year": 2026,
+      "purpose": "Compute median radial Fourier power spectra of astronomical images.",
+      "problem": "Compact summaries of morphological structure across spatial scales.",
+      "status": "Published and archived release",
+      "logo": "assets/images/software/powerspectr-official.png",
+      "homepage": true,
+      "links": [
+        {"label": "Publication", "url": "https://doi.org/10.3847/2515-5172/ae5b93"},
+        {"label": "Repository", "url": "https://github.com/RafaelSdeSouza/PowerSpectR"},
+        {"label": "Documentation", "url": "https://github.com/RafaelSdeSouza/PowerSpectR#readme"},
+        {"label": "Archive", "url": "https://zenodo.org/records/19400316"}
+      ]
+    },
+    {
+      "name": "SpectralUnmix",
+      "year": 2026,
+      "purpose": "Regularised non-negative matrix factorisation of spectra with optional GPU acceleration.",
+      "problem": "Interpretable low-rank spectral components under non-negativity and smoothness constraints.",
+      "status": "Published and released",
+      "links": [
+        {"label": "Publication", "url": "https://doi.org/10.3847/2515-5172/ae5107"},
+        {"label": "Repository", "url": "https://github.com/RafaelSdeSouza/SpectralUnmix"},
+        {"label": "Documentation", "url": "https://rafaelsdesouza.github.io/SpectralUnmix/"}
+      ]
+    },
+    {
+      "name": "CAPIVARA",
+      "year": 2025,
+      "purpose": "Segment IFU cubes by spectral similarity.",
+      "problem": "Resolved galaxy analysis without a prescribed morphological decomposition.",
+      "status": "Published and released",
+      "logo": "assets/images/software/capivara-logo.png",
+      "homepage": true,
+      "links": [
+        {"label": "Publication", "url": "https://doi.org/10.1093/mnras/staf688"},
+        {"label": "Repository", "url": "https://github.com/RafaelSdeSouza/capivara"},
+        {"label": "Documentation", "url": "https://github.com/RafaelSdeSouza/capivara#readme"},
+        {"label": "ASCL", "url": "https://ui.adsabs.harvard.edu/abs/2025ascl.soft07023S"}
+      ]
+    },
+    {
+      "name": "GalMOSS",
+      "year": 2024,
+      "purpose": "Fit galaxy surface-brightness profiles with GPU acceleration.",
+      "problem": "Scalable structural modelling of galaxy images.",
+      "status": "Published and released",
+      "logo": "assets/images/software/galmoss-official.jpg",
+      "links": [
+        {"label": "Publication", "url": "https://doi.org/10.1016/j.ascom.2024.100825"},
+        {"label": "Repository", "url": "https://github.com/Chenmi0619/GALMoss"},
+        {"label": "Documentation", "url": "https://github.com/Chenmi0619/GALMoss#readme"},
+        {"label": "ASCL", "url": "https://ui.adsabs.harvard.edu/abs/2024ascl.soft04005M"}
+      ]
+    },
+    {
+      "name": "SCONCE-SCMS",
+      "year": 2023,
+      "purpose": "Find cosmic-web ridges on spherical and conic geometries.",
+      "problem": "Curvilinear structure in fields whose geometry is not planar.",
+      "status": "Published; ASCL release",
+      "logo": "assets/images/software/sconce-official.png",
+      "homepage": true,
+      "links": [
+        {"label": "Publication", "url": "https://doi.org/10.1093/mnras/stac2504"},
+        {"label": "Repository", "url": "https://github.com/zhangyk8/sconce-scms"},
+        {"label": "Documentation", "url": "https://github.com/zhangyk8/sconce-scms#readme"},
+        {"label": "ASCL", "url": "https://ui.adsabs.harvard.edu/abs/2023ascl.soft06013Z"}
+      ]
+    },
+    {
+      "name": "qrpca",
+      "year": 2022,
+      "purpose": "Accelerate principal-component calculations through QR decomposition.",
+      "problem": "Low-rank analysis of large matrices with optional GPU computation.",
+      "status": "Published and released",
+      "links": [
+        {"label": "Publication", "url": "https://doi.org/10.1016/j.ascom.2022.100633"},
+        {"label": "Repository", "url": "https://github.com/RafaelSdeSouza/qrpca"},
+        {"label": "Documentation", "url": "https://github.com/RafaelSdeSouza/qrpca#readme"}
+      ]
+    },
+    {
+      "name": "galmask",
+      "year": 2022,
+      "purpose": "Construct unsupervised masks for galaxy images.",
+      "problem": "Separate galaxy structure from background without labelled masks.",
+      "status": "Published and released",
+      "links": [
+        {"label": "Publication", "url": "https://doi.org/10.3847/2515-5172/ac780b"},
+        {"label": "Repository", "url": "https://github.com/Yash-10/galmask"},
+        {"label": "Documentation", "url": "https://galmask.readthedocs.io/"},
+        {"label": "ADS", "url": "https://ui.adsabs.harvard.edu/abs/2022RNAAS...6..128G"}
+      ]
+    },
+    {
+      "name": "Yonder",
+      "year": 2022,
+      "purpose": "Denoise and reconstruct data with singular-value decomposition and error propagation.",
+      "problem": "Recover low-rank signal while retaining uncertainty information.",
+      "status": "Published and released",
+      "links": [
+        {"label": "Publication", "url": "https://doi.org/10.3847/2515-5172/ac5c57"},
+        {"label": "Repository", "url": "https://github.com/pengchzn/yonder"},
+        {"label": "Documentation", "url": "https://github.com/pengchzn/yonder#readme"}
+      ]
+    },
+    {
+      "name": "LOGIT",
+      "year": 2016,
+      "purpose": "Provide R functions, data, and examples for binary and binomial models.",
+      "problem": "Reproducible generalized-linear-model analyses of discrete responses.",
+      "status": "Archived CRAN release",
+      "links": [
+        {"label": "Archive", "url": "https://cran.r-project.org/src/contrib/Archive/LOGIT/"},
+        {"label": "Documentation", "url": "https://cran.r-project.org/src/contrib/Archive/LOGIT/"}
+      ]
+    },
+    {
+      "name": "DRACULA",
+      "year": 2015,
+      "purpose": "Reduce and cluster supernova spectra.",
+      "problem": "Unsupervised comparison of heterogeneous transient spectra.",
+      "status": "ASCL release; paper published 2016",
+      "logo": "assets/images/software/dracula-official.png",
+      "homepage": true,
+      "links": [
+        {"label": "Publication", "url": "https://doi.org/10.1093/mnras/stw1228"},
+        {"label": "Repository", "url": "https://github.com/COINtoolbox/DRACULA"},
+        {"label": "Documentation", "url": "https://github.com/COINtoolbox/DRACULA#readme"},
+        {"label": "ASCL", "url": "https://ui.adsabs.harvard.edu/abs/2015ascl.soft12009A"}
+      ]
+    },
+    {
+      "name": "cosmoabc",
+      "year": 2015,
+      "purpose": "Run population Monte Carlo approximate Bayesian computation for cosmology.",
+      "problem": "Cosmological inference from simulations when the likelihood cannot be evaluated.",
+      "status": "Published and released",
+      "links": [
+        {"label": "Publication", "url": "https://doi.org/10.1016/j.ascom.2015.09.001"},
+        {"label": "Repository", "url": "https://github.com/COINtoolbox/CosmoABC"},
+        {"label": "Documentation", "url": "https://github.com/COINtoolbox/CosmoABC#readme"},
+        {"label": "ASCL", "url": "https://ui.adsabs.harvard.edu/abs/2015ascl.soft05013I"}
+      ]
+    },
+    {
+      "name": "AMADA",
+      "year": 2015,
+      "purpose": "Explore multidimensional astronomical catalogues interactively.",
+      "problem": "Inspect relationships and structure in high-dimensional catalogue data.",
+      "status": "Published and released",
+      "links": [
+        {"label": "Publication", "url": "https://doi.org/10.1016/j.ascom.2015.06.006"},
+        {"label": "Repository", "url": "https://github.com/RafaelSdeSouza/AMADA"},
+        {"label": "Documentation", "url": "https://github.com/RafaelSdeSouza/AMADA#readme"},
+        {"label": "ASCL", "url": "https://ui.adsabs.harvard.edu/abs/2015ascl.soft03006D"}
+      ]
+    },
+    {
+      "name": "CosmoPhotoz",
+      "year": 2014,
+      "purpose": "Estimate photometric redshifts with generalized linear models.",
+      "problem": "Positive-response regression for galaxy redshift estimation.",
+      "status": "ASCL release; method paper published 2015",
+      "links": [
+        {"label": "Publication", "url": "https://doi.org/10.1016/j.ascom.2015.01.002"},
+        {"label": "Repository", "url": "https://github.com/COINtoolbox/CosmoPhotoz"},
+        {"label": "Documentation", "url": "https://github.com/COINtoolbox/CosmoPhotoz#readme"},
+        {"label": "ASCL", "url": "https://ui.adsabs.harvard.edu/abs/2014ascl.soft08018D"}
+      ]
+    },
+    {
+      "name": "RadialPaths",
+      "year": 2026,
+      "purpose": "Construct centre-conditioned radial profiles for connected structures with multiple centres.",
+      "problem": "Radial structure when a feature's assigned position depends on the adopted centre and source footprint.",
+      "status": "Preprint and released package",
+      "links": [
+        {"label": "Preprint", "url": "https://arxiv.org/abs/2608.26326"},
+        {"label": "Repository", "url": "https://github.com/RafaelSdeSouza/radialpaths"},
+        {"label": "Documentation", "url": "https://rafaelsdesouza.com.br/radialpaths/"}
+      ]
+    },
+    {
+      "name": "spectropath",
+      "year": 2026,
+      "purpose": "Compute ordered path signatures of spectral-line profiles.",
+      "problem": "Line morphologies that share widths or moments but differ in ordered velocity–flux structure.",
+      "status": "Preprint and released package",
+      "links": [
+        {"label": "Preprint", "url": "https://arxiv.org/abs/2606.27432"},
+        {"label": "Repository", "url": "https://github.com/RafaelSdeSouza/spectropath"},
+        {"label": "Documentation", "url": "https://rafaelsdesouza.com.br/spectropath/"}
+      ]
+    }
+  ],
+  "systems": [
+    {
+      "name": "RESSPECT",
+      "purpose": "Recommend spectroscopic follow-up for transient classification.",
+      "problem": "Sequential label acquisition under object-dependent observing costs and finite telescope time.",
+      "status": "Published research system",
+      "logo": "assets/images/software/resspect-official.png",
+      "links": [
+        {"label": "Publication", "url": "https://arxiv.org/abs/2010.05941"},
+        {"label": "Repository", "url": "https://github.com/COINtoolbox/RESSPECT"},
+        {"label": "Documentation", "url": "https://resspect.readthedocs.io/"}
+      ]
+    },
+    {
+      "name": "ActSNClass",
+      "purpose": "Apply active learning to supernova photometric classification.",
+      "problem": "Select informative spectra from an evolving transient candidate pool.",
+      "status": "Published research system",
+      "links": [
+        {"label": "Publication", "url": "https://ui.adsabs.harvard.edu/abs/2019MNRAS.483....2I"},
+        {"label": "Repository", "url": "https://github.com/COINtoolbox/ActSNClass"},
+        {"label": "Documentation", "url": "https://actsnclass.readthedocs.io/"}
+      ]
+    },
+    {
+      "name": "graph_clustering",
+      "purpose": "Construct inspectable graph orderings of Type II supernova spectra.",
+      "problem": "Continuous spectral diversity and outliers without a fixed class boundary.",
+      "status": "Published companion code",
+      "links": [
+        {"label": "Publication", "url": "https://doi.org/10.1016/j.ascom.2023.100715"},
+        {"label": "Repository", "url": "https://github.com/COINtoolbox/graph_clustering"},
+        {"label": "Documentation", "url": "https://github.com/COINtoolbox/graph_clustering#readme"}
+      ]
+    },
+    {
+      "name": "ridges",
+      "purpose": "Reproduce and extend ridge finding in DES weak-lensing mass maps.",
+      "problem": "Curvilinear structure in noisy projected mass fields.",
+      "status": "Published companion code",
+      "links": [
+        {"label": "Publication", "url": "https://doi.org/10.1093/mnras/staa3257"}
+      ]
+    },
+    {
+      "name": "ELEPHANT",
+      "purpose": "Filter alert streams for hostless extragalactic transients.",
+      "problem": "Rapid identification of candidates whose missing hosts carry physical information.",
+      "status": "Published research system",
+      "links": [
+        {"label": "Publication", "url": "https://doi.org/10.1051/0004-6361/202450535"}
+      ]
+    },
+    {
+      "name": "Fink kilonova module",
+      "purpose": "Filter broker alerts for fast kilonova candidates.",
+      "problem": "Early selection of rapidly evolving multimessenger counterparts.",
+      "status": "Published broker module",
+      "links": [
+        {"label": "Publication", "url": "https://doi.org/10.1051/0004-6361/202245340"},
+        {"label": "Repository", "url": "https://github.com/astrolabsoftware/fink-science"},
+        {"label": "Documentation", "url": "https://github.com/astrolabsoftware/fink-science#readme"}
+      ]
+    }
+  ],
+  "development": [
+    {
+      "name": "SpaxNMF",
+      "purpose": "Estimate spatially regularised non-negative components in IFU cubes.",
+      "problem": "Low-rank spectral decomposition that respects spatial coherence.",
+      "status": "In development",
+      "links": [
+        {"label": "Repository", "url": "https://github.com/RafaelSdeSouza/SpaxNMF"},
+        {"label": "Documentation", "url": "https://github.com/RafaelSdeSouza/SpaxNMF#readme"}
+      ]
+    }
+  ]
+}

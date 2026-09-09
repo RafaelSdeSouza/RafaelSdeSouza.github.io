@@ -28,7 +28,7 @@ url: https://cosmostatistics-initiative.org/projects/
 title: COIN
 summary: cosmostatistics-initiative.org
 url: https://cosmostatistics-initiative.org/
-logo: assets/images/coin.png
+logo: assets/images/coin-2024.png
 
 ## Window links
 

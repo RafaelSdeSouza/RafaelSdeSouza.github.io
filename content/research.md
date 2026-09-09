@@ -192,7 +192,7 @@ links:
 eyebrow: COIN
 summary: I founded and co-chair the <a href="https://cosmostatistics-initiative.org/">Cosmostatistics Initiative</a>, an international network connecting astronomers, statisticians, computer scientists, and software developers around methodological problems in astrophysics.
 url: https://cosmostatistics-initiative.org/
-logo: assets/images/coin.png
+logo: assets/images/coin-2024.png
 windowTitle: COIN
 windowSubtitle: Cosmostatistics Initiative
 

@@ -24,7 +24,7 @@ This repository contains a static GitHub Pages website for an academic CV, resea
 - `content/*.json`: fallback data files. You normally do not need to edit these.
 - `assets/cv/cv.pdf`: downloadable PDF CV.
 - `assets/images/rafael-de-souza.jpg`: hero/profile image.
-- `assets/images/coin.png`: COIN logo used in the visual identity areas.
+- `assets/images/coin-2024.png`: current COIN mark used in the visual identity areas; the preserved vector source is `assets/images/coin-2024-vector.pdf`.
 - `CV_rafael_2026/`: original Overleaf/LaTeX CV source. The website no longer needs this folder to render.
 
 ## Editing Content

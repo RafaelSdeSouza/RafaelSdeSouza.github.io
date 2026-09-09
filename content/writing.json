@@ -63,6 +63,31 @@
           "url": "https://www.wattpad.com/story/307604331-beyond-the-rainbow"
         }
       ]
+    },
+    {
+      "title": "The City of Endless Time",
+      "type": "Science fiction",
+      "authors": "Rafael S. de Souza",
+      "date": "12 December 2022",
+      "status": "Short story",
+      "summary": "In a dystopian city transformed by time travel, babies enter universities and return as adults while rapid population growth strains the city's infrastructure.",
+      "links": [{"label": "Wattpad", "url": "https://www.wattpad.com/story/329017604-the-city-of-endless-time"}]
+    },
+    {
+      "title": "A Journey into the Void / Beyond the Veil",
+      "type": "Science fiction",
+      "authors": "Rafael S. de Souza",
+      "status": "One literary record; title, date, and cover association unresolved",
+      "summary": "Captain Jameson travels to the Great Attractor in search of answers and confronts a cosmic horror that changes his understanding of the universe.",
+      "links": [{"label": "Wattpad", "url": "https://www.wattpad.com/story/330564922-a-journey-into-the-void"}]
+    },
+    {
+      "title": "A Brief History of Inference in Astronomy",
+      "type": "Science and public writing",
+      "authors": "Rafael S. de Souza",
+      "status": "Published",
+      "summary": "An account of how changing ideas about evidence, probability, and statistical inference shaped astronomical practice.",
+      "links": [{"label": "DOI", "url": "https://doi.org/10.1090/noti3267"}]
     }
   ]
 }
