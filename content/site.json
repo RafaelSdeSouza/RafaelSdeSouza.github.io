@@ -1,6 +1,14 @@
 {
   "appointments": [
     {
+      "years": "2025–present",
+      "role": "Visiting Professor",
+      "institution": "Federal University of Rio Grande do Sul",
+      "location": "Brazil",
+      "current": true,
+      "url": "https://www.ufrgs.br/"
+    },
+    {
       "years": "2024–present",
       "role": "Adjunct Associate Professor",
       "institution": "University of North Carolina at Chapel Hill",

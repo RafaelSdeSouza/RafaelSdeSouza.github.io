@@ -12,78 +12,118 @@
   <meta property="og:url" content="https://rafaelsdesouza.com.br/research.html">
   <link rel="icon" href="assets/images/favicon.png">
   <link rel="stylesheet" href="styles.css">
+  <link rel="preload" href="assets/fonts/stixtwotext.ttf" as="font" type="font/ttf" crossorigin>
 </head>
 <body class="research-page">
-  <a class="skip-link" href="#main">Skip to content</a>
-  <header class="site-header"><div class="header-inner">
-    <a class="site-name" href="index.html">Rafael S. de Souza</a>
-    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
-    <nav class="site-nav" id="site-nav" aria-label="Primary"><a href="research.html" aria-current="page">Research</a><a href="contributions.html">Contributions</a><a href="publications.html">Publications</a><a href="software.html">Software</a><a href="people.html">People</a><a href="about.html">About</a></nav>
-  </div></header>
-  <main id="main">
-    <span class="anchor-compat" id="research-interest-grid" aria-hidden="true"></span>
-    <span class="anchor-compat" id="research-application-grid" aria-hidden="true"></span>
-    <span class="anchor-compat" id="research-video-grid" aria-hidden="true"></span>
-    <span class="anchor-compat" id="videos" aria-hidden="true"></span>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header"><div class="header-inner">
+  <a class="site-name" href="index.html">Rafael S. de Souza</a>
+  <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+  <nav class="site-nav" id="site-nav" aria-label="Primary">
+    <a href="research.html" aria-current="page">Research</a>
+    <a href="publications.html">Publications</a>
+    <a href="software.html">Software</a>
+    <a href="people.html">People</a>
+    <a href="writing.html">Writing</a>
+    <a href="about.html">About</a>
+  </nav>
+</div></header>
+<main id="main">
+  <div class="shell">
+    <section class="research-intro" aria-labelledby="research-title">
+      <div><h1 id="research-title">Research</h1><div class="links research-jumps"><a href="#current-work">Current work</a><a href="#trajectory">Research trajectory</a><a href="contributions.html">Selected Contributions</a></div></div>
+      <div><p class="intro">My research has moved across scales and subfields rather than followed a single fixed programme. I began with primordial magnetic fields, low-mass haloes and the first stars; later work moved through cosmology, transients, Galactic structure, galaxy populations, nuclear astrophysics and resolved spectroscopy. The recurring problems are statistical rather than tied to one source class: inaccessible likelihoods, selective calibration samples, non-Gaussian observables, and data whose information depends on spectral ordering or spatial structure. My current work focuses on incomplete calibration, representation completion and path-based descriptions of spectra and resolved sources.</p>
+      <span class="anchor-compat" id="research-interest-grid" aria-hidden="true"></span><nav id="questions" class="recurring-index" aria-label="Recurring questions"><strong>Recurring questions</strong><a href="#probability-models">Probability models</a><a href="#incomplete-calibration">incomplete calibration</a><a href="#representation-completion">representation</a><a href="#radialpaths">geometry</a><a href="#survey-calibration">observing decisions</a></nav></div>
+    </section>
 
-    <section class="page-hero research-hero"><div class="shell">
-      <p class="eyebrow">Questions · fields · work</p>
-      <h1>Research</h1>
-      <p class="lede">The work examines what astronomical observations determine when likelihoods are inaccessible, calibration data are selective, representations discard relevant variation, or spatial structure depends on adjacency.</p>
-      <nav class="anchor-nav" aria-label="On this page"><a href="#questions">Browse by question</a><a href="#across-astronomy">Across astronomy</a><a href="#research-threads">Selected research threads</a><a href="#current-work">Current extensions</a></nav>
-    </div></section>
-
-    <section class="section" id="questions"><div class="shell">
-      <div class="section-head section-head-compact"><div><p class="eyebrow">Browse by question</p><h2>Recurring inferential problems</h2></div></div>
-      <div class="question-list">
-        <article class="question-row"><h3>How should uncertainty be propagated when the response law or likelihood is non-standard?</h3><p>Generalized linear, hierarchical, and likelihood-free models for binary outcomes, positive responses, overdispersed counts, simulators, and experiment-level systematics.</p></article>
-        <article class="question-row"><h3>What can be inferred from incomplete, selective, or heterogeneous calibration data?</h3><p>Support mismatch, selective sampling, changing measurement errors, spectroscopic follow-up, and partial identification.</p></article>
-        <article class="question-row"><h3>Which representations retain the variation required by the scientific question?</h3><p>Principal components, graphs, non-negative matrix factorisation, transfer learning, and tests of representation completion.</p></article>
-        <article class="question-row"><h3>How can geometry and ordered structure be recovered from resolved observations?</h3><p>Ridges on curved domains, spectro-spatial segmentation, centre-conditioned radial paths, and ordered spectral-line paths.</p></article>
-        <article class="question-row"><h3>Which computations and observations are worth acquiring at survey scale?</h3><p>QR-based dimension reduction, active-learning follow-up, catalogue construction, and scalable analysis of maps, images, spectra, and data cubes.</p></article>
+    <section class="current-work" id="current-work" aria-labelledby="current-title">
+      <h2 class="section-title" id="current-title">Current work</h2>
+      <div class="current-texts">
+        <article id="incomplete-calibration"><h3>Inference beyond observed support</h3><p class="status">In development</p><p>When the target population occupies regions absent from the calibration sample, reweighting can alter the mixture only within observed support. I am studying which population quantities remain bounded under explicit restrictions on the missing conditional law and how those bounds change when limited information about the unobserved population is introduced.</p></article>
+        <article id="representation-completion"><h3>What the representation leaves behind</h3><p class="status">In development</p><p>A representation learned for reconstruction or prediction may discard variation needed by a later physical parameter. The current experiments separate losses introduced by the representation from errors introduced by the downstream estimator. The question is whether the retained coordinates support several plausible scientific uses rather than only the task on which they were trained.</p></article>
       </div>
-    </div></section>
+      <article class="spectropath-study" id="spectropath">
+        <div><h3>Spectra as ordered geometric objects</h3><p class="status">Preprint and released package · 2026</p><p>spectropath represents a spectral line as an ordered path in velocity–flux space. Profiles with similar widths or moments can remain distinguishable when absorption, asymmetry or multiple components occur in a different sequence along the spectral axis. Toy profiles test these distinctions against line widths and conventional shape coefficients.</p><div class="papers"><a href="https://arxiv.org/abs/2606.27432">Preprint</a><a href="https://rafaelsdesouza.com.br/spectropath/">Documentation</a><a href="https://github.com/RafaelSdeSouza/spectropath">GitHub</a></div></div>
+        <figure><a class="scientific" href="assets/images/research/spectropath-toy-case.png" aria-label="View full-size spectropath figure"><img src="assets/images/research/spectropath-toy-case.png" alt="Normalised line profiles and comparisons of their widths and shape coordinates in the spectropath toy case" width="3960" height="900" loading="lazy"></a><figcaption class="caption">Normalised line profiles, line widths and shape coordinates in the spectropath toy case.</figcaption></figure>
+      </article>
+      <article class="radial-study" id="radialpaths">
+        <div><h3>Radial structure beyond a single centre</h3><p class="status">Preprint and released package · 2026</p><p>A conventional radial profile assumes that distance from one centre is sufficient. That assumption becomes ambiguous for irregular connected sources or structures with several plausible centres. RadialPaths measures distance through the observed footprint while retaining the centre assigned to each position.</p><div class="papers"><a href="https://arxiv.org/abs/2608.26326">Preprint</a><a href="https://rafaelsdesouza.com.br/radialpaths/">Documentation</a><a href="https://github.com/RafaelSdeSouza/radialpaths">GitHub</a></div></div>
+        <figure><a class="scientific" href="assets/images/research/radialpaths-multicentre-construction.png" aria-label="View full-size RadialPaths figure"><img src="assets/images/research/radialpaths-multicentre-construction.png" alt="RadialPaths figure comparing intensity, centre assignments, relative depth and radial profiles for four source geometries" width="2803" height="2582" loading="lazy"></a><figcaption class="caption">Centre assignments, relative depth and radial profiles for circular, irregular and multi-centred sources. RadialPaths, Fig. 1.</figcaption></figure>
+      </article>
+      <article class="current-resolved" id="resolved-current"><h3>Coherent structure in resolved galaxies</h3><p class="status">Published methods; extensions in development</p><p>Moving from individual galaxies to larger IFU and multiband samples tests whether spectro-spatial segmentation recovers comparable stellar populations and emission-line regions. Current work examines CAPIVARA and SAGUI under these conditions and develops spatially regularised spectral decomposition with SpaxNMF, comparing recovered components with changes in the observed spectra and galactic structure.</p><a class="direct-link" href="#resolved-galaxies">CAPIVARA and resolved galaxies</a></article>
+    </section>
+  </div>
 
-    <section class="section" id="across-astronomy"><div class="shell">
-      <div class="section-head section-head-compact"><div><p class="eyebrow">Across astronomy</p><h2>Six physical domains</h2></div></div>
-      <div class="domain-grid"><article class="domain"><h3>First stars and the early Universe</h3></article><article class="domain"><h3>Cosmology and large-scale structure</h3></article><article class="domain"><h3>Milky Way structure and star formation</h3></article><article class="domain"><h3>Galaxies and stellar systems</h3></article><article class="domain"><h3>Supernovae, transients and multimessenger sources</h3></article><article class="domain"><h3>Nuclear astrophysics</h3></article></div>
-    </div></section>
+  <span class="anchor-compat" id="research-application-grid" aria-hidden="true"></span><section id="across-astronomy" class="research-domains" aria-labelledby="domains-title"><div class="shell"><h2 id="domains-title">Across astronomy</h2><nav class="domain-index" aria-label="Astronomical domains"><a href="#first-stars">First stars and the early Universe</a><a href="#cosmology">Cosmology and large-scale structure</a><a href="#milky-way">Milky Way structure and star formation</a><a href="#galaxy-populations">Galaxies and stellar systems</a><a href="#transients">Supernovae, transients and multimessenger sources</a><a href="#nuclear-astrophysics">Nuclear astrophysics</a></nav></div></section>
 
-    <section class="section research-thread-heading" id="research-threads"><div class="shell"><p class="eyebrow">Research threads</p><h2>Selected work</h2></div></section>
+  <div class="shell">
+    <span class="anchor-compat" id="research-threads" aria-hidden="true"></span><section class="trajectory" id="trajectory" aria-labelledby="trajectory-title">
+      <h2 class="section-title" id="trajectory-title">Research trajectory</h2>
+      <article class="trajectory-item resolved-study" id="resolved-galaxies">
+        <h3>From pixels to coherent physical regions</h3>
+        <figure><a class="scientific" href="assets/images/research/capivara-segmentation.png" aria-label="View full-size CAPIVARA segmentation figure"><img src="assets/images/research/capivara-segmentation.png" alt="Five MaNGA galaxy images above their spectral segmentation maps" width="1040" height="561" loading="lazy"></a><figcaption class="caption">Galaxy images and segmentation maps from de Souza et al. (2025), Fig. 2. <a href="https://doi.org/10.1093/mnras/staf688">CAPIVARA paper</a></figcaption></figure>
+        <div class="two-paragraphs"><p>Integral-field spectroscopy made spatial dependence impossible to treat as a secondary detail. Independent spaxel fits ignore coherence, while bins constructed only to reach a target signal-to-noise ratio need not follow changes in the continuum or emission lines.</p><p>The first work in this direction reconstructed IFU fields with explicit spatial models. CAPIVARA later grouped spaxels by spectral similarity and returned the groups to their positions in the galaxy. In five MaNGA systems, it recovered regions coherent in continuum and emission-line properties without imposing a bulge–disc decomposition. SAGUI extended the same spectro-spatial principle to multiband images. </p></div>
+        <div class="papers"><a href="https://doi.org/10.1093/mnras/sty2881">Spatial field reconstruction</a><a href="https://doi.org/10.1093/mnras/staf688">CAPIVARA</a><a href="https://doi.org/10.1093/mnras/stag1062">SAGUI</a><a href="https://doi.org/10.3847/2515-5172/ae5107">SpectralUnmix</a></div>
+      </article>
+      <article class="trajectory-item galaxy-study" id="galaxy-populations">
+        <h3>Galaxy populations across mass and environment</h3>
+        <p>A Bayesian negative-binomial model separated the expected number of globular clusters from excess count variation. Studies of nuclear star clusters found stellar mass to be the principal predictor of nucleation, with environment contributing a secondary effect. J-PLUS imaging expanded the globular-cluster candidate sample around the M81 group.</p>
+        <p>Other projects measured how ultraviolet-bright red-sequence galaxies change with redshift and stellar mass, and how star formation and stellar populations vary in jellyfish galaxies with mass and stripping intensity. The recurring difficulty was to distinguish a physical population trend from the selection, measurement process or count variation through which it was observed.</p>
+        <div class="papers"><a href="https://doi.org/10.1093/mnras/stv1825">Globular-cluster counts</a><a href="https://doi.org/10.1093/mnras/stz3609">UV-upturn galaxies</a><a href="https://doi.org/10.1093/mnras/stab2348">Coma nuclear star clusters</a><a href="https://doi.org/10.1093/mnras/stad1641">Jellyfish galaxies</a></div>
+      </article>
+      <article class="trajectory-item milky-study" id="milky-way">
+        <h3>Reconstructing the Milky Way from incomplete tracers</h3>
+        <div class="milky-content">
+          <figure><a class="scientific" href="assets/images/research/milky-way.png" aria-label="View full-size Milky Way spatial map"><img src="assets/images/research/milky-way.png" alt="Map of star-forming regions in the Galactic plane showing the high-pitch-angle structure associated with the Sagittarius arm" loading="lazy"></a><figcaption class="caption">The star-forming structure in the Galactic plane. Kuhn et al. (2021), A&amp;A 651, L10, Fig. 3. <a href="https://doi.org/10.1051/0004-6361/202141198">Paper</a></figcaption></figure>
+          <div><p>The Milky Way projects began with a census problem. Gaia astrometry revealed new nearby open clusters and showed that even the population within roughly one kiloparsec remained incomplete. SPICY extended the census to young stars obscured at optical wavelengths, identifying roughly 120,000 candidates from mid-infrared photometry.</p><p>Their spatial distribution supported the identification of 25 star-forming regions in a narrow structure about one kiloparsec long. Its pitch angle of approximately 56 degrees is substantially larger than the value normally assigned to the Sagittarius arm. Later studies moved from young populations to individual stellar histories, inferring birth radii in the Solar neighbourhood and finding that temperature, metallicity and age, rather than radial migration, primarily explain the observed lithium depletion.</p></div>
+        </div>
+        <div class="papers"><a href="https://doi.org/10.1051/0004-6361/201834453">Gaia open clusters</a><a href="https://doi.org/10.3847/1538-4365/abe465">SPICY</a><a href="https://doi.org/10.1051/0004-6361/202141198">Sagittarius structure</a><a href="https://doi.org/10.1051/0004-6361/202453034">Stellar birth radii</a><a href="https://doi.org/10.1051/0004-6361/202554305">Lithium depletion</a></div>
+      </article>
+      <article class="trajectory-item transient-study" id="transients">
+        <h3>From spectral diversity to transient discovery</h3>
+        <p>Supernova spectra made the limitations of standard coordinates particularly visible. Observations are heterogeneous in phase and wavelength coverage, while subtype labels reduce continuous spectral diversity to a few categories. DRACULA used transfer learning, nonlinear dimensional reduction and clustering to compare Type Ia spectra observed under different conditions. The resulting groups occupied parts of a largely continuous distribution rather than isolated clusters.</p>
+        <p>For Type II supernovae, a graph connecting 1,595 spectra from 145 objects exposed outliers and temporal evolution without imposing fixed class boundaries. Spectra changed rapidly near maximum light and became more homogeneous toward the plateau end. Work with Fink and ELEPHANT then moved the problem into live alert streams, where a scientifically valuable event must be recognised before it fades.</p>
+        <div class="papers"><a href="https://doi.org/10.1093/mnras/stw1228">DRACULA</a><a href="https://doi.org/10.1016/j.ascom.2023.100715">Type II spectral network</a><a href="https://doi.org/10.1093/mnras/stac1443">GLADE+ catalogue</a><a href="https://doi.org/10.1051/0004-6361/202245340">Fink</a><a href="https://doi.org/10.1051/0004-6361/202450535">ELEPHANT</a></div>
+      </article>
+      <article class="trajectory-item calibration-study" id="survey-calibration">
+        <h3>Learning from selective samples</h3>
+        <p>A held-out spectroscopic sample can resemble the training set while both differ from the photometric population to which an estimator will be applied. The Teddy and Happy catalogues separated two causes of failure: missing colour–magnitude support and changes in measurement errors or selection within covered regions.</p>
+        <p>Active learning shifted the problem from diagnosing a fixed sample to deciding how it should grow. We treated spectroscopic follow-up as a sequential decision: after each observation, the candidate pool, class information, observing cost and remaining telescope time change. RESSPECT tested those decisions under simulated survey conditions. The limitation that now interests me is more severe: further observations within the covered region cannot identify what happens in parts of the target population with no spectroscopic support.</p>
+        <div class="papers"><a href="https://doi.org/10.1093/mnras/stx687">Photometric-redshift validation</a><a href="https://doi.org/10.1093/mnras/sty3015">Active learning</a><a href="https://doi.org/10.1109/SSCI47803.2020.9308300">RESSPECT</a></div>
+      </article>
+      <article class="trajectory-item nuclear-study" id="nuclear-astrophysics">
+        <h3>Reaction rates across discordant experiments</h3>
+        <div class="prose"><p>The nuclear-astrophysics work posed a different problem: combining measurements of the same reaction when each experiment carries its own normalisation and systematics. A pooled fit can appear precise by suppressing disagreement among experiments instead of propagating it.</p><p>The hierarchical analyses estimated the reaction model and experiment-level effects jointly. They covered ³He(d,p)⁴He, tritium–deuterium fusion, ⁷Be(n,p)⁷Li, D(p,γ)³He and ¹⁶O(p,γ)¹⁷F. The ⁷Be analysis obtained rate uncertainties of approximately 1.5–2.0 per cent below 1 GK; the D(p,γ) analysis obtained a 2.2 per cent uncertainty at 0.8 GK, directly affecting the predicted primordial deuterium abundance.</p></div>
+        <div class="papers"><a href="https://doi.org/10.3847/1538-4357/aafda9">³He(d,p)⁴He</a><a href="https://doi.org/10.3847/1538-4357/ab88aa">⁷Be(n,p)⁷Li</a><a href="https://doi.org/10.3847/1538-4357/ac1db0">D(p,γ)³He</a><a href="https://doi.org/10.1103/PhysRevC.106.055802">¹⁶O(p,γ)¹⁷F</a></div>
+      </article>
+      <article class="trajectory-item probability-study" id="probability-models">
+        <figure><a href="https://doi.org/10.1017/CBO9781316459515"><img src="assets/images/book-cover-bayesian-models.jpg" alt="Cover of Bayesian Models for Astrophysical Data by Joseph M. Hilbe, Rafael S. de Souza and Emille E. O. Ishida" loading="lazy"></a><figcaption class="caption">Cambridge University Press, 2017.<br>PROSE Award, 2018.</figcaption></figure>
+        <div><h3>Probability laws for astronomical observables</h3><p>The generalized-linear-model papers began from a mismatch between familiar regression assumptions and the observables. Whether a minihalo forms one or several Population III stars is discrete. A photometric redshift is positive and continuous. Globular-cluster counts show more variation than a Poisson model permits.</p><p>The three studies used binomial, gamma and Bayesian negative-binomial models. The central decision was to choose the probability law from the process generating the observable rather than apply one regression model to all three cases. <em>Bayesian Models for Astrophysical Data</em> extended this argument through complete generalized, hierarchical and likelihood-free analyses, keeping the observed quantity, latent variables and sources of uncertainty explicit.</p><div class="papers"><a href="https://doi.org/10.1016/j.ascom.2015.04.002">GLM I</a><a href="https://doi.org/10.1016/j.ascom.2015.01.002">GLM II</a><a href="https://doi.org/10.1093/mnras/stv1825">GLM III</a><a href="https://doi.org/10.1017/CBO9781316459515">Book</a></div></div>
+      </article>
+      <article class="trajectory-item cosmology-study" id="cosmology">
+        <h3>From cosmological inference to cosmic geometry</h3>
+        <p>Principal-component analyses examined how the number of retained components changes the bias of the reconstructed Hubble parameter. COSMOABC addressed a different obstacle: cluster-count simulations were available, but their likelihood was impractical to evaluate. Approximate Bayesian computation replaced likelihood evaluation with comparisons between simulated and observed summaries.</p>
+        <p>Density ridges were extracted from DES weak-lensing mass maps as curvilinear structures rather than isolated peaks. SCONCE extended ridge finding to spherical and conic domains, where planar distances distort neighbourhoods and paths.</p>
+        <div class="papers"><a href="https://doi.org/10.1051/0004-6361/201015281">Hubble-parameter reconstruction</a><a href="https://doi.org/10.1016/j.ascom.2015.09.001">COSMOABC</a><a href="https://doi.org/10.1093/mnras/staa3204">Density ridges</a><a href="https://doi.org/10.1093/mnras/stac2504">SCONCE</a></div>
+      </article>
+      <article class="trajectory-item first-stars-study" id="first-stars">
+        <h3>Making the first stars observable</h3>
+        <p>The work on low-mass haloes led to the environments in which the first stars formed. Simulations tested how halo mass, spin and shape relate to the number and masses of Population III stars. Explosive transients then supplied a possible observational route.</p>
+        <p>Rate calculations and synthetic surveys examined whether Population III gamma-ray bursts and pair-instability supernovae could be detected with JWST, radio and X-ray missions, or the SKA. The assumed initial-mass function determined both which explosions occurred and how many entered a survey. These studies made detectability part of the physical calculation: the predicted population had to be passed through transient luminosities, event rates, survey depth and cadence before it became an observable one.</p>
+        <div class="papers"><a href="https://doi.org/10.1093/mnras/sts181">Population III environments</a><a href="https://doi.org/10.1093/mnras/stt1680">JWST pair-instability supernovae</a><a href="https://doi.org/10.1093/mnras/stu984">High-redshift surveys</a></div>
+      </article>
+      <article class="trajectory-item magnetism-study" id="cosmic-magnetism">
+        <h3>Magnetic fields and the smallest dark haloes</h3>
+        <p>I began in theoretical cosmology, asking whether primordial magnetic fields could affect structure on scales far below those normally used to constrain cosmological models. An early study examined whether fluctuations near the quark–hadron transition could supply seed fields for later amplification.</p>
+        <p>The next question was more directly astrophysical. Magnetic pressure changes how baryons accumulate in shallow dark-matter potentials. The calculations showed that a random primordial field raises the filtering mass and can reduce the gas fraction of low-mass haloes. The important consequence was that some small haloes could remain dark because they failed to acquire enough baryonic material.</p>
+        <div class="papers"><a href="https://doi.org/10.1103/PhysRevD.77.043529">Primordial seed fields</a><a href="https://doi.org/10.1111/j.1365-2966.2010.16677.x">Magnetic fields and dark haloes</a><a href="https://doi.org/10.1111/j.1365-2966.2010.17588.x">Magnetic filtering mass</a></div>
+      </article>
+    </section>
+    <span class="anchor-compat" id="research-video-grid" aria-hidden="true"></span><span class="anchor-compat" id="videos" aria-hidden="true"></span><section class="complete-record" aria-labelledby="record-title"><h2 id="record-title">Complete record</h2><div><div class="links"><a href="publications.html">All 140 scholarly works</a><a href="contributions.html">Selected Contributions</a><a href="software.html">Software</a></div></div></section>
+  </div>
+</main>
 
-    <article class="research-thread"><div class="shell research-thread-layout">
-      <aside class="research-thread-aside"><p class="research-index-term"><b>Questions</b>Uncertainty · inaccessible likelihoods</p><p class="research-index-term"><b>Fields</b>Early Universe · cosmology · nuclear astrophysics</p><p class="research-index-term"><b>Methods</b>GLMs · hierarchical Bayes · ABC</p><p class="research-index-term"><b>Forms</b>Statistical methods · book · software</p></aside>
-      <div class="research-thread-body"><h2>Response distributions and likelihood-free inference</h2><p>Astronomical responses do not share a common sampling law. Star formation may be represented by a binary outcome, a photometric redshift by a positive continuous response, a cluster population by overdispersed counts, and a cosmological calculation by a simulator whose likelihood cannot be evaluated.</p><p>The generalized-linear-model series linked each response to an explicit distribution. COSMOABC used population Monte Carlo approximate Bayesian computation when cluster-count simulations were available but the likelihood was not. Hierarchical analyses of thermonuclear rates modelled experiment-specific systematics jointly with the reaction rate.</p><p class="evidence-line"><strong>Selected evidence:</strong> GLM series (2015) · COSMOABC (2015) · <em>Bayesian Models for Astrophysical Data</em> (2017) · thermonuclear reaction-rate analyses (2019–2022)</p></div>
-    </div></article>
-
-    <article class="research-thread" id="current-work"><div class="shell research-thread-layout">
-      <aside class="research-thread-aside"><p class="research-index-term"><b>Questions</b>Incomplete calibration · observing decisions</p><p class="research-index-term"><b>Fields</b>Cosmology · transients</p><p class="research-index-term"><b>Methods</b>Transfer tests · active learning · partial identification</p><p class="research-index-term"><b>Forms</b>Survey methodology · software · current research</p></aside>
-      <div class="research-thread-body"><h2>Calibration transfer and spectroscopic selection</h2><p>A model can perform well on held-out spectra while failing on the photometric population to which its estimates will be applied. The Teddy and Happy catalogues separated failures caused by missing colour–magnitude support from those caused by survey-like photometric errors and selection.</p><p>RESSPECT treated transient follow-up as a sequential decision over the candidate pool, class information, observing cost, and remaining telescope budget. Current work asks which population quantities remain identifiable when additional spectroscopy cannot repair missing support.</p><p class="evidence-line"><strong>Selected evidence:</strong> Teddy and Happy (2017) · active learning and RESSPECT (2019–2020) · incomplete calibration samples (current)</p></div>
-    </div></article>
-
-    <article class="research-thread research-thread-spectra"><div class="shell research-thread-layout">
-      <aside class="research-thread-aside"><p class="research-index-term"><b>Questions</b>Representations · ordered structure</p><p class="research-index-term"><b>Fields</b>Supernovae · galaxies</p><p class="research-index-term"><b>Methods</b>PCA · graphs · NMF · path encoding</p><p class="research-index-term"><b>Forms</b>Methods · software · current research</p></aside>
-      <div class="research-thread-body">
-        <h2>Spectra as ordered and low-rank objects</h2>
-        <!-- Internal provenance: line-only motif derived from spectropath/site-assets/toy_case_row1.png. -->
-        <svg class="spectral-path-motif" viewBox="0 0 420 90" aria-hidden="true" focusable="false"><path d="M4 67 C28 66 45 64 63 61 C81 58 88 34 104 32 C122 29 132 60 149 62 C173 65 186 62 202 56 C218 50 223 22 241 20 C260 19 270 55 289 58 C319 63 345 57 364 47 C382 38 390 26 416 25"/><circle cx="104" cy="32" r="2.4"/><circle cx="241" cy="20" r="2.4"/><circle cx="416" cy="25" r="2.4"/></svg>
-        <p>Directions that explain the largest variance need not separate transient classes, retain a weak spectral component, or encode the physical parameter of interest. Early work used robust and kernel principal components, transfer learning, and DRACULA for sparse, heterogeneous supernova spectra.</p><p>A graph later ordered 1,595 spectra from 145 Type II supernovae by similarity. qrpca accelerates principal-component calculations, SpectralUnmix estimates non-negative components with optional smoothness regularisation, and spectropath encodes line morphology as an ordered path in velocity–flux space.</p>
-        <figure class="scientific-figure"><img loading="lazy" src="assets/images/research/spectropath-toy-case.png" alt="spectropath toy-case line profiles and their ordered feature representation" width="3960" height="900"><figcaption>spectropath toy case: normalized line profiles and their corresponding ordered representation.</figcaption></figure>
-        <p class="evidence-line"><strong>Selected evidence:</strong> DRACULA (2015–2016) · qrpca (2022) · graph-based Type II spectral ordering (2023) · SpectralUnmix and spectropath (2026)</p>
-      </div>
-    </div></article>
-
-    <article class="research-thread"><div class="shell research-thread-layout">
-      <aside class="research-thread-aside"><p class="research-index-term"><b>Questions</b>Geometry · spatial dependence · scalable computation</p><p class="research-index-term"><b>Fields</b>Large-scale structure · galaxies</p><p class="research-index-term"><b>Methods</b>Ridge finding · segmentation · radial paths</p><p class="research-index-term"><b>Forms</b>Methods · physical results · software</p></aside>
-      <div class="research-thread-body"><h2>Resolved structure in maps, images, and data cubes</h2><p>Ridges can bend across a sphere, faint components can remain contiguous across bands, and neighbouring spaxels can change coherently in spectra. The DES analysis adapted subspace-constrained mean shift to weak-lensing mass maps; SCONCE extended ridge finding to spherical and conic geometries.</p><p>CAPIVARA maps spectrally similar spaxels back to coherent galaxy regions. SAGUI combines multiscale spatial detection with spectral similarity in multiband images. RadialPaths constructs centre-conditioned profiles for irregular sources with one or more centres.</p><div class="research-figure-pair"><figure class="scientific-figure"><img loading="lazy" src="assets/images/research/capivara-segmentation.png" alt="Galaxy images and CAPIVARA spectro-spatial segmentation maps" width="1800" height="1050"><figcaption>CAPIVARA: de Souza et al. (2025), MNRAS, top and middle rows of Fig. 2.</figcaption></figure><figure class="scientific-figure"><img loading="lazy" src="assets/images/research/radialpaths-multicentre-construction.png" alt="RadialPaths centre-conditioned constructions for circular, irregular, and multicentred sources" width="2803" height="2582"><figcaption>RadialPaths multicentre construction, publication Fig. 1.</figcaption></figure></div><p class="evidence-line"><strong>Selected evidence:</strong> DES weak-lensing ridges · SCONCE · CAPIVARA · SAGUI · RadialPaths</p></div>
-    </div></article>
-
-    <article class="research-thread"><div class="shell research-thread-layout">
-      <aside class="research-thread-aside"><p class="research-index-term"><b>Questions</b>Physical interpretation · catalogue construction</p><p class="research-index-term"><b>Fields</b>Milky Way · star formation</p><p class="research-index-term"><b>Methods</b>Infrared selection · spatial association</p><p class="research-index-term"><b>Forms</b>Catalogue · physical result</p></aside>
-      <div class="research-thread-body"><h2>Young stellar objects and Galactic structure</h2><p>The SPICY catalogue identified roughly 120,000 candidate young stellar objects from mid-infrared photometry. Their spatial distribution supported the identification of 25 star-forming regions in a narrow structure about 1 kpc long, with a pitch angle of about 56 degrees.</p><figure class="scientific-figure"><img loading="lazy" src="assets/images/research/milky-way.png" alt="Heliocentric map of young stellar object groups and Galactic spiral-arm references" width="1600" height="1100"><figcaption>Kuhn et al. (2021), A&amp;A 651, L10, Fig. 3.</figcaption></figure><p class="evidence-line"><strong>Selected evidence:</strong> SPICY catalogue · Kuhn et al. (2021), A&amp;A 651, L10</p></div>
-    </div></article>
-  </main>
-  <footer class="site-footer"><div class="shell footer-grid"><div><p class="footer-label">Complete record</p><p><a href="publications.html">Publications</a></p></div><div><p class="footer-label">Software</p><p><a href="software.html">Software Atlas</a></p></div><div><p class="footer-label">Contact</p><p><a href="contact.html">Contact Rafael</a></p></div></div></footer>
-  <script src="script.js" defer></script>
+<footer class="site-footer"><div><p>Rafael S. de Souza</p><p class="small">Astrophysicist</p></div><div class="footer-links"><a href="assets/cv/cv.pdf">CV</a><a href="https://ui.adsabs.harvard.edu/search/q=orcid%3A0000-0001-7207-4584&sort=date%20desc%2C%20bibcode%20desc&p_=0">ADS</a><a href="https://orcid.org/0000-0001-7207-4584">ORCID</a><a href="https://scholar.google.com/citations?view_op=search_authors&mauthors=Rafael+S.+de+Souza">Google Scholar</a><a href="https://github.com/RafaelSdeSouza">GitHub</a><a href="contact.html">Contact</a></div></footer>
+<script src="script.js" defer></script>
 </body>
 </html>

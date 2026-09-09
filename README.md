@@ -1,89 +1,68 @@
-# Rafael S. de Souza Academic Website
+# Rafael S. de Souza academic website
 
-This repository contains a static GitHub Pages website for an academic CV, research profile, publications, software, and COIN highlights.
+Static HTML, CSS and JavaScript for `https://rafaelsdesouza.com.br`.
 
-## Main Files
+## Content sources
 
-- `index.html`: page structure and section order.
-- `research.html`: research interests and highlights loaded from `content/research.md`.
-- `software.html`: research software cards.
-- `writing.html`: science fiction, poetry, and literary work loaded from `content/writing.md`.
-- `coin.html`: COIN page.
-- `styles.css`: visual design.
-- `script.js`: loads Markdown content, BibTeX publications, filters, and the CV map.
-- `content/README.md`: detailed editing guide with copy-paste examples.
-- `content/home.md`: edit the homepage hero, roles, impact strip, and homepage contact block here.
-- `content/research.md`: edit research interests and research highlights here.
-- `content/software.md`: edit software cards here.
-- `content/writing.md`: edit sci-fi, poetry, and literary work here.
-- `content/publications.md`: edit the publications page title, subtitle, impact badges, and featured book text here.
-- `content/cv.md`: edit the CV page, map appointments, funding, awards, teaching, and service here.
-- `content/coin.md`: edit the COIN page here.
-- `content/contact.md`: edit the contact page here.
-- `assets/cv/references.bib`: edit publication references here; the website reads this file directly.
-- `content/*.json`: fallback data files. You normally do not need to edit these.
-- `assets/cv/cv.pdf`: downloadable PDF CV.
-- `assets/images/rafael-de-souza.jpg`: hero/profile image.
-- `assets/images/coin-2024.png`: current COIN mark used in the visual identity areas; the preserved vector source is `assets/images/coin-2024-vector.pdf`.
-- `CV_rafael_2026/`: original Overleaf/LaTeX CV source. The website no longer needs this folder to render.
+- The ten root visitor pages contain their own editorial copy. Home, Research,
+  About and Writing do not depend on JavaScript to expose their main text.
+- `content/software.json` supplies the Software catalogue. Keep `paper_url`,
+  `docs_url`, `getting_started_url`, `github_url` and `release_url` independent.
+  Omit unavailable actions; do not infer documentation paths from repository URLs.
+- `content/site.json` contains appointments and supporting records. After changing
+  appointments, run `python3 scripts/render_appointments.py` to update About's
+  static appointment list. The checker rejects stale rendered appointments.
+- `assets/cv/references.bib` is the canonical bibliography.
+  `content/publications.json` is its generated browser dataset. Regenerate with
+  `python3 scripts/bib_to_publications.py assets/cv/references.bib content/publications.json`.
+  The reconciliation check protects the complete record of 140 unique works.
+- `assets/cv/cv.pdf` is the downloadable CV. Its LaTeX source remains under
+  `CV_rafael_2026/`, outside the deployed file set.
+- Earlier Markdown and unused JSON files are retained for historical reference,
+  but are not the sources for the current pages and are not deployed.
 
-## Editing Content
+Preserve the established scientific figures, artwork, project marks, book covers
+and stylized About portrait. Do not substitute generated artwork or invented marks.
+Preserve the approved *Beyond the Rainbow* excerpt verbatim.
 
-For normal edits, use the Markdown files in `content/`.
+## Styles and interactions
 
-Each card starts with `### Title`, followed by simple fields:
+`styles.css` defines the shared white surface, STIX Two Text / IBM Plex Sans fonts,
+navigation, responsive layouts and figure-led pages. `assets/css/records.css`
+contains the archival page layouts. `script.js` supplies navigation behaviour,
+publication search and filters, and structured-data rendering.
 
-```md
-### New Project
+## Validation and public build
 
-year: 2026
-tag: Topic
-mark: N
-logo: assets/images/software/new-logo.png
-featured: false
-summary: One clean sentence.
-
-links:
-- Paper: https://...
-- Code: https://...
+```sh
+python3 -m unittest discover -s scripts -p 'test_*.py'
+python3 scripts/lint_public_copy.py
+python3 scripts/build_site.py
 ```
 
-After editing, commit and push in GitHub Desktop. GitHub Pages will rebuild automatically.
+The builder runs the appointment, bibliography, site and editorial checks, then
+prints a new temporary directory containing only public files. Serve that directory
+for local QA; do not serve the repository root as the public deployment preview.
+To choose a destination, use `--output` with an empty directory. CI runs the same
+checks through `.github/workflows/validate-site.yml`.
 
-If the browser still shows the old text, add a cache-busting query to the URL, for example:
+`scripts/public_site.py` defines the deployable inventory. When adding a required
+asset or page, update that inventory where needed and run:
 
-```text
-https://rafaelsdesouza.com.br/research.html?fresh=20260608
+```sh
+python3 scripts/build_site.py --write-config
 ```
 
-## Publications From BibTeX
+The generated `_config.yml` excludes development files from branch-based GitHub
+Pages. Do not restore `.nojekyll`: it would bypass those exclusions. CI verifies
+that the configuration agrees with the public inventory. `design/`, editing notes,
+CV source, provenance notes, screenshots and QA output must not be deployed.
 
-The publication list is read directly from:
+Internal concepts and review evidence are archived outside this repository. Keep
+future review output outside the public tree. Existing `cv.html`, `projects.html`
+and `multiradial/` redirects are retained for compatibility.
 
-```text
-assets/cv/references.bib
-```
-
-That means you only edit the BibTeX file. After commit and push, the website loads the updated references automatically.
-
-The older JSON generator is kept only as a backup/fallback:
-
-```bash
-python3 scripts/bib_to_publications.py assets/cv/references.bib content/publications.json
-```
-
-Supported `type` values include `paper`, `software`, `report`, `book`, `chapter`, `proceeding`, and `catalogue`.
-
-## Replacing Images and Logos
-
-- Replace `assets/images/rafael-de-souza.jpg` with a formal portrait or a preferred graphic.
-- Add logos to `assets/images/` and reference them from the relevant Markdown file.
-- Software logos live in `assets/images/software/`.
-- Research highlight images live in `assets/images/research/`.
-- Writing covers live in `assets/images/writing/`.
-
-## Custom Domain
-
-See `docs/domain-setup.md` for the custom domain and Google visibility workflow.
-
-In short: after the site is pushed to GitHub, configure GitHub Pages, add your domain in `Settings > Pages`, set DNS at your registrar, enable HTTPS, and then submit the domain to Google Search Console.
+The public-copy lint checks visible HTML text and attributes, structured data and
+renderer strings. It rejects review language and development URLs; Research
+headings cannot consist solely of a package name. Its `--dump-dir` option exports
+Home, Research, About and Writing copy for an editorial review outside the site.

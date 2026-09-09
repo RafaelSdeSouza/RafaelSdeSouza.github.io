@@ -52,9 +52,6 @@ def collect_urls() -> list[str]:
                 for field in software_url_fields
                 if project.get(field)
             )
-    writing = json.loads((ROOT / "content/writing.json").read_text(encoding="utf-8"))
-    for work in writing["works"]:
-        urls.update(link["url"] for link in work.get("links", []))
     return sorted(urls)
 
 

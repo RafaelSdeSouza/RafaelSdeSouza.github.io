@@ -91,6 +91,12 @@ def main() -> None:
         if name in PRIMARY_PAGES and not re.search(r'<meta name="viewport"', text):
             errors.append(f"{name}: missing viewport metadata")
         if name in PRIMARY_PAGES:
+            nav = re.search(r'<nav class="site-nav"[^>]*>([\s\S]*?)</nav>', text)
+            labels = re.findall(r'<a[^>]*>([^<]+)</a>', nav.group(1)) if nav else []
+            if labels != ["Research", "Publications", "Software", "People", "Writing", "About"]:
+                errors.append(f"{name}: incorrect primary navigation {labels}")
+            if "Software Atlas" in text:
+                errors.append(f"{name}: obsolete Software Atlas label")
             canonical = re.search(r'<link rel="canonical" href="([^"]+)"', text)
             if not canonical or not canonical.group(1).startswith(CANONICAL_ROOT):
                 errors.append(f"{name}: missing or incorrect canonical URL")
@@ -198,8 +204,13 @@ def main() -> None:
             errors.append(f"editorial red flag remains: {phrase!r}")
     if "assets/images/coin.png" in visible_pages:
         errors.append("legacy COIN mark is still displayed")
-    if visible_pages.count("assets/images/coin-2024.png") != 2:
-        errors.append("current COIN mark should appear exactly on Home and Leadership & Community")
+    if visible_pages.count("assets/images/coin-2024.png") != 3:
+        errors.append("current COIN mark should appear on Home, About and COIN")
+    about = (ROOT / "about.html").read_text(encoding="utf-8")
+    if 'assets/images/rafael-de-souza.jpg' not in about:
+        errors.append("About is missing the approved portrait")
+    if about.count('class="career-entry"') != 8:
+        errors.append("About must contain all eight appointments")
     if "four methodological programmes" in visible_pages.lower():
         errors.append("obsolete four-programme research architecture remains visible")
 

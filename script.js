@@ -13,6 +13,13 @@ function initialiseNavigation() {
     button.setAttribute("aria-expanded", String(open));
     nav.dataset.open = String(open);
   });
+  document.addEventListener("keydown", event => {
+    if (event.key === "Escape" && button.getAttribute("aria-expanded") === "true") {
+      button.setAttribute("aria-expanded", "false");
+      nav.dataset.open = "false";
+      button.focus();
+    }
+  });
 }
 
 async function loadProfileLinks() {
@@ -44,11 +51,15 @@ function formatVenue(record) {
 }
 
 function publicationMarkup(record) {
+  const primary = (record.links || []).find(link => link.label === "DOI")
+    || (record.links || []).find(link => link.label === "ADS")
+    || (record.links || []).find(link => link.label === "arXiv")
+    || (record.links || [])[0];
   const links = (record.links || []).map(link => `<a href="${escapeHtml(link.url)}">${escapeHtml(link.label)}</a>`).join("");
   return `<li class="publication-record">
     <div class="publication-year">${escapeHtml(record.year)}</div>
     <article>
-      <h2 class="publication-title">${escapeHtml(record.title)}</h2>
+      <h2 class="publication-title">${primary ? `<a href="${escapeHtml(primary.url)}">${escapeHtml(record.title)}</a>` : escapeHtml(record.title)}</h2>
       <p class="publication-authors">${escapeHtml(record.authors)}</p>
       <p class="publication-venue">${escapeHtml(formatVenue(record))}</p>
       <div class="publication-links">${links}</div>
@@ -93,6 +104,7 @@ async function initialisePublications() {
 }
 
 function softwareMarkup(project) {
+  const primary = project.docs_url || project.github_url || project.paper_url || project.release_url || project.registry_url;
   const identity = project.logo
     ? `<img loading="lazy" src="${escapeHtml(project.logo)}" alt="${escapeHtml(project.name)}">`
     : `<span class="software-type">${escapeHtml(project.name)}</span>`;
@@ -116,8 +128,8 @@ function softwareMarkup(project) {
     .map(link => `<a href="${escapeHtml(link.url)}">${escapeHtml(link.label)}</a>`)
     .join("");
   return `<article class="software-entry" id="${slugify(project.name)}">
-    <div class="software-identity">${identity}</div>
-    <div><h3 class="software-type">${escapeHtml(project.name)}</h3><p>${escapeHtml(project.purpose)}</p><p><strong>Scientific problem:</strong> ${escapeHtml(project.problem)}</p><div class="software-links">${links}</div></div>
+    <div class="software-identity">${primary ? `<a href="${escapeHtml(primary)}">${identity}</a>` : identity}</div>
+    <div><h3 class="software-type">${primary ? `<a href="${escapeHtml(primary)}">${escapeHtml(project.name)}</a>` : escapeHtml(project.name)}</h3><p>${escapeHtml(project.purpose)}</p><p><strong>Scientific problem:</strong> ${escapeHtml(project.problem)}</p><div class="software-links">${links}</div></div>
     <div class="software-status">${escapeHtml(project.status)}${project.year ? ` · ${escapeHtml(project.year)}` : ""}</div>
   </article>`;
 }
@@ -168,24 +180,6 @@ async function initialiseSiteData() {
   }
 }
 
-async function initialiseWriting() {
-  const root = document.querySelector("[data-writing-list]");
-  if (!root) return;
-  try {
-    const data = await fetch("content/writing.json").then(response => response.json());
-    root.innerHTML = data.works.map(work => {
-      const links = (work.links || []).map(link => `<a href="${escapeHtml(link.url)}">${escapeHtml(link.label)}</a>`).join(" · ");
-      const body = work.body?.length
-        ? `<details class="bibtex-details"><summary>${escapeHtml(work.readerLabel || "Read text")}</summary><div class="writing-body">${work.body.map(paragraph => `<p>${escapeHtml(paragraph)}</p>`).join("")}</div></details>`
-        : "";
-      return `<article class="writing-piece"><p class="feature-meta">${escapeHtml(work.type)}${work.date ? ` · ${escapeHtml(work.date)}` : ""}</p><h2>${escapeHtml(work.title)}</h2><p>${escapeHtml(work.authors)}</p><p>${escapeHtml(work.summary)}</p><p class="record-links">${links}</p><p class="status">${escapeHtml(work.status)}</p>${body}</article>`;
-    }).join("");
-  } catch (error) {
-    root.innerHTML = '<p class="empty-state">The writing catalogue could not be loaded.</p>';
-    console.error(error);
-  }
-}
-
 function initialiseFilterLinks() {
   document.querySelectorAll("[data-set-filter]").forEach(link => link.addEventListener("click", () => {
     const button = document.querySelector(`[data-publication-filter="${link.dataset.setFilter}"]`);
@@ -199,6 +193,5 @@ document.addEventListener("DOMContentLoaded", () => {
   initialisePublications();
   initialiseSoftware();
   initialiseSiteData();
-  initialiseWriting();
   initialiseFilterLinks();
 });
