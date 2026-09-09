@@ -95,9 +95,11 @@ function softwareMarkup(project) {
     : `<span class="software-type">${escapeHtml(project.name)}</span>`;
   const projectLinks = project.links || [];
   const labels = new Set(projectLinks.map(link => link.label.toLowerCase()));
+  const hasPublication = labels.has("publication") || labels.has("preprint") || labels.has("paper");
+  const hasRepository = labels.has("repository") || labels.has("github");
   const links = projectLinks.map(link => `<a href="${escapeHtml(link.url)}">${escapeHtml(link.label)}</a>`).join("")
-    + (labels.has("publication") || labels.has("preprint") ? "" : '<span>Publication —</span>')
-    + (labels.has("repository") ? "" : '<span>Repository —</span>')
+    + (hasPublication ? "" : '<span>Publication —</span>')
+    + (hasRepository ? "" : '<span>Repository —</span>')
     + (labels.has("documentation") ? "" : '<span>Documentation —</span>');
   return `<article class="software-entry" id="${slugify(project.name)}">
     <div class="software-identity">${identity}</div>
