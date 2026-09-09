@@ -77,9 +77,10 @@
       "logo": "assets/images/software/capivara-logo.png",
       "homepage": true,
       "links": [
-        {"label": "Publication", "url": "https://doi.org/10.1093/mnras/staf688"},
-        {"label": "Repository", "url": "https://github.com/RafaelSdeSouza/capivara"},
-        {"label": "Documentation", "url": "https://github.com/RafaelSdeSouza/capivara#readme"},
+        {"label": "Paper", "url": "https://doi.org/10.1093/mnras/staf688"},
+        {"label": "GitHub", "url": "https://github.com/RafaelSdeSouza/capivara"},
+        {"label": "Documentation", "url": "https://rafaelsdesouza.com.br/capivara/"},
+        {"label": "Get Started", "url": "https://rafaelsdesouza.com.br/capivara/articles/getting-started.html"},
         {"label": "ASCL", "url": "https://ui.adsabs.harvard.edu/abs/2025ascl.soft07023S"}
       ]
     },
