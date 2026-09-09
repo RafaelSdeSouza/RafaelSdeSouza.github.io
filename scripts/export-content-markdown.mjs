@@ -55,22 +55,43 @@ function researchMarkdown(data) {
   ].join("\n");
 }
 
-function softwareMarkdown(items) {
+function softwareMarkdown(data) {
+  const fields = [
+    ["paper_url", "Paper"],
+    ["docs_url", "Docs"],
+    ["getting_started_url", "Get Started"],
+    ["github_url", "GitHub"],
+    ["release_url", "Release"],
+    ["registry_url", null],
+  ];
+  const groups = [
+    ["Published packages", data.published || []],
+    ["Research systems and companion code", data.systems || []],
+    ["In development", data.development || []],
+  ];
   return [
     "# Software",
     "",
-    "## Software",
-    "",
-    ...items.map((item) =>
-      block(item.name, {
-        year: item.year,
-        tag: item.tag,
-        mark: item.mark,
-        logo: item.logo || "",
-        featured: item.featured || false,
-        summary: item.summary,
-      }, linesForLinks(item.links))
-    ),
+    ...groups.flatMap(([title, items]) => [
+      `## ${title}`,
+      "",
+      ...items.map((item) => {
+        const links = fields
+          .filter(([field]) => item[field])
+          .map(([field, label]) => ({
+            label: label || item.registry_label || "Registry",
+            url: item[field],
+          }));
+        return block(item.name, {
+          year: item.year,
+          purpose: item.purpose,
+          problem: item.problem,
+          status: item.status,
+          logo: item.logo || undefined,
+          homepage: item.homepage ? true : undefined,
+        }, linesForLinks(links));
+      }),
+    ]),
   ].join("\n");
 }
 
@@ -100,6 +121,15 @@ function writingMarkdown(data) {
   ].join("\n");
 }
 
-await writeFile(new URL("research.md", contentDir), researchMarkdown(await readJson("research.json")));
-await writeFile(new URL("software.md", contentDir), softwareMarkdown(await readJson("software.json")));
-await writeFile(new URL("writing.md", contentDir), writingMarkdown(await readJson("writing.json")));
+const selected = new Set(process.argv.slice(2));
+const exportAll = selected.size === 0;
+
+if (exportAll || selected.has("research")) {
+  await writeFile(new URL("research.md", contentDir), researchMarkdown(await readJson("research.json")));
+}
+if (exportAll || selected.has("software")) {
+  await writeFile(new URL("software.md", contentDir), softwareMarkdown(await readJson("software.json")));
+}
+if (exportAll || selected.has("writing")) {
+  await writeFile(new URL("writing.md", contentDir), writingMarkdown(await readJson("writing.json")));
+}

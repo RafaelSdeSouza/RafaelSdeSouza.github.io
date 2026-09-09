@@ -25,6 +25,26 @@ LEGACY_ANCHORS = {
     "software.html": {"software-grid"},
     "writing.html": {"writing-grid"},
 }
+PROSE_RED_FLAGS = (
+    "scientific software makes a statistical argument inspectable",
+    "software turns statistical methods into research infrastructure",
+    "research infrastructure",
+    "intellectual architecture",
+    "scientific ecosystem",
+    "methodological frontier",
+    "research engine",
+    "platform for discovery",
+    "scientific machinery",
+    "innovation pipeline",
+    "knowledge infrastructure",
+    "interpretive layer",
+    "interpretive record",
+    "research architecture",
+    "building scientific communities",
+    "these works were selected because",
+    "the list is interpretive",
+    "projects are labelled here",
+)
 
 
 class ReferenceParser(HTMLParser):
@@ -153,6 +173,14 @@ def main() -> None:
         errors.append(f"expected homepage marks {expected_homepage_marks}, found {homepage_marks}")
 
     visible_pages = "\n".join((ROOT / name).read_text(encoding="utf-8") for name in PRIMARY_PAGES)
+    structured_prose = "\n".join(
+        (ROOT / "content" / name).read_text(encoding="utf-8")
+        for name in ("site.json", "software.json", "research.json")
+    )
+    prose_corpus = f"{visible_pages}\n{structured_prose}".lower()
+    for phrase in PROSE_RED_FLAGS:
+        if phrase in prose_corpus:
+            errors.append(f"editorial red flag remains: {phrase!r}")
     if "assets/images/coin.png" in visible_pages:
         errors.append("legacy COIN mark is still displayed")
     if visible_pages.count("assets/images/coin-2024.png") != 2:

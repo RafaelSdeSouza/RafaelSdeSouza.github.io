@@ -6,7 +6,7 @@
 
 eyebrow: COIN
 title: COIN
-summary: The Cosmostatistics Initiative is an international network for collaborative, method-driven astronomical science.
+summary: Rafael founded the Cosmostatistics Initiative in 2014. COIN organises project collaborations and residence programmes involving astronomers, statisticians, and computer scientists.
 
 ## Hero actions
 
@@ -46,10 +46,10 @@ label: Highlights
 
 ## Network header
 
-### Collaborative astrostatistics.
+### Projects and residence programmes
 
 eyebrow: COIN
-summary: COIN projects sit at the boundary between astronomical data problems and statistical methodology: transient discovery, spectral classification, catalogues, weak lensing, galaxy morphology, and survey-scale inference.
+summary: COIN projects include transient discovery, spectral classification, astronomical catalogues, weak-lensing maps, galaxy morphology, and survey inference.
 
 ## Cards
 
@@ -58,7 +58,7 @@ summary: COIN projects sit at the boundary between astronomical data problems an
 tag: Community
 mark: C
 featured: true
-summary: International collaboration across astronomy, statistics, machine learning, and scientific software.
+summary: Project collaborations and residence programmes involving astronomers, statisticians, and computer scientists.
 
 links:
 - Website: https://cosmostatistics-initiative.org/
@@ -69,7 +69,7 @@ links:
 tag: Research
 mark: P
 featured: false
-summary: Selected COIN work on surveys, transients, catalogues, inference, and statistical learning.
+summary: COIN projects on surveys, transients, catalogues, statistical inference, and machine learning.
 
 links:
 - Project index: https://cosmostatistics-initiative.org/projects/
@@ -79,7 +79,7 @@ links:
 tag: Alerts
 mark: F
 featured: false
-summary: Work connecting alert streams, broker science, active learning, and transient discovery.
+summary: Fink broker modules and active-learning methods for transient selection and spectroscopic follow-up.
 
 links:
 - Fink: https://fink-broker.org/
@@ -90,7 +90,7 @@ links:
 tag: Methods
 mark: S
 featured: false
-summary: Shared methods, reproducible analyses, and public-facing project records.
+summary: Public code, analysis records, and project results.
 
 links:
 - Highlights: https://cosmostatistics-initiative.org/highlights/

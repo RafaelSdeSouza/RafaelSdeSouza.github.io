@@ -1,218 +1,305 @@
 # Software
 
-## Page
-
-### Header
-
-eyebrow: Software
-title: Research software.
-summary: A catalogue of R and Python packages, ASCL records, and project pages from my work on segmentation, spectra, image structure, likelihood-free inference, and survey data.
-
-## Software
+## Published packages
 
 ### SAGUI
 
 year: 2026
-tag: Galaxy imaging
-mark: S
+purpose: SED-based segmentation of multiband galaxy images.
+problem: Resolved galaxy structure in imaging surveys, including faint diffuse components.
+status: Published and released
 logo: assets/images/software/sagui-logo.png
-featured: true
-summary: SED-based segmentation of multi-band galaxy images, with application to JADES in GOODS-South.
+homepage: true
 
 links:
-- Preprint: https://arxiv.org/abs/2604.18812
-- ADS: https://ui.adsabs.harvard.edu/abs/2026arXiv260418812D
+- Paper: https://doi.org/10.1093/mnras/stag1062
+- GitHub: https://github.com/RafaelSdeSouza/sagui
 
-### Capivara
+### Lightstack
 
-year: 2025
-tag: IFU analysis
-mark: C
-logo: assets/images/software/capivara-logo.png
-featured: true
-summary: Spectral-based segmentation for IFU data cubes and scalable analysis of galaxy substructure.
+year: 2026
+purpose: Crop, PSF-match, and stack multiband images into photometric data cubes.
+problem: Consistent preparation of registered multiband observations.
+status: Published and archived release
+logo: assets/images/software/lightstack-official.png
+homepage: true
 
 links:
-- Paper: https://doi.org/10.1093/mnras/staf688
-- Code: https://github.com/RafaelSdeSouza/capivara
-- ASCL: https://ui.adsabs.harvard.edu/abs/2025ascl.soft07023S
+- Paper: https://doi.org/10.3847/2515-5172/ae7c78
+- GitHub: https://github.com/AndressaWille/lightstack
+- Release: https://doi.org/10.5281/zenodo.20360028
+
+### ELMA
+
+year: 2026
+purpose: Estimate projected galaxy-bar major axes from fitted ellipses.
+problem: Reproducible orientation measurements for resolved galactic bars.
+status: Published and released
+
+links:
+- Paper: https://doi.org/10.3847/2515-5172/ae7d2d
+- GitHub: https://github.com/BrunaLimaa/elma
 
 ### PowerSpectR
 
 year: 2026
-tag: Fourier summaries
-mark: P
-logo: assets/images/software/powerspectr.svg
-featured: true
-summary: R package for median-based radial Fourier power spectra and compact summaries of image structure.
+purpose: Compute median radial Fourier power spectra of astronomical images.
+problem: Compact summaries of morphological structure across spatial scales.
+status: Published and archived release
+logo: assets/images/software/powerspectr-official.png
+homepage: true
 
 links:
 - Paper: https://doi.org/10.3847/2515-5172/ae5b93
-- Code: https://github.com/RafaelSdeSouza/PowerSpectR
+- GitHub: https://github.com/RafaelSdeSouza/PowerSpectR
+- Release: https://zenodo.org/records/19400316
 
 ### SpectralUnmix
 
 year: 2026
-tag: Matrix factorization
-mark: N
-logo: assets/images/software/spectralunmix.svg
-featured: true
-summary: Torch-based regularized non-negative matrix factorization for smooth, interpretable spectral components.
+purpose: Regularised non-negative matrix factorisation of spectra with optional GPU acceleration.
+problem: Interpretable low-rank spectral components under non-negativity and smoothness constraints.
+status: Published and released
 
 links:
 - Paper: https://doi.org/10.3847/2515-5172/ae5107
-- Project: https://rafaelsdesouza.github.io/SpectralUnmix/
+- Docs: https://rafaelsdesouza.github.io/SpectralUnmix/
+- GitHub: https://github.com/RafaelSdeSouza/SpectralUnmix
+
+### CAPIVARA
+
+year: 2025
+purpose: Segment IFU cubes by spectral similarity.
+problem: Resolved galaxy analysis without a prescribed morphological decomposition.
+status: Published and released
+logo: assets/images/software/capivara-logo.png
+homepage: true
+
+links:
+- Paper: https://doi.org/10.1093/mnras/staf688
+- Docs: https://rafaelsdesouza.com.br/capivara/
+- Get Started: https://rafaelsdesouza.com.br/capivara/articles/getting-started.html
+- GitHub: https://github.com/RafaelSdeSouza/capivara
+- ASCL: https://ui.adsabs.harvard.edu/abs/2025ascl.soft07023S
 
 ### GalMOSS
 
 year: 2024
-tag: Surface brightness
-mark: G
-logo: 
-featured: false
-summary: GPU-accelerated galaxy surface-brightness fitting through gradient descent.
+purpose: Fit galaxy surface-brightness profiles with GPU acceleration.
+problem: Scalable structural modelling of galaxy images.
+status: Published and released
+logo: assets/images/software/galmoss-official.jpg
 
 links:
+- Paper: https://doi.org/10.1016/j.ascom.2024.100825
+- GitHub: https://github.com/Chenmi0619/GALMoss
 - ASCL: https://ui.adsabs.harvard.edu/abs/2024ascl.soft04005M
-- arXiv: https://arxiv.org/abs/2404.005
-
-### galmask
-
-year: 2022
-tag: Galaxy masking
-mark: M
-logo: 
-featured: false
-summary: Python package for unsupervised galaxy masking.
-
-links:
-- Paper: https://doi.org/10.3847/2515-5172/ac780b
-- ADS: https://ui.adsabs.harvard.edu/abs/2022RNAAS...6..128G
-
-### qrpca
-
-year: 2022
-tag: PCA
-mark: Q
-logo: 
-featured: false
-summary: QR-based principal components analysis.
-
-links:
-- ASCL: https://ui.adsabs.harvard.edu/abs/2022ascl.soft08002D
-- arXiv: https://arxiv.org/abs/2208.002
-
-### Yonder
-
-year: 2022
-tag: Denoising
-mark: Y
-logo: 
-featured: false
-summary: Data denoising and reconstruction.
-
-links:
-- ASCL: https://ui.adsabs.harvard.edu/abs/2022ascl.soft08025C
-- arXiv: https://arxiv.org/abs/2208.025
 
 ### SCONCE-SCMS
 
 year: 2023
-tag: Cosmic web
-mark: W
-logo: 
-featured: false
-summary: Spherical and conic cosmic-web finders with extended SCMS algorithms.
+purpose: Find cosmic-web ridges on spherical and conic geometries.
+problem: Curvilinear structure in fields whose geometry is not planar.
+status: Published; ASCL release
+logo: assets/images/software/sconce-official.png
+homepage: true
 
 links:
+- Paper: https://doi.org/10.1093/mnras/stac2504
+- GitHub: https://github.com/zhangyk8/sconce-scms
 - ASCL: https://ui.adsabs.harvard.edu/abs/2023ascl.soft06013Z
-- arXiv: https://arxiv.org/abs/2306.013
 
-### cosmoabc
+### qrpca
 
-year: 2015
-tag: Likelihood-free inference
-mark: A
-logo: 
-featured: false
-summary: Likelihood-free inference for cosmology.
+year: 2022
+purpose: Accelerate principal-component calculations through QR decomposition.
+problem: Low-rank analysis of large matrices with optional GPU computation.
+status: Published and released
 
 links:
-- ASCL: http://adsabs.harvard.edu/abs/2015ascl.soft05013I
-- arXiv: https://arxiv.org/abs/1505.013
+- Paper: https://doi.org/10.1016/j.ascom.2022.100633
+- GitHub: https://github.com/RafaelSdeSouza/qrpca
 
-### DRACULA
+### galmask
 
-year: 2015
-tag: Clustering
-mark: D
-logo: 
-featured: false
-summary: Dimensionality reduction and clustering for unsupervised learning in astronomy.
+year: 2022
+purpose: Construct unsupervised masks for galaxy images.
+problem: Separate galaxy structure from background without labelled masks.
+status: Published and released
 
 links:
-- ASCL: http://adsabs.harvard.edu/abs/2015ascl.soft12009A
-- arXiv: https://arxiv.org/abs/1512.009
+- Paper: https://doi.org/10.3847/2515-5172/ac780b
+- Docs: https://galmask.readthedocs.io/
+- GitHub: https://github.com/Yash-10/galmask
+- ADS: https://ui.adsabs.harvard.edu/abs/2022RNAAS...6..128G
 
-### AMADA
+### Yonder
 
-year: 2015
-tag: Data analysis
-mark: A
-logo: 
-featured: false
-summary: Analysis of multidimensional astronomical datasets.
-
-links:
-- ASCL: http://adsabs.harvard.edu/abs/2015ascl.soft03006D
-- arXiv: https://arxiv.org/abs/1503.006
-
-### CosmoPhotoz
-
-year: 2014
-tag: Photometric redshifts
-mark: Z
-logo: 
-featured: false
-summary: Photometric redshift estimation using generalized linear models.
+year: 2022
+purpose: Denoise and reconstruct data with singular-value decomposition and error propagation.
+problem: Recover low-rank signal while retaining uncertainty information.
+status: Published and released
 
 links:
-- arXiv: https://arxiv.org/abs/1408.018
+- Paper: https://doi.org/10.3847/2515-5172/ac5c57
+- GitHub: https://github.com/pengchzn/yonder
 
 ### LOGIT
 
 year: 2016
-tag: Regression
-mark: L
-logo: 
-featured: false
-summary: Functions, data, and code for binary and binomial data.
+purpose: Provide R functions, data, and examples for binary and binomial models.
+problem: Reproducible generalized-linear-model analyses of discrete responses.
+status: Archived CRAN release
 
 links:
-- CRAN: https://cran.r-project.org/web/packages/LOGIT/index.html
+- Release: https://cran.r-project.org/src/contrib/Archive/LOGIT/
 
-## Media header
+### DRACULA
 
-### Selected public stories.
+year: 2015
+purpose: Reduce and cluster supernova spectra.
+problem: Unsupervised comparison of heterogeneous transient spectra.
+status: ASCL release; paper published 2016
+logo: assets/images/software/dracula-official.png
+homepage: true
 
-eyebrow: In The Media
+links:
+- Paper: https://doi.org/10.1093/mnras/stw1228
+- Docs: https://cointoolbox.github.io/DRACULA/
+- GitHub: https://github.com/COINtoolbox/DRACULA
+- ASCL: https://ui.adsabs.harvard.edu/abs/2015ascl.soft12009A
 
-## Media
+### cosmoabc
 
-### Capivara unmasks hidden structures
+year: 2015
+purpose: Run population Monte Carlo approximate Bayesian computation for cosmology.
+problem: Cosmological inference from simulations when the likelihood cannot be evaluated.
+status: Published and released
 
-tag: Phys.org · 2025
-summary: Capivara unmasks hidden structures in galaxies by analysing spectral fingerprints.
-url: https://phys.org/news/2025-05-ai-powered-algorithm-capivara-unmasks.html
+links:
+- Paper: https://doi.org/10.1016/j.ascom.2015.09.001
+- GitHub: https://github.com/COINtoolbox/CosmoABC
+- ASCL: https://ui.adsabs.harvard.edu/abs/2015ascl.soft05013I
 
-### Milky Way spiral arm break
+### AMADA
 
-tag: NASA · 2021
-summary: Astronomers find a break in one of the Milky Way's spiral arms.
-url: https://www.nasa.gov/feature/jpl/astronomers-find-a-break-in-one-of-the-milky-way-s-spiral-arms
+year: 2015
+purpose: Explore multidimensional astronomical catalogues interactively.
+problem: Inspect relationships and structure in high-dimensional catalogue data.
+status: Published and released
 
-### Overleaf interview
+links:
+- Paper: https://doi.org/10.1016/j.ascom.2015.06.006
+- Docs: https://rafaelsdesouza.com.br/AMADA/
+- GitHub: https://github.com/RafaelSdeSouza/AMADA
+- ASCL: https://ui.adsabs.harvard.edu/abs/2015ascl.soft03006D
 
-tag: Overleaf · 2022
-summary: An interview on writing, collaboration, and scientific publishing.
-url: https://www.overleaf.com/blog/an-interview-with-rafael-s-de-souza
+### CosmoPhotoz
+
+year: 2014
+purpose: Estimate photometric redshifts with generalized linear models.
+problem: Positive-response regression for galaxy redshift estimation.
+status: ASCL release; method paper published 2015
+
+links:
+- Paper: https://doi.org/10.1016/j.ascom.2015.01.002
+- GitHub: https://github.com/COINtoolbox/CosmoPhotoz
+- ASCL: https://ui.adsabs.harvard.edu/abs/2014ascl.soft08018D
+
+### RadialPaths
+
+year: 2026
+purpose: Construct centre-conditioned radial profiles for connected structures with multiple centres.
+problem: Radial structure when a feature's assigned position depends on the adopted centre and source footprint.
+status: Public preprint and released package
+
+links:
+- Paper: https://arxiv.org/abs/2608.26326
+- Docs: https://rafaelsdesouza.com.br/radialpaths/
+- GitHub: https://github.com/RafaelSdeSouza/radialpaths
+
+### spectropath
+
+year: 2026
+purpose: Compute ordered path signatures of spectral-line profiles.
+problem: Line morphologies that share widths or moments but differ in ordered velocity–flux structure.
+status: Public preprint and released package
+
+links:
+- Paper: https://arxiv.org/abs/2606.27432
+- Docs: https://rafaelsdesouza.com.br/spectropath/
+- GitHub: https://github.com/RafaelSdeSouza/spectropath
+
+## Research systems and companion code
+
+### RESSPECT
+
+purpose: Recommend spectroscopic follow-up for transient classification.
+problem: Sequential label acquisition under object-dependent observing costs and finite telescope time.
+status: Published research system
+logo: assets/images/software/resspect-official.png
+
+links:
+- Paper: https://arxiv.org/abs/2010.05941
+- Docs: https://resspect.readthedocs.io/
+- GitHub: https://github.com/COINtoolbox/RESSPECT
+
+### ActSNClass
+
+purpose: Apply active learning to supernova photometric classification.
+problem: Select informative spectra from an evolving transient candidate pool.
+status: Published research system
+
+links:
+- Paper: https://ui.adsabs.harvard.edu/abs/2019MNRAS.483....2I
+- Docs: https://actsnclass.readthedocs.io/
+- GitHub: https://github.com/COINtoolbox/ActSNClass
+
+### graph_clustering
+
+purpose: Construct inspectable graph orderings of Type II supernova spectra.
+problem: Continuous spectral diversity and outliers without a fixed class boundary.
+status: Published companion code
+
+links:
+- Paper: https://doi.org/10.1016/j.ascom.2023.100715
+- GitHub: https://github.com/COINtoolbox/graph_clustering
+
+### ridges
+
+purpose: Reproduce and extend ridge finding in DES weak-lensing mass maps.
+problem: Curvilinear structure in noisy projected mass fields.
+status: Published companion code
+
+links:
+- Paper: https://doi.org/10.1093/mnras/staa3257
+
+### ELEPHANT
+
+purpose: Filter alert streams for hostless extragalactic transients.
+problem: Rapid identification of candidates whose missing hosts carry physical information.
+status: Published research system
+
+links:
+- Paper: https://doi.org/10.1051/0004-6361/202450535
+
+### Fink kilonova module
+
+purpose: Filter broker alerts for fast kilonova candidates.
+problem: Early selection of rapidly evolving multimessenger counterparts.
+status: Published broker module
+
+links:
+- Paper: https://doi.org/10.1051/0004-6361/202245340
+- GitHub: https://github.com/astrolabsoftware/fink-science
+
+## In development
+
+### SpaxNMF
+
+purpose: Estimate spatially regularised non-negative components in IFU cubes.
+problem: Low-rank spectral decomposition that respects spatial coherence.
+status: In development
+
+links:
+- GitHub: https://github.com/RafaelSdeSouza/SpaxNMF

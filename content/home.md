@@ -4,12 +4,12 @@
 
 ### Main
 
-eyebrow: Astrostatistics · Machine Learning · Survey Science
-title: Rafael S. de Souza
-summary: I develop statistical and machine-learning methods for complex scientific data, with astronomy as my main laboratory. My papers span survey astronomy, astrostatistics, scientific software, mathematics, ecology, and nuclear physics. Highlights include <a href="publications.html">140+ scholarly outputs</a>, <a href="assets/cv/cv.pdf">US$1.5M+ in PI funding</a>, the <a href="publications.html">PROSE Award-winning Cambridge book</a>, and leadership in <a href="https://cosmostatistics-initiative.org/">COIN</a>, the <a href="https://isi-web.org/">ISI Astrostatistics Interest Group</a>, and the <a href="http://iaa.mi.oa-brera.inaf.it/">International Astrostatistics Association</a>.
+eyebrow: Rafael S. de Souza
+title: Astrophysicist
+summary: Statistical inference from astronomical observations affected by selection, inaccessible likelihoods, lossy representations, and spatial dependence. Applications include Population III star formation, cosmological cluster counts, Milky Way structure, resolved galaxy spectroscopy, transient follow-up, and thermonuclear reaction rates.
 portrait: assets/images/rafael-de-souza.jpg?v=20260605b
 portraitAlt: Portrait of Rafael S. de Souza
-portraitCaption: Statistical inference, machine learning, and open scientific software across astronomy and complex scientific data.
+portraitCaption: Rafael S. de Souza.
 
 ## Roles
 
@@ -97,9 +97,9 @@ url: cv.html
 
 ### For collaborators and students
 
-eyebrow: Open to collaboration
-title: Research collaborations, seminars, supervision.
-summary: I welcome seminar invitations, student enquiries, research collaborations, and questions about the papers or software listed here. The best starting point is a short email with the project, question, or visit idea.
+eyebrow: Contact
+title: Research, seminars, and supervision
+summary: For collaborations, seminar invitations, student enquiries, or questions about papers and software, email rd23aag@herts.ac.uk.
 
 ## Contact links
 

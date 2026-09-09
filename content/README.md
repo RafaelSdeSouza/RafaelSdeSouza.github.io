@@ -1,18 +1,18 @@
 # Editing Website Content
 
-The site is designed so normal edits happen in Markdown. You should rarely need
-to touch HTML, CSS, JavaScript, or JSON.
+The production pages use HTML for page-level copy and JSON for records rendered
+by JavaScript. The Markdown files in this directory are editorial mirrors and
+must not be treated as runtime sources.
 
-## Main Editable Files
+## Runtime Sources
 
-- `home.md`: homepage hero, roles, top impact strip, and homepage contact block.
-- `research.md`: research page title, research interests, highlights, and COIN block.
-- `software.md`: software page title, software cards, logos, and media links.
-- `publications.md`: publications page title, impact badges, and featured book.
-- `cv.md`: CV page title, career map appointments, funding, awards, teaching, and service.
-- `coin.md`: COIN page title, buttons, window preview, and cards.
-- `writing.md`: sci-fi, poetry, covers, summaries, links, and expandable text.
-- `contact.md`: contact page title, email sentence, and contact buttons.
+- Page introductions, section copy, navigation, labels, and captions: the relevant
+  root-level `.html` file.
+- Software records: `software.json`.
+- Publication records: `publications.json`, generated from `../assets/cv/references.bib`.
+- Appointments, recognition, leadership, people, and teaching: `site.json`.
+- Writing records: `writing.json`.
+- External profile links: `profile.json`.
 
 ## Automatic Publication List
 
@@ -24,19 +24,6 @@ Edit this BibTeX file when you want the publications list to change:
 
 The website reads that BibTeX file directly. You do not need to edit the
 publication cards manually.
-
-## Edit Publication Metrics
-
-Edit `publications.md` under `## Impact` to change the large publication
-numbers at the top of the Publications page. Each metric uses this shape:
-
-```md
-### Metric Name
-
-value: 140+
-label: scholarly outputs
-url: publications.html
-```
 
 ## Images
 
@@ -68,70 +55,34 @@ assets/cv/cv.pdf
 assets/cv/references.bib
 ```
 
-## Add A Research Highlight
-
-Copy this block into `research.md` under `## Research highlights`:
-
-```md
-### Project Title
-
-image: assets/images/research/project-image.png
-imageFit:
-alt: Short description of the image
-tag: Short Topic
-summary: One concise sentence about the result.
-url: https://project-or-paper-link
-```
-
 ## Add Software
 
-Copy this block into `software.md` under `## Software`:
+Add the record to the appropriate group in `software.json`. URLs have distinct
+fields and are not inferred from one another:
 
-```md
-### PackageName
-
-year: 2026
-tag: Short topic
-mark: P
-logo: assets/images/software/package-logo.png
-featured: false
-summary: One concise sentence about what the software does.
-
-links:
-- Paper: https://...
-- Code: https://...
-- ASCL: https://...
+```json
+{
+  "name": "PackageName",
+  "year": 2026,
+  "purpose": "What the software computes.",
+  "problem": "The scientific problem it addresses.",
+  "status": "Published and released",
+  "logo": "assets/images/software/package-logo.png",
+  "paper_url": "https://...",
+  "docs_url": "https://...",
+  "getting_started_url": "https://...",
+  "github_url": "https://github.com/owner/repository",
+  "release_url": "https://..."
+}
 ```
 
-If there is no logo yet, leave `logo:` empty and the card will use the `mark`
-letter instead.
-
-## Add A CV Appointment
-
-Copy this block into `cv.md` under `## Appointments`:
-
-```md
-### Institution Name
-
-years: 2026-present
-role: Visiting Scholar
-place: Institution Name
-label: SHORT
-city: City, Country
-type: work
-coordinates: longitude, latitude
-url: https://institution-link
-image: assets/images/institutions/institution.svg
-summary: Optional short note.
-```
-
-Use `type: education` for degrees and `type: work` for positions.
+Omit unavailable URL fields. If a project has no established logo, omit `logo`;
+the Atlas displays its name without inventing a mark.
 
 ## Add A Writing Piece
 
-Copy this block into `writing.md` under `## Writing`. These pieces appear in the
-`Sci-fi` filter on `publications.html`; the old `writing.html` page is still kept
-as a direct detail page, but it is not in the top navigation.
+Add a record to `writing.json`. The Writing page is linked from the homepage and
+About page.
 
 ```md
 ### Story Title
@@ -151,7 +102,13 @@ body:
 Optional full text, one paragraph per blank line.
 ```
 
-## What Not To Edit
+## Markdown Mirrors
 
-The `.json` files are old fallback files. Leave them alone unless you are doing
-a technical recovery.
+`research.md` and `software.md` can be refreshed from their JSON records with:
+
+```text
+node scripts/export-content-markdown.mjs research software
+```
+
+Do not edit generated mirrors in place. The remaining Markdown files are retained
+for editorial reference and do not control the production pages.

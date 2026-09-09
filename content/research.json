@@ -55,7 +55,7 @@
       "summary": "Graph, matrix-factorization, and low-dimensional representations for spectra and IFU data cubes.",
       "links": [
         {
-          "label": "Capivara",
+          "label": "CAPIVARA",
           "url": "software.html"
         }
       ]
@@ -118,9 +118,9 @@
     {
       "image": "assets/images/software/capivara-logo.png",
       "imageFit": "contain",
-      "alt": "Capivara project logo",
+      "alt": "CAPIVARA project logo",
       "tag": "IFU analysis",
-      "title": "Capivara",
+      "title": "CAPIVARA",
       "summary": "Spectral segmentation for IFU data cubes and galaxy substructure.",
       "url": "software.html"
     },
@@ -150,7 +150,7 @@
     },
     {
       "image": "assets/images/research/spectral-classification.png",
-      "alt": "Spectral classification graph visual",
+      "alt": "Graph of Type II supernova spectra ordered by similarity",
       "tag": "Spectra",
       "title": "SN-II graphs",
       "summary": "Graph-based heuristics for supernova spectral classification.",

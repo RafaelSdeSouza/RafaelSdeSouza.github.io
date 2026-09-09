@@ -4,15 +4,15 @@
 
 ### Header
 
-eyebrow: Creative Work
-title: Writing.
-summary: Science fiction, poetry, essays, and literary projects kept separate from the research archive.
+eyebrow: Writing & Ideas
+title: Fiction and public writing
+summary: Short fiction and an essay on the history of statistical inference in astronomy.
 
 ## Writing section
 
-### Stories and Poems
+### Fiction and public writing
 
-eyebrow: Stories and Poems
+eyebrow: Writing
 
 ## Writing
 

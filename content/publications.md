@@ -4,8 +4,8 @@
 
 ### Header
 
-title: Publications.
-summary: Papers, software, reports, books, book chapters, and sci-fi writing.
+title: Publications
+summary: A chronological record of refereed papers, preprints, proceedings, book chapters, books, catalogues, reports, and software.
 
 
 ## Impact

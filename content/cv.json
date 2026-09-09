@@ -1,39 +1,82 @@
 {
   "education": [
     {
-      "years": "2022-2026",
-      "degree": "PhD in Astronomy",
-      "institution": "University Name",
-      "details": "Optional thesis title, advisor, or research area."
+      "years": "2004–2009",
+      "degree": "Direct-entry PhD in Astrophysics",
+      "institution": "University of São Paulo",
+      "details": "Origin of Cosmic Magnetic Fields"
+    },
+    {
+      "years": "1999–2004",
+      "degree": "BSc in Astronomy",
+      "institution": "Federal University of Rio de Janeiro",
+      "details": "Cosmic Acceleration"
     }
   ],
   "positions": [
     {
-      "years": "2026-present",
-      "role": "Postdoctoral Researcher",
-      "institution": "Institution Name",
-      "details": "Short description of your work."
+      "years": "2024–present",
+      "role": "Adjunct Associate Professor",
+      "institution": "University of North Carolina at Chapel Hill"
+    },
+    {
+      "years": "2023–present",
+      "role": "Senior Lecturer",
+      "institution": "University of Hertfordshire"
     }
   ],
   "awards": [
     {
-      "year": "2025",
-      "name": "Award or Fellowship Name",
-      "details": "Optional description."
+      "year": "2018",
+      "name": "PROSE Award, Cosmology & Astronomy",
+      "details": "Awarded to Bayesian Models for Astrophysical Data."
+    },
+    {
+      "year": "2016",
+      "name": "International Astrostatistics Association Outstanding Publication in Astrostatistics, Postdoc Award",
+      "details": "Awarded for the Bayesian negative-binomial analysis of globular-cluster populations."
     }
   ],
   "teaching": [
     {
-      "year": "2024",
-      "role": "Teaching Assistant",
-      "course": "Course Name",
-      "institution": "Institution Name"
+      "years": "2023–2024",
+      "course": "Statistical Methods and Data Analysis",
+      "level": "Master's",
+      "term": "Semester A"
+    },
+    {
+      "years": "2023–2024",
+      "course": "Machine Learning and Neural Networks",
+      "level": "Master's",
+      "term": "Semester A"
+    },
+    {
+      "years": "2024",
+      "course": "Machine Learning and Neural Networks",
+      "level": "Master's",
+      "term": "Semester B"
+    },
+    {
+      "years": "2023",
+      "course": "Research Methods in Data Science",
+      "level": "Master's",
+      "term": "Semester C"
     }
   ],
   "service_outreach": [
     {
-      "year": "2025",
-      "activity": "Conference organization, mentoring, outreach, reviewing, or committee work."
+      "years": "2014–present",
+      "role": "Founder",
+      "organisation": "Cosmostatistics Initiative"
+    },
+    {
+      "role": "Former Vice-President",
+      "organisation": "International Astrostatistics Association"
+    },
+    {
+      "years": "2021–present",
+      "role": "Member",
+      "organisation": "ISI Astrostatistics Special Interest Group"
     }
   ]
 }

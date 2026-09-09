@@ -4,16 +4,16 @@
 
 ### Header
 
-title: Academic positions and appointments.
-summary: A trajectory of academic positions and fellowships across Brazil, Japan, Korea, Hungary, China, the United States, and the United Kingdom.
+title: Academic positions and appointments
+summary: Appointments in Brazil, Japan, South Korea, Hungary, China, the United States, and the United Kingdom.
 
 ## Map
 
 ### Overlay
 
 eyebrow: Appointments
-title: International academic trajectory
-summary: Positions and appointments across seven countries.
+title: Academic appointments
+summary: Positions in seven countries from 1999 to the present.
 
 ## Appointments
 
@@ -143,7 +143,7 @@ image: assets/images/institutions/ufrgs.svg
 
 ## Funding header
 
-### Selected support.
+### Selected funding and awards
 
 eyebrow: Funding and Awards
 
@@ -174,7 +174,7 @@ summary: AstroFit Programme.
 
 ## Teaching header
 
-### Mentoring and networks.
+### Teaching and service
 
 eyebrow: Teaching and Service
 
@@ -182,12 +182,12 @@ eyebrow: Teaching and Service
 
 ### Supervision
 
-summary: PhD, MSc, and undergraduate supervision across spectral analysis, star formation, and cosmic web science.
+summary: PhD, MSc, and undergraduate projects in spectral analysis, star formation, galaxy evolution, and cosmic-web structure.
 
 ### Courses
 
-summary: Courses in statistical methods, data analysis, machine learning, neural networks, and research methods.
+summary: Master's courses in statistical methods, data analysis, machine learning, neural networks, and research methods.
 
 ### Service
 
-summary: Service with COIN, Fink, LSST, J-PAS, A&A, MNRAS, Nature, ApJ, PASP, and A&C.
+summary: Service with COIN, Fink, LSST, J-PAS, A&A, MNRAS, Nature, ApJ, PASP, and Astronomy and Computing.
