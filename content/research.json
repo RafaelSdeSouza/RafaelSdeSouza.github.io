@@ -76,7 +76,7 @@
       "icon": "software",
       "tag": "Software",
       "title": "Scientific software",
-      "summary": "Research code designed to make statistical ideas testable, reusable, and inspectable.",
+      "summary": "Packages for likelihood-free inference, dimensionality reduction, segmentation, spectral analysis, and survey operations.",
       "links": [
         {
           "label": "GitHub",
@@ -88,7 +88,7 @@
       "icon": "community",
       "tag": "COIN",
       "title": "Cosmostatistics Initiative",
-      "summary": "International projects that connect astronomy, statistics, machine learning, and scientific software.",
+      "summary": "Project collaborations and residence programmes involving astronomers, statisticians, and computer scientists.",
       "links": [
         {
           "label": "COIN projects",
@@ -134,7 +134,7 @@
     },
     {
       "image": "assets/images/research/milky-way.png",
-      "alt": "Milky Way structure visual",
+      "alt": "Map of young stellar objects in the Sagittarius arm",
       "tag": "Galactic structure",
       "title": "Sagittarius Arm",
       "summary": "Young stellar objects revealing a high-pitch-angle structure in the Milky Way.",
@@ -158,7 +158,7 @@
     },
     {
       "image": "assets/images/research/cosmic-structure.png",
-      "alt": "Cosmic structure map visual",
+      "alt": "Weak-lensing mass map with estimated ridges",
       "tag": "Weak lensing",
       "title": "DES ridges",
       "summary": "Ridge estimation for curvilinear structure in weak-lensing mass maps.",
