@@ -32,6 +32,11 @@ navigation, responsive layouts and figure-led pages. `assets/css/records.css`
 contains the archival page layouts. `script.js` supplies navigation behaviour,
 publication search and filters, and structured-data rendering.
 
+Stylesheets, JavaScript, CSS imports and font URLs share a cache-busting release
+token, checked by `scripts/check_release_assets.py`. When publishing changed CSS,
+JavaScript or fonts, update its `RELEASE_TOKEN` and every matching URL, including
+font preloads. The build rejects missing or mismatched tokens.
+
 ## Validation and public build
 
 ```sh

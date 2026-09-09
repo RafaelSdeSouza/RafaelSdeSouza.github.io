@@ -22,7 +22,7 @@ def main():
         raise SystemExit("Pages exclusions are stale; run scripts/build_site.py --write-config")
     if (ROOT / ".nojekyll").exists():
         raise SystemExit(".nojekyll bypasses Pages exclusions and must not exist")
-    for script in ("render_appointments.py", "check_publications.py", "check_site.py"):
+    for script in ("render_appointments.py", "check_publications.py", "check_site.py", "check_release_assets.py"):
         command = [sys.executable, str(ROOT / "scripts" / script)]
         if script == "render_appointments.py":
             command.append("--check")
