@@ -41,9 +41,17 @@ def collect_urls() -> list[str]:
     profile = json.loads((ROOT / "content/profile.json").read_text(encoding="utf-8"))
     urls.update(url for url in profile["links"].values() if url.startswith("http"))
     software = json.loads((ROOT / "content/software.json").read_text(encoding="utf-8"))
+    software_url_fields = {
+        "paper_url", "docs_url", "getting_started_url", "github_url",
+        "release_url", "registry_url",
+    }
     for group in ("published", "systems", "development"):
         for project in software[group]:
-            urls.update(link["url"] for link in project.get("links", []))
+            urls.update(
+                project[field]
+                for field in software_url_fields
+                if project.get(field)
+            )
     writing = json.loads((ROOT / "content/writing.json").read_text(encoding="utf-8"))
     for work in writing["works"]:
         urls.update(link["url"] for link in work.get("links", []))

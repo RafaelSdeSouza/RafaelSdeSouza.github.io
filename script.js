@@ -93,14 +93,25 @@ function softwareMarkup(project) {
   const identity = project.logo
     ? `<img loading="lazy" src="${escapeHtml(project.logo)}" alt="${escapeHtml(project.name)}">`
     : `<span class="software-type">${escapeHtml(project.name)}</span>`;
-  const projectLinks = project.links || [];
-  const labels = new Set(projectLinks.map(link => link.label.toLowerCase()));
-  const hasPublication = labels.has("publication") || labels.has("preprint") || labels.has("paper");
-  const hasRepository = labels.has("repository") || labels.has("github");
-  const links = projectLinks.map(link => `<a href="${escapeHtml(link.url)}">${escapeHtml(link.label)}</a>`).join("")
-    + (hasPublication ? "" : '<span>Publication —</span>')
-    + (hasRepository ? "" : '<span>Repository —</span>')
-    + (labels.has("documentation") ? "" : '<span>Documentation —</span>');
+  const actionFields = [
+    ["paper_url", "Paper"],
+    ["docs_url", "Docs"],
+    ["getting_started_url", "Get Started"],
+    ["github_url", "GitHub"],
+    ["release_url", "Release"],
+  ];
+  const projectLinks = actionFields
+    .filter(([field]) => project[field])
+    .map(([field, label]) => ({ label, url: project[field] }));
+  if (project.registry_url) {
+    projectLinks.push({
+      label: project.registry_label || "Registry",
+      url: project.registry_url,
+    });
+  }
+  const links = projectLinks
+    .map(link => `<a href="${escapeHtml(link.url)}">${escapeHtml(link.label)}</a>`)
+    .join("");
   return `<article class="software-entry" id="${slugify(project.name)}">
     <div class="software-identity">${identity}</div>
     <div><h3 class="software-type">${escapeHtml(project.name)}</h3><p>${escapeHtml(project.purpose)}</p><p><strong>Scientific problem:</strong> ${escapeHtml(project.problem)}</p><div class="software-links">${links}</div></div>

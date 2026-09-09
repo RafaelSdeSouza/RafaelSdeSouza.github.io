@@ -93,6 +93,60 @@ def main() -> None:
     software_counts = tuple(len(software[key]) for key in ("published", "systems", "development"))
     if software_counts != (18, 6, 1):
         errors.append(f"expected software counts 18/6/1, found {software_counts}")
+    software_url_fields = (
+        "paper_url", "docs_url", "getting_started_url", "github_url",
+        "release_url", "registry_url",
+    )
+    for group in ("published", "systems", "development"):
+        for project in software[group]:
+            name = project["name"]
+            if "links" in project:
+                errors.append(f"{name}: legacy generic links array is not allowed")
+            urls = {
+                field: project[field]
+                for field in software_url_fields
+                if project.get(field)
+            }
+            for field, url in urls.items():
+                parsed = urlsplit(url)
+                if parsed.scheme not in {"https", "http"} or not parsed.netloc:
+                    errors.append(f"{name}: {field} is not an absolute URL")
+                if "/HEAD/" in parsed.path:
+                    errors.append(f"{name}: {field} uses HEAD instead of a stable branch")
+                if parsed.path.endswith(".md"):
+                    errors.append(f"{name}: {field} exposes a browser-facing .md URL")
+                if re.search(r"/(blob|raw)/(main|master|HEAD)/articles/", parsed.path):
+                    errors.append(f"{name}: {field} infers a root-level GitHub articles path")
+            github_url = project.get("github_url")
+            if github_url:
+                parsed = urlsplit(github_url)
+                if (
+                    parsed.netloc.lower() != "github.com"
+                    or not re.fullmatch(r"/[^/]+/[^/]+/?", parsed.path)
+                    or parsed.query
+                    or parsed.fragment
+                ):
+                    errors.append(f"{name}: github_url must point to a repository root")
+            normalized = [
+                url.rstrip("/").split("#", 1)[0]
+                for url in urls.values()
+            ]
+            if len(normalized) != len(set(normalized)):
+                errors.append(f"{name}: duplicate software actions resolve to the same destination")
+
+    capivara = next(
+        project for project in software["published"]
+        if project["name"] == "CAPIVARA"
+    )
+    expected_capivara_urls = {
+        "paper_url": "https://doi.org/10.1093/mnras/staf688",
+        "docs_url": "https://rafaelsdesouza.com.br/capivara/",
+        "getting_started_url": "https://rafaelsdesouza.com.br/capivara/articles/getting-started.html",
+        "github_url": "https://github.com/RafaelSdeSouza/capivara",
+    }
+    for field, expected in expected_capivara_urls.items():
+        if capivara.get(field) != expected:
+            errors.append(f"CAPIVARA: expected {field}={expected}")
     homepage_marks = [item["name"] for item in software["published"] if item.get("homepage")]
     expected_homepage_marks = {"DRACULA", "SCONCE-SCMS", "CAPIVARA", "SAGUI", "PowerSpectR", "Lightstack"}
     if len(homepage_marks) != 6 or set(homepage_marks) != expected_homepage_marks:

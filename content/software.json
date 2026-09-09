@@ -8,11 +8,8 @@
       "status": "Published and released",
       "logo": "assets/images/software/sagui-logo.png",
       "homepage": true,
-      "links": [
-        {"label": "Publication", "url": "https://doi.org/10.1093/mnras/stag1062"},
-        {"label": "Repository", "url": "https://github.com/RafaelSdeSouza/sagui"},
-        {"label": "Documentation", "url": "https://github.com/RafaelSdeSouza/sagui#readme"}
-      ]
+      "paper_url": "https://doi.org/10.1093/mnras/stag1062",
+      "github_url": "https://github.com/RafaelSdeSouza/sagui"
     },
     {
       "name": "Lightstack",
@@ -22,12 +19,9 @@
       "status": "Published and archived release",
       "logo": "assets/images/software/lightstack-official.png",
       "homepage": true,
-      "links": [
-        {"label": "Publication", "url": "https://doi.org/10.3847/2515-5172/ae7c78"},
-        {"label": "Repository", "url": "https://github.com/AndressaWille/lightstack"},
-        {"label": "Documentation", "url": "https://github.com/AndressaWille/lightstack#readme"},
-        {"label": "Archive", "url": "https://doi.org/10.5281/zenodo.20360028"}
-      ]
+      "paper_url": "https://doi.org/10.3847/2515-5172/ae7c78",
+      "github_url": "https://github.com/AndressaWille/lightstack",
+      "release_url": "https://doi.org/10.5281/zenodo.20360028"
     },
     {
       "name": "ELMA",
@@ -35,11 +29,8 @@
       "purpose": "Estimate projected galaxy-bar major axes from fitted ellipses.",
       "problem": "Reproducible orientation measurements for resolved galactic bars.",
       "status": "Published and released",
-      "links": [
-        {"label": "Publication", "url": "https://doi.org/10.3847/2515-5172/ae7d2d"},
-        {"label": "Repository", "url": "https://github.com/BrunaLimaa/elma"},
-        {"label": "Documentation", "url": "https://github.com/BrunaLimaa/elma#readme"}
-      ]
+      "paper_url": "https://doi.org/10.3847/2515-5172/ae7d2d",
+      "github_url": "https://github.com/BrunaLimaa/elma"
     },
     {
       "name": "PowerSpectR",
@@ -49,12 +40,9 @@
       "status": "Published and archived release",
       "logo": "assets/images/software/powerspectr-official.png",
       "homepage": true,
-      "links": [
-        {"label": "Publication", "url": "https://doi.org/10.3847/2515-5172/ae5b93"},
-        {"label": "Repository", "url": "https://github.com/RafaelSdeSouza/PowerSpectR"},
-        {"label": "Documentation", "url": "https://github.com/RafaelSdeSouza/PowerSpectR#readme"},
-        {"label": "Archive", "url": "https://zenodo.org/records/19400316"}
-      ]
+      "paper_url": "https://doi.org/10.3847/2515-5172/ae5b93",
+      "github_url": "https://github.com/RafaelSdeSouza/PowerSpectR",
+      "release_url": "https://zenodo.org/records/19400316"
     },
     {
       "name": "SpectralUnmix",
@@ -62,11 +50,9 @@
       "purpose": "Regularised non-negative matrix factorisation of spectra with optional GPU acceleration.",
       "problem": "Interpretable low-rank spectral components under non-negativity and smoothness constraints.",
       "status": "Published and released",
-      "links": [
-        {"label": "Publication", "url": "https://doi.org/10.3847/2515-5172/ae5107"},
-        {"label": "Repository", "url": "https://github.com/RafaelSdeSouza/SpectralUnmix"},
-        {"label": "Documentation", "url": "https://rafaelsdesouza.github.io/SpectralUnmix/"}
-      ]
+      "paper_url": "https://doi.org/10.3847/2515-5172/ae5107",
+      "github_url": "https://github.com/RafaelSdeSouza/SpectralUnmix",
+      "docs_url": "https://rafaelsdesouza.github.io/SpectralUnmix/"
     },
     {
       "name": "CAPIVARA",
@@ -76,13 +62,12 @@
       "status": "Published and released",
       "logo": "assets/images/software/capivara-logo.png",
       "homepage": true,
-      "links": [
-        {"label": "Paper", "url": "https://doi.org/10.1093/mnras/staf688"},
-        {"label": "GitHub", "url": "https://github.com/RafaelSdeSouza/capivara"},
-        {"label": "Documentation", "url": "https://rafaelsdesouza.com.br/capivara/"},
-        {"label": "Get Started", "url": "https://rafaelsdesouza.com.br/capivara/articles/getting-started.html"},
-        {"label": "ASCL", "url": "https://ui.adsabs.harvard.edu/abs/2025ascl.soft07023S"}
-      ]
+      "paper_url": "https://doi.org/10.1093/mnras/staf688",
+      "github_url": "https://github.com/RafaelSdeSouza/capivara",
+      "docs_url": "https://rafaelsdesouza.com.br/capivara/",
+      "getting_started_url": "https://rafaelsdesouza.com.br/capivara/articles/getting-started.html",
+      "registry_url": "https://ui.adsabs.harvard.edu/abs/2025ascl.soft07023S",
+      "registry_label": "ASCL"
     },
     {
       "name": "GalMOSS",
@@ -91,12 +76,10 @@
       "problem": "Scalable structural modelling of galaxy images.",
       "status": "Published and released",
       "logo": "assets/images/software/galmoss-official.jpg",
-      "links": [
-        {"label": "Publication", "url": "https://doi.org/10.1016/j.ascom.2024.100825"},
-        {"label": "Repository", "url": "https://github.com/Chenmi0619/GALMoss"},
-        {"label": "Documentation", "url": "https://github.com/Chenmi0619/GALMoss#readme"},
-        {"label": "ASCL", "url": "https://ui.adsabs.harvard.edu/abs/2024ascl.soft04005M"}
-      ]
+      "paper_url": "https://doi.org/10.1016/j.ascom.2024.100825",
+      "github_url": "https://github.com/Chenmi0619/GALMoss",
+      "registry_url": "https://ui.adsabs.harvard.edu/abs/2024ascl.soft04005M",
+      "registry_label": "ASCL"
     },
     {
       "name": "SCONCE-SCMS",
@@ -106,12 +89,10 @@
       "status": "Published; ASCL release",
       "logo": "assets/images/software/sconce-official.png",
       "homepage": true,
-      "links": [
-        {"label": "Publication", "url": "https://doi.org/10.1093/mnras/stac2504"},
-        {"label": "Repository", "url": "https://github.com/zhangyk8/sconce-scms"},
-        {"label": "Documentation", "url": "https://github.com/zhangyk8/sconce-scms#readme"},
-        {"label": "ASCL", "url": "https://ui.adsabs.harvard.edu/abs/2023ascl.soft06013Z"}
-      ]
+      "paper_url": "https://doi.org/10.1093/mnras/stac2504",
+      "github_url": "https://github.com/zhangyk8/sconce-scms",
+      "registry_url": "https://ui.adsabs.harvard.edu/abs/2023ascl.soft06013Z",
+      "registry_label": "ASCL"
     },
     {
       "name": "qrpca",
@@ -119,11 +100,8 @@
       "purpose": "Accelerate principal-component calculations through QR decomposition.",
       "problem": "Low-rank analysis of large matrices with optional GPU computation.",
       "status": "Published and released",
-      "links": [
-        {"label": "Publication", "url": "https://doi.org/10.1016/j.ascom.2022.100633"},
-        {"label": "Repository", "url": "https://github.com/RafaelSdeSouza/qrpca"},
-        {"label": "Documentation", "url": "https://github.com/RafaelSdeSouza/qrpca#readme"}
-      ]
+      "paper_url": "https://doi.org/10.1016/j.ascom.2022.100633",
+      "github_url": "https://github.com/RafaelSdeSouza/qrpca"
     },
     {
       "name": "galmask",
@@ -131,12 +109,11 @@
       "purpose": "Construct unsupervised masks for galaxy images.",
       "problem": "Separate galaxy structure from background without labelled masks.",
       "status": "Published and released",
-      "links": [
-        {"label": "Publication", "url": "https://doi.org/10.3847/2515-5172/ac780b"},
-        {"label": "Repository", "url": "https://github.com/Yash-10/galmask"},
-        {"label": "Documentation", "url": "https://galmask.readthedocs.io/"},
-        {"label": "ADS", "url": "https://ui.adsabs.harvard.edu/abs/2022RNAAS...6..128G"}
-      ]
+      "paper_url": "https://doi.org/10.3847/2515-5172/ac780b",
+      "github_url": "https://github.com/Yash-10/galmask",
+      "docs_url": "https://galmask.readthedocs.io/",
+      "registry_url": "https://ui.adsabs.harvard.edu/abs/2022RNAAS...6..128G",
+      "registry_label": "ADS"
     },
     {
       "name": "Yonder",
@@ -144,11 +121,8 @@
       "purpose": "Denoise and reconstruct data with singular-value decomposition and error propagation.",
       "problem": "Recover low-rank signal while retaining uncertainty information.",
       "status": "Published and released",
-      "links": [
-        {"label": "Publication", "url": "https://doi.org/10.3847/2515-5172/ac5c57"},
-        {"label": "Repository", "url": "https://github.com/pengchzn/yonder"},
-        {"label": "Documentation", "url": "https://github.com/pengchzn/yonder#readme"}
-      ]
+      "paper_url": "https://doi.org/10.3847/2515-5172/ac5c57",
+      "github_url": "https://github.com/pengchzn/yonder"
     },
     {
       "name": "LOGIT",
@@ -156,10 +130,7 @@
       "purpose": "Provide R functions, data, and examples for binary and binomial models.",
       "problem": "Reproducible generalized-linear-model analyses of discrete responses.",
       "status": "Archived CRAN release",
-      "links": [
-        {"label": "Archive", "url": "https://cran.r-project.org/src/contrib/Archive/LOGIT/"},
-        {"label": "Documentation", "url": "https://cran.r-project.org/src/contrib/Archive/LOGIT/"}
-      ]
+      "release_url": "https://cran.r-project.org/src/contrib/Archive/LOGIT/"
     },
     {
       "name": "DRACULA",
@@ -169,12 +140,11 @@
       "status": "ASCL release; paper published 2016",
       "logo": "assets/images/software/dracula-official.png",
       "homepage": true,
-      "links": [
-        {"label": "Publication", "url": "https://doi.org/10.1093/mnras/stw1228"},
-        {"label": "Repository", "url": "https://github.com/COINtoolbox/DRACULA"},
-        {"label": "Documentation", "url": "https://github.com/COINtoolbox/DRACULA#readme"},
-        {"label": "ASCL", "url": "https://ui.adsabs.harvard.edu/abs/2015ascl.soft12009A"}
-      ]
+      "paper_url": "https://doi.org/10.1093/mnras/stw1228",
+      "github_url": "https://github.com/COINtoolbox/DRACULA",
+      "registry_url": "https://ui.adsabs.harvard.edu/abs/2015ascl.soft12009A",
+      "registry_label": "ASCL",
+      "docs_url": "https://cointoolbox.github.io/DRACULA/"
     },
     {
       "name": "cosmoabc",
@@ -182,12 +152,10 @@
       "purpose": "Run population Monte Carlo approximate Bayesian computation for cosmology.",
       "problem": "Cosmological inference from simulations when the likelihood cannot be evaluated.",
       "status": "Published and released",
-      "links": [
-        {"label": "Publication", "url": "https://doi.org/10.1016/j.ascom.2015.09.001"},
-        {"label": "Repository", "url": "https://github.com/COINtoolbox/CosmoABC"},
-        {"label": "Documentation", "url": "https://github.com/COINtoolbox/CosmoABC#readme"},
-        {"label": "ASCL", "url": "https://ui.adsabs.harvard.edu/abs/2015ascl.soft05013I"}
-      ]
+      "paper_url": "https://doi.org/10.1016/j.ascom.2015.09.001",
+      "github_url": "https://github.com/COINtoolbox/CosmoABC",
+      "registry_url": "https://ui.adsabs.harvard.edu/abs/2015ascl.soft05013I",
+      "registry_label": "ASCL"
     },
     {
       "name": "AMADA",
@@ -195,12 +163,11 @@
       "purpose": "Explore multidimensional astronomical catalogues interactively.",
       "problem": "Inspect relationships and structure in high-dimensional catalogue data.",
       "status": "Published and released",
-      "links": [
-        {"label": "Publication", "url": "https://doi.org/10.1016/j.ascom.2015.06.006"},
-        {"label": "Repository", "url": "https://github.com/RafaelSdeSouza/AMADA"},
-        {"label": "Documentation", "url": "https://github.com/RafaelSdeSouza/AMADA#readme"},
-        {"label": "ASCL", "url": "https://ui.adsabs.harvard.edu/abs/2015ascl.soft03006D"}
-      ]
+      "paper_url": "https://doi.org/10.1016/j.ascom.2015.06.006",
+      "github_url": "https://github.com/RafaelSdeSouza/AMADA",
+      "registry_url": "https://ui.adsabs.harvard.edu/abs/2015ascl.soft03006D",
+      "registry_label": "ASCL",
+      "docs_url": "https://rafaelsdesouza.com.br/AMADA/"
     },
     {
       "name": "CosmoPhotoz",
@@ -208,36 +175,30 @@
       "purpose": "Estimate photometric redshifts with generalized linear models.",
       "problem": "Positive-response regression for galaxy redshift estimation.",
       "status": "ASCL release; method paper published 2015",
-      "links": [
-        {"label": "Publication", "url": "https://doi.org/10.1016/j.ascom.2015.01.002"},
-        {"label": "Repository", "url": "https://github.com/COINtoolbox/CosmoPhotoz"},
-        {"label": "Documentation", "url": "https://github.com/COINtoolbox/CosmoPhotoz#readme"},
-        {"label": "ASCL", "url": "https://ui.adsabs.harvard.edu/abs/2014ascl.soft08018D"}
-      ]
+      "paper_url": "https://doi.org/10.1016/j.ascom.2015.01.002",
+      "github_url": "https://github.com/COINtoolbox/CosmoPhotoz",
+      "registry_url": "https://ui.adsabs.harvard.edu/abs/2014ascl.soft08018D",
+      "registry_label": "ASCL"
     },
     {
       "name": "RadialPaths",
       "year": 2026,
       "purpose": "Construct centre-conditioned radial profiles for connected structures with multiple centres.",
       "problem": "Radial structure when a feature's assigned position depends on the adopted centre and source footprint.",
-      "status": "Preprint and released package",
-      "links": [
-        {"label": "Preprint", "url": "https://arxiv.org/abs/2608.26326"},
-        {"label": "Repository", "url": "https://github.com/RafaelSdeSouza/radialpaths"},
-        {"label": "Documentation", "url": "https://rafaelsdesouza.com.br/radialpaths/"}
-      ]
+      "status": "Public preprint and released package",
+      "paper_url": "https://arxiv.org/abs/2608.26326",
+      "github_url": "https://github.com/RafaelSdeSouza/radialpaths",
+      "docs_url": "https://rafaelsdesouza.com.br/radialpaths/"
     },
     {
       "name": "spectropath",
       "year": 2026,
       "purpose": "Compute ordered path signatures of spectral-line profiles.",
       "problem": "Line morphologies that share widths or moments but differ in ordered velocity–flux structure.",
-      "status": "Preprint and released package",
-      "links": [
-        {"label": "Preprint", "url": "https://arxiv.org/abs/2606.27432"},
-        {"label": "Repository", "url": "https://github.com/RafaelSdeSouza/spectropath"},
-        {"label": "Documentation", "url": "https://rafaelsdesouza.com.br/spectropath/"}
-      ]
+      "status": "Public preprint and released package",
+      "paper_url": "https://arxiv.org/abs/2606.27432",
+      "github_url": "https://github.com/RafaelSdeSouza/spectropath",
+      "docs_url": "https://rafaelsdesouza.com.br/spectropath/"
     }
   ],
   "systems": [
@@ -247,62 +208,48 @@
       "problem": "Sequential label acquisition under object-dependent observing costs and finite telescope time.",
       "status": "Published research system",
       "logo": "assets/images/software/resspect-official.png",
-      "links": [
-        {"label": "Publication", "url": "https://arxiv.org/abs/2010.05941"},
-        {"label": "Repository", "url": "https://github.com/COINtoolbox/RESSPECT"},
-        {"label": "Documentation", "url": "https://resspect.readthedocs.io/"}
-      ]
+      "paper_url": "https://arxiv.org/abs/2010.05941",
+      "github_url": "https://github.com/COINtoolbox/RESSPECT",
+      "docs_url": "https://resspect.readthedocs.io/"
     },
     {
       "name": "ActSNClass",
       "purpose": "Apply active learning to supernova photometric classification.",
       "problem": "Select informative spectra from an evolving transient candidate pool.",
       "status": "Published research system",
-      "links": [
-        {"label": "Publication", "url": "https://ui.adsabs.harvard.edu/abs/2019MNRAS.483....2I"},
-        {"label": "Repository", "url": "https://github.com/COINtoolbox/ActSNClass"},
-        {"label": "Documentation", "url": "https://actsnclass.readthedocs.io/"}
-      ]
+      "paper_url": "https://ui.adsabs.harvard.edu/abs/2019MNRAS.483....2I",
+      "github_url": "https://github.com/COINtoolbox/ActSNClass",
+      "docs_url": "https://actsnclass.readthedocs.io/"
     },
     {
       "name": "graph_clustering",
       "purpose": "Construct inspectable graph orderings of Type II supernova spectra.",
       "problem": "Continuous spectral diversity and outliers without a fixed class boundary.",
       "status": "Published companion code",
-      "links": [
-        {"label": "Publication", "url": "https://doi.org/10.1016/j.ascom.2023.100715"},
-        {"label": "Repository", "url": "https://github.com/COINtoolbox/graph_clustering"},
-        {"label": "Documentation", "url": "https://github.com/COINtoolbox/graph_clustering#readme"}
-      ]
+      "paper_url": "https://doi.org/10.1016/j.ascom.2023.100715",
+      "github_url": "https://github.com/COINtoolbox/graph_clustering"
     },
     {
       "name": "ridges",
       "purpose": "Reproduce and extend ridge finding in DES weak-lensing mass maps.",
       "problem": "Curvilinear structure in noisy projected mass fields.",
       "status": "Published companion code",
-      "links": [
-        {"label": "Publication", "url": "https://doi.org/10.1093/mnras/staa3257"}
-      ]
+      "paper_url": "https://doi.org/10.1093/mnras/staa3257"
     },
     {
       "name": "ELEPHANT",
       "purpose": "Filter alert streams for hostless extragalactic transients.",
       "problem": "Rapid identification of candidates whose missing hosts carry physical information.",
       "status": "Published research system",
-      "links": [
-        {"label": "Publication", "url": "https://doi.org/10.1051/0004-6361/202450535"}
-      ]
+      "paper_url": "https://doi.org/10.1051/0004-6361/202450535"
     },
     {
       "name": "Fink kilonova module",
       "purpose": "Filter broker alerts for fast kilonova candidates.",
       "problem": "Early selection of rapidly evolving multimessenger counterparts.",
       "status": "Published broker module",
-      "links": [
-        {"label": "Publication", "url": "https://doi.org/10.1051/0004-6361/202245340"},
-        {"label": "Repository", "url": "https://github.com/astrolabsoftware/fink-science"},
-        {"label": "Documentation", "url": "https://github.com/astrolabsoftware/fink-science#readme"}
-      ]
+      "paper_url": "https://doi.org/10.1051/0004-6361/202245340",
+      "github_url": "https://github.com/astrolabsoftware/fink-science"
     }
   ],
   "development": [
@@ -311,10 +258,7 @@
       "purpose": "Estimate spatially regularised non-negative components in IFU cubes.",
       "problem": "Low-rank spectral decomposition that respects spatial coherence.",
       "status": "In development",
-      "links": [
-        {"label": "Repository", "url": "https://github.com/RafaelSdeSouza/SpaxNMF"},
-        {"label": "Documentation", "url": "https://github.com/RafaelSdeSouza/SpaxNMF#readme"}
-      ]
+      "github_url": "https://github.com/RafaelSdeSouza/SpaxNMF"
     }
   ]
 }
