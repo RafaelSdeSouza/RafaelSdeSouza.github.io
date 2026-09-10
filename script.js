@@ -104,10 +104,11 @@ async function initialisePublications() {
 }
 
 function softwareMarkup(project) {
+  const displayName = project.display_name || project.name;
   const primary = project.docs_url || project.github_url || project.paper_url || project.release_url || project.registry_url;
   const identity = project.logo
-    ? `<img loading="lazy" src="${escapeHtml(project.logo)}" alt="${escapeHtml(project.name)}">`
-    : `<span class="software-type">${escapeHtml(project.name)}</span>`;
+    ? `<img loading="lazy" src="${escapeHtml(project.logo)}" alt="${escapeHtml(displayName)}">`
+    : `<span class="software-type">${escapeHtml(displayName)}</span>`;
   const actionFields = [
     ["paper_url", "Paper"],
     ["docs_url", "Docs"],
@@ -129,7 +130,7 @@ function softwareMarkup(project) {
     .join("");
   return `<article class="software-entry" id="${slugify(project.name)}">
     <div class="software-identity">${primary ? `<a href="${escapeHtml(primary)}">${identity}</a>` : identity}</div>
-    <div><h3 class="software-type">${primary ? `<a href="${escapeHtml(primary)}">${escapeHtml(project.name)}</a>` : escapeHtml(project.name)}</h3><p>${escapeHtml(project.purpose)}</p><p><strong>Scientific problem:</strong> ${escapeHtml(project.problem)}</p><div class="software-links">${links}</div></div>
+    <div><h3 class="software-type">${primary ? `<a href="${escapeHtml(primary)}">${escapeHtml(displayName)}</a>` : escapeHtml(displayName)}</h3><p>${escapeHtml(project.purpose)}</p><p><strong>Scientific problem:</strong> ${escapeHtml(project.problem)}</p><div class="software-links">${links}</div></div>
     <div class="software-status">${escapeHtml(project.status)}${project.year ? ` · ${escapeHtml(project.year)}` : ""}</div>
   </article>`;
 }

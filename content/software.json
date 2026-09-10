@@ -225,6 +225,7 @@
     },
     {
       "name": "graph_clustering",
+      "display_name": "Type II supernova spectral ordering",
       "purpose": "Construct inspectable graph orderings of Type II supernova spectra.",
       "problem": "Continuous spectral diversity and outliers without a fixed class boundary.",
       "status": "Published companion code",
