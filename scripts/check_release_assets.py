@@ -6,7 +6,7 @@ from public_site import ROOT, References, public_files
 
 RELEASE_TOKEN = "20260909-3"
 ASSETS = {"styles.css", "script.js", "assets/css/records.css", "assets/css/home.css",
-          "assets/css/research-folio.css",
+          "assets/css/research-folio.css", "assets/css/about-folio.css",
           "assets/fonts/stixtwotext.ttf", "assets/fonts/stixtwotext-italic.ttf",
           "assets/fonts/ibmplexsans.ttf"}
 

@@ -14,9 +14,10 @@ def render() -> str:
     rows = []
     for item in appointments:
         e = lambda key: html.escape(item[key], quote=True)
-        rows.append(f'    <article class="career-entry"><span class="career-years">{e("years")}</span>'
-                    f'<div><h3>{e("role")}</h3><p><a href="{e("url")}">{e("institution")}</a>'
-                    f' · {e("location")}</p></div></article>')
+        rows.append(f'    <article class="career-entry"><span class="appointment-years">{e("years")}</span>'
+                    f'<div class="appointment-body"><h3><a href="{e("url")}">{e("institution")}</a>'
+                    f'<span class="country">{e("location")}</span></h3>'
+                    f'<p class="appointment-role">{e("role")}</p></div></article>')
     return "<!-- appointments:start -->\n" + "\n".join(rows) + "\n<!-- appointments:end -->"
 
 

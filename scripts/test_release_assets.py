@@ -24,6 +24,10 @@ class ReleaseAssetTests(unittest.TestCase):
         self.assertEqual(check_references('index.html', f'<link rel="stylesheet" href="styles.css?v={RELEASE_TOKEN}"><script src="script.js?v={RELEASE_TOKEN}"></script>'), [])
         self.assertEqual(check_references('styles.css', f'@import url("assets/css/records.css?v={RELEASE_TOKEN}");'), [])
 
+    def test_about_stylesheet_is_versioned(self):
+        self.assertTrue(check_references('about.html', '<link rel="stylesheet" href="assets/css/about-folio.css">'))
+        self.assertEqual(check_references('about.html', f'<link rel="stylesheet" href="assets/css/about-folio.css?v={RELEASE_TOKEN}">'), [])
+
 
 if __name__ == '__main__':
     unittest.main()

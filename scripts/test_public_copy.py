@@ -93,6 +93,25 @@ class PublicCopyTests(unittest.TestCase):
         for phrase in ("127.0.0.1", "localhost", "authored-atlas", "internal review", "typography comparison"):
             self.assertIn(phrase, FORBIDDEN)
 
+    def test_about_biographical_folio_and_appointment_source(self):
+        from render_appointments import render
+        about = (ROOT / 'about.html').read_text()
+        self.assertIn(render(), about)
+        self.assertIn('<h1 class="archival-label" id="about-title">ABOUT</h1>', about)
+        self.assertNotIn('About Rafael</h1>', about)
+        self.assertIn('I trained as an astrophysicist; statistics became a second language, and literature remained a parallel one.', about)
+        self.assertIn('id="career"', about)
+        self.assertIn('id="leadership-title"', about)
+        for asset in ('rafael-de-souza.jpg', 'coin-2024.png', 'book-cover-bayesian-models.jpg', 'beyond-the-rainbow-cover.jpg'):
+            self.assertIn(asset, about)
+        for fact in ('Direct-entry PhD in Astrophysics', 'BSc in Astronomy', 'Origin of Cosmic Magnetic Fields',
+                     'Cosmic Acceleration', 'PROSE Award', 'Postdoc Award', 'Visiting Professor'):
+            self.assertIn(fact, about)
+        self.assertNotIn('noindex', about)
+        self.assertIn('assets/css/about-folio.css?v=', about)
+        for page in ('index.html', 'research.html'):
+            self.assertNotIn('assets/css/about-folio.css', (ROOT / page).read_text())
+
     def test_software_headings_are_detectable(self):
         for name in SOFTWARE_NAMES:
             parser = VisibleText()

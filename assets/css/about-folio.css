@@ -1,0 +1,198 @@
+@font-face{font-family:STIX;src:url('/assets/fonts/stixtwotext.ttf?v=20260909-3');font-weight:400 700;font-display:swap}
+@font-face{font-family:STIX;src:url('/assets/fonts/stixtwotext-italic.ttf?v=20260909-3');font-weight:400 700;font-style:italic;font-display:swap}
+@font-face{font-family:Plex;src:url('/assets/fonts/ibmplexsans.ttf?v=20260909-3');font-weight:100 700;font-display:swap}
+:root{--ink:#202f32;--muted:#63706f;--teal:#326660;--rule:#d7dcd7;--serif:STIX,Georgia,serif;--sans:Plex,Arial,sans-serif;--edge:8.333333vw}
+*{box-sizing:border-box}
+html{background:#fff;color:var(--ink);scroll-behavior:smooth;scroll-padding-top:25px}
+body{margin:0;background:#fff;font:400 18px/1.5 var(--serif)}
+h1,h2,h3,p,figure{margin:0}
+h1,h2,h3{font-weight:400}
+img{display:block;max-width:100%;height:auto}
+a{color:var(--teal);text-decoration:underline;text-decoration-color:#a4b5b0;text-underline-offset:4px;text-decoration-thickness:1px}
+a:hover{color:var(--ink);text-decoration-color:var(--ink)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--teal);outline-offset:5px}
+figure>a{display:block;text-decoration:none}
+figure img{width:100%}
+.archival-label{font:400 11px/1.6 var(--sans);letter-spacing:.1em}
+.site-header{margin:0 5vw;padding:28px 0 23px;display:flex;align-items:center;justify-content:space-between;gap:40px;border-bottom:1px solid var(--rule)}
+.site-name{font-size:19px;color:var(--ink);text-decoration:none}
+.site-nav{display:flex;gap:26px;font:400 13px/1.5 var(--sans)}
+.site-nav a{padding:8px 0;text-decoration:none;color:var(--ink)}
+.site-nav a[aria-current]{text-decoration:underline;text-decoration-color:var(--ink);text-underline-offset:6px}
+.nav-toggle{display:none;border:0;background:none;padding:10px 0;font:400 13px var(--sans);color:var(--ink)}
+.skip-link{position:absolute;top:-100px;left:20px;background:white;padding:10px;z-index:10}
+.skip-link:focus{top:10px}
+
+.portrait-frontispiece{margin:71px var(--edge) 0;display:grid;grid-template-columns:180px 1fr;align-items:start}
+.portrait-frontispiece h1{grid-column:1;grid-row:1;padding-top:4px}
+.portrait{grid-column:2;grid-row:1;width:680px;max-width:100%}
+.portrait img{width:100%;height:auto}
+.opening-text{grid-column:2;grid-row:2;margin:47px 0 0 245px;max-width:650px;font-size:26px;line-height:1.4;letter-spacing:-.012em}
+
+.appointments-section{margin:82px var(--edge) 0}
+.places{font:400 11px/1.8 var(--sans);color:var(--muted);display:flex;flex-wrap:wrap;gap:6px 0;margin-left:180px}
+.places span+span::before{content:'/';display:inline-block;margin:0 11px;color:#a5adab}
+.chronology{display:grid;grid-template-columns:180px 1fr;gap:0;margin-top:56px}
+.chronology>h2{max-width:150px;padding-top:6px;line-height:1.8}
+.chronology>h2 span{display:block;letter-spacing:.04em}
+.appointment-list{max-width:970px}
+.career-entry{display:grid;grid-template-columns:110px 1fr;column-gap:35px;margin-bottom:29px}
+.career-entry:last-child{margin-bottom:0}
+.career-entry:nth-child(4){margin-top:41px}
+.appointment-years{font:400 12px/1.65 var(--sans);color:var(--muted);padding-top:6px;white-space:nowrap}
+.career-entry h3{font-size:22px;line-height:1.3;letter-spacing:-.005em}
+.career-entry h3 a{color:var(--ink);text-decoration-color:#c9d0cc}
+.country{font:400 12px/1.6 var(--sans);color:var(--muted);display:inline-block;white-space:nowrap;margin-left:15px;vertical-align:baseline}
+.appointment-role{font:400 14px/1.6 var(--sans);margin-top:6px;color:#52615f}
+
+.documentary-band{margin:100px var(--edge) 0;display:grid;grid-template-columns:300px minmax(0,1fr);column-gap:105px}
+.documentary-band .archival-label{margin-bottom:26px}
+.education-record+.education-record{margin-top:30px}
+.education-record header{display:flex;align-items:baseline;gap:23px;margin-bottom:8px}
+.education-record h3{font-size:21px}
+.record-year{font:400 12px/1.6 var(--sans);color:var(--muted)}
+.education-institution{font-size:17px;line-height:1.4;max-width:260px}
+.degree{font:400 14px/1.6 var(--sans);margin-top:9px;max-width:255px}
+.thesis{font-size:17px;margin-top:8px}
+.award h3{font-size:20px;line-height:1.25;margin-top:8px;max-width:365px}
+.award h3 a{color:var(--ink);text-decoration-color:#c9d0cc}
+.award p{font-size:17px;line-height:1.5;margin-top:13px}
+.iaa-award{max-width:420px}
+.prose-award{display:grid;grid-template-columns:minmax(0,350px) 172px;gap:46px;align-items:start;margin-top:30px}
+.award-text{padding-top:5px}
+.cambridge-book{width:172px}
+.cambridge-book figcaption{font:400 11px/1.6 var(--sans);color:var(--muted);margin-top:13px;max-width:172px}
+
+.institution-service-literature{margin:108px var(--edge) 0}
+.created-institution{display:grid;grid-template-columns:410px minmax(0,1fr);column-gap:82px;margin-left:90px;align-items:end}
+.coin-object{max-width:410px}
+.institution-date{font:400 12px/1.6 var(--sans);color:var(--muted);margin-bottom:23px}
+.coin-object>a{display:block}
+.coin-object img{width:100%}
+.coin-record{padding-bottom:7px}
+.coin-record h2{font-size:22px;line-height:1.3}
+.role{font:400 14px/1.65 var(--sans);color:var(--muted);margin-top:9px}
+.record-links{display:flex;flex-wrap:wrap;gap:8px 25px;font:400 12px/1.6 var(--sans);margin-top:21px}
+.record-links a{padding:5px 0}
+.scientific-service{margin:62px 0 0 582px;max-width:520px}
+.scientific-service .archival-label{font-size:12px;letter-spacing:.02em;margin-bottom:23px}
+.scientific-service article+article{margin-top:22px}
+.scientific-service h3{font-size:19px;line-height:1.3}
+.scientific-service h3 a{color:var(--ink);text-decoration-color:#c9d0cc}
+.scientific-service .role{font-size:14px;margin-top:7px}
+.literary-object{display:grid;grid-template-columns:130px minmax(0,400px);gap:47px;align-items:center;margin:73px 0 0 90px}
+.literary-object figure{width:130px}
+.literary-object .archival-label{font-size:12px;letter-spacing:.025em;margin-bottom:19px}
+.literary-object h2{font-size:24px;line-height:1.25}
+.literary-object h2 a{color:var(--ink);text-decoration:none}
+.authors{font:400 12px/1.7 var(--sans);color:var(--muted);margin-top:12px}
+.writing-link{font:400 12px/1.7 var(--sans);display:inline-block;margin-top:24px;padding:5px 0}
+.personal-links{margin:73px var(--edge) 53px;display:flex;justify-content:flex-end;gap:27px;font:400 12px/1.6 var(--sans)}
+.personal-links a{padding:6px 0}
+.site-footer{border-top:1px solid var(--rule);margin:0 5vw;padding:26px 0 38px;display:flex;justify-content:space-between;gap:30px;font:400 12px/1.6 var(--sans);color:var(--muted)}
+.site-footer p{display:inline}
+.site-footer .small{margin-left:15px}
+.footer-links{display:flex;flex-wrap:wrap;gap:12px 24px}
+.footer-links a{color:var(--muted)}
+
+@media(min-width:1600px){main{max-width:1440px;margin:0 auto;--edge:120px}}
+@media(max-width:1100px) and (min-width:701px){
+  :root{--edge:6vw}
+  .site-nav{gap:17px}
+  .portrait-frontispiece{grid-template-columns:110px 1fr}
+  .portrait{width:610px}
+  .opening-text{margin-left:130px;font-size:25px}
+  .places{margin-left:110px;max-width:760px}
+  .chronology{grid-template-columns:155px 1fr}
+  .career-entry{grid-template-columns:85px 1fr;column-gap:25px}
+  .career-entry h3{font-size:21px}
+  .country{margin-left:12px}
+  .documentary-band{grid-template-columns:240px 1fr;column-gap:55px}
+  .prose-award{grid-template-columns:minmax(0,1fr) 135px;gap:25px}
+  .cambridge-book{width:135px}
+  .created-institution{grid-template-columns:340px 1fr;column-gap:50px;margin-left:20px}
+  .scientific-service{margin-left:410px}
+  .literary-object{margin-left:20px}
+  .site-footer{flex-direction:column;gap:18px}
+}
+@media(max-width:850px) and (min-width:701px){
+  .portrait-frontispiece{grid-template-columns:75px 1fr}
+  .opening-text{margin-left:65px}
+  .chronology{display:block}
+  .chronology>h2{max-width:none;margin-bottom:27px}
+  .chronology>h2 span{display:inline}
+  .appointment-list{margin-left:75px}
+  .documentary-band{grid-template-columns:200px 1fr;column-gap:40px}
+  .prose-award{grid-template-columns:1fr}
+  .cambridge-book{margin-left:auto}
+  .created-institution{grid-template-columns:290px 1fr;gap:35px;margin-left:0}
+  .scientific-service{margin-left:325px}
+}
+@media(max-width:700px){
+  :root{--edge:25px}
+  body{font-size:18px}
+  .site-header{margin:0 25px;padding:16px 0 14px;gap:10px;flex-wrap:wrap}
+  .site-name{font-size:16px}
+  .nav-toggle{display:block;min-height:40px}
+  .site-nav{display:none;width:100%;font-size:14px;gap:4px 28px;grid-template-columns:repeat(2,1fr);padding-top:12px}
+  .nav-toggle[aria-expanded=true]~.site-nav{display:grid}
+  .site-nav a{padding:10px 0}
+  .portrait-frontispiece{display:flex;flex-direction:column;margin:39px var(--edge) 0}
+  .portrait-frontispiece h1{padding:0;font-size:11px}
+  .portrait{width:100%;max-width:none;margin-top:27px}
+  .opening-text{margin:30px 0 0;font-size:24px;line-height:1.39;max-width:none}
+  .appointments-section{margin:48px var(--edge) 0}
+  .places{margin-left:0;font-size:11px;line-height:1.8;gap:4px 0}
+  .places span+span::before{margin:0 8px}
+  .chronology{display:block;margin-top:37px}
+  .chronology>h2{max-width:none;padding:0;margin-bottom:30px;font-size:11px;letter-spacing:.05em}
+  .chronology>h2 span{display:inline}
+  .career-entry{grid-template-columns:75px minmax(0,1fr);column-gap:19px;margin-bottom:28px}
+  .appointment-years{font-size:11px;line-height:1.5;padding-top:4px}
+  .career-entry h3{font-size:20px;line-height:1.27}
+  .country{display:block;margin:6px 0 0;font-size:11px;white-space:normal}
+  .appointment-role{font-size:14px;margin-top:7px;line-height:1.45}
+  .career-entry:nth-child(4){margin-top:35px}
+  .documentary-band{display:block;margin:61px var(--edge) 0}
+  .documentary-band .archival-label{margin-bottom:23px}
+  .education{max-width:300px}
+  .education-record header{gap:25px;margin-bottom:8px}
+  .education-record h3{font-size:21px}
+  .education-institution{font-size:17px;max-width:300px}
+  .degree{font-size:14px;max-width:300px}
+  .education-record+.education-record{margin-top:28px}
+  .recognition{margin-top:40px}
+  .iaa-award{max-width:none}
+  .award h3{font-size:20px;max-width:300px}
+  .award p{font-size:17px;margin-top:12px}
+  .prose-award{grid-template-columns:minmax(0,1fr) 124px;gap:23px;margin-top:30px}
+  .prose-award h3{font-size:21px}
+  .cambridge-book{width:124px;margin-top:8px}
+  .cambridge-book figcaption{font-size:11px;line-height:1.6}
+  .institution-service-literature{margin:63px var(--edge) 0}
+  .created-institution{display:block;margin-left:0}
+  .coin-object{max-width:315px}
+  .institution-date{font-size:11px;margin-bottom:24px}
+  .coin-record{padding:0;margin:27px 0 0 27px}
+  .coin-record h2{font-size:21px;line-height:1.3}
+  .role{font-size:14px;margin-top:9px}
+  .record-links{margin-top:17px;gap:8px 23px}
+  .scientific-service{margin:42px 0 0 27px;max-width:none}
+  .scientific-service .archival-label{font-size:12px;margin-bottom:22px}
+  .scientific-service h3{font-size:19px;line-height:1.3}
+  .scientific-service article+article{margin-top:24px}
+  .literary-object{margin:54px 0 0;grid-template-columns:108px minmax(0,1fr);gap:25px}
+  .literary-object figure{width:108px}
+  .literary-object .archival-label{font-size:11px;margin-bottom:14px}
+  .literary-object h2{font-size:22px;line-height:1.2}
+  .authors{font-size:11px;line-height:1.6;margin-top:11px}
+  .writing-link{margin-top:14px;font-size:12px}
+  .personal-links{margin:46px var(--edge) 32px;justify-content:flex-start}
+  .site-footer{margin:0 var(--edge);padding:24px 0 31px;display:block;font-size:11px}
+  .site-footer .small{display:block;margin:4px 0 0}
+  .footer-links{margin-top:20px;gap:10px 21px;font-size:12px}
+  .footer-links a{padding:4px 0}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+.anchor-compat{position:absolute;width:0;height:0;overflow:hidden;pointer-events:none}
