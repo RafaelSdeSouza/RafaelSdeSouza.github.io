@@ -91,9 +91,9 @@ def main() -> None:
         if name in PRIMARY_PAGES and not re.search(r'<meta name="viewport"', text):
             errors.append(f"{name}: missing viewport metadata")
         if name in PRIMARY_PAGES:
-            nav = re.search(r'<nav class="site-nav"[^>]*>([\s\S]*?)</nav>', text)
+            nav = re.search(r'<nav class="[^"]*\bsite-nav\b[^"]*"[^>]*>([\s\S]*?)</nav>', text)
             labels = re.findall(r'<a[^>]*>([^<]+)</a>', nav.group(1)) if nav else []
-            if labels != ["Research", "Publications", "Software", "COIN", "Mentoring", "Writing", "About"]:
+            if labels != ["Research", "Publications", "Software", "People", "Writing", "About"]:
                 errors.append(f"{name}: incorrect primary navigation {labels}")
             if "Software Atlas" in text:
                 errors.append(f"{name}: obsolete Software Atlas label")
@@ -204,12 +204,13 @@ def main() -> None:
             errors.append(f"editorial red flag remains: {phrase!r}")
     if "assets/images/coin.png" in visible_pages:
         errors.append("legacy COIN mark is still displayed")
-    if visible_pages.count("assets/images/coin-2024.png") != 3:
+    rendered_coin_marks = len(re.findall(r'<img[^>]+src="assets/images/coin-2024\.png"', visible_pages))
+    if rendered_coin_marks != 3:
         errors.append("current COIN mark should appear on Home, About and COIN")
     about = (ROOT / "about.html").read_text(encoding="utf-8")
     if 'assets/images/rafael-de-souza.jpg' not in about:
         errors.append("About is missing the approved portrait")
-    if about.count('class="career-entry"') != 8:
+    if about.count('class="archive-record grid appointment"') != 8:
         errors.append("About must contain all eight appointments")
     if "four methodological programmes" in visible_pages.lower():
         errors.append("obsolete four-programme research architecture remains visible")

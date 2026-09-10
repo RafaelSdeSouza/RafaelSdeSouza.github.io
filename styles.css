@@ -183,7 +183,7 @@ figcaption,.caption{margin-top:var(--s2)}
  .intimate-copy .link-line{margin-top:var(--s2)}
 }
 
-/* Cross-page composition: all placements use the master column tokens. */
+/* All placements use the master column tokens. */
 [hidden]{display:none!important}
 button,input{font:inherit}
 input:focus-visible,summary:focus-visible{outline:2px solid var(--teal);outline-offset:4px}
@@ -243,7 +243,7 @@ button,a,input,summary{-webkit-tap-highlight-color:transparent}
 .catalogue-title a:hover{text-decoration-color:var(--ink)}
 .catalogue-authors{font:400 13px/1.5 var(--sans);margin-top:var(--s1);overflow-wrap:anywhere}
 .catalogue-meta{font:400 12px/1.6 var(--sans);overflow-wrap:anywhere}
-.catalogue-meta nav{margin-top:var(--s1);gap:var(--s1) var(--s2);font-size:12px}
+.catalogue-meta nav{margin-top:var(--s1);gap:var(--s1) var(--s3);font-size:12px}
 .catalogue-meta summary{color:var(--teal);cursor:pointer;margin-top:var(--s1);width:fit-content}
 .catalogue-meta pre{white-space:pre-wrap;overflow-wrap:anywhere;font:400 11px/1.5 var(--sans);margin-top:var(--s2)}
 .catalogue-actions{align-content:start;gap:var(--s1) var(--s2);font-size:12px}
@@ -345,8 +345,6 @@ button,a,input,summary{-webkit-tap-highlight-color:transparent}
 .coin-opening>figure{align-self:center}
 .coin-opening .scientific-prose{margin-top:var(--s2)}
 .coin-history{margin-top:var(--s6)}
-.contribution-preview{margin-top:var(--s6)}
-.contribution-preview figure{margin-top:var(--s3)}
 @media(max-width:1199px){
  .home-art{grid-column:5/span 4}
 }
@@ -363,7 +361,6 @@ button,a,input,summary{-webkit-tap-highlight-color:transparent}
  .coin-opening>figure{grid-column:2/span 2}
 }
 .refined-home .home-art{grid-column:7/span 5;transform:translateX(-8px)}
-.people-preview{margin-top:var(--s4)}
 .mentor-group{margin-bottom:var(--s2)}
 .mentor-row{align-items:start;padding-block:var(--s2);row-gap:var(--s1)}
 .mentor-row:first-of-type{border-top:1px solid var(--rule);padding-top:var(--s3)}
@@ -397,7 +394,6 @@ button,a,input,summary{-webkit-tap-highlight-color:transparent}
 
 @media(max-width:767px){
  .refined-home .home-art{grid-column:1/-1}
- .people-preview{margin-top:var(--s3)}
  .mentor-group{margin-bottom:var(--s1)}
  .mentor-row{padding-block:var(--s3);row-gap:var(--s1)}
  .mentor-name{font-size:24px;line-height:30px}
@@ -477,6 +473,7 @@ body[data-page="research"] #magnetism{margin-top:var(--s6)}
 .writing-item+.writing-item{margin-top:var(--s4)}
 .writing-meta{font:400 12px/1.5 var(--sans);font-variant-numeric:tabular-nums}
 .writing-copy h2{font:400 25px/1.28 var(--serif)}
+.writing-copy h2 a{color:var(--ink);text-decoration-color:var(--rule)}
 .writing-copy>p{font:400 18px/1.46 var(--serif);margin-top:var(--s2)}
 .writing-copy>.writing-authors{font:400 13px/1.5 var(--sans);margin-top:var(--s1)}
 .writing-copy .link-line{margin-top:var(--s2);font-size:12px}
@@ -669,7 +666,7 @@ button,input{border-radius:0}
 .home-opening .identity .link-line{margin-top:var(--s3)}
 .home-art{grid-column:7/span 5;transform:translateX(-8px)}
 .home-art img{aspect-ratio:auto}
-.home-page .page-opening{min-height:calc(100vh - 145px)}
+.home-page .home-opening{min-height:calc(100vh - 81px);padding-bottom:var(--s8);align-content:start}
 .home-page .object-section:first-of-type{margin-top:0}
 .home-page .object-section:last-of-type{margin-bottom:var(--s8)}
 
@@ -703,11 +700,10 @@ body[data-page=research] #cosmic-magnetism{margin-top:var(--s12);padding-bottom:
  .site-header{min-height:auto}
 }
 @media(max-width:767px){
- .home-page .page-opening{min-height:0}
+ .home-page .home-opening{min-height:0;padding-bottom:0}
  .home-opening .identity{display:block;grid-column:1/-1}
  .home-art{grid-column:1/-1;grid-row:2;margin-top:var(--s2);transform:none}
  .publication-row .catalogue-title{font-size:20px}
  .site-footer{display:grid}
  .contact-list{margin-top:var(--s4)}
 }
-

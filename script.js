@@ -11,32 +11,31 @@ function initialiseNavigation() {
   button.addEventListener("click", () => {
     const open = button.getAttribute("aria-expanded") !== "true";
     button.setAttribute("aria-expanded", String(open));
-    nav.dataset.open = String(open);
   });
   document.addEventListener("keydown", event => {
     if (event.key === "Escape" && button.getAttribute("aria-expanded") === "true") {
       button.setAttribute("aria-expanded", "false");
-      nav.dataset.open = "false";
       button.focus();
     }
   });
 }
 
+async function fetchJson(path) {
+  const response = await fetch(path);
+  if (!response.ok) throw new Error(`${path}: HTTP ${response.status}`);
+  return response.json();
+}
+
 async function loadProfileLinks() {
   const nodes = document.querySelectorAll("[data-profile-link]");
   if (!nodes.length) return;
-  try {
-    const profile = await fetch("content/profile.json").then(response => response.json());
-    nodes.forEach(node => {
-      const url = profile.links?.[node.dataset.profileLink];
-      if (url) {
-        node.href = url;
-        if (/^https?:/.test(url)) node.rel = "me noopener";
-      }
-    });
-  } catch (error) {
-    console.warn("Profile links could not be loaded.", error);
-  }
+  const profile = await fetchJson("content/profile.json");
+  nodes.forEach(node => {
+    const url = profile.links?.[node.dataset.profileLink];
+    if (!url) return;
+    node.href = url;
+    if (/^https?:/.test(url)) node.rel = "me noopener";
+  });
 }
 
 function formatVenue(record) {
@@ -56,16 +55,18 @@ function publicationMarkup(record) {
     || (record.links || []).find(link => link.label === "arXiv")
     || (record.links || [])[0];
   const links = (record.links || []).map(link => `<a href="${escapeHtml(link.url)}">${escapeHtml(link.label)}</a>`).join("");
-  return `<li class="publication-record">
-    <div class="publication-year">${escapeHtml(record.year)}</div>
-    <article>
-      <h2 class="publication-title">${primary ? `<a href="${escapeHtml(primary.url)}">${escapeHtml(record.title)}</a>` : escapeHtml(record.title)}</h2>
-      <p class="publication-authors">${escapeHtml(record.authors)}</p>
-      <p class="publication-venue">${escapeHtml(formatVenue(record))}</p>
-      <div class="publication-links">${links}</div>
-      <details class="bibtex-details"><summary>BibTeX</summary><pre>${escapeHtml(record.bibtex)}</pre></details>
-    </article>
-  </li>`;
+  return `<article class="catalogue-row grid publication-row" data-id="${escapeHtml(record.id)}">
+    <div class="slot marginal" style="--col:1;--span:2;--tcol:1;--tspan:1;--mcol:1;--mspan:1"><p>${escapeHtml(record.year)}</p><p>${escapeHtml(record.type)}</p></div>
+    <div class="slot" style="--col:3;--span:7;--tcol:2;--tspan:5;--mcol:2;--mspan:3">
+      <h2 class="catalogue-title">${primary ? `<a href="${escapeHtml(primary.url)}">${escapeHtml(record.title)}</a>` : escapeHtml(record.title)}</h2>
+      <p class="catalogue-authors">${escapeHtml(record.authors)}</p>
+    </div>
+    <div class="slot catalogue-meta" style="--col:10;--span:3;--tcol:7;--tspan:2;--mcol:2;--mspan:3">
+      <p>${escapeHtml(formatVenue(record))}</p>
+      <nav class="link-line">${links}</nav>
+      <details><summary>BibTeX</summary><pre>${escapeHtml(record.bibtex)}</pre></details>
+    </div>
+  </article>`;
 }
 
 async function initialisePublications() {
@@ -75,155 +76,140 @@ async function initialisePublications() {
   const count = document.querySelector("[data-publication-count]");
   const buttons = [...document.querySelectorAll("[data-publication-filter]")];
   const filterLinks = [...document.querySelectorAll("[data-set-filter]")];
-  try {
-    const records = await fetch("content/publications.json").then(response => response.json());
-    let filter = "all";
-    const render = () => {
-      const query = input.value.trim().toLowerCase();
-      const visible = records.filter(record => {
-        const matchesFilter = filter === "all" || (filter === "first-author" ? record.firstAuthor : record.facets.includes(filter));
-        const haystack = [record.title, record.authors, record.year, record.venue, record.publisher, record.volume, record.number, record.pages, record.eid, ...(record.links || []).map(link => link.url)].join(" ").toLowerCase();
-        return matchesFilter && (!query || haystack.includes(query));
-      });
-      count.textContent = `Showing ${visible.length} of ${records.length} records`;
-      list.innerHTML = visible.length ? visible.map(publicationMarkup).join("") : '<li class="empty-state">No publication matches the current search and filters.</li>';
-    };
-    const setFilter = nextFilter => {
-      filter = nextFilter;
-      buttons.forEach(item => item.setAttribute("aria-pressed", String(item.dataset.publicationFilter === filter)));
-      render();
-    };
-    input.addEventListener("input", render);
-    buttons.forEach(button => button.addEventListener("click", () => setFilter(button.dataset.publicationFilter)));
-    filterLinks.forEach(link => link.addEventListener("click", () => setFilter(link.dataset.setFilter)));
+  const records = await fetchJson("content/publications.json");
+  let filter = "all";
+  const render = () => {
+    const query = (input?.value || "").trim().toLowerCase();
+    const visible = records.filter(record => {
+      const matchesFilter = filter === "all" || (filter === "first-author" ? record.firstAuthor : record.facets.includes(filter));
+      const haystack = [record.title, record.authors, record.year, record.venue, record.publisher, record.volume, record.number, record.pages, record.eid, ...(record.links || []).map(link => link.url)].join(" ").toLowerCase();
+      return matchesFilter && (!query || haystack.includes(query));
+    });
+    if (count) count.textContent = `Showing ${visible.length} of ${records.length} records`;
+    list.innerHTML = visible.length ? visible.map(publicationMarkup).join("") : '<p class="empty-state">No publication matches the current search and filters.</p>';
+  };
+  const setFilter = next => {
+    filter = next;
+    buttons.forEach(button => button.setAttribute("aria-pressed", String(button.dataset.publicationFilter === filter)));
     render();
-  } catch (error) {
-    list.innerHTML = '<li class="empty-state">The publication record could not be loaded.</li>';
-    console.error(error);
-  }
+  };
+  input?.addEventListener("input", render);
+  buttons.forEach(button => button.addEventListener("click", () => setFilter(button.dataset.publicationFilter)));
+  filterLinks.forEach(link => link.addEventListener("click", event => {
+    event.preventDefault();
+    setFilter(link.dataset.setFilter);
+    document.querySelector("#publication-list")?.scrollIntoView();
+  }));
+  render();
 }
 
-function softwareMarkup(project) {
-  const displayName = project.display_name || project.name;
-  const primary = project.docs_url || project.github_url || project.paper_url || project.release_url || project.registry_url;
-  const identity = project.logo
-    ? `<img loading="lazy" src="${escapeHtml(project.logo)}" alt="${escapeHtml(displayName)}">`
-    : `<span class="software-type">${escapeHtml(displayName)}</span>`;
-  const actionFields = [
+function softwareActions(project) {
+  const fields = [
     ["paper_url", "Paper"],
     ["docs_url", "Docs"],
     ["getting_started_url", "Get Started"],
     ["github_url", "GitHub"],
-    ["release_url", "Release"],
+    ["release_url", "Release"]
   ];
-  const projectLinks = actionFields
-    .filter(([field]) => project[field])
-    .map(([field, label]) => ({ label, url: project[field] }));
-  if (project.registry_url) {
-    projectLinks.push({
-      label: project.registry_label || "Registry",
-      url: project.registry_url,
-    });
-  }
-  const links = projectLinks
-    .map(link => `<a href="${escapeHtml(link.url)}">${escapeHtml(link.label)}</a>`)
-    .join("");
-  return `<article class="software-entry" id="${slugify(project.name)}">
-    <div class="software-identity">${primary ? `<a href="${escapeHtml(primary)}">${identity}</a>` : identity}</div>
-    <div><h3 class="software-type">${primary ? `<a href="${escapeHtml(primary)}">${escapeHtml(displayName)}</a>` : escapeHtml(displayName)}</h3><p>${escapeHtml(project.purpose)}</p><p><strong>Scientific problem:</strong> ${escapeHtml(project.problem)}</p><div class="software-links">${links}</div></div>
-    <div class="software-status">${escapeHtml(project.status)}${project.year ? ` · ${escapeHtml(project.year)}` : ""}</div>
+  const actions = fields.filter(([field]) => project[field]).map(([field, label]) => ({label, url: project[field]}));
+  if (project.registry_url) actions.push({label: project.registry_label || "Registry", url: project.registry_url});
+  return actions;
+}
+
+function softwareMarkup(project) {
+  const displayName = project.display_name || project.name;
+  const actions = softwareActions(project);
+  const primary = project.docs_url || project.github_url || project.paper_url || project.release_url || project.registry_url;
+  const mark = project.logo ? `<img class="project-mark" loading="lazy" src="${escapeHtml(project.logo)}" alt="${escapeHtml(displayName)} project mark">` : "";
+  return `<article class="catalogue-row grid software-row" id="${slugify(project.name)}">
+    <div class="slot marginal" style="--col:1;--span:2;--tcol:1;--tspan:1;--mcol:1;--mspan:1"><p>${project.year ? escapeHtml(project.year) : "—"}</p><p>${escapeHtml(project.status)}</p></div>
+    <div class="slot project-identity" style="--col:3;--span:3;--tcol:2;--tspan:2;--mcol:2;--mspan:3">
+      <h2 class="catalogue-title">${primary ? `<a href="${escapeHtml(primary)}">${escapeHtml(displayName)}</a>` : escapeHtml(displayName)}</h2>
+      ${mark}
+    </div>
+    <div class="slot project-purpose" style="--col:6;--span:4;--tcol:4;--tspan:3;--mcol:2;--mspan:3"><p>${escapeHtml(project.purpose)}</p><p class="project-problem">${escapeHtml(project.problem)}</p></div>
+    <nav class="slot link-line catalogue-actions" style="--col:10;--span:3;--tcol:7;--tspan:2;--mcol:2;--mspan:3">${actions.map(action => `<a href="${escapeHtml(action.url)}">${escapeHtml(action.label)}</a>`).join("")}</nav>
   </article>`;
 }
 
 async function initialiseSoftware() {
-  const root = document.querySelector("[data-software-atlas]");
+  const root = document.querySelector("[data-software-catalogue]");
   if (!root) return;
-  try {
-    const catalogue = await fetch("content/software.json").then(response => response.json());
-    root.querySelector("[data-software-published]").innerHTML = catalogue.published.map(softwareMarkup).join("");
-    root.querySelector("[data-software-systems]").innerHTML = catalogue.systems.map(softwareMarkup).join("");
-    root.querySelector("[data-software-development]").innerHTML = catalogue.development.map(softwareMarkup).join("");
-    const total = catalogue.published.length + catalogue.systems.length + catalogue.development.length;
-    const count = root.querySelector("[data-software-count]");
-    if (count) count.textContent = `${total} projects · ${catalogue.published.length} published packages · ${catalogue.systems.length} research systems · ${catalogue.development.length} in development`;
-  } catch (error) {
-    root.innerHTML = '<p class="empty-state">The software catalogue could not be loaded.</p>';
-    console.error(error);
-  }
+  const catalogue = await fetchJson("content/software.json");
+  const records = [...catalogue.published, ...catalogue.systems, ...catalogue.development];
+  root.innerHTML = records.map(softwareMarkup).join("");
+  const count = document.querySelector("[data-software-count]");
+  if (count) count.textContent = `${records.length} projects · ${catalogue.published.length} published packages · ${catalogue.systems.length} research systems · ${catalogue.development.length} in development`;
 }
 
-function timelineMarkup(item, kind = "appointment") {
-  const title = kind === "education" ? item.degree : item.role;
-  return `<article class="timeline-row"><div class="timeline-year">${escapeHtml(item.years)}</div><div><h3>${escapeHtml(title)}</h3><p>${escapeHtml(item.institution)}</p></div><p>${escapeHtml(item.detail || item.location || "")}</p></article>`;
+const peopleGroups = [
+  ["currentPhd", "Current doctoral researchers", "PhD", "Current"],
+  ["currentUndergraduate", "Current undergraduate research", "Undergraduate", "Current"],
+  ["formerPhd", "Former doctoral researchers", "PhD", "Former"],
+  ["formerMasters", "Former master's researchers", "Master's", "Former"],
+  ["formerUndergraduate", "Former undergraduate research", "Undergraduate", "Former"]
+];
+
+function personMarkup(person, degree, status) {
+  const details = [degree, person.institution].filter(Boolean);
+  if (person.outcome) details.push(person.outcome);
+  return `<article class="mentor-row grid">
+    <div class="slot marginal mentor-date" style="--col:1;--span:2;--tcol:1;--tspan:1;--mcol:1;--mspan:4"><p>${escapeHtml(person.years)}</p><p>${status}</p></div>
+    <h3 class="slot mentor-name" style="--col:3;--span:4;--tcol:2;--tspan:3;--mcol:1;--mspan:4">${escapeHtml(person.name)}</h3>
+    <p class="slot mentor-project" style="--col:7;--span:4;--tcol:5;--tspan:3;--mcol:1;--mspan:4">${escapeHtml(person.project)}</p>
+    <div class="slot mentor-meta" style="--col:11;--span:2;--tcol:8;--tspan:1;--mcol:1;--mspan:4">${details.map(detail => `<p>${escapeHtml(detail)}</p>`).join("")}</div>
+  </article>`;
 }
 
-function personMarkup(person) {
-  const details = [person.institution, person.outcome].filter(Boolean).join(" · ");
-  return `<article class="person"><p class="person-meta">${escapeHtml(person.years)}</p><h3>${escapeHtml(person.name)}</h3><p>${escapeHtml(person.project)}</p>${details ? `<p>${escapeHtml(details)}</p>` : ""}</article>`;
+function teachingMarkup(item) {
+  return `<article class="catalogue-row grid teaching-row">
+    <div class="slot marginal" style="--col:1;--span:2;--tcol:1;--tspan:1;--mcol:1;--mspan:1"><p>${escapeHtml(item.years)}</p><p>${escapeHtml(item.term)}</p></div>
+    <h3 class="slot record-name" style="--col:3;--span:5;--tcol:2;--tspan:4;--mcol:2;--mspan:3">${escapeHtml(item.course)}</h3>
+    <div class="slot record-detail" style="--col:8;--span:3;--tcol:6;--tspan:2;--mcol:2;--mspan:3"><p>${escapeHtml(item.level)}</p></div>
+    <p class="slot metadata" style="--col:11;--span:2;--tcol:8;--tspan:1;--mcol:2;--mspan:3">${escapeHtml(item.enrolment)} students</p>
+  </article>`;
 }
 
 async function initialiseSiteData() {
-  const roots = document.querySelectorAll("[data-site-list]");
-  if (!roots.length) return;
-  try {
-    const site = await fetch("content/site.json").then(response => response.json());
-    roots.forEach(root => {
-      const key = root.dataset.siteList;
-      if (key === "appointments") root.innerHTML = site.appointments.map(item => timelineMarkup(item)).join("");
-      else if (key === "education") root.innerHTML = site.education.map(item => timelineMarkup(item, "education")).join("");
-      else if (key === "recognition") root.innerHTML = site.recognition.map(item => `<article class="timeline-row"><div class="timeline-year">${escapeHtml(item.year)}</div><div><h3>${escapeHtml(item.name)}</h3></div><p>${escapeHtml(item.detail)}</p></article>`).join("");
-      else if (key === "leadership") root.innerHTML = site.leadership.map(item => `<article class="timeline-row"><div class="timeline-year">${escapeHtml(item.years || "")}</div><div><h3>${escapeHtml(item.name)}</h3><p>${escapeHtml(item.role)}</p></div><p>${escapeHtml(item.detail || "")}</p></article>`).join("");
-      else if (key.startsWith("people.")) root.innerHTML = (site.people[key.split(".")[1]] || []).map(personMarkup).join("");
-      else if (key === "teaching") root.innerHTML = site.teaching.map(item => `<article class="timeline-row"><div class="timeline-year">${escapeHtml(item.years)}</div><div><h3>${escapeHtml(item.course)}</h3><p>${escapeHtml(item.level)} · ${escapeHtml(item.term)}</p></div><p>${escapeHtml(item.enrolment)} students</p></article>`).join("");
-    });
-  } catch (error) {
-    console.error(error);
+  const peopleRoot = document.querySelector("[data-people-catalogue]");
+  const teachingRoot = document.querySelector("[data-teaching-catalogue]");
+  if (!peopleRoot && !teachingRoot) return;
+  const site = await fetchJson("content/site.json");
+  if (peopleRoot) {
+    peopleRoot.innerHTML = peopleGroups.map(([key, label, degree, status]) => {
+      const rows = site.people[key] || [];
+      if (!rows.length) return "";
+      return `<section class="mentor-group" aria-labelledby="people-${key}"><h2 class="label people-section-label" id="people-${key}">${label}</h2>${rows.map(person => personMarkup(person, degree, status)).join("")}</section>`;
+    }).join("");
   }
+  if (teachingRoot) teachingRoot.innerHTML = site.teaching.map(teachingMarkup).join("");
 }
 
 function writingMarkup(work) {
   const authors = Array.isArray(work.authors) ? work.authors.join(" and ") : work.authors;
-  const cover = work.cover && !work.featured
-    ? `<figure class="work-cover"><a href="${escapeHtml(work.url)}"><img loading="lazy" src="${escapeHtml(work.cover)}" alt="${escapeHtml(work.cover_alt || `Cover of ${work.title}`)}"></a></figure>`
-    : "";
-  const year = work.year ? `<time datetime="${escapeHtml(work.year)}">${escapeHtml(work.year)}</time>` : "";
-  const excerpt = work.excerpt ? `<blockquote class="work-excerpt">${escapeHtml(work.excerpt)}</blockquote>` : "";
-  const summary = work.summary ? `<p class="work-summary">${escapeHtml(work.summary)}</p>` : "";
-  return `<article class="writing-entry${cover ? "" : " no-cover"}" id="${escapeHtml(work.id)}">
-    <div class="work-meta"><p class="work-kind">${escapeHtml(work.type)}</p>${year}</div>
-    ${cover}
-    <div class="work-copy"><h3><a href="${escapeHtml(work.url)}">${escapeHtml(work.title)}</a></h3><p class="authors">${escapeHtml(authors)}</p>${excerpt}${summary}<a class="direct-link" href="${escapeHtml(work.url)}">Read →</a></div>
-  </article>`;
+  const meta = [work.type, work.year].filter(Boolean).join(" · ");
+  const essay = work.type === "Essay";
+  const coverStyle = essay ? "--col:10;--span:2;--tcol:7;--tspan:2;--mcol:1;--mspan:2" : "--col:3;--span:2;--tcol:2;--tspan:2;--mcol:1;--mspan:2";
+  const cover = work.cover ? `<figure class="slot writing-cover" style="${coverStyle}"><a href="${escapeHtml(work.url)}"><img loading="lazy" src="${escapeHtml(work.cover)}" alt="${escapeHtml(work.cover_alt || `Cover of ${work.title}`)}"></a></figure>` : "";
+  const copyStyle = work.cover ? (work.type === "Essay" ? "--col:3;--span:6;--tcol:2;--tspan:5;--mcol:1;--mspan:4" : "--col:6;--span:6;--tcol:4;--tspan:5;--mcol:1;--mspan:4") : "--col:3;--span:7;--tcol:2;--tspan:6;--mcol:1;--mspan:4";
+  const copy = `<div class="slot writing-copy" style="${copyStyle}"><h2><a href="${escapeHtml(work.url)}">${escapeHtml(work.title)}</a></h2><p class="writing-authors">${escapeHtml(authors)}</p>${work.excerpt ? `<p>${escapeHtml(work.excerpt).replace(/\n/g, "<br>")}</p>` : ""}${work.summary ? `<p>${escapeHtml(work.summary)}</p>` : ""}<nav class="link-line"><a href="${escapeHtml(work.url)}">Read</a></nav></div>`;
+  return `<article class="writing-item ${work.cover ? "writing-object" : "writing-text"}${essay ? " writing-essay" : ""} grid"><p class="slot writing-meta" style="--col:1;--span:2;--tcol:1;--tspan:1;--mcol:1;--mspan:4">${escapeHtml(meta)}</p>${essay ? copy + cover : cover + copy}</article>`;
 }
 
 async function initialiseWriting() {
   const root = document.querySelector("[data-writing-archive]");
   if (!root) return;
-  try {
-    const catalogue = await fetch("content/writing.json").then(response => {
-      if (!response.ok) throw new Error(`Writing data returned ${response.status}`);
-      return response.json();
-    });
-    root.innerHTML = catalogue.works.map(writingMarkup).join("");
-  } catch (error) {
-    root.innerHTML = '<p class="empty-state">The writing archive could not be loaded.</p>';
-    console.error(error);
-  }
-}
-
-function initialiseFilterLinks() {
-  document.querySelectorAll("[data-set-filter]").forEach(link => link.addEventListener("click", () => {
-    const button = document.querySelector(`[data-publication-filter="${link.dataset.setFilter}"]`);
-    if (button) button.click();
-  }));
+  const data = await fetchJson("content/writing.json");
+  root.innerHTML = data.works.filter(work => !work.featured).map(writingMarkup).join("");
 }
 
 document.addEventListener("DOMContentLoaded", () => {
   initialiseNavigation();
-  loadProfileLinks();
-  initialisePublications();
-  initialiseSoftware();
-  initialiseSiteData();
-  initialiseWriting();
-  initialiseFilterLinks();
+  Promise.all([
+    loadProfileLinks(),
+    initialisePublications(),
+    initialiseSoftware(),
+    initialiseSiteData(),
+    initialiseWriting()
+  ]).catch(error => console.error(error));
 });

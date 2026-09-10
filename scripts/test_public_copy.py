@@ -9,10 +9,10 @@ from public_site import ROOT, config_text, public_files
 class PublicCopyTests(unittest.TestCase):
     def test_approved_home_opening_and_selection(self):
         home = (ROOT / 'index.html').read_text()
-        opening = re.search(r'<section\b[^>]*\bid="home".*?</section>', home, re.S).group()
+        opening = re.search(r'<section\b[^>]*class="[^"]*home-opening[^"]*".*?</section>', home, re.S).group()
         self.assertNotIn('class="intro"', opening)
         self.assertNotIn('class="appointments"', opening)
-        self.assertIn('class="role">Astrophysicist</p>', opening)
+        self.assertIn('class="identity-role">Astrophysicist</p>', opening)
         self.assertIn('home-nebula-contours.jpg', opening)
         self.assertIn('Spectra as ordered geometric objects', home)
         self.assertIn('https://doi.org/10.1016/j.ecolind.2025.113961', home)
@@ -20,21 +20,26 @@ class PublicCopyTests(unittest.TestCase):
 
     def test_home_folio_order_and_assets(self):
         home = (ROOT / 'index.html').read_text()
-        expected = ['home', 'capivara', 'spectropath', 'milky-way', 'bayesian-models', 'coin', 'writing']
+        expected = ['home', 'capivara', 'spectropath', 'milky-way', 'bayesian-models']
         positions = [home.index(f'id="{anchor}"') for anchor in expected]
         self.assertEqual(positions, sorted(positions))
-        self.assertLess(home.index('id="writing"'), home.index('class="elsewhere"'))
-        self.assertLess(home.index('class="elsewhere"'), home.index('class="ending"'))
+        self.assertLess(home.index('id="bayesian-models"'), home.index('>COIN · 2014—</h2>'))
+        writing = home.index('>Writing</h2>')
+        elsewhere = home.index('>Elsewhere</h2>')
+        ending = home.index('<nav class="object-section grid">')
+        self.assertLess(writing, elsewhere)
+        self.assertLess(elsewhere, ending)
         for old_layout in ('home-domain-index', 'mark-strip', 'home-personal'):
             self.assertNotIn(old_layout, home)
-        self.assertIn('Founded 2014', home)
+        self.assertIn('COIN · 2014—', home)
         for asset in ('capivara-segmentation.png', 'spectropath-toy-case.png', 'milky-way.png',
                       'book-cover-bayesian-models.jpg', 'coin-2024.png', 'beyond-the-rainbow-cover.jpg'):
             self.assertIn(asset, home)
-        css = (ROOT / 'assets/css/home.css').read_text()
+        css = (ROOT / 'styles.css').read_text()
         self.assertNotIn('EB Garamond', css)
         self.assertNotIn('concept-', css)
-        self.assertIn('.home-folio .identity h1{font:400 36px/1.15 var(--serif)}', css)
+        self.assertIn('.home-opening .identity{', css)
+        self.assertIn('.exceptional{font:400 36px/1.15 var(--serif)}', css)
 
     def test_research_opening_order_and_scientific_corrections(self):
         research = (ROOT / 'research.html').read_text()
@@ -42,12 +47,12 @@ class PublicCopyTests(unittest.TestCase):
         self.assertIn('when observations distinguish between physical explanations', research)
         self.assertNotIn('class="research-jumps"', research)
         self.assertNotIn('class="recurring-index"', research)
-        self.assertIn('RECENT → EARLY', research)
+        self.assertRegex(research, r'<span>Recent</span>\s*<i[^>]*></i>\s*<span>Early</span>')
         expected = ['current-work', 'incomplete-calibration', 'representation-completion',
-                    'spectropath', 'radialpaths', 'resolved-current', 'trajectory', 'resolved-galaxies',
+                    'spectropath', 'radialpaths', 'resolved-current', 'resolved-galaxies',
                     'galaxy-populations', 'milky-way', 'transients', 'survey-calibration',
                     'nuclear-astrophysics', 'probability-models', 'cosmology',
-                    'first-stars', 'cosmic-magnetism', 'across-astronomy']
+                    'first-stars', 'cosmic-magnetism']
         positions = [research.index(f'id="{anchor}"') for anchor in expected]
         self.assertEqual(positions, sorted(positions))
         self.assertIn('binomial regression for star-formation activity and metal enrichment', research)
@@ -58,15 +63,17 @@ class PublicCopyTests(unittest.TestCase):
     def test_research_folio_is_static_and_uses_existing_figures(self):
         research = (ROOT / 'research.html').read_text()
         self.assertEqual(len(re.findall(r'<article\b', research)), 15)
-        self.assertEqual(len(re.findall(r'<figure>', research)), 5)
+        self.assertEqual(len(re.findall(r'<figure\b', research)), 7)
         for asset in ('spectropath-toy-case.png', 'radialpaths-multicentre-construction.png',
-                      'capivara-segmentation.png', 'milky-way.png', 'book-cover-bayesian-models.jpg'):
+                      'capivara-segmentation.png', 'milky-way.png', 'book-cover-bayesian-models.jpg',
+                      'spectral-classification.png', 'cosmic-structure.png'):
             self.assertIn(asset, research)
-        domain_index = re.search(r'<nav class="domain-index".*?</nav>', research, re.S).group()
+        terminal = re.search(r'<section class="object-section grid research-terminal-index">.*?</section>', research, re.S).group()
+        domain_index = re.search(r'<nav class="link-line">.*?</nav>', terminal, re.S).group()
         self.assertEqual(len(re.findall(r'<a\b', domain_index)), 6)
         self.assertNotIn('noindex', research)
-        self.assertIn('assets/css/research-folio.css?v=', research)
-        self.assertNotIn('assets/css/research-folio.css', (ROOT / 'index.html').read_text())
+        self.assertIn('styles.css?v=', research)
+        self.assertNotIn('assets/css/research-folio.css', research)
 
     def test_writing_attribution_and_exact_excerpt(self):
         excerpt = 'The hour arrives.<br>Rain has passed.<br>The air is cool and shimmering with ions.'
@@ -90,7 +97,7 @@ class PublicCopyTests(unittest.TestCase):
         self.assertIn('The first residence', coin)
         self.assertNotIn('data-site-list="leadership"', coin)
         about = (ROOT / 'about.html').read_text()
-        for role in ('Founder · 2014–present', 'Former Vice-President', 'Member · 2021–present'):
+        for role in ('Founder', 'Former Vice-President', '2021–present', '>Member</p>'):
             self.assertIn(role, about)
 
     def test_required_banned_phrases(self):
@@ -101,18 +108,20 @@ class PublicCopyTests(unittest.TestCase):
         from render_appointments import render
         about = (ROOT / 'about.html').read_text()
         self.assertIn(render(), about)
-        self.assertIn('<h1 class="archival-label" id="about-title">ABOUT</h1>', about)
+        self.assertRegex(about, r'<h1 class="label slot"[^>]*id="about-title">About</h1>')
         self.assertNotIn('About Rafael</h1>', about)
         self.assertIn('Disciplines are useful divisions of labour, not divisions of thought.', about)
         self.assertIn('id="career"', about)
-        self.assertIn('id="leadership-title"', about)
+        self.assertIn('id="created-title"', about)
+        self.assertIn('id="service-title"', about)
         for asset in ('rafael-de-souza.jpg', 'coin-2024.png', 'book-cover-bayesian-models.jpg', 'beyond-the-rainbow-cover.jpg'):
             self.assertIn(asset, about)
         for fact in ('Direct-entry PhD in Astrophysics', 'BSc in Astronomy', 'Origin of Cosmic Magnetic Fields',
                      'Cosmic Acceleration', 'PROSE Award', 'Postdoc Award', 'Visiting Professor'):
             self.assertIn(fact, about)
         self.assertNotIn('noindex', about)
-        self.assertIn('assets/css/about-folio.css?v=', about)
+        self.assertIn('styles.css?v=', about)
+        self.assertNotIn('assets/css/about-folio.css', about)
         for page in ('index.html', 'research.html'):
             self.assertNotIn('assets/css/about-folio.css', (ROOT / page).read_text())
 
