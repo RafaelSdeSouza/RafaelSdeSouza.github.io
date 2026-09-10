@@ -4,23 +4,24 @@ Static HTML, CSS and JavaScript for `https://rafaelsdesouza.com.br`.
 
 ## Content sources
 
-- The ten root visitor pages contain their own editorial copy. Home, Research and
-  About do not depend on JavaScript to expose their main text. Writing keeps its
-  featured opening in HTML and renders the archive from `content/writing.json`.
+- The ten root visitor pages contain their own editorial copy. Publications,
+  Software, Mentoring and the Writing archive are generated as semantic HTML from
+  their structured sources; the site remains complete when JavaScript is disabled.
 - `content/software.json` supplies the Software catalogue. Keep `paper_url`,
   `docs_url`, `getting_started_url`, `github_url` and `release_url` independent.
   Omit unavailable actions; do not infer documentation paths from repository URLs.
 - `content/site.json` contains appointments and supporting records. After changing
-  appointments, run `python3 scripts/render_appointments.py` to update About's
-  static appointment list. The checker rejects stale rendered appointments.
+  appointments or mentoring records, run `make update`. The checker rejects stale
+  generated HTML.
 - `content/writing.json` is the canonical fiction and essay catalogue. To add an
   ordinary work, add one record, copy an optional authentic cover into
   `assets/images/writing/`, then run `make update`. HTML and CSS edits are not
   required.
 - `assets/cv/references.bib` is the canonical bibliography.
-  `content/publications.json` is its generated browser dataset. Regenerate with
-  `python3 scripts/bib_to_publications.py assets/cv/references.bib content/publications.json`.
-  The reconciliation check protects the complete record of 140 unique works.
+  `content/publications.json` is its generated catalogue dataset. Regenerate with
+  `python3 scripts/bib_to_publications.py assets/cv/references.bib content/publications.json`,
+  then run `make update`. The reconciliation check protects the complete record of
+  140 unique works.
 - `assets/cv/cv.pdf` is the downloadable CV. Its LaTeX source remains under
   `CV_rafael_2026/`, outside the deployed file set.
 - Earlier Markdown and unused JSON files are retained for historical reference,
@@ -34,8 +35,9 @@ Preserve the approved *Beyond the Rainbow* excerpt verbatim.
 
 `styles.css` defines the shared white surface, STIX Two Text / IBM Plex Sans fonts,
 navigation, responsive layouts and figure-led pages. `assets/css/records.css`
-contains the archival page layouts. `script.js` supplies navigation behaviour,
-publication search and filters, and structured-data rendering.
+contains the archival page layouts. `script.js` supplies navigation behaviour and
+progressively enhanced publication search and filters. `scripts/render_static_content.py`
+renders catalogue HTML from the JSON sources and verifies that it remains current.
 
 Stylesheets, JavaScript, CSS imports and font URLs share a cache-busting release
 token, checked by `scripts/check_release_assets.py`. When publishing changed CSS,

@@ -4268,10 +4268,10 @@
       },
       {
         "label": "arXiv",
-        "url": "https://arxiv.org/abs/0607181"
+        "url": "https://arxiv.org/abs/astro-ph/0607181"
       }
     ],
-    "bibtex": "@ARTICLE{2008PhRvD..77d3529D,\n   author = {\\textbf{{de Souza}, R.~S.} and {Opher}, R.},\n    title = \"{Origin of primordial magnetic fields}\",\n  journal = {\\prd},\n   archivePrefix = \"arXiv\",\n   eprint = {0607181},\n keywords = {Magnetohydrodynamic waves, Electric fields field-aligned currents and current systems and ring currents, Particle-theory and field-theory models of the early Universe},\n     year = 2008,\n    month = feb,\n   volume = 77,\n   number = 4,\n      eid = {043529},\n    pages = {043529},\n      doi = {10.1103/PhysRevD.77.043529},\n   adsurl = {http://adsabs.harvard.edu/abs/2008PhRvD..77d3529D},\n  adsnote = {Provided by the SAO/NASA Astrophysics Data System}\n}"
+    "bibtex": "@ARTICLE{2008PhRvD..77d3529D,\n   author = {\\textbf{{de Souza}, R.~S.} and {Opher}, R.},\n    title = \"{Origin of primordial magnetic fields}\",\n  journal = {\\prd},\n   archivePrefix = \"arXiv\",\n   eprint = {astro-ph/0607181},\n keywords = {Magnetohydrodynamic waves, Electric fields field-aligned currents and current systems and ring currents, Particle-theory and field-theory models of the early Universe},\n     year = 2008,\n    month = feb,\n   volume = 77,\n   number = 4,\n      eid = {043529},\n    pages = {043529},\n      doi = {10.1103/PhysRevD.77.043529},\n   adsurl = {http://adsabs.harvard.edu/abs/2008PhRvD..77d3529D},\n  adsnote = {Provided by the SAO/NASA Astrophysics Data System}\n}"
   },
   {
     "id": "2002PhRvD..66j3502F",

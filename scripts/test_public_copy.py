@@ -69,7 +69,7 @@ class PublicCopyTests(unittest.TestCase):
                       'spectral-classification.png', 'cosmic-structure.png'):
             self.assertIn(asset, research)
         terminal = re.search(r'<section class="object-section grid research-terminal-index">.*?</section>', research, re.S).group()
-        domain_index = re.search(r'<nav class="link-line">.*?</nav>', terminal, re.S).group()
+        domain_index = re.search(r'<ol class="domain-sequence".*?</ol>', terminal, re.S).group()
         self.assertEqual(len(re.findall(r'<a\b', domain_index)), 6)
         self.assertNotIn('noindex', research)
         self.assertIn('styles.css?v=', research)
@@ -97,7 +97,7 @@ class PublicCopyTests(unittest.TestCase):
         self.assertIn('The first residence', coin)
         self.assertNotIn('data-site-list="leadership"', coin)
         about = (ROOT / 'about.html').read_text()
-        for role in ('Founder', 'Former Vice-President', '2021–present', '>Member</p>'):
+        for role in ('Founder and Co-Chair', 'Former Vice-President', '2021–present', '>Chair</p>'):
             self.assertIn(role, about)
 
     def test_required_banned_phrases(self):
