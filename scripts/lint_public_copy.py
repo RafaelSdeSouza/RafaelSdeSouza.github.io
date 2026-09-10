@@ -89,7 +89,7 @@ def json_strings(value, path=""):
 
 
 def classify(term, text, bibliography=False):
-    if bibliography:
+    if bibliography or re.search(r"@(?:article|book|inbook|incollection|inproceedings|misc|phdthesis|proceedings)\s*\{", text, re.I):
         return "scholarly record — original title, author, venue or identifier"
     lower = text.lower()
     if term == "candidate" and re.search(r"candidate (pool|sample|young|yso)|globular.cluster candidate|candidate[s]? (objects|stars)", lower):

@@ -5,13 +5,21 @@
   "affiliations": [
     {
       "role": "Senior Lecturer",
+      "appointmentType": "salaried",
       "institution": "University of Hertfordshire",
       "url": "https://www.herts.ac.uk/research/centres/car"
     },
     {
       "role": "Adjunct Associate Professor",
+      "appointmentType": "adjunct",
       "institution": "University of North Carolina at Chapel Hill",
       "url": "https://www.unc.edu/"
+    },
+    {
+      "role": "Visiting Professor",
+      "appointmentType": "visiting",
+      "institution": "Federal University of Rio Grande do Sul",
+      "url": "https://www.ufrgs.br/"
     }
   ],
   "links": {

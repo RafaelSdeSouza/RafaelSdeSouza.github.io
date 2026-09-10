@@ -6,7 +6,7 @@
 
 eyebrow: Rafael S. de Souza
 title: Astrophysicist
-summary: Statistical inference from astronomical observations affected by selection, inaccessible likelihoods, lossy representations, and spatial dependence. Applications include Population III star formation, cosmological cluster counts, Milky Way structure, resolved galaxy spectroscopy, transient follow-up, and thermonuclear reaction rates.
+summary: I study what astronomical observations can distinguish when information is incomplete, selectively sampled, compressed, or structured across wavelength and position.
 portrait: assets/images/rafael-de-souza.jpg?v=20260605b
 portraitAlt: Portrait of Rafael S. de Souza
 portraitCaption: Rafael S. de Souza.
@@ -33,7 +33,7 @@ url: https://www.unc.edu/
 
 ### COIN
 
-label: Co-Founder and Co-Chair
+label: Founder and Co-Chair
 place: Cosmostatistics Initiative
 url: https://cosmostatistics-initiative.org/
 

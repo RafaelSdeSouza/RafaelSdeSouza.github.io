@@ -115,10 +115,31 @@ def main() -> None:
     publications = json.loads((ROOT / "content/publications.json").read_text(encoding="utf-8"))
     if len(publications) != 140:
         errors.append(f"expected 140 publications, found {len(publications)}")
+    publication_html = (ROOT / "publications.html").read_text(encoding="utf-8")
+    rendered_publications = publication_html.count('class="catalogue-row grid publication-row"')
+    if rendered_publications != len(publications):
+        errors.append(f"expected {len(publications)} static publication rows, found {rendered_publications}")
     software = json.loads((ROOT / "content/software.json").read_text(encoding="utf-8"))
     software_counts = tuple(len(software[key]) for key in ("published", "systems", "development"))
     if software_counts != (18, 6, 1):
         errors.append(f"expected software counts 18/6/1, found {software_counts}")
+    rendered_software = (ROOT / "software.html").read_text(encoding="utf-8").count('class="catalogue-row grid software-row"')
+    if rendered_software != sum(software_counts):
+        errors.append(f"expected {sum(software_counts)} static software rows, found {rendered_software}")
+
+    site = json.loads((ROOT / "content/site.json").read_text(encoding="utf-8"))
+    expected_mentoring = sum(len(records) for records in site["people"].values())
+    people_html = (ROOT / "people.html").read_text(encoding="utf-8")
+    if people_html.count('class="mentor-row grid"') != expected_mentoring:
+        errors.append("static mentoring rows do not match content/site.json")
+    if people_html.count('class="catalogue-row grid teaching-row"') != len(site["teaching"]):
+        errors.append("static teaching rows do not match content/site.json")
+
+    writing = json.loads((ROOT / "content/writing.json").read_text(encoding="utf-8"))
+    expected_writing_archive = sum(not work.get("featured") for work in writing["works"])
+    writing_html = (ROOT / "writing.html").read_text(encoding="utf-8")
+    if writing_html.count('class="writing-item ') != expected_writing_archive:
+        errors.append("static Writing archive does not match content/writing.json")
 
     research = json.loads((ROOT / "content/research.json").read_text(encoding="utf-8"))
     expected_research_counts = {
@@ -204,6 +225,14 @@ def main() -> None:
             errors.append(f"editorial red flag remains: {phrase!r}")
     if "assets/images/coin.png" in visible_pages:
         errors.append("legacy COIN mark is still displayed")
+    if re.search(r"Loading (?:publications|software|supervision|teaching|writing)", visible_pages, re.IGNORECASE):
+        errors.append("primary catalogue content still exposes a loading placeholder")
+    if "JavaScript is required to display" in visible_pages or "JavaScript is required to load" in visible_pages:
+        errors.append("primary catalogue content still depends on JavaScript")
+    if "data-profile-link" in visible_pages:
+        errors.append("profile link without a static href remains")
+    if "fetch(" in (ROOT / "script.js").read_text(encoding="utf-8"):
+        errors.append("primary content must not be fetched at runtime")
     rendered_coin_marks = len(re.findall(r'<img[^>]+src="assets/images/coin-2024\.png"', visible_pages))
     if rendered_coin_marks != 3:
         errors.append("current COIN mark should appear on Home, About and COIN")
