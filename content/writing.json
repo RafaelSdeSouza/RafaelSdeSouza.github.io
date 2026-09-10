@@ -9,7 +9,6 @@
       "url": "https://www.wattpad.com/story/307604331-beyond-the-rainbow",
       "cover": "assets/images/writing/beyond-the-rainbow-cover.jpg",
       "cover_alt": "Cover of Beyond the Rainbow by Xuenan Cao and Rafael S. de Souza",
-      "cover_alt": "Cover of Beyond the Rainbow by Xuenan Cao and Rafael S. de Souza",
       "excerpt": "The hour arrives.\nRain has passed.\nThe air is cool and shimmering with ions.",
       "summary": null,
       "featured": true
@@ -35,7 +34,6 @@
       "url": "https://www.wattpad.com/story/330564922-a-journey-into-the-void",
       "cover": "assets/images/writing/a-journey-into-the-void-cover.jpg",
       "cover_alt": "Current Wattpad cover for A Journey into the Void, bearing the earlier title Beyond the Veil",
-      "cover_alt": "Current Wattpad cover for A Journey into the Void, bearing the earlier title Beyond the Veil",
       "excerpt": null,
       "summary": "Captain Jameson travels to the Great Attractor in search of answers but instead finds a Lovecraftian cosmic horror that reveals the true nature of the universe to him.",
       "featured": false
@@ -47,7 +45,8 @@
       "authors": ["Rafael S. de Souza", "Emille E. O. Ishida", "Alberto Krone-Martins"],
       "year": 2025,
       "url": "https://doi.org/10.1090/noti3267",
-      "cover": null,
+      "cover": "assets/images/writing/ams-notices-november-2025-cover.jpg",
+      "cover_alt": "Cover of the November 2025 Notices of the American Mathematical Society featuring A Brief History of Inference in Astronomy",
       "excerpt": null,
       "summary": "Notices of the American Mathematical Society 72(10), 1137–1145.",
       "featured": false

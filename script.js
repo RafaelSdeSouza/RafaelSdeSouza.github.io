@@ -183,7 +183,7 @@ async function initialiseSiteData() {
 
 function writingMarkup(work) {
   const authors = Array.isArray(work.authors) ? work.authors.join(" and ") : work.authors;
-  const cover = work.cover
+  const cover = work.cover && !work.featured
     ? `<figure class="work-cover"><a href="${escapeHtml(work.url)}"><img loading="lazy" src="${escapeHtml(work.cover)}" alt="${escapeHtml(work.cover_alt || `Cover of ${work.title}`)}"></a></figure>`
     : "";
   const year = work.year ? `<time datetime="${escapeHtml(work.year)}">${escapeHtml(work.year)}</time>` : "";

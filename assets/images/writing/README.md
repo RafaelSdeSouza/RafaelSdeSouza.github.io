@@ -1,35 +1,13 @@
-Writing covers live here.
+Writing covers live here. Keep authentic covers unmodified and use lowercase,
+descriptive filenames.
 
-Use lowercase story slugs for filenames, for example:
+To add a work:
 
-- `beyond-the-rainbow-cover.jpg`
-- `another-story-cover.jpg`
+1. Add one record to `content/writing.json`.
+2. Copy an optional cover into this directory and set the record's `cover` path.
+3. Run `make update`.
+4. Commit and push the generated site changes.
 
-To add a new story, edit `content/writing.md`.
-
-Copy this block under the `## Writing` heading and change the values:
-
-```md
-### Story Title
-
-type: Science fiction
-year: 2026
-authors: Rafael S. de Souza
-status: Short story
-summary: One or two sentences for the publications list and writing page.
-cover: assets/images/writing/story-title-cover.jpg
-coverLabel: Story Title
-readerLabel: Read text
-
-links:
-- Wattpad: https://www.wattpad.com/...
-body:
-
-Optional story text can go here, one paragraph per blank line.
-
-footnotes:
-- Optional note.
-```
-
-The publications page shows each story as a compact entry under the `Sci-fi`
-filter. The cover and full text appear on `writing.html`.
+`cover`, `cover_alt`, `excerpt`, `year`, and `summary` are optional. The page
+renders a work without empty controls or placeholder images when those fields
+are absent.
