@@ -1,6 +1,6 @@
-@font-face{font-family:STIX;src:url('assets/fonts/stixtwotext.ttf?v=20260910-3');font-weight:400 700;font-display:swap}
-@font-face{font-family:STIX;src:url('assets/fonts/stixtwotext-italic.ttf?v=20260910-3');font-weight:400 700;font-style:italic;font-display:swap}
-@font-face{font-family:Plex;src:url('assets/fonts/ibmplexsans.ttf?v=20260910-3');font-weight:100 700;font-display:swap}
+@font-face{font-family:STIX;src:url('assets/fonts/stixtwotext.ttf?v=20260910-4');font-weight:400 700;font-display:swap}
+@font-face{font-family:STIX;src:url('assets/fonts/stixtwotext-italic.ttf?v=20260910-4');font-weight:400 700;font-style:italic;font-display:swap}
+@font-face{font-family:Plex;src:url('assets/fonts/ibmplexsans.ttf?v=20260910-4');font-weight:100 700;font-display:swap}
 :root{
  --ink:#1d2b30;--teal:#386860;--rule:#d8ddd9;--plate:#f7f7f2;--white:#fff;
  --serif:STIX,Georgia,serif;--sans:Plex,Arial,sans-serif;
@@ -666,7 +666,7 @@ button,input{border-radius:0}
 .home-page #main>:not(.home-contour){position:relative;z-index:1}
 /* Abstract contour loosely informed by Guanabara Bay geometry; deliberately non-cartographic, functioning visually as coastline / isophote / level-set geometry. */
 .home-contour{position:absolute;inset:0 0 auto;width:100%;height:930px;overflow:hidden;pointer-events:none;z-index:0}
-.home-contour path{fill:none;stroke:var(--teal);stroke-width:1.05;stroke-linecap:round;stroke-linejoin:round;vector-effect:non-scaling-stroke;opacity:.063;transform:translate(42px,34px)}
+.home-contour path{fill:none;stroke:var(--teal);stroke-width:1.05;stroke-linecap:round;stroke-linejoin:round;vector-effect:non-scaling-stroke;opacity:.0945;transform:translate(42px,34px)}
 .home-opening{align-items:center}
 .home-opening .identity{padding-top:0}
 .home-opening .identity .link-line{margin-top:var(--s3)}

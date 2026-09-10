@@ -51,7 +51,7 @@ class PublicCopyTests(unittest.TestCase):
         self.assertIn('M 922,84 C 1047,105 1179,124 1305,182', contour.group())
         css = (ROOT / 'styles.css').read_text()
         self.assertIn('stroke-width:1.05', css)
-        self.assertIn('opacity:.063', css)
+        self.assertIn('opacity:.0945', css)
         self.assertIn('transform:translate(42px,34px)', css)
         self.assertIn('.home-contour{display:none}', css)
 
