@@ -4,8 +4,8 @@ import re
 from urllib.parse import urlsplit
 from public_site import ROOT, References, public_files
 
-RELEASE_TOKEN = "20260909-2"
-ASSETS = {"styles.css", "script.js", "assets/css/records.css",
+RELEASE_TOKEN = "20260909-3"
+ASSETS = {"styles.css", "script.js", "assets/css/records.css", "assets/css/home.css",
           "assets/fonts/stixtwotext.ttf", "assets/fonts/stixtwotext-italic.ttf",
           "assets/fonts/ibmplexsans.ttf"}
 

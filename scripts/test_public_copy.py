@@ -9,7 +9,7 @@ from public_site import ROOT, config_text, public_files
 class PublicCopyTests(unittest.TestCase):
     def test_approved_home_opening_and_selection(self):
         home = (ROOT / 'index.html').read_text()
-        opening = re.search(r'<section id="home".*?</section>', home, re.S).group()
+        opening = re.search(r'<section\b[^>]*\bid="home".*?</section>', home, re.S).group()
         self.assertNotIn('class="intro"', opening)
         self.assertNotIn('class="appointments"', opening)
         self.assertIn('class="role">Astrophysicist</p>', opening)
@@ -17,6 +17,24 @@ class PublicCopyTests(unittest.TestCase):
         self.assertIn('Spectra as ordered geometric objects', home)
         self.assertIn('https://doi.org/10.1016/j.ecolind.2025.113961', home)
         self.assertIn('All 140 scholarly works', home)
+
+    def test_home_folio_order_and_assets(self):
+        home = (ROOT / 'index.html').read_text()
+        expected = ['home', 'capivara', 'spectropath', 'milky-way', 'bayesian-models', 'coin', 'writing']
+        positions = [home.index(f'id="{anchor}"') for anchor in expected]
+        self.assertEqual(positions, sorted(positions))
+        self.assertLess(home.index('id="writing"'), home.index('class="elsewhere"'))
+        self.assertLess(home.index('class="elsewhere"'), home.index('class="ending"'))
+        for old_layout in ('home-domain-index', 'mark-strip', 'home-personal'):
+            self.assertNotIn(old_layout, home)
+        self.assertIn('Founded 2014', home)
+        for asset in ('capivara-segmentation.png', 'spectropath-toy-case.png', 'milky-way.png',
+                      'book-cover-bayesian-models.jpg', 'coin-2024.png', 'beyond-the-rainbow-cover.jpg'):
+            self.assertIn(asset, home)
+        css = (ROOT / 'assets/css/home.css').read_text()
+        self.assertNotIn('EB Garamond', css)
+        self.assertNotIn('concept-', css)
+        self.assertIn('.home-folio .opening h1{font-size:78px}', css)
 
     def test_research_opening_order_and_scientific_corrections(self):
         research = (ROOT / 'research.html').read_text()
@@ -35,7 +53,10 @@ class PublicCopyTests(unittest.TestCase):
     def test_writing_attribution_and_exact_excerpt(self):
         excerpt = 'The hour arrives.<br>Rain has passed.<br>The air is cool and shimmering with ions.'
         for name in ('index.html', 'writing.html'):
-            self.assertIn(excerpt, (ROOT / name).read_text())
+            text = (ROOT / name).read_text()
+            # A no-wrap span may control line breaking without changing the excerpt.
+            text = re.sub(r'</?span\b[^>]*>', '', text)
+            self.assertIn(excerpt, text)
         writing = (ROOT / 'writing.html').read_text()
         self.assertIn('Rafael S. de Souza, Emille E. O. Ishida and Alberto Krone-Martins', writing)
         self.assertIn('72(10), 1137–1145', writing)
