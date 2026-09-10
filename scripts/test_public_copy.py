@@ -55,6 +55,8 @@ class PublicCopyTests(unittest.TestCase):
         self.assertIn('transform:translate(42px,34px)', css)
         self.assertIn('.home-contour{display:block;width:670px;height:650px', css)
         self.assertIn('.home-page #milky-way>figure{grid-column:2/span 4!important}', css)
+        self.assertIn('.home-page #bayesian-models::before{width:1220px;height:1040px', css)
+        self.assertNotIn('.home-page .coin-section::before{width:', css)
 
     def test_research_opening_order_and_scientific_corrections(self):
         research = (ROOT / 'research.html').read_text()
