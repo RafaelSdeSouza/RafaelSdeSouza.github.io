@@ -93,7 +93,7 @@ def main() -> None:
         if name in PRIMARY_PAGES:
             nav = re.search(r'<nav class="site-nav"[^>]*>([\s\S]*?)</nav>', text)
             labels = re.findall(r'<a[^>]*>([^<]+)</a>', nav.group(1)) if nav else []
-            if labels != ["Research", "Publications", "Software", "People", "Writing", "About"]:
+            if labels != ["Research", "Publications", "Software", "COIN", "Mentoring", "Writing", "About"]:
                 errors.append(f"{name}: incorrect primary navigation {labels}")
             if "Software Atlas" in text:
                 errors.append(f"{name}: obsolete Software Atlas label")
