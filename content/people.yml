@@ -1,0 +1,135 @@
+groups:
+  - id: current-phd
+    label: Current doctoral researchers
+    degree: PhD
+    status: Current
+    people:
+      - name: Niranjana Prashanth
+        institution: Federal University of Rio Grande do Sul
+        start: 2025
+        end: 2029
+        project: Globular-cluster spectral deconvolution in data cubes
+      - name: Suresh Parekh
+        institution: Federal University of Rio Grande do Sul
+        start: 2025
+        end: 2029
+        project: GPU-accelerated spectral fitting
+      - name: Andressa Wille
+        institution: Federal University of Rio Grande do Sul
+        start: 2025
+        end: 2029
+        project: Sub-galactic star formation across cosmic time
+      - name: Simran Singh
+        institution: University of Hertfordshire
+        start: 2024
+        end: 2027
+        project: Dynamical mapping of star formation in the Solar neighbourhood
+      - name: Mittal Shree Hari
+        institution: University of Hertfordshire
+        start: 2024
+        end: 2027
+        project: The role of the cosmic web in the evolution of galaxies
+
+  - id: current-undergraduate
+    label: Current undergraduate research
+    degree: Undergraduate
+    status: Current
+    people:
+      - name: Bruna Lima
+        start: 2025
+        end: 2027
+        project: SED-based multiband segmentation of galaxy bars
+
+  - id: former-phd
+    label: Former doctoral researchers
+    degree: PhD
+    status: Former
+    people:
+      - name: Maria Luiza Dantas
+        institution: University of São Paulo
+        start: 2016
+        end: 2020
+        project: >-
+          UV-bright red-sequence galaxies: a comparative study of UV-upturn and
+          UV-weak systems
+
+  - id: former-masters
+    label: Former master's researchers
+    degree: Master's
+    status: Former
+    people:
+      - name: Mi Chen
+        institution: Shanghai Astronomical Observatory
+        start: 2022
+        end: 2024
+        project: GPU-accelerated galaxy-profile fitting
+      - name: Quanfeng Xu
+        institution: Shanghai Astronomical Observatory
+        start: 2021
+        end: 2023
+        project: Low-rank factorisation with GPU acceleration
+      - name: Zihao Mu
+        institution: Shanghai Astronomical Observatory
+        start: 2021
+        end: 2023
+        project: Effects of galaxy morphology on quenching
+
+  - id: former-undergraduate
+    label: Former undergraduate research
+    degree: Undergraduate
+    status: Former
+    people:
+      - name: Yash Gondhalekar
+        start: 2021
+        end: 2024
+        project: Image segmentation and masking
+        outcome: Research software published as galmask.
+      - name: Peng Chen
+        start: 2021
+        end: 2022
+        project: Low-rank data denoising and reconstruction
+        outcome: Research software published as Yonder.
+      - name: Renan dos Santos Barbosa
+        institution: University of São Paulo
+        start: 2019
+        end: 2019
+        project: Uncertainty-aware principal components
+        outcome: Published in a refereed paper.
+      - name: Tan Hong Kiat
+        institution: National University of Singapore
+        start: 2019
+        end: 2019
+        project: MCMC analysis of ⁷Be(n,p)⁷Li
+        outcome: Published in a refereed paper.
+      - name: Yeoh Jun Kai
+        institution: National University of Singapore
+        start: 2018
+        end: 2018
+        project: Nucleosynthesis simulation visualisations
+
+teaching:
+  - start: 2023
+    end: 2024
+    term: Semester A
+    course: Statistical Methods and Data Analysis
+    level: Master's
+    enrolment: 50
+  - start: 2023
+    end: 2024
+    term: Semester A
+    course: Machine Learning and Neural Networks
+    level: Master's
+    enrolment: 300
+  - start: 2024
+    end: 2024
+    term: Semester B
+    course: Machine Learning and Neural Networks
+    level: Master's
+    enrolment: 300
+  - start: 2023
+    end: 2023
+    term: Semester C
+    course: Research Methods in Data Science
+    level: Master's
+    enrolment: 250
+
