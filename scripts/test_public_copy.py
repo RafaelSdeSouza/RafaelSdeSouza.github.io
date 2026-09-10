@@ -41,6 +41,20 @@ class PublicCopyTests(unittest.TestCase):
         self.assertIn('.home-opening .identity{', css)
         self.assertIn('.exceptional{font:400 36px/1.15 var(--serif)}', css)
 
+    def test_home_has_single_approved_contour(self):
+        home = (ROOT / 'index.html').read_text()
+        contour = re.search(r'<svg class="home-contour".*?</svg>', home, re.S)
+        self.assertIsNotNone(contour)
+        self.assertEqual(len(re.findall(r'<path\b', contour.group())), 1)
+        self.assertIn('aria-hidden="true"', contour.group())
+        self.assertIn('pointer-events="none"', contour.group())
+        self.assertIn('M 922,84 C 1047,105 1179,124 1305,182', contour.group())
+        css = (ROOT / 'styles.css').read_text()
+        self.assertIn('stroke-width:1.05', css)
+        self.assertIn('opacity:.063', css)
+        self.assertIn('transform:translate(42px,34px)', css)
+        self.assertIn('.home-contour{display:none}', css)
+
     def test_research_opening_order_and_scientific_corrections(self):
         research = (ROOT / 'research.html').read_text()
         self.assertIn('Astronomy asks us to reconstruct causes from systems we cannot manipulate and histories we cannot replay.', research)
