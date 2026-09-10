@@ -38,17 +38,35 @@ class PublicCopyTests(unittest.TestCase):
 
     def test_research_opening_order_and_scientific_corrections(self):
         research = (ROOT / 'research.html').read_text()
-        self.assertIn('<p class="intro">Every observation is selective. What is measured, omitted or compressed constrains what may later be inferred.</p>', research)
-        expected = ['current-work', 'across-astronomy', 'trajectory', 'resolved-galaxies',
+        self.assertIn('<h1 id="research-title">Every observation is selective.</h1>', research)
+        self.assertIn('<p class="opening-consequence">What is measured, omitted or compressed constrains what may later be inferred.</p>', research)
+        self.assertNotIn('class="research-jumps"', research)
+        self.assertNotIn('class="recurring-index"', research)
+        self.assertIn('RECENT → EARLY', research)
+        expected = ['current-work', 'incomplete-calibration', 'representation-completion',
+                    'spectropath', 'radialpaths', 'resolved-current', 'trajectory', 'resolved-galaxies',
                     'galaxy-populations', 'milky-way', 'transients', 'survey-calibration',
                     'nuclear-astrophysics', 'probability-models', 'cosmology',
-                    'first-stars', 'cosmic-magnetism']
+                    'first-stars', 'cosmic-magnetism', 'across-astronomy']
         positions = [research.index(f'id="{anchor}"') for anchor in expected]
         self.assertEqual(positions, sorted(positions))
         self.assertIn('binomial regression for star-formation activity and metal enrichment', research)
         self.assertNotIn('one or several Population III stars', research)
         self.assertIn('https://doi.org/10.1051/0004-6361/201834453', research)
         self.assertIn('treated spectroscopic follow-up as a sequential decision', research)
+
+    def test_research_folio_is_static_and_uses_existing_figures(self):
+        research = (ROOT / 'research.html').read_text()
+        self.assertEqual(len(re.findall(r'<article\b', research)), 15)
+        self.assertEqual(len(re.findall(r'<figure>', research)), 5)
+        for asset in ('spectropath-toy-case.png', 'radialpaths-multicentre-construction.png',
+                      'capivara-segmentation.png', 'milky-way.png', 'book-cover-bayesian-models.jpg'):
+            self.assertIn(asset, research)
+        domain_index = re.search(r'<nav class="domain-index".*?</nav>', research, re.S).group()
+        self.assertEqual(len(re.findall(r'<a\b', domain_index)), 6)
+        self.assertNotIn('noindex', research)
+        self.assertIn('assets/css/research-folio.css?v=', research)
+        self.assertNotIn('assets/css/research-folio.css', (ROOT / 'index.html').read_text())
 
     def test_writing_attribution_and_exact_excerpt(self):
         excerpt = 'The hour arrives.<br>Rain has passed.<br>The air is cool and shimmering with ions.'

@@ -16,6 +16,10 @@ class ReleaseAssetTests(unittest.TestCase):
     def test_import_and_font_urls_are_checked(self):
         self.assertEqual(len(check_references('styles.css', '@import url("assets/css/records.css"); @font-face{src:url(\'assets/fonts/stixtwotext.ttf\')}')), 2)
 
+    def test_research_stylesheet_is_versioned(self):
+        self.assertTrue(check_references('research.html', '<link rel="stylesheet" href="assets/css/research-folio.css">'))
+        self.assertEqual(check_references('research.html', f'<link rel="stylesheet" href="assets/css/research-folio.css?v={RELEASE_TOKEN}">'), [])
+
     def test_shared_release_is_accepted(self):
         self.assertEqual(check_references('index.html', f'<link rel="stylesheet" href="styles.css?v={RELEASE_TOKEN}"><script src="script.js?v={RELEASE_TOKEN}"></script>'), [])
         self.assertEqual(check_references('styles.css', f'@import url("assets/css/records.css?v={RELEASE_TOKEN}");'), [])
