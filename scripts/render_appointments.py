@@ -14,10 +14,14 @@ def render() -> str:
     rows = []
     for item in appointments:
         e = lambda key: html.escape(item[key], quote=True)
-        rows.append(f'    <article class="career-entry"><span class="appointment-years">{e("years")}</span>'
-                    f'<div class="appointment-body"><h3><a href="{e("url")}">{e("institution")}</a>'
-                    f'<span class="country">{e("location")}</span></h3>'
-                    f'<p class="appointment-role">{e("role")}</p></div></article>')
+        rows.append(
+            '<article class="archive-record grid appointment">'
+            f'<p class="year slot" style="--col:1;--span:2;--tcol:1;--tspan:1;--mcol:1;--mspan:1">{e("years")}</p>'
+            f'<h3 class="record-name slot" style="--col:3;--span:4;--tcol:2;--tspan:3;--mcol:2;--mspan:3"><a href="{e("url")}">{e("institution")}</a></h3>'
+            f'<div class="record-detail slot" style="--col:7;--span:4;--tcol:5;--tspan:3;--mcol:2;--mspan:3"><p>{e("role")}</p></div>'
+            f'<p class="country slot" style="--col:11;--span:2;--tcol:8;--tspan:1;--mcol:2;--mspan:3">{e("location")}</p>'
+            '</article>'
+        )
     return "<!-- appointments:start -->\n" + "\n".join(rows) + "\n<!-- appointments:end -->"
 
 
