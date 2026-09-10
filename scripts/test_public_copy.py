@@ -34,12 +34,12 @@ class PublicCopyTests(unittest.TestCase):
         css = (ROOT / 'assets/css/home.css').read_text()
         self.assertNotIn('EB Garamond', css)
         self.assertNotIn('concept-', css)
-        self.assertIn('.home-folio .opening h1{font-size:78px}', css)
+        self.assertIn('.home-folio .identity h1{font:400 36px/1.15 var(--serif)}', css)
 
     def test_research_opening_order_and_scientific_corrections(self):
         research = (ROOT / 'research.html').read_text()
-        self.assertIn('<h1 id="research-title">Every observation is selective.</h1>', research)
-        self.assertIn('<p class="opening-consequence">What is measured, omitted or compressed constrains what may later be inferred.</p>', research)
+        self.assertIn('Astronomy asks us to reconstruct causes from systems we cannot manipulate and histories we cannot replay.', research)
+        self.assertIn('when observations distinguish between physical explanations', research)
         self.assertNotIn('class="research-jumps"', research)
         self.assertNotIn('class="recurring-index"', research)
         self.assertIn('RECENT → EARLY', research)
@@ -76,8 +76,12 @@ class PublicCopyTests(unittest.TestCase):
             text = re.sub(r'</?span\b[^>]*>', '', text)
             self.assertIn(excerpt, text)
         writing = (ROOT / 'writing.html').read_text()
-        self.assertIn('Rafael S. de Souza, Emille E. O. Ishida and Alberto Krone-Martins', writing)
-        self.assertIn('72(10), 1137–1145', writing)
+        catalogue = (ROOT / 'content/writing.json').read_text()
+        self.assertIn('Rafael S. de Souza', catalogue)
+        self.assertIn('Emille E. O. Ishida', catalogue)
+        self.assertIn('Alberto Krone-Martins', catalogue)
+        self.assertIn('72(10), 1137–1145', catalogue)
+        self.assertIn('A Journey into the Void', catalogue)
         self.assertNotIn('class="writing-lede"', writing)
 
     def test_coin_content_is_static_and_leadership_remains_on_about(self):
@@ -99,7 +103,7 @@ class PublicCopyTests(unittest.TestCase):
         self.assertIn(render(), about)
         self.assertIn('<h1 class="archival-label" id="about-title">ABOUT</h1>', about)
         self.assertNotIn('About Rafael</h1>', about)
-        self.assertIn('I trained as an astrophysicist; statistics became a second language, and literature remained a parallel one.', about)
+        self.assertIn('Disciplines are useful divisions of labour, not divisions of thought.', about)
         self.assertIn('id="career"', about)
         self.assertIn('id="leadership-title"', about)
         for asset in ('rafael-de-souza.jpg', 'coin-2024.png', 'book-cover-bayesian-models.jpg', 'beyond-the-rainbow-cover.jpg'):
@@ -137,7 +141,7 @@ class PublicCopyTests(unittest.TestCase):
         self.assertFalse(any(name.startswith(("design/", "docs/", "scripts/", "CV_rafael_2026/")) for name in files))
         self.assertIn("assets/cv/references.bib", files)
         self.assertIn("assets/cv/cv.pdf", files)
-        self.assertNotIn("content/writing.json", files)
+        self.assertIn("content/writing.json", files)
 
     def test_pages_exclusions_are_enforced(self):
         self.assertFalse((ROOT / ".nojekyll").exists())

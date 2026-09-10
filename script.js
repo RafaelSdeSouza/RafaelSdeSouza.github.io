@@ -180,6 +180,36 @@ async function initialiseSiteData() {
   }
 }
 
+function writingMarkup(work) {
+  const authors = Array.isArray(work.authors) ? work.authors.join(" and ") : work.authors;
+  const cover = work.cover
+    ? `<figure class="work-cover"><a href="${escapeHtml(work.url)}"><img loading="lazy" src="${escapeHtml(work.cover)}" alt="${escapeHtml(work.cover_alt || `Cover of ${work.title}`)}"></a></figure>`
+    : "";
+  const year = work.year ? `<time datetime="${escapeHtml(work.year)}">${escapeHtml(work.year)}</time>` : "";
+  const excerpt = work.excerpt ? `<blockquote class="work-excerpt">${escapeHtml(work.excerpt)}</blockquote>` : "";
+  const summary = work.summary ? `<p class="work-summary">${escapeHtml(work.summary)}</p>` : "";
+  return `<article class="writing-entry${cover ? "" : " no-cover"}" id="${escapeHtml(work.id)}">
+    <div class="work-meta"><p class="work-kind">${escapeHtml(work.type)}</p>${year}</div>
+    ${cover}
+    <div class="work-copy"><h3><a href="${escapeHtml(work.url)}">${escapeHtml(work.title)}</a></h3><p class="authors">${escapeHtml(authors)}</p>${excerpt}${summary}<a class="direct-link" href="${escapeHtml(work.url)}">Read →</a></div>
+  </article>`;
+}
+
+async function initialiseWriting() {
+  const root = document.querySelector("[data-writing-archive]");
+  if (!root) return;
+  try {
+    const catalogue = await fetch("content/writing.json").then(response => {
+      if (!response.ok) throw new Error(`Writing data returned ${response.status}`);
+      return response.json();
+    });
+    root.innerHTML = catalogue.works.map(writingMarkup).join("");
+  } catch (error) {
+    root.innerHTML = '<p class="empty-state">The writing archive could not be loaded.</p>';
+    console.error(error);
+  }
+}
+
 function initialiseFilterLinks() {
   document.querySelectorAll("[data-set-filter]").forEach(link => link.addEventListener("click", () => {
     const button = document.querySelector(`[data-publication-filter="${link.dataset.setFilter}"]`);
@@ -193,5 +223,6 @@ document.addEventListener("DOMContentLoaded", () => {
   initialisePublications();
   initialiseSoftware();
   initialiseSiteData();
+  initialiseWriting();
   initialiseFilterLinks();
 });

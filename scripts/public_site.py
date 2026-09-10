@@ -9,7 +9,8 @@ ROOT = Path(__file__).resolve().parents[1]
 PAGES = ["index.html", "research.html", "publications.html", "software.html",
          "people.html", "writing.html", "about.html", "contact.html", "coin.html",
          "contributions.html"]
-DATA = ["content/profile.json", "content/site.json", "content/software.json", "content/publications.json"]
+DATA = ["content/profile.json", "content/site.json", "content/software.json", "content/publications.json",
+        "content/writing.json"]
 
 
 class References(HTMLParser):
@@ -42,6 +43,8 @@ def public_files():
     allowed_html = {name for name in files if name.endswith(".html")}
     catalogue = json.loads((ROOT / "content/software.json").read_text())
     files.update(project["logo"] for group in catalogue.values() for project in group if project.get("logo"))
+    writing = json.loads((ROOT / "content/writing.json").read_text())
+    files.update(work["cover"] for work in writing["works"] if work.get("cover"))
     checked = set()
     while files - checked:
         name = sorted(files - checked)[0]

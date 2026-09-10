@@ -4,14 +4,19 @@ Static HTML, CSS and JavaScript for `https://rafaelsdesouza.com.br`.
 
 ## Content sources
 
-- The ten root visitor pages contain their own editorial copy. Home, Research,
-  About and Writing do not depend on JavaScript to expose their main text.
+- The ten root visitor pages contain their own editorial copy. Home, Research and
+  About do not depend on JavaScript to expose their main text. Writing keeps its
+  featured opening in HTML and renders the archive from `content/writing.json`.
 - `content/software.json` supplies the Software catalogue. Keep `paper_url`,
   `docs_url`, `getting_started_url`, `github_url` and `release_url` independent.
   Omit unavailable actions; do not infer documentation paths from repository URLs.
 - `content/site.json` contains appointments and supporting records. After changing
   appointments, run `python3 scripts/render_appointments.py` to update About's
   static appointment list. The checker rejects stale rendered appointments.
+- `content/writing.json` is the canonical fiction and essay catalogue. To add an
+  ordinary work, add one record, copy an optional authentic cover into
+  `assets/images/writing/`, then run `make update`. HTML and CSS edits are not
+  required.
 - `assets/cv/references.bib` is the canonical bibliography.
   `content/publications.json` is its generated browser dataset. Regenerate with
   `python3 scripts/bib_to_publications.py assets/cv/references.bib content/publications.json`.
