@@ -1,0 +1,66 @@
+{
+  "summary": "Current and former students · teaching",
+  "groups": [
+    {
+      "id": "currentPhd",
+      "label": "Current doctoral researchers",
+      "degree": "PhD",
+      "status": "Current",
+      "records": [
+        {"name": "Niranjana Prashanth", "degree": "PhD", "status": "Current", "institution": "Federal University of Rio Grande do Sul", "start": 2025, "end": 2029, "years": "2025–2029", "project": "Globular-cluster spectral deconvolution in data cubes", "url": null},
+        {"name": "Suresh Parekh", "degree": "PhD", "status": "Current", "institution": "Federal University of Rio Grande do Sul", "start": 2025, "end": 2029, "years": "2025–2029", "project": "GPU-accelerated spectral fitting", "url": null},
+        {"name": "Andressa Wille", "degree": "PhD", "status": "Current", "institution": "Federal University of Rio Grande do Sul", "start": 2025, "end": 2029, "years": "2025–2029", "project": "Sub-galactic star formation across cosmic time", "url": null},
+        {"name": "Simran Singh", "degree": "PhD", "status": "Current", "institution": "University of Hertfordshire", "start": 2024, "end": 2027, "years": "2024–2027", "project": "Dynamical mapping of star formation in the Solar neighbourhood", "url": null},
+        {"name": "Mittal Shree Hari", "degree": "PhD", "status": "Current", "institution": "University of Hertfordshire", "start": 2024, "end": 2027, "years": "2024–2027", "project": "The role of the cosmic web in the evolution of galaxies", "url": null}
+      ]
+    },
+    {
+      "id": "currentUndergraduate",
+      "label": "Current undergraduate research",
+      "degree": "Undergraduate",
+      "status": "Current",
+      "records": [
+        {"name": "Bruna Lima", "degree": "Undergraduate", "status": "Current", "institution": null, "start": 2025, "end": 2027, "years": "2025–2027", "project": "SED-based multiband segmentation of galaxy bars", "url": null}
+      ]
+    },
+    {
+      "id": "formerPhd",
+      "label": "Former doctoral researchers",
+      "degree": "PhD",
+      "status": "Former",
+      "records": [
+        {"name": "Maria Luiza Dantas", "degree": "PhD", "status": "Former", "institution": "University of São Paulo", "start": 2016, "end": 2020, "years": "2016–2020", "project": "UV-bright red-sequence galaxies: a comparative study of UV-upturn and UV-weak systems", "url": null}
+      ]
+    },
+    {
+      "id": "formerMasters",
+      "label": "Former master's researchers",
+      "degree": "Master's",
+      "status": "Former",
+      "records": [
+        {"name": "Mi Chen", "degree": "Master's", "status": "Former", "institution": "Shanghai Astronomical Observatory", "start": 2022, "end": 2024, "years": "2022–2024", "project": "GPU-accelerated galaxy-profile fitting", "url": null},
+        {"name": "Quanfeng Xu", "degree": "Master's", "status": "Former", "institution": "Shanghai Astronomical Observatory", "start": 2021, "end": 2023, "years": "2021–2023", "project": "Low-rank factorisation with GPU acceleration", "url": null},
+        {"name": "Zihao Mu", "degree": "Master's", "status": "Former", "institution": "Shanghai Astronomical Observatory", "start": 2021, "end": 2023, "years": "2021–2023", "project": "Effects of galaxy morphology on quenching", "url": null}
+      ]
+    },
+    {
+      "id": "formerUndergraduate",
+      "label": "Former undergraduate research",
+      "degree": "Undergraduate",
+      "status": "Former",
+      "records": [
+        {"name": "Yash Gondhalekar", "degree": "Undergraduate", "status": "Former", "institution": null, "start": 2021, "end": 2024, "years": "2021–2024", "project": "Image segmentation and masking", "outcome": "Research software published as galmask.", "url": null},
+        {"name": "Peng Chen", "degree": "Undergraduate", "status": "Former", "institution": null, "start": 2021, "end": 2022, "years": "2021–2022", "project": "Low-rank data denoising and reconstruction", "outcome": "Research software published as Yonder.", "url": null},
+        {"name": "Renan dos Santos Barbosa", "degree": "Undergraduate", "status": "Former", "institution": "University of São Paulo", "start": 2019, "end": 2019, "years": "2019", "project": "Uncertainty-aware principal components", "outcome": "Published in a refereed paper.", "url": null},
+        {"name": "Tan Hong Kiat", "degree": "Undergraduate", "status": "Former", "institution": "National University of Singapore", "start": 2019, "end": 2019, "years": "2019", "project": "MCMC analysis of ⁷Be(n,p)⁷Li", "outcome": "Published in a refereed paper.", "url": null},
+        {"name": "Yeoh Jun Kai", "degree": "Undergraduate", "status": "Former", "institution": "National University of Singapore", "start": 2018, "end": 2018, "years": "2018", "project": "Nucleosynthesis simulation visualisations", "url": null}
+      ]
+    }
+  ],
+  "teaching": [
+    {"start": 2023, "end": 2024, "years": "2023–2024", "term": "Semester A", "course": "Statistical Methods and Data Analysis", "level": "Master's", "enrolment": 50},
+    {"start": 2023, "end": 2024, "years": "2023–2024", "term": "Semester A", "course": "Machine Learning and Neural Networks", "level": "Master's", "enrolment": 300},
+    {"start": 2024, "end": 2024, "years": "2024", "term": "Semester B", "course": "Machine Learning and Neural Networks", "level": "Master's", "enrolment": 300},
+    {"start": 2023, "end": 2023, "years": "2023", "term": "Semester C", "course": "Research Methods in Data Science", "level": "Master's", "enrolment": 250}
+  ]
+}

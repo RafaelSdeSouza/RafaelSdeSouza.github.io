@@ -1,10 +1,8 @@
 .PHONY: update check
 
 update:
-	python3 scripts/render_appointments.py
-	python3 scripts/render_static_content.py
-	python3 scripts/check_writing.py
-	python3 scripts/build_site.py --write-config
+	python3 scripts/update_site.py
 
 check:
+	python3 -m unittest discover -s scripts -p 'test_*.py'
 	python3 scripts/build_site.py

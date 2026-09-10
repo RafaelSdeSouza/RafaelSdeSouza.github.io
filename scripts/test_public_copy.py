@@ -105,9 +105,11 @@ class PublicCopyTests(unittest.TestCase):
             self.assertIn(phrase, FORBIDDEN)
 
     def test_about_biographical_folio_and_appointment_source(self):
-        from render_appointments import render
+        import json
+        from render_static_content import appointment_rows
         about = (ROOT / 'about.html').read_text()
-        self.assertIn(render(), about)
+        about_data = json.loads((ROOT / 'content/about.json').read_text())
+        self.assertIn(appointment_rows(about_data['appointments']), about)
         self.assertRegex(about, r'<h1 class="label slot"[^>]*id="about-title">About</h1>')
         self.assertNotIn('About Rafael</h1>', about)
         self.assertIn('Disciplines are useful divisions of labour, not divisions of thought.', about)
@@ -150,7 +152,7 @@ class PublicCopyTests(unittest.TestCase):
         self.assertFalse(any(name.startswith(("design/", "docs/", "scripts/", "CV_rafael_2026/")) for name in files))
         self.assertIn("assets/cv/references.bib", files)
         self.assertIn("assets/cv/cv.pdf", files)
-        self.assertIn("content/writing.json", files)
+        self.assertFalse(any(name.startswith("content/") for name in files))
 
     def test_pages_exclusions_are_enforced(self):
         self.assertFalse((ROOT / ".nojekyll").exists())

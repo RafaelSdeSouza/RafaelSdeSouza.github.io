@@ -206,6 +206,7 @@
   "systems": [
     {
       "name": "RESSPECT",
+      "year": 2020,
       "purpose": "Recommend spectroscopic follow-up for transient classification.",
       "problem": "Sequential label acquisition under object-dependent observing costs and finite telescope time.",
       "status": "Published research system",
@@ -216,6 +217,7 @@
     },
     {
       "name": "ActSNClass",
+      "year": 2019,
       "purpose": "Apply active learning to supernova photometric classification.",
       "problem": "Select informative spectra from an evolving transient candidate pool.",
       "status": "Published research system",
@@ -226,6 +228,7 @@
     {
       "name": "graph_clustering",
       "display_name": "Type II supernova spectral ordering",
+      "year": 2023,
       "purpose": "Construct inspectable graph orderings of Type II supernova spectra.",
       "problem": "Continuous spectral diversity and outliers without a fixed class boundary.",
       "status": "Published companion code",
@@ -234,6 +237,7 @@
     },
     {
       "name": "ridges",
+      "year": 2021,
       "purpose": "Reproduce and extend ridge finding in DES weak-lensing mass maps.",
       "problem": "Curvilinear structure in noisy projected mass fields.",
       "status": "Published companion code",
@@ -241,6 +245,7 @@
     },
     {
       "name": "ELEPHANT",
+      "year": 2024,
       "purpose": "Filter alert streams for hostless extragalactic transients.",
       "problem": "Rapid identification of candidates whose missing hosts carry physical information.",
       "status": "Published research system",
@@ -248,6 +253,7 @@
     },
     {
       "name": "Fink kilonova module",
+      "year": 2023,
       "purpose": "Filter broker alerts for fast kilonova candidates.",
       "problem": "Early selection of rapidly evolving multimessenger counterparts.",
       "status": "Published broker module",

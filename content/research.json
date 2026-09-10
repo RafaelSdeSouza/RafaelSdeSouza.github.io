@@ -1,59 +1,293 @@
 {
-  "questions": [
-    "statistical-inference-and-uncertainty",
-    "incomplete-selective-and-heterogeneous-data",
-    "scientific-representations",
-    "geometry-and-ordered-structure",
-    "scalable-computation-and-observing-decisions"
+  "opening": [
+    "Astronomy asks us to reconstruct causes from systems we cannot manipulate and histories we cannot replay.",
+    "I want to know when observations distinguish between physical explanations—and when the distinction has instead been supplied by the assumptions we bring to the data."
   ],
-  "domains": [
-    "first-stars-and-early-universe",
-    "cosmology-and-large-scale-structure",
-    "milky-way-and-star-formation",
-    "galaxies-and-stellar-systems",
-    "supernovae-transients-and-multimessenger",
-    "nuclear-astrophysics"
-  ],
-  "contribution_forms": [
-    "statistical-method",
-    "physical-result",
-    "software",
-    "survey-data-method",
-    "book-review",
-    "current-research"
-  ],
-  "projects": [
+  "current_questions": [
     {
-      "id": "capivara",
-      "title": "CAPIVARA",
-      "questions": ["scientific-representations", "geometry-and-ordered-structure"],
-      "domains": ["galaxies-and-stellar-systems"],
-      "methods": ["integral-field-spectroscopy", "spectral-similarity", "spectro-spatial-segmentation"],
-      "contribution_forms": ["statistical-method", "software"]
+      "id": "incomplete-calibration",
+      "title": "Inference beyond observed support",
+      "status": "In development",
+      "body": ["When the target population occupies regions absent from the calibration sample, reweighting can alter the mixture only within observed support. I am studying which population quantities remain bounded under explicit restrictions on the missing conditional law and how those bounds change when limited information about the unobserved population is introduced."]
     },
     {
-      "id": "calibration-transfer",
-      "title": "Calibration transfer and spectroscopic selection",
-      "questions": ["incomplete-selective-and-heterogeneous-data", "scalable-computation-and-observing-decisions"],
-      "domains": ["cosmology-and-large-scale-structure", "supernovae-transients-and-multimessenger"],
-      "methods": ["photometric-redshifts", "support-diagnostics", "active-learning", "partial-identification"],
-      "contribution_forms": ["statistical-method", "survey-data-method", "software", "current-research"]
+      "id": "representation-completion",
+      "title": "What the representation leaves behind",
+      "status": "In development",
+      "body": ["A representation learned for reconstruction or prediction may discard variation needed to estimate a physical parameter. The experiments separate losses introduced by the representation from errors introduced by the downstream estimator, testing whether the retained coordinates support physical measurements beyond the task used for training."]
+    }
+  ],
+  "current_work": [
+    {
+      "id": "spectropath",
+      "layout": "scientific-plate",
+      "metadata": "Preprint and released package · 2026",
+      "title": "Spectra as ordered geometric objects",
+      "body": ["spectropath represents a spectral line as an ordered path in velocity–flux space. In synthetic tests, its descriptors distinguish profiles with similar widths and low-order moments. Applied to MaNGA Hα spectra, they identify spatially coherent regions of similar line morphology."],
+      "figure": {
+        "src": "assets/images/research/spectropath-toy-case.png",
+        "href": "assets/images/research/spectropath-toy-case.png",
+        "aria_label": "View full-size spectropath figure",
+        "alt": "Normalised line profiles and comparisons of their widths and shape coordinates in the spectropath toy case",
+        "width": 3960,
+        "height": 900,
+        "caption": "Normalised line profiles, line widths and shape coordinates in the spectropath toy case."
+      },
+      "links": [
+        {"label": "Preprint", "url": "https://arxiv.org/abs/2606.27432"},
+        {"label": "Documentation", "url": "https://rafaelsdesouza.com.br/spectropath/"},
+        {"label": "GitHub", "url": "https://github.com/RafaelSdeSouza/spectropath"}
+      ]
     },
     {
       "id": "radialpaths",
-      "title": "RadialPaths",
-      "questions": ["geometry-and-ordered-structure", "scientific-representations"],
-      "domains": ["galaxies-and-stellar-systems"],
-      "methods": ["centre-conditioned-paths", "intrinsic-distance", "radial-profiles"],
-      "contribution_forms": ["statistical-method", "software", "current-research"]
+      "layout": "object-left",
+      "metadata": "Preprint and released package · 2026",
+      "title": "Radial structure beyond a single centre",
+      "body": ["In a multi-centred source, the radial location assigned to a feature depends on the chosen centre. RadialPaths measures distance through the source footprint and retains each position’s centre assignment. In two JADES DR2 systems, the F277W profiles remained stable under modest footprint changes and one-pixel shifts of the centres."],
+      "figure": {
+        "src": "assets/images/research/radialpaths-multicentre-construction.png",
+        "href": "assets/images/research/radialpaths-multicentre-construction.png",
+        "aria_label": "View full-size RadialPaths figure",
+        "alt": "RadialPaths figure comparing intensity, centre assignments, relative depth and radial profiles for four source geometries",
+        "width": 2803,
+        "height": 2582,
+        "caption": "Centre assignments, relative depth and radial profiles for circular, irregular and multi-centred sources. RadialPaths, Fig. 1."
+      },
+      "links": [
+        {"label": "Preprint", "url": "https://arxiv.org/abs/2608.26326"},
+        {"label": "Documentation", "url": "https://rafaelsdesouza.com.br/radialpaths/"},
+        {"label": "GitHub", "url": "https://github.com/RafaelSdeSouza/radialpaths"}
+      ]
     },
     {
-      "id": "spectropath",
-      "title": "spectropath",
-      "questions": ["geometry-and-ordered-structure", "scientific-representations"],
-      "domains": ["supernovae-transients-and-multimessenger", "galaxies-and-stellar-systems"],
-      "methods": ["spectroscopy", "path-signatures", "ordered-line-profiles"],
-      "contribution_forms": ["statistical-method", "software", "current-research"]
+      "id": "resolved-current",
+      "layout": "compact",
+      "metadata": "Published methods; extensions in development",
+      "title": "Coherent structure in resolved galaxies",
+      "body": ["Moving from individual galaxies to larger IFU and multiband samples tests whether spectro-spatial segmentation recovers comparable stellar populations and emission-line regions. The tests examine CAPIVARA and SAGUI under these conditions and compare spatially regularised spectral decompositions with changes in the observed spectra and galactic structure."],
+      "links": [{"label": "CAPIVARA and resolved galaxies", "url": "#resolved-galaxies", "class": "direct-link"}]
     }
+  ],
+  "trajectory": [
+    {
+      "id": "resolved-galaxies",
+      "layout": "scientific-plate",
+      "metadata": "2025",
+      "title": "From pixels to coherent physical regions",
+      "body": [
+        "Independent spaxel fits ignore spatial coherence, while bins constructed only to reach a target signal-to-noise ratio need not follow changes in the continuum or emission lines.",
+        "Spatial models reconstructed IFU fields while accounting for dependence between neighbouring locations. CAPIVARA grouped spaxels by spectral similarity and returned the groups to their positions in the galaxy. In five MaNGA systems, it recovered regions coherent in continuum and emission-line properties without imposing a bulge–disc decomposition. SAGUI extended the same spectro-spatial principle to multiband images."
+      ],
+      "figure": {
+        "src": "assets/images/research/capivara-segmentation.png",
+        "href": "assets/images/research/capivara-segmentation.png",
+        "aria_label": "View full-size CAPIVARA segmentation figure",
+        "alt": "Five MaNGA galaxy images above their spectral segmentation maps",
+        "width": 1040,
+        "height": 561,
+        "caption": "Galaxy images and segmentation maps from de Souza et al. (2025), Fig. 2.",
+        "caption_link": {"label": "CAPIVARA paper", "url": "https://doi.org/10.1093/mnras/staf688"}
+      },
+      "links": [
+        {"label": "Spatial field reconstruction", "url": "https://doi.org/10.1093/mnras/sty2881"},
+        {"label": "CAPIVARA", "url": "https://doi.org/10.1093/mnras/staf688"},
+        {"label": "SAGUI", "url": "https://doi.org/10.1093/mnras/stag1062"},
+        {"label": "SpectralUnmix", "url": "https://doi.org/10.3847/2515-5172/ae5107"}
+      ]
+    },
+    {
+      "id": "galaxy-populations",
+      "layout": "quiet",
+      "metadata": "",
+      "title": "Galaxy populations across mass and environment",
+      "body": [
+        "A Bayesian negative-binomial model separated the expected number of globular clusters from excess count variation. Studies of nuclear star clusters found stellar mass to be the principal predictor of nucleation, with environment contributing a secondary effect. J-PLUS imaging expanded the globular-cluster candidate sample around the M81 group.",
+        "Ultraviolet-bright red-sequence galaxies were compared across redshift and stellar mass. In jellyfish galaxies, resolved spectral modelling measured how star formation and stellar populations vary with mass and stripping intensity."
+      ],
+      "links": [
+        {"label": "Globular-cluster counts", "url": "https://doi.org/10.1093/mnras/stv1825"},
+        {"label": "Coma nuclear star clusters", "url": "https://doi.org/10.1093/mnras/stab2348"},
+        {"label": "J-PLUS globular clusters", "url": "https://doi.org/10.1093/mnras/stac2002"},
+        {"label": "UV-upturn galaxies", "url": "https://doi.org/10.1093/mnras/stz3609"},
+        {"label": "Jellyfish galaxies", "url": "https://doi.org/10.1093/mnras/stad1641"}
+      ]
+    },
+    {
+      "id": "milky-way",
+      "layout": "object-left",
+      "metadata": "2021",
+      "title": "Reconstructing the Milky Way from incomplete tracers",
+      "body": [
+        "Gaia astrometry identified new nearby open clusters and showed that even the population within roughly one kiloparsec remained incomplete. SPICY extended the census to young stars obscured at optical wavelengths, identifying roughly 120,000 candidates from mid-infrared photometry.",
+        "Their spatial distribution supported the identification of 25 star-forming regions in a narrow structure about one kiloparsec long. Its pitch angle of approximately 56 degrees is substantially larger than the value normally assigned to the Sagittarius arm. Analyses of Solar-neighbourhood stars inferred their birth radii. In Gaia-ESO thin-disc dwarfs, survival analysis associated lithium depletion with temperature, metallicity and age, with little additional dependence on migration direction."
+      ],
+      "figure": {
+        "src": "assets/images/research/milky-way.png",
+        "href": "assets/images/research/milky-way.png",
+        "aria_label": "View full-size Milky Way spatial map",
+        "alt": "Map of star-forming regions in the Galactic plane showing the high-pitch-angle structure associated with the Sagittarius arm",
+        "caption": "The star-forming structure in the Galactic plane. Kuhn et al. (2021), A&A 651, L10, Fig. 3.",
+        "caption_link": {"label": "Paper", "url": "https://doi.org/10.1051/0004-6361/202141198"}
+      },
+      "links": [
+        {"label": "Gaia open clusters", "url": "https://doi.org/10.1051/0004-6361/201834453"},
+        {"label": "SPICY", "url": "https://doi.org/10.3847/1538-4365/abe465"},
+        {"label": "Sagittarius structure", "url": "https://doi.org/10.1051/0004-6361/202141198"},
+        {"label": "Stellar birth radii", "url": "https://doi.org/10.1051/0004-6361/202453034"},
+        {"label": "Lithium depletion", "url": "https://doi.org/10.1051/0004-6361/202554305"}
+      ]
+    },
+    {
+      "id": "transients",
+      "layout": "figure-inline",
+      "metadata": "",
+      "title": "From spectral diversity to transient discovery",
+      "body": [
+        "Supernova spectra are heterogeneous in phase and wavelength coverage, while subtype labels reduce continuous spectral diversity to a few categories. DRACULA used transfer learning, nonlinear dimensional reduction and clustering to compare Type Ia spectra observed under different conditions. The resulting groups occupied parts of a largely continuous distribution rather than isolated clusters.",
+        "For Type II supernovae, a graph connecting 1,595 spectra from 145 objects exposed outliers and temporal evolution without imposing fixed class boundaries. Spectra changed rapidly near maximum light and became more homogeneous toward the plateau end. ELEPHANT searched Fink alerts for extragalactic transients without detected hosts. GLADE+ provided a galaxy catalogue for gravitational-wave counterpart searches."
+      ],
+      "figure": {
+        "src": "assets/images/research/spectral-classification.png",
+        "href": "assets/images/research/spectral-classification.png",
+        "aria_label": "View full-size Type II supernova graph",
+        "alt": "Graph representation connecting Type II supernova spectra at maximum light",
+        "width": 768,
+        "height": 768,
+        "caption": "Graph representation of Type II supernovae at maximum light. de Souza et al. (2023).",
+        "caption_link": {"label": "Paper", "url": "https://doi.org/10.1016/j.ascom.2023.100715"}
+      },
+      "links": [
+        {"label": "DRACULA", "url": "https://doi.org/10.1093/mnras/stw1228"},
+        {"label": "Type II spectral network", "url": "https://doi.org/10.1016/j.ascom.2023.100715"},
+        {"label": "GLADE+ catalogue", "url": "https://doi.org/10.1093/mnras/stac1443"},
+        {"label": "Fink", "url": "https://doi.org/10.1051/0004-6361/202245340"},
+        {"label": "ELEPHANT", "url": "https://doi.org/10.1051/0004-6361/202450535"}
+      ]
+    },
+    {
+      "id": "survey-calibration",
+      "layout": "quiet",
+      "metadata": "",
+      "title": "Learning from selective samples",
+      "body": [
+        "A held-out spectroscopic sample can resemble the training set while both differ from the photometric population to which an estimator will be applied. The Teddy and Happy catalogues separated two causes of failure: missing colour–magnitude support and changes in measurement errors or selection within covered regions.",
+        "We treated spectroscopic follow-up as a sequential decision: after each observation, the candidate pool, class information, observing cost and remaining telescope time change. RESSPECT tested those decisions under simulated survey conditions. The limitation that now interests me is more severe: further observations within the covered region cannot identify what happens in parts of the target population with no spectroscopic support."
+      ],
+      "links": [
+        {"label": "Photometric-redshift validation", "url": "https://doi.org/10.1093/mnras/stx687"},
+        {"label": "Active learning", "url": "https://doi.org/10.1093/mnras/sty3015"},
+        {"label": "RESSPECT", "url": "https://doi.org/10.1109/SSCI47803.2020.9308300"}
+      ]
+    },
+    {
+      "id": "nuclear-astrophysics",
+      "layout": "quiet",
+      "metadata": "",
+      "title": "Reaction rates across discordant experiments",
+      "body": [
+        "Measurements of the same nuclear reaction carry experiment-specific normalisations and systematics. Hierarchical Bayesian analyses estimated the reaction parameters and experimental effects jointly.",
+        "For ⁷Be(n,p)⁷Li, the inferred rate uncertainties were 1.5–2.0 per cent at temperatures up to 1 GK. For D(p,γ)³He, the uncertainty was 2.2 per cent at 0.8 GK, the temperature most important for deuterium burning during primordial nucleosynthesis."
+      ],
+      "links": [
+        {"label": "³He(d,p)⁴He", "url": "https://doi.org/10.3847/1538-4357/aafda9"},
+        {"label": "Tritium–deuterium fusion", "url": "https://doi.org/10.1103/PhysRevC.99.014619"},
+        {"label": "⁷Be(n,p)⁷Li", "url": "https://doi.org/10.3847/1538-4357/ab88aa"},
+        {"label": "D(p,γ)³He", "url": "https://doi.org/10.3847/1538-4357/ac1db0"},
+        {"label": "¹⁶O(p,γ)¹⁷F", "url": "https://doi.org/10.1103/PhysRevC.106.055802"}
+      ]
+    },
+    {
+      "id": "probability-models",
+      "layout": "documentary",
+      "metadata": "2017",
+      "title": "Probability laws for astronomical observables",
+      "body": [
+        "Star formation and metal enrichment can each be recorded as present or absent in a primordial halo. Galaxy redshifts require a continuous response model, while globular-cluster counts show more variation than a Poisson model permits.",
+        "The studies used binomial regression for star-formation activity and metal enrichment, gamma regression for photometric redshifts, and Bayesian negative-binomial regression for globular-cluster populations. The central decision was to match the probability law to the observable rather than apply one regression model to all three cases. Bayesian Models for Astrophysical Data gives worked astronomical analyses in R/JAGS and Python/Stan."
+      ],
+      "emphasis": ["Bayesian Models for Astrophysical Data"],
+      "figure": {
+        "src": "assets/images/book-cover-bayesian-models.jpg",
+        "href": "https://doi.org/10.1017/CBO9781316459515",
+        "alt": "Cover of Bayesian Models for Astrophysical Data by Joseph M. Hilbe, Rafael S. de Souza and Emille E. O. Ishida",
+        "caption": "Cambridge University Press, 2017.\nPROSE Award, 2018."
+      },
+      "links": [
+        {"label": "GLM I", "url": "https://doi.org/10.1016/j.ascom.2015.04.002"},
+        {"label": "GLM II", "url": "https://doi.org/10.1016/j.ascom.2015.01.002"},
+        {"label": "GLM III", "url": "https://doi.org/10.1093/mnras/stv1825"},
+        {"label": "Book", "url": "https://doi.org/10.1017/CBO9781316459515"}
+      ]
+    },
+    {
+      "id": "cosmology",
+      "layout": "figure-inline",
+      "metadata": "",
+      "title": "From cosmological inference to cosmic geometry",
+      "body": [
+        "Principal-component analyses examined how the number of retained components changes the bias of the reconstructed Hubble parameter. COSMOABC compared simulated and observed cluster-count summaries to constrain cosmological parameters when the likelihood was impractical to evaluate.",
+        "Density ridges were extracted from DES weak-lensing mass maps as curvilinear structures rather than isolated peaks. SCONCE adapted ridge finding to spherical angular coordinates and conic angular–redshift coordinates, avoiding a planar approximation to the sky."
+      ],
+      "figure": {
+        "src": "assets/images/research/cosmic-structure.png",
+        "href": "assets/images/research/cosmic-structure.png",
+        "aria_label": "View full-size Dark Energy Survey ridge map",
+        "alt": "Ridge structures extracted from Dark Energy Survey weak-lensing mass maps",
+        "width": 768,
+        "height": 768,
+        "caption": "Density ridges in Dark Energy Survey Y1 weak-lensing maps. Moews et al. (2021), MNRAS 500, 859–870.",
+        "caption_link": {"label": "Paper", "url": "https://doi.org/10.1093/mnras/staa3204"}
+      },
+      "links": [
+        {"label": "Hubble-parameter reconstruction", "url": "https://doi.org/10.1051/0004-6361/201015281"},
+        {"label": "COSMOABC", "url": "https://doi.org/10.1016/j.ascom.2015.09.001"},
+        {"label": "Density ridges", "url": "https://doi.org/10.1093/mnras/staa3204"},
+        {"label": "SCONCE", "url": "https://doi.org/10.1093/mnras/stac2504"}
+      ]
+    },
+    {
+      "id": "first-stars",
+      "layout": "quiet",
+      "metadata": "",
+      "title": "Making the first stars observable",
+      "body": [
+        "The masses of the first stars depend on how primordial gas accretes and how stellar feedback interrupts that accretion. Hydrodynamical simulations measured the shapes and spins of their host haloes. Mapping the spin distribution through alternative feedback models produced different Population III initial-mass functions.",
+        "Rate calculations and synthetic surveys examined whether Population III gamma-ray bursts and pair-instability supernovae could be detected with JWST, radio and X-ray missions, or the SKA. The assumed initial-mass function determined both which explosions occurred and how many entered a survey. Detectability also depended on transient luminosities, survey depth and cadence."
+      ],
+      "links": [
+        {"label": "Population III environments", "url": "https://doi.org/10.1093/mnras/sts181"},
+        {"label": "JWST pair-instability supernovae", "url": "https://doi.org/10.1093/mnras/stt1680"},
+        {"label": "High-redshift surveys", "url": "https://doi.org/10.1093/mnras/stu984"}
+      ]
+    },
+    {
+      "id": "cosmic-magnetism",
+      "layout": "quiet",
+      "metadata": "2008",
+      "title": "Magnetic fields and the smallest dark haloes",
+      "body": [
+        "Electromagnetic fluctuations in the hot plasma after the quark–hadron transition were studied as a source of primordial magnetic fields. The model followed the evolution of the fields and their coherence scales.",
+        "Magnetic pressure changes how baryons accumulate in shallow dark-matter potentials. The calculations showed that a random primordial field raises the filtering mass and can reduce the gas fraction of low-mass haloes. Under these conditions, some small haloes could remain dark because they failed to acquire enough baryonic material."
+      ],
+      "links": [
+        {"label": "Primordial seed fields", "url": "https://doi.org/10.1103/PhysRevD.77.043529"},
+        {"label": "Suppression of small baryonic structures", "url": "https://doi.org/10.1111/j.1365-2966.2010.16677.x"},
+        {"label": "Gas content of dark matter haloes", "url": "https://doi.org/10.1111/j.1365-2966.2010.17588.x"}
+      ]
+    }
+  ],
+  "domains": [
+    {"label": "Nuclear reactions", "url": "#nuclear-astrophysics"},
+    {"label": "First stars and primordial fields", "url": "#first-stars"},
+    {"label": "Milky Way and stellar systems", "url": "#milky-way"},
+    {"label": "Galaxies", "url": "#galaxy-populations"},
+    {"label": "Large-scale structure and cosmology", "url": "#cosmology"},
+    {"label": "Surveys, transients and multimessenger searches", "url": "#transients"}
+  ],
+  "end_links": [
+    {"label": "Publications", "url": "publications.html"},
+    {"label": "Selected Contributions", "url": "contributions.html"},
+    {"label": "Software", "url": "software.html"}
   ]
 }

@@ -72,6 +72,10 @@ def check_local_reference(page: Path, reference: str) -> str | None:
     return None
 
 
+def slugify(value: str) -> str:
+    return re.sub(r"[^a-z0-9]+", "-", value.lower()).strip("-")
+
+
 def main() -> None:
     errors: list[str] = []
     for name in PAGES:
@@ -108,7 +112,11 @@ def main() -> None:
             if not re.search(rf'\bid="{re.escape(anchor)}"', text):
                 errors.append(f"{name}: missing legacy anchor #{anchor}")
 
-    for name in ["profile.json", "site.json", "software.json", "publications.json", "research.json", "writing.json"]:
+    for name in [
+        "profile.json", "site.json", "home.json", "research.json", "about.json",
+        "people.json", "writing.json", "coin.json", "contributions.json",
+        "software.json", "publications.json",
+    ]:
         with (ROOT / "content" / name).open(encoding="utf-8") as handle:
             json.load(handle)
 
@@ -127,13 +135,13 @@ def main() -> None:
     if rendered_software != sum(software_counts):
         errors.append(f"expected {sum(software_counts)} static software rows, found {rendered_software}")
 
-    site = json.loads((ROOT / "content/site.json").read_text(encoding="utf-8"))
-    expected_mentoring = sum(len(records) for records in site["people"].values())
+    people = json.loads((ROOT / "content/people.json").read_text(encoding="utf-8"))
+    expected_mentoring = sum(len(group["records"]) for group in people["groups"])
     people_html = (ROOT / "people.html").read_text(encoding="utf-8")
     if people_html.count('class="mentor-row grid"') != expected_mentoring:
-        errors.append("static mentoring rows do not match content/site.json")
-    if people_html.count('class="catalogue-row grid teaching-row"') != len(site["teaching"]):
-        errors.append("static teaching rows do not match content/site.json")
+        errors.append("static mentoring rows do not match content/people.json")
+    if people_html.count('class="catalogue-row grid teaching-row"') != len(people["teaching"]):
+        errors.append("static teaching rows do not match content/people.json")
 
     writing = json.loads((ROOT / "content/writing.json").read_text(encoding="utf-8"))
     expected_writing_archive = sum(not work.get("featured") for work in writing["works"])
@@ -142,19 +150,14 @@ def main() -> None:
         errors.append("static Writing archive does not match content/writing.json")
 
     research = json.loads((ROOT / "content/research.json").read_text(encoding="utf-8"))
-    expected_research_counts = {
-        "questions": 5,
-        "domains": 6,
-        "contribution_forms": 6,
-    }
-    for field, expected in expected_research_counts.items():
-        actual = len(research.get(field, []))
-        if actual != expected:
-            errors.append(f"expected {expected} research {field}, found {actual}")
-    for project in research.get("projects", []):
-        for field in ("questions", "domains", "methods", "contribution_forms"):
-            if not isinstance(project.get(field), list) or not project[field]:
-                errors.append(f"{project.get('title', 'research project')}: missing non-exclusive {field} metadata")
+    if len(research.get("current_questions", [])) != 2:
+        errors.append("Research must preserve the two current questions")
+    if len(research.get("domains", [])) != 6:
+        errors.append("Research must preserve the six-domain index")
+    research_html = (ROOT / "research.html").read_text(encoding="utf-8")
+    expected_research_entries = len(research["current_work"]) + len(research["trajectory"])
+    if research_html.count('class="object-section grid scientific-object ') != expected_research_entries:
+        errors.append("static Research entries do not match content/research.json")
     software_url_fields = (
         "paper_url", "docs_url", "getting_started_url", "github_url",
         "release_url", "registry_url",
@@ -214,10 +217,25 @@ def main() -> None:
     if len(homepage_marks) != 6 or set(homepage_marks) != expected_homepage_marks:
         errors.append(f"expected homepage marks {expected_homepage_marks}, found {homepage_marks}")
 
+    expected_software_order = sorted(
+        [project for group in ("published", "systems", "development") for project in software[group]],
+        key=lambda project: -(int(project["year"]) if project.get("year") else -1),
+    )
+    software_html = (ROOT / "software.html").read_text(encoding="utf-8")
+    rendered_positions = [
+        software_html.find(f'id="{slugify(project["name"])}"')
+        for project in expected_software_order
+    ]
+    if any(position < 0 for position in rendered_positions) or rendered_positions != sorted(rendered_positions):
+        errors.append("Software catalogue is not rendered in reverse chronological order")
+
     visible_pages = "\n".join((ROOT / name).read_text(encoding="utf-8") for name in PRIMARY_PAGES)
     structured_prose = "\n".join(
         (ROOT / "content" / name).read_text(encoding="utf-8")
-        for name in ("site.json", "software.json", "research.json")
+        for name in (
+            "site.json", "home.json", "research.json", "about.json", "people.json",
+            "writing.json", "coin.json", "contributions.json", "software.json",
+        )
     )
     prose_corpus = f"{visible_pages}\n{structured_prose}".lower()
     for phrase in PROSE_RED_FLAGS:
@@ -236,10 +254,11 @@ def main() -> None:
     rendered_coin_marks = len(re.findall(r'<img[^>]+src="assets/images/coin-2024\.png"', visible_pages))
     if rendered_coin_marks != 3:
         errors.append("current COIN mark should appear on Home, About and COIN")
+    about_data = json.loads((ROOT / "content/about.json").read_text(encoding="utf-8"))
     about = (ROOT / "about.html").read_text(encoding="utf-8")
     if 'assets/images/rafael-de-souza.jpg' not in about:
         errors.append("About is missing the approved portrait")
-    if about.count('class="archive-record grid appointment"') != 8:
+    if about.count('class="archive-record grid appointment"') != len(about_data["appointments"]):
         errors.append("About must contain all eight appointments")
     if "four methodological programmes" in visible_pages.lower():
         errors.append("obsolete four-programme research architecture remains visible")

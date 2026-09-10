@@ -5,7 +5,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 CATALOGUE = ROOT / "content" / "writing.json"
-FIELDS = {"id", "type", "title", "authors", "year", "url", "cover", "excerpt", "summary", "featured"}
+REQUIRED_FIELDS = {"id", "type", "title", "authors", "url"}
 APPROVED_EXCERPT = "The hour arrives.\nRain has passed.\nThe air is cool and shimmering with ions."
 
 
@@ -17,7 +17,7 @@ def main():
     errors = []
     ids = set()
     for index, work in enumerate(works, 1):
-        missing = FIELDS - set(work)
+        missing = REQUIRED_FIELDS - set(work)
         if missing:
             errors.append(f"writing record {index}: missing fields {sorted(missing)}")
         work_id = work.get("id")

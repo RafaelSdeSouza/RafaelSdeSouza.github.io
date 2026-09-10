@@ -1,0 +1,100 @@
+{
+  "identity": {
+    "name": "Rafael S. de Souza",
+    "role": "Astrophysicist",
+    "thesis": "I study what astronomical observations can distinguish when information is incomplete, selectively sampled, compressed, or structured across wavelength and position.",
+    "links": [
+      {"label": "Research", "url": "research.html"},
+      {"label": "Publications", "url": "publications.html"},
+      {"label": "CV", "url": "assets/cv/cv.pdf"}
+    ],
+    "art": {
+      "src": "assets/images/backgrounds/home-nebula-contours.jpg",
+      "alt": "Astronomical artwork with nebular contours in teal and ochre"
+    }
+  },
+  "research_objects": [
+    {
+      "id": "capivara",
+      "layout": "scientific-plate",
+      "title": "Coherent regions in resolved galaxies",
+      "title_url": "research.html#resolved-galaxies",
+      "citation": "de Souza et al. (2025)",
+      "citation_url": "https://doi.org/10.1093/mnras/staf688",
+      "metadata": "CAPIVARA · Fig. 2",
+      "figure": {
+        "src": "assets/images/research/capivara-segmentation.png",
+        "alt": "Five MaNGA galaxies and their spectral segmentation maps",
+        "width": 1040,
+        "height": 561
+      },
+      "body": "CAPIVARA groups spaxels by spectral similarity and maps them back onto the galaxy. In five MaNGA systems, the recovered regions were coherent in continuum and emission-line properties without imposing a bulge–disc decomposition."
+    },
+    {
+      "id": "spectropath",
+      "layout": "scientific-plate",
+      "title": "Spectra as ordered geometric objects",
+      "title_url": "research.html#spectropath",
+      "citation": "spectropath · 2026",
+      "citation_url": "https://arxiv.org/abs/2606.27432",
+      "metadata": "Current work",
+      "metadata_url": "research.html#current-work",
+      "figure": {
+        "src": "assets/images/research/spectropath-toy-case.png",
+        "alt": "Normalised line profiles and their widths and shape coordinates in the spectropath toy case",
+        "width": 3960,
+        "height": 900
+      },
+      "body": "Spectral lines with similar widths can differ in absorption, asymmetry and the ordering of their components. spectropath describes these differences through a path in velocity–flux space."
+    },
+    {
+      "id": "milky-way",
+      "layout": "object-left",
+      "title": "A high-pitch-angle structure in the Milky Way",
+      "title_url": "research.html#milky-way",
+      "citation": "Kuhn et al. (2021)",
+      "citation_url": "https://doi.org/10.1051/0004-6361/202141198",
+      "metadata": "A&A 651, L10 · Fig. 3",
+      "figure": {
+        "src": "assets/images/research/milky-way.png",
+        "alt": "Star-forming regions in the Galactic plane and the high-pitch-angle structure associated with the Sagittarius arm",
+        "width": 768,
+        "height": 768
+      },
+      "body": "Twenty-five star-forming regions trace a narrow structure about one kiloparsec long, inclined by approximately 56 degrees to the Galactic azimuth."
+    }
+  ],
+  "book": {
+    "id": "bayesian-models",
+    "year": "2017",
+    "title": "Bayesian Models for Astrophysical Data",
+    "url": "https://doi.org/10.1017/CBO9781316459515",
+    "authors": "Joseph M. Hilbe, Rafael S. de Souza and Emille E. O. Ishida",
+    "citation": "Cambridge University Press, 2017.\nPROSE Award, 2018.",
+    "cover": "assets/images/book-cover-bayesian-models.jpg",
+    "cover_alt": "Bayesian Models for Astrophysical Data book cover",
+    "cover_width": 494,
+    "cover_height": 648,
+    "links": [
+      {"label": "Selected Contributions", "url": "contributions.html"},
+      {"label": "All {publication_count} scholarly works", "url": "publications.html"}
+    ]
+  },
+  "coin": {
+    "label": "COIN · 2014—",
+    "body": "I founded the Cosmostatistics Initiative in 2014. At its residences, small groups live and work together on astronomical and statistical problems.",
+    "url": "coin.html"
+  },
+  "featured_writing_id": "beyond-the-rainbow",
+  "elsewhere": {
+    "body": "We compared a 1936 forest map with later maps to study the expansion of invasive black locust and native forests in Italian municipalities.",
+    "citation": "Sitzia et al. (2025), Ecological Indicators 178, 113961",
+    "url": "https://doi.org/10.1016/j.ecolind.2025.113961"
+  },
+  "end_links": [
+    {"label": "Software", "url": "software.html"},
+    {"label": "Mentoring", "url": "people.html"},
+    {"label": "Selected Contributions", "url": "contributions.html"},
+    {"label": "All {publication_count} scholarly works", "url": "publications.html"}
+  ]
+}

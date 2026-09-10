@@ -1,143 +1,21 @@
 {
-  "appointments": [
-    {
-      "years": "2025–present",
-      "role": "Visiting Professor",
-      "institution": "Federal University of Rio Grande do Sul",
-      "location": "Brazil",
-      "current": true,
-      "url": "https://www.ufrgs.br/"
-    },
-    {
-      "years": "2024–present",
-      "role": "Adjunct Associate Professor",
-      "institution": "University of North Carolina at Chapel Hill",
-      "location": "United States",
-      "current": true,
-      "url": "https://www.unc.edu/"
-    },
-    {
-      "years": "2023–present",
-      "role": "Senior Lecturer",
-      "institution": "University of Hertfordshire",
-      "location": "United Kingdom",
-      "current": true,
-      "url": "https://www.herts.ac.uk/research/centres/car"
-    },
-    {
-      "years": "2020–2022",
-      "role": "Associate Professor",
-      "institution": "Shanghai Astronomical Observatory",
-      "location": "China",
-      "url": "https://english.shao.cas.cn/"
-    },
-    {
-      "years": "2017–2020",
-      "role": "Postdoctoral Fellow",
-      "institution": "University of North Carolina at Chapel Hill",
-      "location": "United States",
-      "url": "https://www.unc.edu/"
-    },
-    {
-      "years": "2014–2016",
-      "role": "Postdoctoral Fellow",
-      "institution": "Eötvös Loránd University",
-      "location": "Hungary",
-      "url": "https://www.elte.hu/en/"
-    },
-    {
-      "years": "2012–2014",
-      "role": "Postdoctoral Fellow",
-      "institution": "Korea Astronomy and Space Science Institute",
-      "location": "South Korea",
-      "url": "https://www.kasi.re.kr/eng/"
-    },
-    {
-      "years": "2010–2011",
-      "role": "Postdoctoral Fellow",
-      "institution": "Kavli IPMU",
-      "location": "Japan",
-      "url": "https://www.ipmu.jp/en"
-    }
+  "name": "Rafael S. de Souza",
+  "canonical_root": "https://rafaelsdesouza.com.br",
+  "navigation": [
+    {"label": "Research", "url": "research.html", "page": "research"},
+    {"label": "Publications", "url": "publications.html", "page": "publications"},
+    {"label": "Software", "url": "software.html", "page": "software"},
+    {"label": "COIN", "url": "coin.html", "page": "coin"},
+    {"label": "Mentoring", "url": "people.html", "page": "people"},
+    {"label": "Writing", "url": "writing.html", "page": "writing"},
+    {"label": "About", "url": "about.html", "page": "about"}
   ],
-  "education": [
-    {
-      "years": "2004–2009",
-      "degree": "Direct-entry PhD in Astrophysics",
-      "institution": "University of São Paulo",
-      "detail": "Origin of Cosmic Magnetic Fields"
-    },
-    {
-      "years": "1999–2004",
-      "degree": "BSc in Astronomy",
-      "institution": "Federal University of Rio de Janeiro",
-      "detail": "Cosmic Acceleration"
-    }
-  ],
-  "recognition": [
-    {
-      "year": "2018",
-      "name": "PROSE Award, Cosmology & Astronomy",
-      "detail": "Awarded to Bayesian Models for Astrophysical Data.",
-      "url": "https://proseawards.com/winners/2018-award-winners/"
-    },
-    {
-      "year": "2016",
-      "name": "International Astrostatistics Association Outstanding Publication in Astrostatistics, Postdoc Award",
-      "detail": "Awarded for the Bayesian negative-binomial analysis of globular-cluster populations.",
-      "url": "https://www2.ae-info.org/attach/Acad_Main/Sections/Informatics/News_Archive/Fionn%20Murtagh/IAA-2016AWARDS-14April2016-FINAL.pdf"
-    }
-  ],
-  "leadership": [
-    {
-      "name": "Cosmostatistics Initiative",
-      "role": "Founder and Co-Chair",
-      "years": "2014–present",
-      "detail": "Organises project collaborations and residence programmes involving astronomers, statisticians, and computer scientists.",
-      "url": "https://cosmostatistics-initiative.org/"
-    },
-    {
-      "name": "International Astrostatistics Association",
-      "role": "Former Vice-President"
-    },
-    {
-      "name": "ISI Astrostatistics Special Interest Group",
-      "role": "Chair",
-      "years": "2021–present",
-      "url": "https://isi-web.org/nl/node/149"
-    }
-  ],
-  "people": {
-    "currentPhd": [
-      {"name": "Niranjana Prashanth", "years": "2025–2029", "project": "Globular-cluster spectral deconvolution in data cubes", "institution": "Federal University of Rio Grande do Sul"},
-      {"name": "Suresh Parekh", "years": "2025–2029", "project": "GPU-accelerated spectral fitting", "institution": "Federal University of Rio Grande do Sul"},
-      {"name": "Andressa Wille", "years": "2025–2029", "project": "Sub-galactic star formation across cosmic time", "institution": "Federal University of Rio Grande do Sul"},
-      {"name": "Simran Singh", "years": "2024–2027", "project": "Dynamical mapping of star formation in the Solar neighbourhood", "institution": "University of Hertfordshire"},
-      {"name": "Mittal Shree Hari", "years": "2024–2027", "project": "The role of the cosmic web in the evolution of galaxies", "institution": "University of Hertfordshire"}
-    ],
-    "formerPhd": [
-      {"name": "Maria Luiza Dantas", "years": "2016–2020", "project": "UV-bright red-sequence galaxies: a comparative study of UV-upturn and UV-weak systems", "institution": "University of São Paulo"}
-    ],
-    "formerMasters": [
-      {"name": "Mi Chen", "years": "2022–2024", "project": "GPU-accelerated galaxy-profile fitting", "institution": "Shanghai Astronomical Observatory"},
-      {"name": "Quanfeng Xu", "years": "2021–2023", "project": "Low-rank factorisation with GPU acceleration", "institution": "Shanghai Astronomical Observatory"},
-      {"name": "Zihao Mu", "years": "2021–2023", "project": "Effects of galaxy morphology on quenching", "institution": "Shanghai Astronomical Observatory"}
-    ],
-    "currentUndergraduate": [
-      {"name": "Bruna Lima", "years": "2025–2027", "project": "SED-based multiband segmentation of galaxy bars"}
-    ],
-    "formerUndergraduate": [
-      {"name": "Yash Gondhalekar", "years": "2021–2024", "project": "Image segmentation and masking", "outcome": "Research software published as galmask."},
-      {"name": "Peng Chen", "years": "2021–2022", "project": "Low-rank data denoising and reconstruction", "outcome": "Research software published as Yonder."},
-      {"name": "Renan dos Santos Barbosa", "years": "2019", "project": "Uncertainty-aware principal components", "institution": "University of São Paulo", "outcome": "Published in a refereed paper."},
-      {"name": "Tan Hong Kiat", "years": "2019", "project": "MCMC analysis of ⁷Be(n,p)⁷Li", "institution": "National University of Singapore", "outcome": "Published in a refereed paper."},
-      {"name": "Yeoh Jun Kai", "years": "2018", "project": "Nucleosynthesis simulation visualisations", "institution": "National University of Singapore"}
-    ]
-  },
-  "teaching": [
-    {"years": "2023–2024", "term": "Semester A", "course": "Statistical Methods and Data Analysis", "level": "Master's", "enrolment": 50},
-    {"years": "2023–2024", "term": "Semester A", "course": "Machine Learning and Neural Networks", "level": "Master's", "enrolment": 300},
-    {"years": "2024", "term": "Semester B", "course": "Machine Learning and Neural Networks", "level": "Master's", "enrolment": 300},
-    {"years": "2023", "term": "Semester C", "course": "Research Methods in Data Science", "level": "Master's", "enrolment": 250}
+  "footer_links": [
+    {"label": "CV", "url": "assets/cv/cv.pdf"},
+    {"label": "ADS", "profile_key": "ads"},
+    {"label": "ORCID", "profile_key": "orcid"},
+    {"label": "Google Scholar", "profile_key": "scholar"},
+    {"label": "GitHub", "profile_key": "github"},
+    {"label": "Contact", "url": "contact.html"}
   ]
 }

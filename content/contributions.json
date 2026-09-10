@@ -1,0 +1,74 @@
+{
+  "opening_links": [
+    {"label": "Complete publication record", "url": "publications.html"},
+    {"label": "Research", "url": "research.html"}
+  ],
+  "items": [
+    {
+      "year": "2025",
+      "layout": "scientific-plate",
+      "title": "Coherent regions in resolved galaxies",
+      "body": "Integral-field spectra vary across a galaxy, but fixed apertures and signal-to-noise bins need not follow changes in the stellar continuum or emission lines. CAPIVARA groups spaxels by spectral similarity and returns the groups to their positions in the galaxy. In five MaNGA systems, the resulting regions were coherent in continuum and emission-line properties without requiring a predetermined morphological decomposition.",
+      "figure": {"src": "assets/images/research/capivara-segmentation.png", "alt": "Galaxy images and CAPIVARA spectro-spatial segmentation maps", "width": 1800, "height": 1050, "caption": "de Souza et al. (2025), MNRAS, top and middle rows of Fig. 2."},
+      "links": [{"label": "Monthly Notices of the Royal Astronomical Society", "url": "https://doi.org/10.1093/mnras/staf688"}, {"label": "ASCL", "url": "https://ui.adsabs.harvard.edu/abs/2025ascl.soft07023S"}]
+    },
+    {
+      "year": "2023",
+      "layout": "quiet",
+      "title": "Graph-based ordering of Type II supernova spectra",
+      "body": "A graph connected 1,595 spectra from 145 Type II supernovae according to spectral similarity. The resulting organisation exposed outliers and continuous evolution without imposing a fixed class boundary. Spectra changed rapidly near maximum light and became more homogeneous toward the end of the plateau, identifying phases at which a single subtype label conceals different amounts of spectral variation.",
+      "links": [{"label": "Astronomy and Computing", "url": "https://doi.org/10.1016/j.ascom.2023.100715"}]
+    },
+    {
+      "year": "2021",
+      "layout": "object-left",
+      "title": "SPICY and a high-pitch-angle structure in the Sagittarius arm",
+      "body": "SPICY assembled roughly 120,000 candidate young stellar objects from infrared photometry. A subsequent analysis used the catalogue to identify 25 star-forming regions in a narrow structure about 1 kpc long. Its pitch angle of about 56 degrees differs from the smaller pitch angle usually assigned to the Sagittarius arm, so the feature cannot be treated as a simple continuation of a low-pitch-angle logarithmic arm.",
+      "figure": {"src": "assets/images/research/milky-way.png", "alt": "Heliocentric map of young stellar object groups and Galactic spiral-arm references", "width": 1600, "height": 1100, "caption": "Kuhn et al. (2021), A&A 651, L10, Fig. 3: YSO groups, spiral-arm references, and the fitted high-pitch-angle structure in heliocentric coordinates."},
+      "links": [{"label": "SPICY catalogue", "url": "https://authors.library.caltech.edu/records/afsgs-35t81"}, {"label": "Astronomy & Astrophysics", "url": "https://doi.org/10.1051/0004-6361/202141198"}]
+    },
+    {
+      "year": "2020",
+      "layout": "compact",
+      "title": "Hierarchical Bayesian thermonuclear reaction rates",
+      "body": "Measurements of the same nuclear reaction share the physical rate but carry experiment-specific normalisations and statistical errors. A hierarchical model estimated these terms jointly for the ⁷Be(n,p)⁷Li reaction. Below 1 GK, the analysis obtained rate uncertainties of 1.5–2.0 per cent and found that commonly used rates were overconfident because they did not propagate all sources of uncertainty.",
+      "links": [{"label": "Journal of Physics G / arXiv", "url": "https://arxiv.org/abs/1912.06210"}]
+    },
+    {
+      "year": "2019–2020",
+      "layout": "offset",
+      "title": "Active learning and RESSPECT",
+      "body": "Spectroscopic follow-up was formulated as sequential label acquisition under a finite telescope budget. The candidate pool and classifier changed after each observation, while the acquisition rule accounted for uncertainty and object-dependent observing cost. In the realistic experiments, uncertainty sampling improved on random selection; the tested batch strategies produced no significant further gain.",
+      "links": [{"label": "RESSPECT paper", "url": "https://arxiv.org/abs/2010.05941"}]
+    },
+    {
+      "year": "2017",
+      "layout": "quiet",
+      "title": "Realistic validation of photometric redshifts",
+      "body": "A spectroscopic calibration set can fail in two distinct ways: it may not cover the target colour–magnitude space, or its measurement errors may differ within regions that are covered. Teddy and Happy separated these mechanisms in controlled catalogues. The resulting tests showed where machine-learning photometric-redshift estimates failed through extrapolation and where they failed because the conditional photometric distribution had changed.",
+      "links": [{"label": "Monthly Notices of the Royal Astronomical Society", "url": "https://doi.org/10.1093/mnras/stx687"}]
+    },
+    {
+      "year": "2017",
+      "layout": "documentary",
+      "title": "Bayesian Models for Astrophysical Data",
+      "body": "The 408-page volume develops generalized, hierarchical, and likelihood-free models through complete astronomical analyses in R/JAGS and Python/Stan. The book received the 2018 PROSE Award in Cosmology & Astronomy.",
+      "figure": {"src": "assets/images/book-cover-bayesian-models.jpg", "alt": "Cover of Bayesian Models for Astrophysical Data", "width": 530, "height": 800, "caption": "Cambridge University Press, 2017."},
+      "links": [{"label": "Cambridge University Press", "url": "https://www.cambridge.org/core/books/bayesian-models-for-astrophysical-data/A521B3BB3A2E1621EE1B907E87207218"}, {"label": "PROSE Award", "url": "https://proseawards.com/winners/2018-award-winners/"}]
+    },
+    {
+      "year": "2015",
+      "layout": "offset",
+      "title": "Likelihood-free cosmological inference",
+      "body": "Cosmological simulations can generate cluster-count catalogues even when the corresponding likelihood is impractical to evaluate. COSMOABC used population Monte Carlo approximate Bayesian computation to compare simulated and observed summaries and recover constraints on the cosmological parameters. The public code implements the inference pipeline used in the analysis.",
+      "links": [{"label": "Astronomy and Computing", "url": "https://doi.org/10.1016/j.ascom.2015.09.001"}, {"label": "ASCL", "url": "https://ui.adsabs.harvard.edu/abs/2015ascl.soft05013I"}]
+    },
+    {
+      "year": "2015",
+      "layout": "quiet",
+      "title": "Generalized linear models matched to astronomical observables",
+      "body": "Binary events, positive measurements, and overdispersed counts encode different relations between an observable and its expected value. The three-paper series used binomial, gamma, and Bayesian negative-binomial models for primordial star formation, photometric redshifts, and globular-cluster populations. Each analysis made the sampling assumption explicit and estimated effects on the scale appropriate to the data.",
+      "links": [{"label": "GLM I", "url": "https://doi.org/10.1016/j.ascom.2015.04.002"}, {"label": "GLM II", "url": "https://doi.org/10.1016/j.ascom.2015.01.002"}, {"label": "GLM III", "url": "https://doi.org/10.1093/mnras/stv1825"}]
+    }
+  ]
+}

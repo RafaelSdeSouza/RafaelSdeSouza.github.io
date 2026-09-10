@@ -4,28 +4,27 @@ Static HTML, CSS and JavaScript for `https://rafaelsdesouza.com.br`.
 
 ## Content sources
 
-- The ten root visitor pages contain their own editorial copy. Publications,
-  Software, Mentoring and the Writing archive are generated as semantic HTML from
-  their structured sources; the site remains complete when JavaScript is disabled.
+- Visitor-facing copy and records live in `content/*.json`. Fixed Python templates
+  render semantic static HTML; the site remains complete when JavaScript is disabled.
 - `content/software.json` supplies the Software catalogue. Keep `paper_url`,
   `docs_url`, `getting_started_url`, `github_url` and `release_url` independent.
   Omit unavailable actions; do not infer documentation paths from repository URLs.
-- `content/site.json` contains appointments and supporting records. After changing
-  appointments or mentoring records, run `make update`. The checker rejects stale
-  generated HTML.
+- `content/about.json` contains appointments, education, recognition and leadership.
+  `content/people.json` contains mentoring and teaching. `content/site.json` owns
+  the shared navigation and footer.
 - `content/writing.json` is the canonical fiction and essay catalogue. To add an
   ordinary work, add one record, copy an optional authentic cover into
   `assets/images/writing/`, then run `make update`. HTML and CSS edits are not
   required.
 - `assets/cv/references.bib` is the canonical bibliography.
-  `content/publications.json` is its generated catalogue dataset. Regenerate with
-  `python3 scripts/bib_to_publications.py assets/cv/references.bib content/publications.json`,
-  then run `make update`. The reconciliation check protects the complete record of
-  140 unique works.
+  `content/publications.json` is its generated catalogue dataset. `make update`
+  regenerates it. The reconciliation check protects the complete record of 140
+  unique works.
 - `assets/cv/cv.pdf` is the downloadable CV. Its LaTeX source remains under
   `CV_rafael_2026/`, outside the deployed file set.
-- Earlier Markdown and unused JSON files are retained for historical reference,
-  but are not the sources for the current pages and are not deployed.
+- `content/home.json`, `content/research.json`, `content/contributions.json` and
+  `content/coin.json` supply their corresponding pages. See `EDITING.md` for short,
+  copyable update recipes.
 
 Preserve the established scientific figures, artwork, project marks, book covers
 and stylized About portrait. Do not substitute generated artwork or invented marks.
@@ -37,7 +36,7 @@ Preserve the approved *Beyond the Rainbow* excerpt verbatim.
 navigation, responsive layouts and figure-led pages. `assets/css/records.css`
 contains the archival page layouts. `script.js` supplies navigation behaviour and
 progressively enhanced publication search and filters. `scripts/render_static_content.py`
-renders catalogue HTML from the JSON sources and verifies that it remains current.
+renders all editable page content from JSON and verifies that it remains current.
 
 Stylesheets, JavaScript, CSS imports and font URLs share a cache-busting release
 token, checked by `scripts/check_release_assets.py`. When publishing changed CSS,
@@ -47,12 +46,11 @@ font preloads. The build rejects missing or mismatched tokens.
 ## Validation and public build
 
 ```sh
-python3 -m unittest discover -s scripts -p 'test_*.py'
-python3 scripts/lint_public_copy.py
-python3 scripts/build_site.py
+make update
 ```
 
-The builder runs the appointment, bibliography, site and editorial checks, then
+The updater regenerates the bibliography and pages, runs the tests, and invokes
+the builder. The builder runs content, bibliography, site and editorial checks, then
 prints a new temporary directory containing only public files. Serve that directory
 for local QA; do not serve the repository root as the public deployment preview.
 To choose a destination, use `--output` with an empty directory. CI runs the same

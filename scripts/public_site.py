@@ -9,8 +9,7 @@ ROOT = Path(__file__).resolve().parents[1]
 PAGES = ["index.html", "research.html", "publications.html", "software.html",
          "people.html", "writing.html", "about.html", "contact.html", "coin.html",
          "contributions.html"]
-DATA = ["content/profile.json", "content/site.json", "content/software.json", "content/publications.json",
-        "content/writing.json"]
+DATA = []
 
 
 class References(HTMLParser):

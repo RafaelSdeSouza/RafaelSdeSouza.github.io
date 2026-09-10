@@ -1,0 +1,39 @@
+{
+  "name": "Cosmostatistics Initiative",
+  "founded": 2014,
+  "mark": "assets/images/coin-2024.png",
+  "mark_alt": "COIN project mark",
+  "opening": [
+    "I founded COIN in 2014 for joint research on astronomical and statistical problems. At its residences, small groups live together and work on a few research projects.",
+    "COIN is co-led by Emille E. O. Ishida, Alberto Krone-Martins and me."
+  ],
+  "links": [
+    {"label": "Visit COIN", "url": "https://cosmostatistics-initiative.org/"},
+    {"label": "Residence programmes", "url": "https://cosmostatistics-initiative.org/residence-programs/"}
+  ],
+  "residences": [
+    {"number": 1, "city": "Lisbon", "country": "Portugal", "year": 2014, "summary": "COIN Residence Programme #1", "url": null, "outputs": []},
+    {"number": 2, "city": "Isle of Wight", "country": "United Kingdom", "year": 2015, "summary": "COIN Residence Programme #2", "url": null, "outputs": []},
+    {"number": 3, "city": "Budapest", "country": "Hungary", "year": 2016, "summary": "COIN Residence Programme #3", "url": null, "outputs": []}
+  ],
+  "first_residence": {
+    "label": "Lisbon · 2014",
+    "title": "The first residence",
+    "body": "At the first COIN residence, separate projects used binomial and gamma regression for primordial star formation and photometric redshifts, and approximate Bayesian computation for cosmological inference from cluster counts.",
+    "links": [
+      {"label": "Binomial regression", "url": "https://doi.org/10.1016/j.ascom.2015.04.002"},
+      {"label": "Gamma regression", "url": "https://doi.org/10.1016/j.ascom.2015.01.002"},
+      {"label": "COSMOABC", "url": "https://doi.org/10.1016/j.ascom.2015.09.001"}
+    ]
+  },
+  "projects": [
+    {"title": "SPICY — a census of young stars", "url": "https://doi.org/10.3847/1538-4365/abe465"},
+    {"title": "ELEPHANT — hostless extragalactic transients", "url": "https://doi.org/10.1051/0004-6361/202450535"},
+    {"title": "SAGUI — segmentation of multiband galaxy images", "url": "https://doi.org/10.1093/mnras/stag1062"}
+  ],
+  "project_links": [
+    {"label": "All COIN projects", "url": "https://cosmostatistics-initiative.org/projects/"},
+    {"label": "Mentoring", "url": "people.html"},
+    {"label": "Scientific organisations", "url": "about.html#service-title"}
+  ]
+}
