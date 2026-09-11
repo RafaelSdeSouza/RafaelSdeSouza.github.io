@@ -212,15 +212,12 @@ def render_home(data: dict, writing: dict, publication_count: int) -> str:
     identity = data["identity"]
     art = identity["art"]
     parts = [
-        '<!-- Abstract contour loosely informed by Guanabara Bay geometry; deliberately non-cartographic, functioning visually as coastline / isophote / level-set geometry. -->',
-        '<svg class="home-contour" viewBox="0 0 1312 930" preserveAspectRatio="xMidYMin meet" pointer-events="none" aria-hidden="true" focusable="false">',
-        '<path d="M 922,84 C 1047,105 1179,124 1305,182 C 1410,230 1452,327 1404,414 C 1373,470 1287,483 1242,531 C 1213,562 1234,606 1193,645 C 1143,692 1060,674 1012,724 L 948,790 C 899,838 830,822 773,824 C 674,828 586,910 493,884 C 422,864 410,808 457,763 C 506,717 588,711 650,680 C 711,649 742,601 789,564 C 831,531 785,483 816,441 L 872,386 C 894,364 876,341 848,319 L 800,282 C 765,255 799,209 849,181 C 900,153 872,116 922,84 Z"/>',
-        '</svg>',
         '<span class="anchor-compat" id="home"></span>',
         '<section class="opening-only grid home-opening refined-home">',
         '<div class="slot identity" style="--col:3;--span:4;--tcol:2;--tspan:3;--mcol:1;--mspan:4">',
         f'<h1 class="exceptional">{esc(identity["name"])}</h1>',
         f'<p class="identity-role">{esc(identity["role"])}</p>',
+        f'<p class="home-biographical">{esc(identity["biographical"])}</p>',
         f'<p class="home-thesis">{esc(identity["thesis"])}</p>',
         links(identity["links"]),
         '</div>',

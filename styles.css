@@ -1,6 +1,6 @@
-@font-face{font-family:STIX;src:url('assets/fonts/stixtwotext.ttf?v=20260910-6');font-weight:400 700;font-display:swap}
-@font-face{font-family:STIX;src:url('assets/fonts/stixtwotext-italic.ttf?v=20260910-6');font-weight:400 700;font-style:italic;font-display:swap}
-@font-face{font-family:Plex;src:url('assets/fonts/ibmplexsans.ttf?v=20260910-6');font-weight:100 700;font-display:swap}
+@font-face{font-family:STIX;src:url('assets/fonts/stixtwotext.ttf?v=20260910-7');font-weight:400 700;font-display:swap}
+@font-face{font-family:STIX;src:url('assets/fonts/stixtwotext-italic.ttf?v=20260910-7');font-weight:400 700;font-style:italic;font-display:swap}
+@font-face{font-family:Plex;src:url('assets/fonts/ibmplexsans.ttf?v=20260910-7');font-weight:100 700;font-display:swap}
 :root{
  --ink:#1d2b30;--teal:#386860;--rule:#d8ddd9;--plate:#f7f7f2;--white:#fff;
  --serif:STIX,Georgia,serif;--sans:Plex,Arial,sans-serif;
@@ -664,27 +664,31 @@ button,input{border-radius:0}
 /* Home frontispiece */
 body.home-page{overflow-x:clip}
 .home-page #main{position:relative;isolation:isolate;overflow:clip}
-.home-page #main>:not(.home-contour){position:relative;z-index:1}
-/* Abstract contour loosely informed by Guanabara Bay geometry; deliberately non-cartographic, functioning visually as coastline / isophote / level-set geometry. */
-.home-contour{position:absolute;inset:0 0 auto;width:100%;height:930px;overflow:hidden;pointer-events:none;z-index:0}
-.home-contour path{fill:rgba(49,93,97,.255);stroke:rgba(29,43,48,.19);stroke-width:1.1;stroke-linecap:round;stroke-linejoin:round;vector-effect:non-scaling-stroke;opacity:1;transform:translate(42px,34px)}
+.home-page #main>*{position:relative;z-index:1}
 .home-opening{align-items:center}
 .home-opening .identity{padding-top:0}
+.home-opening .identity-role{margin-top:var(--s1)}
+.home-opening .home-biographical{max-width:392px;margin:var(--s1) 0 0;font:400 13px/20px var(--sans)}
+.home-opening .home-thesis{margin-top:var(--s2)}
 .home-opening .identity .link-line{margin-top:var(--s3)}
-.home-art{grid-column:7/span 5;transform:translateX(-8px)}
+.home-art{grid-column:7/span 5;width:calc(100% + var(--s4));max-width:none;transform:translateX(-8px)}
 .home-art img{aspect-ratio:auto}
 .home-page .home-opening{min-height:calc(100vh - 81px - var(--s8) - var(--s6));padding-bottom:var(--s8);align-content:start}
 .home-page .object-section:first-of-type{margin-top:0}
 .home-page .object-section:last-of-type{margin-bottom:var(--s8)}
-.home-page .home-opening::after{content:"";position:absolute;width:318px;height:318px;right:-188px;top:282px;border-radius:50%;background:rgba(201,130,104,.43);z-index:-1;pointer-events:none}
+/* Supplied, content-derived forms replace the earlier CSS/SVG blobs; they remain decorative and non-interactive. */
+.home-page .home-opening::before,.home-page .home-opening::after,.home-page #capivara::before,.home-page #spectropath::before,.home-page #milky-way::before,.home-page #bayesian-models::before{content:"";position:absolute;background-repeat:no-repeat;background-position:center;background-size:contain;pointer-events:none;z-index:0}
+.home-page .home-opening>*,.home-page #capivara>*,.home-page #spectropath>*,.home-page #milky-way>*,.home-page #bayesian-models>*{position:relative;z-index:1}
+.home-page .home-opening::before{width:820px;height:820px;right:-96px;top:-84px;background-image:url('assets/images/decorative/coral-orbits.png');opacity:.34}
+.home-page .home-opening::after{content:none}
 .home-page #capivara,.home-page #spectropath,.home-page #milky-way,.home-page #bayesian-models,.home-page .coin-section,.home-page .writing-section,.home-page .elsewhere-section{position:relative;isolation:isolate}
-.home-page #capivara::before,.home-page #milky-way::before,.home-page #bayesian-models::before{content:"";position:absolute;pointer-events:none;z-index:-1}
-.home-page #capivara::before{width:980px;height:560px;left:-300px;top:120px;background:#e4ece8;clip-path:polygon(0 12%,49% 0,82% 13%,100% 46%,77% 88%,31% 100%,0 77%)}
+.home-page #capivara::before{width:930px;height:700px;left:-270px;top:72px;background-image:url('assets/images/decorative/isophote-contours.png');opacity:.18}
 .home-page #capivara>figure{grid-column:2/span 9!important}
+.home-page #spectropath::before{width:1030px;height:344px;right:-210px;top:190px;background-image:url('assets/images/decorative/ordered-wave.png');opacity:.18}
 .home-page #spectropath>figure{grid-column:2/span 10!important}
-.home-page #milky-way::before{width:720px;height:720px;left:-390px;top:40px;border-radius:52% 48% 41% 59%/48% 40% 60% 52%;background:rgba(96,123,131,.19)}
+.home-page #milky-way::before{width:650px;height:810px;left:-350px;top:20px;background-image:url('assets/images/decorative/rio-coast-field.png');opacity:.42}
 .home-page #milky-way>figure{grid-column:2/span 6!important}
-.home-page #bayesian-models::before{width:1220px;height:1040px;right:-500px;top:-152px;background:rgba(246,242,234,.93);clip-path:polygon(22% 0,100% 8%,92% 76%,58% 100%,0 82%,8% 22%)}
+.home-page #bayesian-models::before{width:1150px;height:865px;right:-570px;top:-90px;background-image:url('assets/images/decorative/paper-field.png');opacity:.88}
 
 /* Archive openings and records */
 .archive-opening .archive-summary{font:400 12px/16px var(--sans);margin:0}
@@ -714,25 +718,24 @@ body.home-page{overflow-x:clip}
 body[data-page=research] #cosmic-magnetism{margin-top:var(--s12);padding-bottom:var(--s8)}
 
 @media(max-width:1199px){
- .home-contour{height:930px}
  .home-art{grid-column:5/span 4}
- .home-page #capivara::before{left:-260px;right:auto}
+ .home-page .home-opening::before{width:690px;height:690px;right:-170px;top:-58px}
+ .home-page #capivara::before{left:-300px;right:auto}
  .home-page #capivara>figure,.home-page #spectropath>figure{grid-column:2/span 6!important}
  .home-page #milky-way>figure{grid-column:2/span 4!important}
- .home-page #bayesian-models::before{top:-121px}
+ .home-page #bayesian-models::before{right:-650px;top:-76px}
  .site-header{min-height:auto}
  .domain-sequence{grid-template-columns:repeat(3,minmax(0,1fr));row-gap:var(--s3)}
 }
 @media(max-width:767px){
- .home-contour{display:block;width:670px;height:650px;left:-155px;top:304px}
- .home-contour path{fill:rgba(49,93,97,.20);stroke:rgba(29,43,48,.16);transform:translate(-94px,-36px)}
  .home-page .home-opening{min-height:0;padding-bottom:0}
- .home-page .home-opening::after{width:188px;height:188px;right:-126px;top:382px;background:rgba(201,130,104,.37)}
+ .home-page .home-opening::before{width:420px;height:420px;right:-192px;top:258px;opacity:.28}
  .home-opening .identity{display:block;grid-column:1/-1}
- .home-art{grid-column:1/-1;grid-row:2;margin-top:var(--s2);transform:none}
- .home-page #capivara::before{width:610px;height:390px;left:-310px;top:96px}
- .home-page #milky-way::before{width:520px;height:520px;left:-355px;top:20px}
- .home-page #bayesian-models::before{width:690px;height:780px;right:-455px;top:150px}
+ .home-art{grid-column:1/-1;grid-row:2;width:100%;margin-top:var(--s2);transform:none}
+ .home-page #capivara::before{width:520px;height:390px;left:-315px;top:108px;opacity:.14}
+ .home-page #spectropath::before{width:600px;height:200px;right:-330px;top:252px;opacity:.14}
+ .home-page #milky-way::before{width:430px;height:540px;left:-320px;top:96px;opacity:.34}
+ .home-page #bayesian-models::before{width:640px;height:480px;right:-475px;top:190px;opacity:.72}
  .home-page #capivara>figure,.home-page #spectropath>figure,.home-page #milky-way>figure{grid-column:1/span 4!important}
  .publication-row .catalogue-title{font-size:20px}
  .site-footer{display:grid}

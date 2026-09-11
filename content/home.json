@@ -2,6 +2,7 @@
   "identity": {
     "name": "Rafael S. de Souza",
     "role": "Astrophysicist",
+    "biographical": "Founder and Co-Chair of the Cosmostatistics Initiative (COIN); Chair of the ISI Astrostatistics Special Interest Group.",
     "thesis": "I study what astronomical observations can distinguish when information is incomplete, selectively sampled, compressed, or structured across wavelength and position.",
     "links": [
       {"label": "Research", "url": "research.html"},

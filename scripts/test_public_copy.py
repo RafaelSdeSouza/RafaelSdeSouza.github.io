@@ -13,6 +13,8 @@ class PublicCopyTests(unittest.TestCase):
         self.assertNotIn('class="intro"', opening)
         self.assertNotIn('class="appointments"', opening)
         self.assertIn('class="identity-role">Astrophysicist</p>', opening)
+        self.assertIn('Founder and Co-Chair of the Cosmostatistics Initiative (COIN)', opening)
+        self.assertIn('Chair of the ISI Astrostatistics Special Interest Group', opening)
         self.assertIn('home-nebula-contours.jpg', opening)
         self.assertIn('Spectra as ordered geometric objects', home)
         self.assertIn('https://doi.org/10.1016/j.ecolind.2025.113961', home)
@@ -41,21 +43,21 @@ class PublicCopyTests(unittest.TestCase):
         self.assertIn('.home-opening .identity{', css)
         self.assertIn('.exceptional{font:400 36px/1.15 var(--serif)}', css)
 
-    def test_home_has_single_approved_contour(self):
+    def test_home_uses_supplied_decorative_vocabulary(self):
         home = (ROOT / 'index.html').read_text()
-        contour = re.search(r'<svg class="home-contour".*?</svg>', home, re.S)
-        self.assertIsNotNone(contour)
-        self.assertEqual(len(re.findall(r'<path\b', contour.group())), 1)
-        self.assertIn('aria-hidden="true"', contour.group())
-        self.assertIn('pointer-events="none"', contour.group())
-        self.assertIn('M 922,84 C 1047,105 1179,124 1305,182', contour.group())
+        self.assertNotIn('class="home-contour"', home)
         css = (ROOT / 'styles.css').read_text()
-        self.assertIn('fill:rgba(49,93,97,.255)', css)
-        self.assertIn('stroke-width:1.1', css)
-        self.assertIn('transform:translate(42px,34px)', css)
-        self.assertIn('.home-contour{display:block;width:670px;height:650px', css)
+        assets = (
+            'rio-coast-field.png', 'coral-orbits.png', 'paper-field.png',
+            'ordered-wave.png', 'isophote-contours.png',
+        )
+        for asset in assets:
+            self.assertIn(f"assets/images/decorative/{asset}", css)
+            self.assertTrue((ROOT / 'assets' / 'images' / 'decorative' / asset).is_file())
+        self.assertNotIn('clip-path:', css[css.index('/* Home frontispiece */'):css.index('/* Archive openings')])
+        self.assertNotIn('border-radius:52%', css)
         self.assertIn('.home-page #milky-way>figure{grid-column:2/span 4!important}', css)
-        self.assertIn('.home-page #bayesian-models::before{width:1220px;height:1040px', css)
+        self.assertIn('.home-page #bayesian-models::before{width:1150px;height:865px', css)
         self.assertNotIn('.home-page .coin-section::before{width:', css)
 
     def test_research_opening_order_and_scientific_corrections(self):
