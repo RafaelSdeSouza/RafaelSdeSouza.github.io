@@ -5,7 +5,7 @@
       "I am an astrophysicist whose work moves between astronomy, statistics, mathematics and computation. I study what observations can actually distinguish when information is incomplete or represented in ways that hide part of its structure. Galaxies are a recurring laboratory for this problem: their stellar populations, ionised gas and ordered spectra connect physical questions to the statistical choices made before inference begins.",
       "I studied astronomy at the Federal University of Rio de Janeiro and completed a direct-entry PhD in astrophysics at the University of São Paulo, where I worked on primordial magnetic fields and the first stars. Postdoctoral appointments then took me to Kavli IPMU in Japan, the Korea Astronomy and Space Science Institute, Eötvös Loránd University in Hungary and the University of North Carolina at Chapel Hill. I later joined Shanghai Astronomical Observatory as an associate professor and served as a senior lecturer at the University of Hertfordshire from 2023 to September 2024.",
       "My research has included the structure of the Milky Way, galaxy populations, resolved spectroscopy, astrostatistics and Bayesian models for astronomical data. The same statistical questions have also led to collaborations in ecology and medical statistics. I co-authored Bayesian Models for Astrophysical Data, published by Cambridge University Press and awarded the 2018 PROSE Award in Cosmology & Astronomy.",
-      "I founded the Cosmostatistics Initiative in 2014 to bring astronomers, statisticians and computer scientists together around concrete research problems. I have also served as vice-president of the International Astrostatistics Association and, since 2021, as a member of the Astrostatistics Special Interest Group of the International Statistical Institute. Across these roles, I return to a practical question: whether the structure needed for a scientific conclusion is present in the observations, or supplied by the model used to interpret them."
+      "I founded the Cosmostatistics Initiative in 2014 to bring astronomers, statisticians and computer scientists together around concrete research problems. I served as vice-president for development of the International Astrostatistics Association from 2016 to 2023 and, since 2021, as a member of the Astrostatistics Special Interest Group of the International Statistical Institute. Across these roles, I return to a practical question: whether the structure needed for a scientific conclusion is present in the observations, or supplied by the model used to interpret them."
     ],
     "links": [
       {"label": "Research", "url": "research.html"},
@@ -58,7 +58,7 @@
       "cover_height": 648
     },
     {"kind": "fellowship", "year": "2017", "name": "Marie Skłodowska–Curie Fellowship", "detail": "AstroFit Programme, Italy.", "url": null},
-    {"kind": "award", "year": "2016", "name": "International Astrostatistics Association Award", "detail": "Best Paper in Astrostatistics.", "url": "https://www2.ae-info.org/attach/Acad_Main/Sections/Informatics/News_Archive/Fionn%20Murtagh/IAA-2016AWARDS-14April2016-FINAL.pdf"},
+    {"kind": "award", "year": "2016", "name": "Outstanding Publication in Astrostatistics", "detail": "International Astrostatistics Association PostDoc Award.", "url": "https://www2.ae-info.org/attach/Acad_Main/Sections/Informatics/News_Archive/Fionn%20Murtagh/IAA-2016AWARDS-14April2016-FINAL.pdf"},
     {"kind": "fellowship", "year": "2014–2016", "name": "MTA Fellowship", "detail": "Hungarian Academy of Sciences, principal investigator.", "url": null},
     {"kind": "award", "year": "2014", "name": "Excellence in Research Award", "detail": "Korea Astronomy and Space Science Institute.", "url": null}
   ],
@@ -75,10 +75,10 @@
     "mark_height": 560
   },
   "leadership": [
-    {"years": null, "name": "International Astrostatistics Association", "role": "Former Vice-President", "url": null},
+    {"years": "2016–2023", "name": "International Astrostatistics Association", "role": "Vice-President for Development", "url": null},
     {"years": "2021–present", "name": "ISI Astrostatistics Special Interest Group", "role": "Member", "url": "https://isi-web.org/nl/node/149"}
   ],
-  "short_bio": "Rafael S. de Souza is an astrophysicist, Adjunct Associate Professor at the University of North Carolina at Chapel Hill, and Visiting Scholar at the Federal University of Rio Grande do Sul and the University of Hertfordshire. His research examines statistical inference and scientific representations in astronomy, with work on galaxy structure, resolved spectroscopy, the Milky Way and survey data. He founded the Cosmostatistics Initiative in 2014, has been a member of the ISI Astrostatistics Special Interest Group since 2021, and formerly served as vice-president of the International Astrostatistics Association. He co-authored Bayesian Models for Astrophysical Data, winner of the 2018 PROSE Award in Cosmology & Astronomy.",
+  "short_bio": "Rafael S. de Souza is an astrophysicist, Adjunct Associate Professor at the University of North Carolina at Chapel Hill, and Visiting Scholar at the Federal University of Rio Grande do Sul and the University of Hertfordshire. His research examines statistical inference and scientific representations in astronomy, with work on galaxy structure, resolved spectroscopy, the Milky Way and survey data. He founded the Cosmostatistics Initiative in 2014, has been a member of the ISI Astrostatistics Special Interest Group since 2021, and served as vice-president for development of the International Astrostatistics Association from 2016 to 2023. He co-authored Bayesian Models for Astrophysical Data, winner of the 2018 PROSE Award in Cosmology & Astronomy.",
   "selected_links": [
     {"label": "Research", "url": "research.html"},
     {"label": "Publications", "url": "publications.html"},

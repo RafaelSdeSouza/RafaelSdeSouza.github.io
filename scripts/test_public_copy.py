@@ -128,7 +128,7 @@ class PublicCopyTests(unittest.TestCase):
         self.assertIn('The first residence', coin)
         self.assertNotIn('data-site-list="leadership"', coin)
         about = (ROOT / 'about.html').read_text()
-        for role in ('Founder and Co-Chair', 'Former Vice-President', '2021–present', '>Member</p>'):
+        for role in ('Founder and Co-Chair', 'Vice-President for Development', '2016–2023', '2021–present', '>Member</p>'):
             self.assertIn(role, about)
         self.assertNotIn('>Chair</p>', about)
 
@@ -151,7 +151,7 @@ class PublicCopyTests(unittest.TestCase):
         for asset in ('rafael-de-souza.jpg', 'coin-2024.png', 'book-cover-bayesian-models.jpg'):
             self.assertIn(asset, about)
         for fact in ('Direct-entry PhD in Astrophysics', 'BSc in Astronomy', 'Origin of Cosmic Magnetic Fields',
-                     'Cosmic Acceleration', 'PROSE Award', 'International Astrostatistics Association Award',
+                     'Cosmic Acceleration', 'PROSE Award', 'Outstanding Publication in Astrostatistics',
                      'Visiting Scholar', 'Hyperspectral Image Segmentation at Scale', 'Short bio'):
             self.assertIn(fact, about)
         current = re.search(r'<section class="archive-section bio-current".*?</section>', about, re.S).group()
@@ -192,6 +192,7 @@ class PublicCopyTests(unittest.TestCase):
 
         service = {(item['organisation'], item['role'], item.get('years')) for item in cv_data['service_outreach']}
         self.assertIn(('ISI Astrostatistics Special Interest Group', 'Member', '2021–present'), service)
+        self.assertIn(('International Astrostatistics Association', 'Vice-President for Development', '2016–2023'), service)
 
     def test_software_headings_are_detectable(self):
         for name in SOFTWARE_NAMES:
