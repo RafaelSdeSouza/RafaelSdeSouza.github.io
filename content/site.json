@@ -8,7 +8,7 @@
     {"label": "COIN", "url": "coin.html", "page": "coin"},
     {"label": "Mentoring", "url": "people.html", "page": "people"},
     {"label": "Writing", "url": "writing.html", "page": "writing"},
-    {"label": "About", "url": "about.html", "page": "about"}
+    {"label": "Bio", "url": "about.html", "page": "about"}
   ],
   "footer_links": [
     {"label": "CV", "url": "assets/cv/cv.pdf"},

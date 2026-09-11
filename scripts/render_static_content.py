@@ -375,13 +375,24 @@ def render_research(data: dict) -> str:
 
 def appointment_rows(records: list[dict]) -> str:
     return "\n".join(
-        f'<article class="archive-record grid appointment"><p class="year slot" style="--col:1;--span:2;--tcol:1;--tspan:1;--mcol:1;--mspan:1">{esc(year_range(item))}</p><h3 class="record-name slot" style="--col:3;--span:4;--tcol:2;--tspan:3;--mcol:2;--mspan:3"><a href="{esc(item["url"])}">{esc(item["institution"])}</a></h3><div class="record-detail slot" style="--col:7;--span:4;--tcol:5;--tspan:3;--mcol:2;--mspan:3"><p>{esc(item["role"])}</p></div><p class="country slot" style="--col:11;--span:2;--tcol:8;--tspan:1;--mcol:2;--mspan:3">{esc(item["country"])}</p></article>'
+        f'<article class="archive-record grid appointment" data-appointment-type="{esc(item["appointment_type"])}"><p class="year slot" style="--col:1;--span:2;--tcol:1;--tspan:1;--mcol:1;--mspan:1">{esc(year_range(item))}</p><h3 class="record-name slot" style="--col:3;--span:4;--tcol:2;--tspan:3;--mcol:2;--mspan:3"><a href="{esc(item["url"])}">{esc(item["institution"])}</a></h3><div class="record-detail slot" style="--col:7;--span:4;--tcol:5;--tspan:3;--mcol:2;--mspan:3"><p>{esc(item["role"])}</p></div><p class="country slot" style="--col:11;--span:2;--tcol:8;--tspan:1;--mcol:2;--mspan:3">{esc(item["country"])}</p></article>'
         for item in records
     )
 
 
 def render_about(data: dict, writing: dict) -> str:
     opening = data["opening"]
+    current = []
+    for item in data["current"]:
+        name = esc(item["name"])
+        if item.get("url"):
+            name = f'<a href="{esc(item["url"])}">{name}</a>'
+        current.append(f'''<article class="current-record grid">
+<p class="year slot" style="--col:1;--span:2;--tcol:1;--tspan:1;--mcol:1;--mspan:1">{esc(item["years"])}</p>
+<h3 class="record-name slot" style="--col:3;--span:4;--tcol:2;--tspan:3;--mcol:2;--mspan:3">{name}</h3>
+<p class="record-detail slot" style="--col:7;--span:3;--tcol:5;--tspan:2;--mcol:2;--mspan:3">{esc(item["role"])}</p>
+<p class="country slot" style="--col:10;--span:3;--tcol:7;--tspan:2;--mcol:2;--mspan:3">{esc(item["detail"])}</p>
+</article>''')
     education = "".join(
         f'<article class="archive-record grid education-record"><p class="year slot" style="--col:1;--span:2;--tcol:1;--tspan:1;--mcol:1;--mspan:1">{esc(item["years"])}</p><h3 class="record-name slot" style="--col:3;--span:4;--tcol:2;--tspan:3;--mcol:2;--mspan:3">{esc(item["institution"])}</h3><div class="record-detail slot" style="--col:7;--span:4;--tcol:5;--tspan:3;--mcol:2;--mspan:3"><p>{esc(item["degree"])}</p><p class="thesis"><em>{esc(item["thesis"])}</em></p></div></article>'
         for item in data["education"]
@@ -391,22 +402,42 @@ def render_about(data: dict, writing: dict) -> str:
         if item["kind"] == "book-award":
             recognition.append(f'''<article class="recognition-book grid"><p class="year slot" style="--col:1;--span:2;--tcol:1;--tspan:1;--mcol:1;--mspan:1">{esc(item["year"])}</p><figure class="slot" style="--col:3;--span:2;--tcol:2;--tspan:2;--mcol:1;--mspan:2" data-role="documentary"><a href="{esc(item["title_url"])}"><img{attrs(src=item["cover"], alt=item["cover_alt"], width=item["cover_width"], height=item["cover_height"])}></a></figure><div class="slot recognition-book-copy" style="--col:5;--span:6;--tcol:4;--tspan:5;--mcol:3;--mspan:2"><h3 class="ordinary-title"><a href="{esc(item["title_url"])}"><em>{esc(item["title"])}</em></a></h3><p class="book-authors caption">{esc(item["authors"])}</p><p class="caption book-publisher">{esc(item["publisher"])}</p><p class="award-name"><a href="{esc(item["url"])}">{esc(item["name"])}</a><span class="caption">{esc(item["category"])}</span></p></div></article>''')
         else:
-            recognition.append(f'<article class="archive-record grid compact-iaa-award"><p class="year slot" style="--col:1;--span:2;--tcol:1;--tspan:1;--mcol:1;--mspan:1">{esc(item["year"])}</p><h3 class="record-name slot" style="--col:3;--span:4;--tcol:2;--tspan:3;--mcol:2;--mspan:3"><a href="{esc(item["url"])}">{esc(item["name"])}</a></h3><div class="record-detail slot" style="--col:7;--span:4;--tcol:5;--tspan:3;--mcol:2;--mspan:3"><p class="scientific-copy">{esc(item["detail"])}</p></div></article>')
+            name = esc(item["name"])
+            if item.get("url"):
+                name = f'<a href="{esc(item["url"])}">{name}</a>'
+            recognition.append(f'<article class="archive-record grid recognition-record"><p class="year slot" style="--col:1;--span:2;--tcol:1;--tspan:1;--mcol:1;--mspan:1">{esc(item["year"])}</p><h3 class="record-name slot" style="--col:3;--span:4;--tcol:2;--tspan:3;--mcol:2;--mspan:3">{name}</h3><div class="record-detail slot" style="--col:7;--span:4;--tcol:5;--tspan:3;--mcol:2;--mspan:3"><p>{esc(item["detail"])}</p></div></article>')
     created = data["created"]
     leadership = []
-    for index, item in enumerate(data["leadership"]):
-        label = '<h2 class="label slot" style="--col:1;--span:2;--tcol:1;--tspan:1;--mcol:1;--mspan:4" id="service-title">Scientific leadership</h2>' if index == 0 else f'<p class="year slot" style="--col:1;--span:2;--tcol:1;--tspan:1;--mcol:1;--mspan:1">{esc(item.get("years"))}</p>'
+    for item in data["leadership"]:
         name = esc(item["name"])
         if item.get("url"):
             name = f'<a href="{esc(item["url"])}">{name}</a>'
-        leadership.append(f'<div class="grid service-record">{label}<h3 class="slot" style="--col:3;--span:5;--tcol:2;--tspan:3;--mcol:2;--mspan:3">{name}</h3><p class="slot" style="--col:8;--span:5;--tcol:5;--tspan:4;--mcol:2;--mspan:3">{esc(item["role"])}</p></div>')
-    work = next(item for item in writing["works"] if item["id"] == data["featured_writing_id"])
-    authors = work["authors"] if isinstance(work["authors"], str) else " and ".join(work["authors"])
-    return f'''<section class="opening grid" aria-labelledby="about-title"><h1 class="label slot" style="--col:1;--span:2;--tcol:1;--tspan:1;--mcol:1;--mspan:4" id="about-title">About</h1><div class="slot opening-copy" style="--col:3;--span:4;--tcol:2;--tspan:3;--mcol:1;--mspan:4"><p class="statement">{esc(opening["statement"])}</p>{links(opening["links"], classes="link-line opening-links", aria_label="Personal links")}</div><figure class="slot image-portrait" style="--col:8;--span:5;--tcol:5;--tspan:4;--mcol:1;--mspan:4" data-role="portrait"><img{attrs(src=opening["portrait"], alt=opening["portrait_alt"], width=opening["portrait_width"], height=opening["portrait_height"])}></figure></section>
-<section class="archive-section compact-appointments" id="career" aria-labelledby="appointments-title"><h2 class="label section-label" id="appointments-title">Appointments · 2010—present</h2><div class="archive-list">{appointment_rows(data["appointments"])}</div></section>
-<section class="compact-documentary" aria-label="Education and recognition"><section class="compact-education" aria-labelledby="education-title"><h2 class="label section-label" id="education-title">Education</h2><div class="archive-list">{education}</div></section><section class="compact-recognition" aria-labelledby="recognition-title"><h2 class="label section-label" id="recognition-title">Recognition</h2>{''.join(recognition)}</section></section>
-<section class="compact-institutions" aria-label="Created institution and scientific service"><section class="compact-created grid" aria-labelledby="created-title"><div class="slot created-marginalia" style="--col:1;--span:2;--tcol:1;--tspan:1;--mcol:1;--mspan:4"><h2 class="label" id="created-title">Created</h2><p class="year">{esc(created["year"])}</p></div><div class="slot created-record" style="--col:3;--span:5;--tcol:2;--tspan:3;--mcol:3;--mspan:2"><h3 class="ordinary-title">{esc(created["name"])}</h3><p class="metadata">{esc(created["role"])}</p><p class="link-line"><a href="{esc(created["url"])}">{esc(created["link_label"])}</a></p></div><figure class="slot compact-coin-mark" style="--col:8;--span:2;--tcol:5;--tspan:2;--mcol:1;--mspan:2" data-role="documentary"><img{attrs(src=created["mark"], alt=created["mark_alt"], width=created["mark_width"], height=created["mark_height"])}></figure></section><section class="compact-service" aria-labelledby="service-title">{''.join(leadership)}</section></section>
-<section class="compact-writing grid" aria-labelledby="writing-title"><h2 class="label slot" style="--col:1;--span:2;--tcol:1;--tspan:1;--mcol:1;--mspan:4" id="writing-title">Writing</h2><figure class="slot intimate-cover" style="--col:3;--span:2;--tcol:2;--tspan:2;--mcol:1;--mspan:2" data-role="documentary"><a href="{esc(work["url"])}"><img src="{esc(work["cover"])}" alt="{esc(work["cover_alt"])}" width="256" height="400"></a></figure><div class="slot intimate-copy" style="--col:5;--span:5;--tcol:4;--tspan:4;--mcol:3;--mspan:2"><h3 class="ordinary-title"><a href="{esc(work["url"])}"><em>{esc(work["title"])}</em></a></h3><p class="metadata">{esc(authors)}</p><nav class="link-line"><a href="writing.html">Writing</a></nav></div></section>'''
+        years = f'<p class="year">{esc(item["years"])}</p>' if item.get("years") else ""
+        leadership.append(f'<article class="service-record">{years}<h3>{name}</h3><p class="role">{esc(item["role"])}</p></article>')
+    biography = "".join(f"<p>{esc(paragraph)}</p>" for paragraph in opening["biography"])
+    return f'''<section class="opening grid bio-opening" aria-labelledby="about-title">
+<h1 class="label slot" style="--col:1;--span:2;--tcol:1;--tspan:1;--mcol:1;--mspan:4" id="about-title">Bio</h1>
+<h2 class="slot bio-name" style="--col:3;--span:5;--tcol:2;--tspan:4;--mcol:1;--mspan:4">{esc(opening["name"])}</h2>
+<figure class="slot image-portrait bio-portrait" style="--col:9;--span:4;--tcol:6;--tspan:3;--mcol:1;--mspan:4" data-role="portrait"><img{attrs(src=opening["portrait"], alt=opening["portrait_alt"], width=opening["portrait_width"], height=opening["portrait_height"])}></figure>
+<div class="slot bio-narrative" style="--col:3;--span:5;--tcol:2;--tspan:4;--mcol:1;--mspan:4">{biography}</div>
+{links(opening["links"], classes="slot link-line bio-opening-links", aria_label="Biography links")}
+</section>
+<section class="archive-section bio-current" aria-labelledby="current-title"><h2 class="label section-label" id="current-title">Current</h2><div class="archive-list">{''.join(current)}</div></section>
+<section class="archive-section compact-appointments" id="career" aria-labelledby="trajectory-title"><h2 class="label section-label" id="trajectory-title">Trajectory · 2010—present</h2><div class="archive-list">{appointment_rows(data["appointments"])}</div></section>
+<section class="archive-section bio-recognition" aria-labelledby="recognition-title"><h2 class="label section-label" id="recognition-title">Recognition</h2><div class="archive-list">{''.join(recognition)}</div></section>
+<section class="archive-section bio-community grid" aria-labelledby="service-title">
+<h2 class="label slot" style="--col:1;--span:2;--tcol:1;--tspan:1;--mcol:1;--mspan:4" id="service-title">Scientific community</h2>
+<figure class="slot compact-coin-mark" style="--col:3;--span:2;--tcol:2;--tspan:2;--mcol:1;--mspan:2" data-role="documentary"><img{attrs(src=created["mark"], alt=created["mark_alt"], width=created["mark_width"], height=created["mark_height"])}></figure>
+<div class="slot created-record" style="--col:5;--span:4;--tcol:4;--tspan:3;--mcol:3;--mspan:2"><p class="year">{esc(created["year"])}</p><h3 class="ordinary-title" id="created-title">{esc(created["name"])}</h3><p class="metadata">{esc(created["role"])}</p><p class="community-copy">{esc(created["body"])}</p><p class="link-line"><a href="{esc(created["url"])}">{esc(created["link_label"])}</a></p></div>
+<div class="slot compact-service" style="--col:9;--span:4;--tcol:7;--tspan:2;--mcol:1;--mspan:4"><p class="label leadership-label">Scientific leadership</p>{''.join(leadership)}</div>
+</section>
+<section class="archive-section compact-education" aria-labelledby="education-title"><h2 class="label section-label" id="education-title">Education</h2><div class="archive-list">{education}</div></section>
+<section class="archive-section grid bio-end" aria-label="Short biography and curriculum vitae">
+<div class="slot short-bio" style="--col:1;--span:2;--tcol:1;--tspan:1;--mcol:1;--mspan:4"><h2 class="label">Short bio</h2></div>
+<div class="slot short-bio-copy" style="--col:3;--span:6;--tcol:2;--tspan:4;--mcol:1;--mspan:4"><p>{esc(data["short_bio"])}</p></div>
+<div class="slot full-cv" style="--col:10;--span:3;--tcol:6;--tspan:3;--mcol:1;--mspan:4"><h2 class="label">Full curriculum vitae</h2><p><a href="assets/cv/cv.pdf">View / download CV</a></p></div>
+{links(data["selected_links"], classes="slot link-line bio-selected-links", aria_label="Selected professional links")}
+</section>'''
 
 
 def mentoring_rows(data: dict) -> tuple[str, int]:

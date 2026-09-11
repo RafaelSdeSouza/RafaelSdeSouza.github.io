@@ -190,7 +190,7 @@ def validate_all(content_dir: Path = CONTENT) -> dict[str, int]:
         raise ContentError(f"content/publications.json: expected 140 works, found {len(publications)}")
 
     nav_labels = [item.get("label") for item in site.get("navigation", [])]
-    expected_nav = ["Research", "Publications", "Software", "COIN", "Mentoring", "Writing", "About"]
+    expected_nav = ["Research", "Publications", "Software", "COIN", "Mentoring", "Writing", "Bio"]
     if nav_labels != expected_nav:
         raise ContentError(f"content/site.json: primary navigation must be {expected_nav}")
     for item in site["navigation"]:

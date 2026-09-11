@@ -141,17 +141,23 @@ class PublicCopyTests(unittest.TestCase):
         about = (ROOT / 'about.html').read_text()
         about_data = json.loads((ROOT / 'content/about.json').read_text())
         self.assertIn(appointment_rows(about_data['appointments']), about)
-        self.assertRegex(about, r'<h1 class="label slot"[^>]*id="about-title">About</h1>')
-        self.assertNotIn('About Rafael</h1>', about)
-        self.assertIn('Disciplines are useful divisions of labour, not divisions of thought.', about)
+        self.assertRegex(about, r'<h1 class="label slot"[^>]*id="about-title">Bio</h1>')
+        self.assertIn('<title>Bio — Rafael S. de Souza</title>', about)
+        self.assertIn('I am an astrophysicist whose work moves between astronomy, statistics, mathematics and computation.', about)
         self.assertIn('id="career"', about)
         self.assertIn('id="created-title"', about)
         self.assertIn('id="service-title"', about)
-        for asset in ('rafael-de-souza.jpg', 'coin-2024.png', 'book-cover-bayesian-models.jpg', 'beyond-the-rainbow-cover.jpg'):
+        for asset in ('rafael-de-souza.jpg', 'coin-2024.png', 'book-cover-bayesian-models.jpg'):
             self.assertIn(asset, about)
         for fact in ('Direct-entry PhD in Astrophysics', 'BSc in Astronomy', 'Origin of Cosmic Magnetic Fields',
-                     'Cosmic Acceleration', 'PROSE Award', 'Postdoc Award', 'Visiting Professor'):
+                     'Cosmic Acceleration', 'PROSE Award', 'Outstanding Publication in Astrostatistics',
+                     'Visiting Professor', 'Hyperspectral Image Segmentation at Scale', 'Short bio'):
             self.assertIn(fact, about)
+        self.assertEqual(about.count('class="archive-record grid appointment"'), 8)
+        self.assertEqual(about.count('class="current-record grid"'), 5)
+        self.assertEqual(about.count('class="archive-record grid recognition-record"') + about.count('class="recognition-book grid"'), 8)
+        self.assertNotIn('compact-writing', about)
+        self.assertNotIn('Beyond the Rainbow', about)
         self.assertNotIn('noindex', about)
         self.assertIn('styles.css?v=', about)
         self.assertNotIn('assets/css/about-folio.css', about)

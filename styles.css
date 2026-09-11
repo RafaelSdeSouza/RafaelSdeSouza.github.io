@@ -1,6 +1,6 @@
-@font-face{font-family:STIX;src:url('assets/fonts/stixtwotext.ttf?v=20260911-1');font-weight:400 700;font-display:swap}
-@font-face{font-family:STIX;src:url('assets/fonts/stixtwotext-italic.ttf?v=20260911-1');font-weight:400 700;font-style:italic;font-display:swap}
-@font-face{font-family:Plex;src:url('assets/fonts/ibmplexsans.ttf?v=20260911-1');font-weight:100 700;font-display:swap}
+@font-face{font-family:STIX;src:url('assets/fonts/stixtwotext.ttf?v=20260911-2');font-weight:400 700;font-display:swap}
+@font-face{font-family:STIX;src:url('assets/fonts/stixtwotext-italic.ttf?v=20260911-2');font-weight:400 700;font-style:italic;font-display:swap}
+@font-face{font-family:Plex;src:url('assets/fonts/ibmplexsans.ttf?v=20260911-2');font-weight:100 700;font-display:swap}
 :root{
  --ink:#1d2b30;--teal:#386860;--rule:#d8ddd9;--plate:#f7f7f2;--white:#fff;
  --serif:STIX,Georgia,serif;--sans:Plex,Arial,sans-serif;
@@ -113,15 +113,17 @@ figcaption,.caption{margin-top:var(--s2)}
  .mapping{row-gap:var(--s2)}
 }
 
-/* Uses the shared master grid; no changes to the header or opening. */
-.compact-appointments .section-label{margin-bottom:var(--s3)}
-.compact-appointments .archive-list{row-gap:var(--s1)}
-.opening+.compact-appointments{margin-top:var(--s6)}
-.compact-documentary{margin-top:var(--s6)}
-.compact-documentary .section-label{margin-bottom:var(--s2)}
-.compact-education .archive-list{row-gap:var(--s1)}
+/* Bio remains on the canonical grid; density comes from archival groupings. */
+.bio-opening{row-gap:var(--s3)}
+.bio-name{grid-row:1;font:400 32px/1.2 var(--serif)}
+.bio-portrait{grid-row:1/span 4;justify-self:end;max-width:430px}
+.bio-narrative{grid-row:2;font:400 18px/1.55 var(--serif);max-width:620px}
+.bio-narrative p+p{margin-top:var(--s2)}
+.bio-opening-links{grid-column:3/span 5;grid-row:3;margin-top:var(--s1)}
+.bio-current .section-label,.compact-appointments .section-label,.bio-recognition .section-label,.compact-education .section-label{margin-bottom:var(--s3)}
+.bio-current .archive-list,.compact-appointments .archive-list,.bio-recognition .archive-list,.compact-education .archive-list{border-top:1px solid var(--rule);padding-top:var(--s2);row-gap:var(--s1)}
+.current-record,.compact-appointments .appointment,.recognition-record,.compact-education .education-record{align-items:baseline;padding-block:var(--s1)}
 .compact-education .thesis{margin-top:0}
-.compact-recognition{margin-top:var(--s3)}
 .recognition-book{background:var(--plate);padding-block:var(--s3);align-items:start}
 .recognition-book>figure{max-width:160px}
 .recognition-book-copy{align-self:center}
@@ -130,32 +132,40 @@ figcaption,.caption{margin-top:var(--s2)}
 .book-publisher{margin-top:var(--s1)}
 .award-name{font:400 19px/24px var(--serif);margin-top:var(--s3)}
 .award-name .caption{display:block;margin-top:var(--s1)}
-.compact-iaa-award{margin-top:var(--s3)}
-.compact-institutions{margin-top:var(--s6)}
-.compact-created{align-items:start}
-.created-marginalia .year{margin-top:var(--s2)}
+.bio-community{align-items:start;row-gap:var(--s3)}
+.bio-community .compact-coin-mark{max-width:160px}
+.bio-community .created-record .ordinary-title{margin-top:var(--s1)}
+.community-copy{font:400 17px/1.45 var(--serif);margin-top:var(--s2)}
 .created-record .link-line{margin-top:var(--s2)}
-.compact-service{margin-top:var(--s4)}
-.service-record{align-items:baseline;font:400 14px/24px var(--sans)}
-.service-record h3{font:inherit}
+.leadership-label{margin-bottom:var(--s2)}
+.service-record{border-top:1px solid var(--rule);padding-block:var(--s2)}
+.service-record h3{font:400 18px/1.3 var(--serif)}
 .service-record h3 a{color:var(--ink);text-decoration-color:var(--rule)}
-.service-record+.service-record{margin-top:var(--s1)}
-.compact-writing{margin-top:var(--s6);align-items:start}
-.intimate-cover{max-width:144px}
-.intimate-copy{align-self:center}
-.intimate-copy .link-line{margin-top:var(--s2)}
-.about-dense .site-footer{margin-top:var(--s4)}
+.service-record .role{font:400 13px/1.6 var(--sans);margin-top:var(--s1)}
+.service-record .year{margin-bottom:var(--s1)}
+.bio-end{row-gap:var(--s3)}
+.short-bio-copy{font:400 18px/1.5 var(--serif)}
+.full-cv p{font:400 19px/1.4 var(--serif);margin-top:var(--s2)}
+.bio-selected-links{grid-column:3/span 8;margin-top:var(--s2)}
+.about-dense .site-footer{margin-top:var(--s6)}
 @media(max-width:1199px){
+ .bio-name{grid-column:2/span 4}
+ .bio-portrait{grid-column:6/span 3}
+ .bio-narrative{grid-column:2/span 4}
+ .bio-opening-links{grid-column:2/span 4}
  .recognition-book-copy .ordinary-title{font-size:22px}
  .recognition-book-copy .caption{font-size:11px}
+ .bio-selected-links{grid-column:2/span 6}
 }
 @media(max-width:767px){
- .compact-appointments .archive-record,.compact-education .archive-record,.compact-iaa-award{row-gap:0}
- .compact-appointments .archive-list{row-gap:var(--s1)}
- .compact-documentary{margin-top:var(--s6)}
- .compact-documentary .section-label{margin-bottom:var(--s2)}
+ .bio-opening{margin-top:var(--s4)}
+ .bio-name,.bio-portrait,.bio-narrative,.bio-opening-links{grid-column:1/span 4;grid-row:auto}
+ .bio-name{font-size:30px}
+ .bio-portrait{width:75%;justify-self:start}
+ .bio-narrative{font-size:18px;line-height:1.55}
+ .current-record,.compact-appointments .appointment,.recognition-record,.compact-education .education-record{row-gap:0}
+ .current-record .record-detail,.current-record .country{margin-top:var(--s1)}
  .compact-education .archive-list{row-gap:var(--s2)}
- .compact-education .thesis{margin-top:0}
  .recognition-book{row-gap:var(--s2);padding-block:var(--s2)}
  .recognition-book>.year{grid-column:1/-1}
  .recognition-book-copy{align-self:start}
@@ -164,23 +174,14 @@ figcaption,.caption{margin-top:var(--s2)}
  .book-authors{margin-top:var(--s2)}
  .award-name{font-size:18px;line-height:24px;margin-top:var(--s2)}
  .award-name .caption{margin-top:var(--s1)}
- .compact-institutions{margin-top:var(--s6)}
- .compact-created{row-gap:var(--s2)}
- .created-marginalia{display:flex;align-items:baseline;gap:var(--s3)}
- .created-marginalia .year{margin-top:0}
- .created-record{grid-row:2}
- .compact-coin-mark{grid-row:2;align-self:center}
- .created-record .ordinary-title{font-size:20px;line-height:24px}
- .created-record .metadata{font-size:12px;line-height:16px}
- .created-record .link-line{margin-top:var(--s1)}
- .compact-service{margin-top:var(--s3)}
- .service-record{row-gap:0;font-size:13px;line-height:20px}
- .service-record:first-child h2{grid-column:1/-1;margin-bottom:var(--s2)}
- .service-record+.service-record{margin-top:var(--s2)}
- .compact-writing{margin-top:var(--s6);row-gap:var(--s2)}
- .intimate-copy .ordinary-title{font-size:22px;line-height:24px}
- .intimate-copy .metadata{font-size:11px;line-height:16px}
- .intimate-copy .link-line{margin-top:var(--s2)}
+ .bio-community .compact-coin-mark{grid-column:1/span 2}
+ .bio-community .created-record{grid-column:3/span 2}
+ .bio-community .compact-service{grid-column:1/span 4;margin-top:var(--s3)}
+ .bio-community .created-record .ordinary-title{font-size:20px;line-height:24px}
+ .community-copy{font-size:16px}
+ .short-bio-copy,.full-cv,.bio-selected-links{grid-column:1/span 4}
+ .full-cv{margin-top:var(--s3)}
+ .bio-selected-links{margin-top:var(--s2)}
 }
 
 /* All placements use the master column tokens. */

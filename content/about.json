@@ -1,16 +1,29 @@
 {
   "opening": {
-    "statement": "Disciplines are useful divisions of labour, not divisions of thought. Astronomy gave me scale; statistics, a language for uncertainty; literature, another way of asking what can be said.",
+    "name": "Rafael S. de Souza",
+    "biography": [
+      "I am an astrophysicist whose work moves between astronomy, statistics, mathematics and computation. I study what observations can distinguish when information is incomplete, selectively sampled or compressed into representations that discard spatial or spectral structure. Galaxies are a recurring laboratory for this problem: their stellar populations, ionised gas and ordered spectra connect physical questions to the statistical choices made before inference begins.",
+      "I studied astronomy at the Federal University of Rio de Janeiro and completed a direct-entry PhD in astrophysics at the University of São Paulo, where I worked on primordial magnetic fields and the first stars. Postdoctoral appointments then took me to Kavli IPMU in Japan, the Korea Astronomy and Space Science Institute, Eötvös Loránd University in Hungary and the University of North Carolina at Chapel Hill. I later joined Shanghai Astronomical Observatory as an associate professor and moved to the University of Hertfordshire as a senior lecturer.",
+      "My research has included the structure of the Milky Way, transient discovery, galaxy populations, resolved spectroscopy and Bayesian models for astronomical data. The same statistical questions have also led to collaborations in ecology and medical statistics. I co-authored Bayesian Models for Astrophysical Data, published by Cambridge University Press and awarded the 2018 PROSE Award in Cosmology & Astronomy.",
+      "I founded the Cosmostatistics Initiative in 2014 to bring astronomers, statisticians and computer scientists together around concrete research problems. I have also served as vice-president of the International Astrostatistics Association and chair the Astrostatistics Special Interest Group of the International Statistical Institute. Across these roles, I return to a practical question: whether the structure needed for a scientific conclusion is present in the observations, or supplied by the model used to interpret them."
+    ],
     "links": [
-      {"label": "CV", "url": "assets/cv/cv.pdf"},
-      {"label": "Contact", "url": "contact.html"},
-      {"label": "Writing", "url": "writing.html"}
+      {"label": "Research", "url": "research.html"},
+      {"label": "Publications", "url": "publications.html"},
+      {"label": "CV", "url": "assets/cv/cv.pdf"}
     ],
     "portrait": "assets/images/rafael-de-souza.jpg",
-    "portrait_alt": "Original stylized portrait of Rafael smiling, wearing glasses and a dark shirt, against an illustrated astronomical background",
+    "portrait_alt": "Original stylized portrait of Rafael S. de Souza smiling, wearing glasses and a dark shirt, against an illustrated astronomical background",
     "portrait_width": 1254,
     "portrait_height": 1254
   },
+  "current": [
+    {"years": "2023–present", "role": "Senior Lecturer", "name": "University of Hertfordshire", "detail": "Centre for Astrophysics Research · United Kingdom", "url": "https://www.herts.ac.uk/research/centres/car"},
+    {"years": "2024–present", "role": "Adjunct Associate Professor", "name": "University of North Carolina at Chapel Hill", "detail": "United States", "url": "https://www.unc.edu/"},
+    {"years": "2025–present", "role": "Visiting Professor", "name": "Federal University of Rio Grande do Sul", "detail": "Brazil", "url": "https://www.ufrgs.br/"},
+    {"years": "2025–2029", "role": "Principal Investigator", "name": "Hyperspectral Image Segmentation at Scale", "detail": "CNPq · Brazil", "url": null},
+    {"years": "2021–present", "role": "Chair", "name": "ISI Astrostatistics Special Interest Group", "detail": "International Statistical Institute", "url": "https://isi-web.org/nl/node/149"}
+  ],
   "appointments": [
     {"start": 2025, "end": null, "years": "2025–present", "role": "Visiting Professor", "appointment_type": "visiting", "institution": "Federal University of Rio Grande do Sul", "country": "Brazil", "url": "https://www.ufrgs.br/"},
     {"start": 2024, "end": null, "years": "2024–present", "role": "Adjunct Associate Professor", "appointment_type": "adjunct", "institution": "University of North Carolina at Chapel Hill", "country": "United States", "url": "https://www.unc.edu/"},
@@ -22,13 +35,16 @@
     {"start": 2010, "end": 2011, "years": "2010–2011", "role": "Postdoctoral Fellow", "appointment_type": "research", "institution": "Kavli IPMU", "country": "Japan", "url": "https://www.ipmu.jp/en"}
   ],
   "education": [
-    {"start": 1999, "end": 2004, "years": "1999–2004", "degree": "BSc in Astronomy", "institution": "Federal University of Rio de Janeiro", "thesis": "Cosmic Acceleration"},
-    {"start": 2004, "end": 2009, "years": "2004–2009", "degree": "Direct-entry PhD in Astrophysics", "institution": "University of São Paulo", "thesis": "Origin of Cosmic Magnetic Fields"}
+    {"start": 2004, "end": 2009, "years": "2004–2009", "degree": "Direct-entry PhD in Astrophysics", "institution": "University of São Paulo", "thesis": "Origin of Cosmic Magnetic Fields"},
+    {"start": 1999, "end": 2004, "years": "1999–2004", "degree": "BSc in Astronomy", "institution": "Federal University of Rio de Janeiro", "thesis": "Cosmic Acceleration"}
   ],
   "recognition": [
+    {"kind": "appointment", "year": "2024–2025", "name": "FAPESP Visiting Professorship", "detail": "University of São Paulo.", "url": null},
+    {"kind": "award", "year": "2022", "name": "Excellence in Research Award", "detail": "Shanghai Astronomical Observatory.", "url": null},
+    {"kind": "fellowship", "year": "2021–2023", "name": "CAS Talents Programme", "detail": "Competitive research programme, principal investigator.", "url": null},
     {
       "kind": "book-award",
-      "year": 2018,
+      "year": "2018",
       "name": "PROSE Award",
       "category": "Cosmology & Astronomy",
       "url": "https://proseawards.com/winners/2018-award-winners/",
@@ -41,18 +57,16 @@
       "cover_width": 494,
       "cover_height": 648
     },
-    {
-      "kind": "award",
-      "year": 2016,
-      "name": "Outstanding Publication in Astrostatistics",
-      "detail": "International Astrostatistics Association, Postdoc Award, for the Bayesian negative-binomial analysis of globular-cluster populations.",
-      "url": "https://www2.ae-info.org/attach/Acad_Main/Sections/Informatics/News_Archive/Fionn%20Murtagh/IAA-2016AWARDS-14April2016-FINAL.pdf"
-    }
+    {"kind": "fellowship", "year": "2017", "name": "Marie Skłodowska–Curie Fellowship", "detail": "AstroFit Programme, Italy.", "url": null},
+    {"kind": "award", "year": "2016", "name": "Outstanding Publication in Astrostatistics", "detail": "International Astrostatistics Association Postdoc Award for the Bayesian negative-binomial analysis of globular-cluster populations.", "url": "https://www2.ae-info.org/attach/Acad_Main/Sections/Informatics/News_Archive/Fionn%20Murtagh/IAA-2016AWARDS-14April2016-FINAL.pdf"},
+    {"kind": "fellowship", "year": "2014–2016", "name": "MTA Fellowship", "detail": "Hungarian Academy of Sciences, principal investigator.", "url": null},
+    {"kind": "award", "year": "2014", "name": "Excellence in Research Award", "detail": "Korea Astronomy and Space Science Institute.", "url": null}
   ],
   "created": {
     "year": "2014—",
     "name": "Cosmostatistics Initiative",
     "role": "Founder and Co-Chair",
+    "body": "COIN brings astronomers, statisticians and computer scientists together around concrete research problems.",
     "url": "coin.html",
     "link_label": "COIN",
     "mark": "assets/images/coin-2024.png",
@@ -64,5 +78,13 @@
     {"years": null, "name": "International Astrostatistics Association", "role": "Former Vice-President", "url": null},
     {"years": "2021–present", "name": "ISI Astrostatistics Special Interest Group", "role": "Chair", "url": "https://isi-web.org/nl/node/149"}
   ],
-  "featured_writing_id": "beyond-the-rainbow"
+  "short_bio": "Rafael S. de Souza is an astrophysicist and Senior Lecturer at the University of Hertfordshire, with adjunct and visiting appointments at the University of North Carolina at Chapel Hill and the Federal University of Rio Grande do Sul. His research examines statistical inference and scientific representations in astronomy, with work on galaxy structure, resolved spectroscopy, the Milky Way and survey data. He founded the Cosmostatistics Initiative in 2014, chairs the ISI Astrostatistics Special Interest Group, and formerly served as vice-president of the International Astrostatistics Association. He co-authored Bayesian Models for Astrophysical Data, winner of the 2018 PROSE Award in Cosmology & Astronomy.",
+  "selected_links": [
+    {"label": "Research", "url": "research.html"},
+    {"label": "Publications", "url": "publications.html"},
+    {"label": "CV", "url": "assets/cv/cv.pdf"},
+    {"label": "ADS", "url": "https://ui.adsabs.harvard.edu/search/q=orcid%3A0000-0001-7207-4584&sort=date%20desc%2C%20bibcode%20desc&p_=0"},
+    {"label": "ORCID", "url": "https://orcid.org/0000-0001-7207-4584"},
+    {"label": "Google Scholar", "url": "https://scholar.google.com/citations?view_op=search_authors&mauthors=Rafael+S.+de+Souza"}
+  ]
 }
