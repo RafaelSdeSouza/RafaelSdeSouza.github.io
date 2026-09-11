@@ -64,6 +64,15 @@ def paragraphs(items: list[str], *, raw: bool = False) -> str:
     return "".join(f"<p>{item if raw else esc(item)}</p>" for item in items)
 
 
+def cited_text(value: object, titles: list[str] | None = None) -> str:
+    """Escape inline prose while allowing explicitly listed work titles as citations."""
+    rendered = esc(value)
+    for title in titles or []:
+        escaped_title = esc(title)
+        rendered = rendered.replace(escaped_title, f"<cite>{escaped_title}</cite>")
+    return rendered
+
+
 def year_range(record: dict) -> str:
     """Return an explicit display range, or derive one from start/end fields."""
     if record.get("years"):
@@ -210,20 +219,25 @@ def replace_chrome(path: Path, site: dict, profile: dict, *, check: bool) -> Non
 
 def render_home(data: dict, writing: dict, publication_count: int) -> str:
     identity = data["identity"]
+    introduction = data["introduction"]
     art = identity["art"]
+    hero_biography = cited_text(identity["biography"], identity.get("cited_titles"))
     parts = [
         '<span class="anchor-compat" id="home"></span>',
         '<section class="opening-only grid home-opening refined-home">',
         '<div class="slot identity" style="--col:3;--span:4;--tcol:2;--tspan:3;--mcol:1;--mspan:4">',
         f'<h1 class="exceptional">{esc(identity["name"])}</h1>',
         f'<p class="identity-role">{esc(identity["role"])}</p>',
-        f'<p class="home-biographical">{esc(identity["biographical"])}</p>',
-        f'<p class="home-thesis">{esc(identity["thesis"])}</p>',
+        f'<p class="home-summary">{hero_biography}</p>',
         links(identity["links"]),
         '</div>',
         '<figure class="slot home-art" style="--col:7;--span:5;--tcol:5;--tspan:4;--mcol:1;--mspan:4">',
         f'<img src="{esc(art["src"])}" alt="{esc(art["alt"])}">',
         '</figure></section>',
+        '<section class="home-introduction grid" id="introduction" aria-labelledby="home-introduction-title">',
+        f'<h2 class="slot home-outlook" style="--col:2;--span:7;--tcol:1;--tspan:6;--mcol:1;--mspan:4" id="home-introduction-title"><em>{esc(introduction["statement"])}</em></h2>',
+        f'<div class="slot home-introduction-copy" style="--col:5;--span:6;--tcol:3;--tspan:5;--mcol:1;--mspan:4"><p>{esc(introduction["body"])}</p></div>',
+        '</section>',
     ]
     for item in data["research_objects"]:
         spread = "primary-spread" if item["layout"] == "scientific-plate" else "secondary-spread"

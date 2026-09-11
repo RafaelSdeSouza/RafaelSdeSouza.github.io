@@ -13,16 +13,25 @@ class PublicCopyTests(unittest.TestCase):
         self.assertNotIn('class="intro"', opening)
         self.assertNotIn('class="appointments"', opening)
         self.assertIn('class="identity-role">Astrophysicist</p>', opening)
-        self.assertIn('Founder and Co-Chair of the Cosmostatistics Initiative (COIN)', opening)
-        self.assertIn('Chair of the ISI Astrostatistics Special Interest Group', opening)
         self.assertIn('home-nebula-contours.jpg', opening)
+        self.assertIn('I am an astrophysicist working across astronomy, statistics, mathematics and computation.', opening)
+        self.assertIn('I founded the Cosmostatistics Initiative (COIN)', opening)
+        self.assertIn('<cite>Bayesian Models for Astrophysical Data</cite>', opening)
+        introduction = re.search(r'<section\b[^>]*class="home-introduction grid".*?</section>', home, re.S).group()
+        self.assertIn('I have always been drawn to the places where one way of seeing the world becomes another.', introduction)
+        self.assertIn('I study what astronomical observations can distinguish when information is incomplete', introduction)
+        self.assertIn('what structure in the data are our usual methods failing to see?', introduction)
+        self.assertNotIn('About me', introduction)
+        css = (ROOT / 'styles.css').read_text()
+        self.assertIn('.home-outlook{font:italic 400 clamp(', css)
+        self.assertIn('.home-introduction-copy{grid-row:auto;max-width:100%;font-size:18px;line-height:1.55}', css)
         self.assertIn('Spectra as ordered geometric objects', home)
         self.assertIn('https://doi.org/10.1016/j.ecolind.2025.113961', home)
         self.assertIn('All 140 scholarly works', home)
 
     def test_home_folio_order_and_assets(self):
         home = (ROOT / 'index.html').read_text()
-        expected = ['home', 'capivara', 'spectropath', 'milky-way', 'bayesian-models']
+        expected = ['home', 'introduction', 'capivara', 'spectropath', 'milky-way', 'bayesian-models']
         positions = [home.index(f'id="{anchor}"') for anchor in expected]
         self.assertEqual(positions, sorted(positions))
         self.assertLess(home.index('id="bayesian-models"'), home.index('>COIN · 2014—</h2>'))

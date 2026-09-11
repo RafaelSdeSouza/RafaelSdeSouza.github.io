@@ -2,8 +2,8 @@
   "identity": {
     "name": "Rafael S. de Souza",
     "role": "Astrophysicist",
-    "biographical": "Founder and Co-Chair of the Cosmostatistics Initiative (COIN); Chair of the ISI Astrostatistics Special Interest Group.",
-    "thesis": "I study what astronomical observations can distinguish when information is incomplete, selectively sampled, compressed, or structured across wavelength and position.",
+    "biography": "I am an astrophysicist working across astronomy, statistics, mathematics and computation. My work spans galaxy structure, spatially resolved spectroscopy, statistical inference and scientific representations. I founded the Cosmostatistics Initiative (COIN), have held international leadership roles in astrostatistics, and co-authored the award-winning Bayesian Models for Astrophysical Data.",
+    "cited_titles": ["Bayesian Models for Astrophysical Data"],
     "links": [
       {"label": "Research", "url": "research.html"},
       {"label": "Publications", "url": "publications.html"},
@@ -13,6 +13,10 @@
       "src": "assets/images/backgrounds/home-nebula-contours.jpg",
       "alt": "Astronomical artwork with nebular contours in teal and ochre"
     }
+  },
+  "introduction": {
+    "statement": "I have always been drawn to the places where one way of seeing the world becomes another.",
+    "body": "I study what astronomical observations can distinguish when information is incomplete, selectively sampled, compressed, or structured across wavelength and position. Much of my work begins with a simple question: what structure in the data are our usual methods failing to see?"
   },
   "research_objects": [
     {
