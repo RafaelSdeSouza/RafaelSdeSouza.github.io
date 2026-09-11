@@ -169,6 +169,30 @@ class PublicCopyTests(unittest.TestCase):
         for page in ('index.html', 'research.html'):
             self.assertNotIn('assets/css/about-folio.css', (ROOT / page).read_text())
 
+    def test_current_bio_facts_are_reconciled_across_sources(self):
+        import json
+        about_data = json.loads((ROOT / 'content/about.json').read_text())
+        profile_data = json.loads((ROOT / 'content/profile.json').read_text())
+        cv_data = json.loads((ROOT / 'content/cv.json').read_text())
+
+        current = {(item['name'], item['role'], item['years']) for item in about_data['current']}
+        self.assertIn(('University of Hertfordshire', 'Visiting Scholar', 'Current'), current)
+        self.assertIn(('Federal University of Rio Grande do Sul', 'Visiting Scholar', '2025–present'), current)
+        self.assertIn(('ISI Astrostatistics Special Interest Group', 'Member', '2021–present'), current)
+        self.assertFalse(any(role in ('Senior Lecturer', 'Visiting Professor', 'Chair') for _, role, _ in current))
+
+        affiliations = {(item['institution'], item['role']) for item in profile_data['affiliations']}
+        self.assertIn(('University of Hertfordshire', 'Visiting Scholar'), affiliations)
+        self.assertIn(('Federal University of Rio Grande do Sul', 'Visiting Scholar'), affiliations)
+
+        positions = {(item['institution'], item['role'], item['years']) for item in cv_data['positions']}
+        self.assertIn(('University of Hertfordshire', 'Visiting Scholar', 'Current'), positions)
+        self.assertIn(('University of Hertfordshire', 'Senior Lecturer', '2023–September 2024'), positions)
+        self.assertIn(('Federal University of Rio Grande do Sul', 'Visiting Scholar', '2025–present'), positions)
+
+        service = {(item['organisation'], item['role'], item.get('years')) for item in cv_data['service_outreach']}
+        self.assertIn(('ISI Astrostatistics Special Interest Group', 'Member', '2021–present'), service)
+
     def test_software_headings_are_detectable(self):
         for name in SOFTWARE_NAMES:
             parser = VisibleText()
