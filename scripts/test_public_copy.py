@@ -31,21 +31,24 @@ class PublicCopyTests(unittest.TestCase):
 
     def test_home_folio_order_and_assets(self):
         home = (ROOT / 'index.html').read_text()
-        expected = ['home', 'introduction', 'capivara', 'spectropath', 'milky-way', 'bayesian-models']
+        expected = ['home', 'introduction', 'milky-way', 'capivara', 'spectropath', 'bayesian-models']
         positions = [home.index(f'id="{anchor}"') for anchor in expected]
         self.assertEqual(positions, sorted(positions))
         self.assertLess(home.index('id="bayesian-models"'), home.index('>COIN · 2014—</h2>'))
         writing = home.index('>Writing</h2>')
-        elsewhere = home.index('>Elsewhere</h2>')
+        elsewhere = home.index('>Ecology</h2>')
         ending = home.index('<nav class="object-section grid">')
         self.assertLess(writing, elsewhere)
         self.assertLess(elsewhere, ending)
         for old_layout in ('home-domain-index', 'mark-strip', 'home-personal'):
             self.assertNotIn(old_layout, home)
         self.assertIn('COIN · 2014—', home)
-        for asset in ('capivara-segmentation.png', 'spectropath-toy-case.png', 'milky-way.png',
+        for asset in ('milky-way-sagittarius-arm-pia24576.jpg', 'capivara-segmentation.png', 'spectropath-toy-case.png',
                       'book-cover-bayesian-models.jpg', 'coin-2024.png', 'beyond-the-rainbow-cover.jpg'):
             self.assertIn(asset, home)
+        self.assertIn('A break in the Milky Way’s Sagittarius Arm', home)
+        self.assertIn('NASA/JPL-Caltech · PIA24576', home)
+        self.assertIn('https://www.jpl.nasa.gov/images/pia24576-a-break-in-the-milky-ways-sagittarius-arm/', home)
         css = (ROOT / 'styles.css').read_text()
         self.assertNotIn('EB Garamond', css)
         self.assertNotIn('concept-', css)

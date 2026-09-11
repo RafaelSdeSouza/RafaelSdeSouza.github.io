@@ -28,6 +28,7 @@ exclude:
   - "assets/images/institutions/ufrj.svg"
   - "assets/images/institutions/unc.svg"
   - "assets/images/institutions/usp.svg"
+  - "assets/images/research/README.md"
   - "assets/images/research/follow-up.png"
   - "assets/images/research/spatial-structure.png"
   - "assets/images/research/spicy.png"

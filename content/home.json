@@ -20,6 +20,23 @@
   },
   "research_objects": [
     {
+      "id": "milky-way",
+      "layout": "scientific-plate",
+      "title": "A break in the Milky Way’s Sagittarius Arm",
+      "title_url": "research.html#milky-way",
+      "citation": "Kuhn et al. (2021), A&A 651, L10",
+      "citation_url": "https://doi.org/10.1051/0004-6361/202141198",
+      "metadata": "NASA/JPL-Caltech · PIA24576",
+      "metadata_url": "https://www.jpl.nasa.gov/images/pia24576-a-break-in-the-milky-ways-sagittarius-arm/",
+      "figure": {
+        "src": "assets/images/research/milky-way-sagittarius-arm-pia24576.jpg",
+        "alt": "Diagram of the Milky Way showing a high-pitch-angle structure protruding from the Sagittarius Arm",
+        "width": 4800,
+        "height": 2700
+      },
+      "body": "Twenty-five star-forming regions reveal a narrow structure about one kiloparsec long, oriented at roughly 56° to the Galactic azimuth, compared with about 12° for the surrounding Sagittarius Arm."
+    },
+    {
       "id": "capivara",
       "layout": "scientific-plate",
       "title": "Coherent regions in resolved galaxies",
@@ -51,22 +68,6 @@
         "height": 900
       },
       "body": "Spectral lines with similar widths can differ in absorption, asymmetry and the ordering of their components. spectropath describes these differences through a path in velocity–flux space."
-    },
-    {
-      "id": "milky-way",
-      "layout": "object-left",
-      "title": "A high-pitch-angle structure in the Milky Way",
-      "title_url": "research.html#milky-way",
-      "citation": "Kuhn et al. (2021)",
-      "citation_url": "https://doi.org/10.1051/0004-6361/202141198",
-      "metadata": "A&A 651, L10 · Fig. 3",
-      "figure": {
-        "src": "assets/images/research/milky-way.png",
-        "alt": "Star-forming regions in the Galactic plane and the high-pitch-angle structure associated with the Sagittarius arm",
-        "width": 768,
-        "height": 768
-      },
-      "body": "Twenty-five star-forming regions trace a narrow structure about one kiloparsec long, inclined by approximately 56 degrees to the Galactic azimuth."
     }
   ],
   "book": {
@@ -92,6 +93,7 @@
   },
   "featured_writing_id": "beyond-the-rainbow",
   "elsewhere": {
+    "label": "Ecology",
     "body": "We compared a 1936 forest map with later maps to study the expansion of invasive black locust and native forests in Italian municipalities.",
     "citation": "Sitzia et al. (2025), Ecological Indicators 178, 113961",
     "url": "https://doi.org/10.1016/j.ecolind.2025.113961"
