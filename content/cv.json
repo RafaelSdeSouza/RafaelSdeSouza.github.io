@@ -16,7 +16,7 @@
   "positions": [
     {
       "years": "2025–present",
-      "role": "Visiting Professor",
+      "role": "Visiting Scholar",
       "institution": "Federal University of Rio Grande do Sul"
     },
     {
@@ -25,7 +25,12 @@
       "institution": "University of North Carolina at Chapel Hill"
     },
     {
-      "years": "2023–present",
+      "years": "Current",
+      "role": "Visiting Scholar",
+      "institution": "University of Hertfordshire"
+    },
+    {
+      "years": "2023–September 2024",
       "role": "Senior Lecturer",
       "institution": "University of Hertfordshire"
     }
@@ -38,7 +43,7 @@
     },
     {
       "year": "2016",
-      "name": "International Astrostatistics Association Outstanding Publication in Astrostatistics, Postdoc Award",
+      "name": "International Astrostatistics Association Award — Best Paper in Astrostatistics",
       "details": "Awarded for the Bayesian negative-binomial analysis of globular-cluster populations."
     }
   ],
@@ -80,7 +85,7 @@
     },
     {
       "years": "2021–present",
-      "role": "Chair",
+      "role": "Member",
       "organisation": "ISI Astrostatistics Special Interest Group"
     }
   ]

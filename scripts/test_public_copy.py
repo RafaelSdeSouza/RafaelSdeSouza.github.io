@@ -128,8 +128,9 @@ class PublicCopyTests(unittest.TestCase):
         self.assertIn('The first residence', coin)
         self.assertNotIn('data-site-list="leadership"', coin)
         about = (ROOT / 'about.html').read_text()
-        for role in ('Founder and Co-Chair', 'Former Vice-President', '2021–present', '>Chair</p>'):
+        for role in ('Founder and Co-Chair', 'Former Vice-President', '2021–present', '>Member</p>'):
             self.assertIn(role, about)
+        self.assertNotIn('>Chair</p>', about)
 
     def test_required_banned_phrases(self):
         for phrase in ("127.0.0.1", "localhost", "authored-atlas", "internal review", "typography comparison"):
@@ -150,9 +151,13 @@ class PublicCopyTests(unittest.TestCase):
         for asset in ('rafael-de-souza.jpg', 'coin-2024.png', 'book-cover-bayesian-models.jpg'):
             self.assertIn(asset, about)
         for fact in ('Direct-entry PhD in Astrophysics', 'BSc in Astronomy', 'Origin of Cosmic Magnetic Fields',
-                     'Cosmic Acceleration', 'PROSE Award', 'Outstanding Publication in Astrostatistics',
-                     'Visiting Professor', 'Hyperspectral Image Segmentation at Scale', 'Short bio'):
+                     'Cosmic Acceleration', 'PROSE Award', 'International Astrostatistics Association Award',
+                     'Visiting Scholar', 'Hyperspectral Image Segmentation at Scale', 'Short bio'):
             self.assertIn(fact, about)
+        current = re.search(r'<section class="archive-section bio-current".*?</section>', about, re.S).group()
+        self.assertNotIn('Senior Lecturer', current)
+        self.assertNotIn('>Visiting Professor</p>', current)
+        self.assertNotIn('chair the Astrostatistics Special Interest Group', about)
         self.assertEqual(about.count('class="archive-record grid appointment"'), 8)
         self.assertEqual(about.count('class="current-record grid"'), 5)
         self.assertEqual(about.count('class="archive-record grid recognition-record"') + about.count('class="recognition-book grid"'), 8)

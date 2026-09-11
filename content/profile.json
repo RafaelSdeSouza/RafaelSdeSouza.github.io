@@ -4,10 +4,10 @@
   "email": "rd23aag@herts.ac.uk",
   "affiliations": [
     {
-      "role": "Senior Lecturer",
-      "appointmentType": "salaried",
+      "role": "Visiting Scholar",
+      "appointmentType": "visiting",
       "institution": "University of Hertfordshire",
-      "url": "https://www.herts.ac.uk/research/centres/car"
+      "url": "https://researchprofiles.herts.ac.uk/en/organisations/centre-for-astrophysics-research-car/persons/"
     },
     {
       "role": "Adjunct Associate Professor",
@@ -16,10 +16,10 @@
       "url": "https://www.unc.edu/"
     },
     {
-      "role": "Visiting Professor",
+      "role": "Visiting Scholar",
       "appointmentType": "visiting",
       "institution": "Federal University of Rio Grande do Sul",
-      "url": "https://www.ufrgs.br/"
+      "url": "https://www.if.ufrgs.br/if/pesquisador-internacional-fortalece-lacos-entre-astrofisica-e-ciencia-de-dados-na-ufrgs/"
     }
   ],
   "links": {
